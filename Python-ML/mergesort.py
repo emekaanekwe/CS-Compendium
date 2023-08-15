@@ -1,4 +1,6 @@
-    def merge2(arr1, arr2):
+#usefulness of merge sort is of sorting objects
+
+def merge2(arr1, arr2):
         res = []
         i = 0
         j = 0
