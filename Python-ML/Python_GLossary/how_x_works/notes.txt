@@ -1,0 +1,52 @@
+
+Python offers a variety of built-in data structures that can be used to organize and manipulate data. Here's an exhaustive list of the core data structures in Python:
+
+Lists: Ordered, mutable sequences that can contain elements of different data types.
+
+Tuples: Ordered, immutable sequences similar to lists but with elements that cannot be modified.
+
+Dictionaries: Unordered collections of key-value pairs, where keys are unique and used to access values.
+
+Sets: Unordered collections of unique elements, used for mathematical set operations like union, intersection, and difference.
+
+Frozen Sets: Immutable versions of sets.
+
+Strings: Immutable sequences of characters.
+
+Bytes: Immutable sequences of bytes, often used for binary data.
+
+Byte Arrays: Mutable sequences of bytes.
+
+Queues:
+
+Queue: A first-in, first-out (FIFO) data structure.
+PriorityQueue: A queue where elements have associated priorities.
+Stacks: A last-in, first-out (LIFO) data structure.
+
+Deque (Double-Ended Queue): A double-ended queue that supports adding and removing elements from both ends efficiently.
+
+Heap: A binary heap data structure, often used to implement priority queues.
+
+Named Tuples: Tuple subclasses with named fields, providing more structure to tuples.
+
+Default Dict: A dictionary subclass that returns a default value when a key does not exist.
+
+Counter: A dictionary subclass for counting hashable objects.
+
+ChainMap: A dictionary-like class that allows multiple dictionaries to be combined into one.
+
+OrderedDict: A dictionary subclass that remembers the order in which items were added.
+
+Text Type Objects:
+
+str: Unicode strings.
+bytes: Raw binary data.
+bytearray: Mutable version of bytes.
+memoryview: A memory view object that exposes an array's interface.
+Boolean: Represents Boolean values True and False.
+
+NoneType: Represents the absence of a value, usually denoted as None.
+
+Ellipsis: A special value often used as a placeholder in code.
+
+These are the core data structures in Python, but there are also many third-party libraries and modules that provide specialized data structures for specific use cases. Depending on your needs, you may also encounter data structures like trees, graphs, and more in Python libraries like NumPy, pandas, or networkx for advanced data manipulation and analysis.
