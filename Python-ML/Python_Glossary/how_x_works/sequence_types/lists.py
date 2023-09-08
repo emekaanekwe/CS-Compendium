@@ -51,7 +51,6 @@ li_1 = [1, 2, 3, 4, 5]
 li_2 = ["six"]
 #li_2 = li_1 + 6 <- cannot concat int and str
 print(dir(li_empty))
-print("\ntest")
 
 def __getitem__ (x):
     x = [1,2,3,4]

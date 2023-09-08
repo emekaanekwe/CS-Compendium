@@ -12,7 +12,9 @@ _abc        makes values of vars hidden/private and are not available
                 externally unless called upon. first the file where
                 var/funct is needs to be imported
 __abc__     Dunder class methods. Can be used as constructors
-__abc
+__abc       name mangling: process that alters the name of a class attribute
+                to avoid unintentional verriding. used to avoid name clashing
+                
     
 
 Cases:
@@ -48,3 +50,14 @@ _private_function()
     #is executed expilcitly, the defaults to __main__
 if __name__ == "__main__":
     print("this file's __name__ is set to: ", __name__)
+
+class ClassOne:
+    def __init__(self) -> None:
+        pass
+    
+class ClassTwo:
+    def __init__(self) -> None:
+        pass
+
+    
+    

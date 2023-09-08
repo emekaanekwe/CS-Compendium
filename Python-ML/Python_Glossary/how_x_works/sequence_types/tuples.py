@@ -27,3 +27,5 @@ print(tuple(ex_list))
 
 
 
+
+
