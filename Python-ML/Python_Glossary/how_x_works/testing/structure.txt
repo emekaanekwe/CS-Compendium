@@ -1,0 +1,8 @@
+my_project/
+    ├── my_module/
+    │   ├── __init__.py
+    │   └── module.py
+    ├── tests/
+    │   ├── __init__.py
+    │   ├── test_module.py
+    └── setup.py
