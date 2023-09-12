@@ -1,0 +1,9 @@
+--JAVA--
+
+
+--JS--
+
+--PYTHON--
+
+1. conjoining multiple boolean operators in an 
+    if statment
