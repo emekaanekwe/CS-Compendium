@@ -25,7 +25,7 @@ del s[i:j]                  same as s[i:j] = []
 s[i:j:k] = t                the elements of s[i:j:k] are replaced by those of t
 
 del s[i:j:k]                removes the elements of s[i:j:k] from the list
-
+``````````
 s.append(x)                 appends x to the end of the sequence (same as s[len(s):len(s)] = [x])
 
 s.clear()                   removes all items from s (same as del s[:])

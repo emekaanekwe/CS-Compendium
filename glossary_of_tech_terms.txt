@@ -1,1 +1,4 @@
 Source Code Hierarchy
+
+Floor Division - operation that rounds the result down  
+    to the nearest integer, which is <= result
