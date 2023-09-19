@@ -18,16 +18,32 @@ in constructing objects, __new__ is used to create
  
 '''
 
-x = object.__init__
-y = object.__new__
 
+import math as m
 
+x = 2
+y = 8
+count = 2
+def twoToPowerN(exponent):
+    #set a var to 2 => set var to n where n=number of times 2 will be 
+    # multiplied by itself => if n = 8, then increment =>
+    # 2*2
+    two = 2
+    stopcondition = two*exponent
+    for i in range(1, exponent+1):
+        if i >= stopcondition:
+            return stopcondition
+        print(i)    
+print(twoToPowerN(8))
+    
 
-print(object.__init__ == 0)
+class Bot:
+    def __init__(self, parts, name, activate) -> None:
+        #direction-number correspondence: 5=North 10=South 20=East 40=West
+        self.parts = {"left-arm":1, "right-arm":2, "wheels":3}
+        self.name = name
+        self.activate = activate
 
-print(object)
-
-obj = object.__dict__
-
-print(obj)
-
+    def turnArm(self):
+        pass
+        
