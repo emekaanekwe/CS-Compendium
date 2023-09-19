@@ -38,7 +38,7 @@ s *= n                      updates s with its contents repeated n times
 
 s.insert(i, x)              inserts x into s at the index given by i (same as s[i:i] = [x])
 
-s.pop() or s.pop(i)         retrieves the item at i and also removes it from s
+s.pop() or s.pop(i)         retrieves the last item in list or at i and also removes it from s
 
 s.remove(x)                 remove the first item from s where s[i] is equal to x
 
