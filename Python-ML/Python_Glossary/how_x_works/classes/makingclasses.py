@@ -14,22 +14,29 @@ Attributes - vars tat store data. they define the characteristics
 Methods - the actions/operations that define what the object can
     perform like the verbs
 
-Encapsulation - classes cover over both data and methods to hide
-    the internal details of the class from outside, which allows
-    information hiding and abstraction
+Four Pillars of OOP
+    Encapsulation - classes cover over both data and methods to hide
+        the internal details of the class from outside, which allows
+        information hiding and abstraction
 
-Inheritance - allowing one class to inherit the attributes and
-    methods of another class. This allows efficient code resue
-    and hierarchies
+    Inheritance - allowing one class to inherit the attributes and
+        methods of another class. This allows efficient code resue
+        and hierarchies
 
-Polymorphism - allows objecs of different classes to be treated
-    as objects of a common class. Allows dynamic method binding
-    and flexibility in function calls
+    Polymorphism - allows objecs of different classes to be treated
+        as objects of a common class. Allows dynamic method binding
+        and flexibility in function calls
 
-Instantiation - when an obj is created from a class, it is
-    instantiated. It is calling a class AS IF it were a function
-    which in turn creates an obj with its own attributes and
-    methods based on the class constraints.
+    Instantiation - when an obj is created from a class, it is
+        instantiated. It is calling a class AS IF it were a function
+        which in turn creates an obj with its own attributes and
+        methods based on the class constraints.
+
+Naming Conventions
+    Public Members - normal naming pattern
+    Non-Public Members - _radius, _calculate_area()
+
+
 '''
 
 import math as mt
