@@ -26,7 +26,7 @@ navigate to file/class                  Alt+Shift+N
 
 navigate to explorer                    Ctrl+Alt+N
 
-navigate to terminal                    Alt+'
+navigate to/out of terminal             Alt+'
 
 
 --Bash & Configurations--

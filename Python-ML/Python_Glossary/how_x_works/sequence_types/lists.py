@@ -44,6 +44,7 @@ s.remove(x)                 remove the first item from s where s[i] is equal to 
 
 s.reverse()                 reverses the items of s in place
 
+s.filter()
 '''
 
 li_empty = []
