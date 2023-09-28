@@ -47,3 +47,13 @@ class Bot:
     def turnArm(self):
         pass
         
+        
+class A:
+    def __init__(self, bot) -> None:
+        self.bot = bot
+    def name(self):
+        print(f"here's a {self.bot}")
+
+bot_a = A('bot')
+
+bot_a.name()
