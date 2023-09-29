@@ -64,6 +64,7 @@ def generate_numbers(start, end):
 def new_approach(start, end):
     #base case
     if start > end:
+        #it is important to note that return [] is required, or raises an int has no attribute insert error
         return []
     else:
         new_list =  new_approach(start+1, end)
