@@ -58,3 +58,8 @@ print(len(li_1))
 def __getitem__ (x):
     x = [1,2,3,4]
     pass
+
+#List Slicing
+sliced = [1,2,3,4,5]
+print(sliced[1:]) # gets all el after sliced[0]
+print(sliced[:1]) # gets first el

@@ -1,4 +1,13 @@
 '''
+Recursion is useful in some situaitons that can make the code cleaner and more efficient.
+some examples are Traversal of tree-like data structures is another good example. 
+    Because these are nested structures, they readily fit a recursive definition. 
+
+How It Works: when  funct is called, the interpreter creates a new local namespaceso that
+    names defined within that function don't collide with identical names defined elsewhere
+    
+
+
 EXAMPLE PROBLEMS
 
 Recursion
@@ -44,12 +53,28 @@ def countdown(n):
     return countdown(n - 1)
 countdown(10)
 
+
 #2
 def sumOfArray(arr):
     #extract el at index i -> add that el to var -> return var
-    
+    print(arr[1:])
     #base case
-    if not arr: #if lit is empty
-        return 1    
-    return arr[0] + sumOfArray(arr[:1])
+    if not arr: #if lit is empty, i.e. falsey
+        return 0    
+    return arr[0] + sumOfArray(arr[1:]) #this recursion call will self-iterate
+
 print(sumOfArray([1,2,3,4,5]))
+
+def sum_list(lst):
+    # Base case: If the list is empty, return 0.
+    if not lst:
+        return 0
+
+    # Recursive case: Return the first element plus the sum of the rest of the list.
+    return lst[0] + sum_list(lst[1:])
+
+# Example usage:
+my_list = [1, 2, 3, 4, 5]
+result = sum_list(my_list)
+
+print(result)  # Output: 15 (1 + 2 + 3 + 4 + 5)

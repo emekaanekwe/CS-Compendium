@@ -25,7 +25,7 @@ for CREATING objects (unlike Java where classes are objects)
 
     Polymorphism - allows objecs of different classes to be treated
         as objects of a common class. Allows dynamic method binding
-        and flexibility in function calls
+        and flexibility i n function calls
 
     Instantiation - when an obj is created from a class, it is
         instantiated. It is calling a class AS IF it were a function
