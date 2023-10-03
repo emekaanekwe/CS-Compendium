@@ -7,3 +7,19 @@
 
 1. conjoining multiple boolean operators in an 
     if statment
+
+
+
+    if interest == 5
+        if val == 3000
+            down = 600
+            loan = 2400
+        
+    if population affected == 5%
+        if population == 3000
+            deaths = 600
+            remission = 2400
+    
+
+    
+    
