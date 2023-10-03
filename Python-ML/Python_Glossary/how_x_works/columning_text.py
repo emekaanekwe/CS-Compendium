@@ -27,7 +27,12 @@ formatted_lines = [f"{lines.split('$')[0].strip():<50} $ {lines.split('$')[1].st
 file_path = "columning_text.txt"
 
 # Open the file for writing and write the formatted text
-with open(file_path, "w") as file:
-    file.write("\n".join(formatted_lines))
+if not file_path:
+    with open(file_path, "w") as file:
+        file.write("\n".join(formatted_lines))
+else:
+    with open(file_path, "a") as file:
+        file.write("\n\n".join(formatted_lines))
+    
 
 print(f"Formatted text has been written to {file_path}")
