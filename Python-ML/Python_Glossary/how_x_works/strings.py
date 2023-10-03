@@ -96,5 +96,9 @@ print(y)
 #how to get the first char of string
 w = "test"[0]
 print(w)
+replace_text = "ab#cd"
+
+new_text = replace_text.replace("#", "$")
+print(new_text)
 
 

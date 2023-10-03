@@ -1,0 +1,17 @@
+Print current directory path                       $ pwd
+List directories                                   $ ls
+List directories including hidden                  $ ls -a|--all
+List directories in long form                      $ ls -l
+List directories in long form with human readable sizes $ ls -l -h|--human-readable
+List directories by modification time, newest first $ ls -t
+List size, created and modified timestamps for a file $ stat foo.txt
+List size, created and modified timestamps for a directory $ stat foo
+List directory and file tree                       $ tree
+List directory and file tree including hidden      $ tree -a
+List directory tree                                $ tree -d
+Go to foo sub-directory                            $ cd foo
+Go to home directory                               $ cd
+Go to home directory                               $ cd ~
+Go to last directory                               $ cd -
+Go to foo sub-directory and add previous directory to stack $ pushd foo
+Go back to directory in stack saved by `pushd`     $ popd
