@@ -1,0 +1,11 @@
+jsx     props       states      hooks
+
+1. take two examples: a simple one, an advanced one
+1.1. orate how X works
+    if get stuck, slow to answer, or using too many words to explain -> re-study
+1.2. Asian strat
+    use X in a multitude of cases. Repeat borderline ad nauseum
+1.3 abstract via illustration using grid paper
+    experiement with bot chars
+1.4 do 1.1 or 1.3 and turn to flashcards
+
