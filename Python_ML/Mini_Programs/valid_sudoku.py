@@ -28,16 +28,23 @@ b_invalid=[ [0,0,0,3,5,0,9,0,1],
             [4,0,0,7,5,0,2,0,8]
          ]
 
-    
+remove_zeros = [0,1,0,2,0,3]
+
+'''
+for i in remove_zeros:
+    if i == 0:
+        remove_zeros.remove(0)
+    print(remove_zeros)
+'''
+
 def validate_rows(board):
     for row in board:
-        for num in row:
-            print(num)
+        print(row)
+        row_set = set(row)
+        row_set.pop()
+        print(row_set)                
 
-def validate_columns():
-    return
 
-def validate_grid():
-    return
+
 
 validate_rows(b_valid)
