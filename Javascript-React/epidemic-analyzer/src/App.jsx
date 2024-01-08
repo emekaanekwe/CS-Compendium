@@ -36,7 +36,7 @@ iii. to run application: $npm run dev
 8. Object Destructuring - 
 
 9. Rendering Lists - to manipulate an array of data and when trying to display multiple components from 
-  a collection of data
+  a collection of data using the map() or filter() methods.
 `
 
 import React from 'react'
@@ -127,7 +127,7 @@ function App() {
         </h3>
         <p>
           <ul>
-          {arr.map(x => <li>{x}</li>)}
+          {arr.map(x => <ul>{x}</ul>)}
           </ul>
         </p>
       </>
