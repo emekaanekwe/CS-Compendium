@@ -1,3 +1,4 @@
+//TODO: arrow functions and block body
 `
 SETTING UP REACT
 i. $npm create vite@latest [app name]
@@ -36,7 +37,18 @@ iii. to run application: $npm run dev
 8. Object Destructuring - 
 
 9. Rendering Lists - to manipulate an array of data and when trying to display multiple components from 
-  a collection of data using the map() or filter() methods.
+  a collection of data using map() and filter(). filter() is used if you want to display specific categories of data
+
+10. When one item needs to render several DOM nodes. Use Fragments
+
+11. Pure components and functions - has the following characteristics: 1) does not hcange and obj or vars that existed
+  before it was called
+  2) same inputs and same outputs
+  CORE: React is designed so that every component written is a pure function
+
+12. Adding Interactivity via States - essentially a change on the screen as a result of an interaction.
+  state hooks are special functions that let components use React features while having component-bound memory:
+  it memorizes the current input value/image/etc. and updates accordingly.
 `
 
 import React from 'react'
@@ -115,8 +127,8 @@ function App() {
     )
     
   }
-  //9
-  function RenderList(){
+  //9 map()
+  function RenderListMap(){
     const arr = [1,2,3]
     const rend = arr.map(x => <li>{x}</li>)
     console.log("test")
@@ -127,13 +139,64 @@ function App() {
         </h3>
         <p>
           <ul>
-          {arr.map(x => <ul>{x}</ul>)}
+          {arr.map(x => <li>{x}</li>)}
           </ul>
         </p>
       </>
       
     )
   }
+  //9 filer()
+  function RenderFilter(){
+
+    const bots = [{
+        name: "erasmus",
+        version: 1.0,
+        purpose: "human-machine relations",
+    }]
+    const getBotName = bots.filter(bot => bot.name === 'erasmus')
+    const mapBotName = getBotName.map(bot => 
+        <li>
+            <p>
+            <b>{bot.name}</b>
+            {''+ bot.version + ''} known for {bot.purpose}
+            </p>
+        </li>)
+    return(
+        <>
+        <ul>
+            {mapBotName}
+        </ul>
+        </>
+
+    )
+}
+
+  //10
+  function RenderFragment(){
+
+  
+    
+  }
+
+  //11
+  function PureFunctions({obj}){
+    
+    return(
+      <p>this is a pure function that passes a prop where the function itself is immutable: {obj}</p>
+    )
+  }
+  //11 mutate
+  function MutatePureFunctions(){
+    let arr = []
+    for (let i = 0; i <= 5; i++){
+      arr.push(<PureFunctions obj={i}/>)
+    }
+    return (
+      arr
+    )
+  }
+
   return(
   <div>
     <p>
@@ -168,7 +231,16 @@ function App() {
       <Desctructuring />decontructed
     </p>
     <p>
-      <RenderList />
+      <RenderListMap />
+    </p>
+    <p>
+      <RenderFilter />
+    </p>
+    <p>
+      <PureFunctions obj={5 + " x " + 10 + " = " + 5*10}/>
+    </p>
+    <p>
+      Below, the above pure function is mutated: <MutatePureFunctions />
     </p>
   </div>
 
