@@ -49,6 +49,9 @@ iii. to run application: $npm run dev
 12. Adding Interactivity via States - essentially a change on the screen as a result of an interaction.
   state hooks are special functions that let components use React features while having component-bound memory:
   it memorizes the current input value/image/etc. and updates accordingly.
+  Bear in mind: 1) local vars do not persist between renders, 2) changes to local vars won't trigger renders.
+  So, in order to update a comp, it must retain the data between renders (state variable), and trigger react to render
+  the comp with the new data (re-render)
 `
 
 import React from 'react'
@@ -57,6 +60,9 @@ import './App.css'
 import PassProps from './Components/PassProps'
 
 function App() {
+  //12
+  const [someStr, setSomeStr] = useState('')
+
   //6
   const [count, setCount] = useState(0)
 
@@ -131,7 +137,6 @@ function App() {
   function RenderListMap(){
     const arr = [1,2,3]
     const rend = arr.map(x => <li>{x}</li>)
-    console.log("test")
     return(
       <>
         <h3>
@@ -197,6 +202,16 @@ function App() {
     )
   }
 
+  //12
+  function UseStateHook(){
+    let arr = []
+    setSomeStr(arr.push("some string"))
+
+    return(
+      arr
+    )
+  }
+
   return(
   <div>
     <p>
@@ -241,6 +256,9 @@ function App() {
     </p>
     <p>
       Below, the above pure function is mutated: <MutatePureFunctions />
+    </p>
+    <p>
+      <button onClick={UseStateHook}>Add a String</button> (doesn't work)
     </p>
   </div>
 
