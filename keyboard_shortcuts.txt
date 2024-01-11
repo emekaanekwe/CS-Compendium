@@ -28,9 +28,15 @@ navigate to explorer                    Ctrl+Alt+N
 
 navigate to/out of terminal             Alt+'
 
+open keyboard shortcuts			Shift+Alt+K
 
 --Bash & Configurations--
 
 open new terminal                       Ctrl+Shift+'
 
 select run configuration                Ctrl+Shift+P
+
+--Manage Editor(s) & Tabs--
+
+split current tab to right		Alt+Ctrl+\
+

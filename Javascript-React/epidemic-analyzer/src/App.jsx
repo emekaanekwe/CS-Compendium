@@ -51,17 +51,27 @@ iii. to run application: $npm run dev
   it memorizes the current input value/image/etc. and updates accordingly.
   Bear in mind: 1) local vars do not persist between renders, 2) changes to local vars won't trigger renders.
   So, in order to update a comp, it must retain the data between renders (state variable), and trigger react to render
-  the comp with the new data (re-render)
+  the comp with the new data (re-render). It's important to note that states are private only to their comp, unlike props
+
+12.1 useState Syntax - via Array Destructuring:
+  const [x, y] = useState() where x is the state variable, and y is the setter function
+  Function - 
+    1. comp first renders the first time as passing 0 into useState as initial value will return [0, setNum]. Thus,
+      state remembers 0 as the latest state value
+    2. The state is updated when user clicks the btn, which calls the setNum(num + 1), num = 0, so now setNum(1).
+      React remembers that num was set to 1 and returns [1, setNum] instead. 
 `
 
 import React from 'react'
 import { useState } from 'react'
 import './App.css'
 import PassProps from './Components/PassProps'
+import UpdateHook from './Components/UpdateHook'
 
 function App() {
-  //12
-  const [someStr, setSomeStr] = useState('')
+  //12 this replaces expression: let index = 0
+    //refer to UpdateHook comp
+
 
   //6
   const [count, setCount] = useState(0)
@@ -202,16 +212,6 @@ function App() {
     )
   }
 
-  //12
-  function UseStateHook(){
-    let arr = []
-    setSomeStr(arr.push("some string"))
-
-    return(
-      arr
-    )
-  }
-
   return(
   <div>
     <p>
@@ -258,7 +258,7 @@ function App() {
       Below, the above pure function is mutated: <MutatePureFunctions />
     </p>
     <p>
-      <button onClick={UseStateHook}>Add a String</button> (doesn't work)
+      <UpdateHook />
     </p>
   </div>
 
