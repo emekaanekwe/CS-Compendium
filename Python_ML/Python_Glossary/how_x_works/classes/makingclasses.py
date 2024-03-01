@@ -51,7 +51,6 @@ class Circle:
     #self holds a reference to the current obj so can be used inside class
     def __init__(self, radius) -> None:
         self.radius = radius
-        self
     
     def calcArea(self):
         return round(mt.pi * self.radius ** 2, 2)

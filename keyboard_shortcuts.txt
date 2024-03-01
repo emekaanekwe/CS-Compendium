@@ -1,10 +1,10 @@
 
 --Within File--
-select multiple lines                   Alt+Ahift+up/down
+select multiple lines                   Alt+Shift+up/down
 
-copy a line of code                     Ctrl+D
+copy a line of code  bleow              Ctrl+D
 
-split file view to right                Alt+Shift+R
+copy a line of code  bleow              Ctrl+Shift+D
 
 switch between tabs                     Ctrl+Tab
 
@@ -17,15 +17,17 @@ create new file                         Ctrl+N
 create new folder                       Ctrl+Shift+N
 
 --Navigation--
+reveal in file explorer                 Ctrl+Shift+R
+
 naviate to project menu                 Alt+1
 
 navigate to file/class                  Alt+Shift+N
 
-navigate to explorer                    Ctrl+Alt+N
+navigate to explorer                    Ctrl+Shift+E
 
 navigate to/out of terminal             Alt+'
 
-open keyboard shortcuts			Shift+Alt+K
+open keyboard shortcuts			        Shift+Alt+K
 
 --Bash & Configurations--
 
@@ -35,8 +37,8 @@ select run configuration                Ctrl+Shift+P
 
 --Manage Windows, Editor(s) and Tabs--
 
-split current tab to right		Alt+Ctrl+\
+split current tab to right		        Ctrl+\
 
-close window				Ctrl+Shift+W
+close window				            Ctrl+Shift+W
 
-close editor tab                        Shift+Alt+T
+close editor tab                        Alt+Shift+T

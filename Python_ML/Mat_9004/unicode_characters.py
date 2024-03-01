@@ -26,6 +26,24 @@ print(unicode.display_unicode("alpha -  \u03b1"))
 print(unicode.display_unicode("integral - \u222B; double - \u222c; triple - \u222d"))
 print(unicode.display_unicode("differential - \u2202"))
 print(unicode.display_unicode("differential - \u2202"))
+
+\u+220x
+\u+221x
+\u+222x
+\u+223x
+\u+224x
+\u+225x
+\u+226x
+\u+227x
+\u+228x
+\u+229x
+\u+22Ax
+\u+22Bx
+\u+22Cx
+\u+22Dx
+\u+22Ex
+\u+22Fx
+
 '''
 def input_unicode_dict():
     num_response = input()
@@ -52,6 +70,7 @@ def input_unicode_dict():
         return num_response
 
 def input_unicode_list():
+    # official list of unicodes
     u_list_calculus = [[1, "Integral", "\u222b"]]
     print("Here is a list of the names of symbols commonly found in calculus:")
     for i in u_list_calculus:
