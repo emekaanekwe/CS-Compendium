@@ -2,10 +2,15 @@ from collections.abc import Callable
 
 from regex import match
 
+import pandas as pd
+
 class Calculus_Unicode:
     
-    def __init__(self, code):
+    def __init__(self, unicode):
         self.code = ""
+        #official unicode list
+        self.unicode = {"alpha": "\u03b1", "integral": "\u222B"}
+        
     
     def display_unicode(self):
         unicode_list = ["alpha"]
@@ -18,6 +23,8 @@ class Calculus_Unicode:
                 #ask input (input must = option)
                     #display option
         print(self)
+        
+    
 
 '''
 #Print Unicodes
@@ -27,8 +34,7 @@ print(unicode.display_unicode("integral - \u222B; double - \u222c; triple - \u22
 print(unicode.display_unicode("differential - \u2202"))
 print(unicode.display_unicode("differential - \u2202"))
 
-\u+220x
-\u+221x
+
 \u+222x
 \u+223x
 \u+224x
