@@ -2,7 +2,6 @@
 # TODO: what are sets used for?
 # TODO: with for loops, range are for ints only?
 from how_x_works.classes import Bot, BotList
-from projects_algorithms.codearting_data_structures.linked_lists import Node
 
 if __name__ == '__main__':
     bot_1 = Bot("bipedaloid", 5, 10.10)
