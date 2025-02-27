@@ -28,7 +28,7 @@ def search_scraper(anime_name: str) -> list:
     search_url = f"{BASE_URL}/search/{anime_name}"
 
     response = requests.get(
-        search_url, headers={"UserAgent": UserAgent().chrome}
+        search_url, headers={"UserAgent": UserAgent().chrome}, timeout=10
     )  # request the url.
 
     # Is the response ok?
@@ -82,7 +82,9 @@ def search_anime_episode_list(episode_endpoint: str) -> list:
 
     request_url = f"{BASE_URL}{episode_endpoint}"
 
-    response = requests.get(url=request_url, headers={"UserAgent": UserAgent().chrome})
+    response = requests.get(
+        url=request_url, headers={"UserAgent": UserAgent().chrome}, timeout=10
+    )
     response.raise_for_status()
 
     soup = BeautifulSoup(response.text, "html.parser")
@@ -132,7 +134,7 @@ def get_anime_episode(episode_endpoint: str) -> list:
     episode_page_url = f"{BASE_URL}{episode_endpoint}"
 
     response = requests.get(
-        url=episode_page_url, headers={"User-Agent": UserAgent().chrome}
+        url=episode_page_url, headers={"User-Agent": UserAgent().chrome}, timeout=10
     )
     response.raise_for_status()
 
@@ -163,7 +165,7 @@ if __name__ == "__main__":
         print(f"Found {len(anime_list)} results: ")
         for i, anime in enumerate(anime_list):
             anime_title = anime["title"]
-            print(f"{i+1}. {anime_title}")
+            print(f"{i + 1}. {anime_title}")
 
         anime_choice = int(input("\nPlease choose from the following list: ").strip())
         chosen_anime = anime_list[anime_choice - 1]
@@ -175,7 +177,7 @@ if __name__ == "__main__":
         else:
             print(f"Found {len(episode_list)} results: ")
             for i, episode in enumerate(episode_list):
-                print(f"{i+1}. {episode['title']}")
+                print(f"{i + 1}. {episode['title']}")
 
             episode_choice = int(input("\nChoose an episode by serial no: ").strip())
             chosen_episode = episode_list[episode_choice - 1]
