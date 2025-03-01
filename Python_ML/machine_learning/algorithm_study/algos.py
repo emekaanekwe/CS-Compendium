@@ -22,6 +22,8 @@ def binary_search(arr, target):
             right = mid - 1
     return -1
 
+bs = binary_search([1,2,3,5,6,7,12])
+print(bs)
 # KNN
 from sklearn.neighbors import KNeighborsClassifier
 
