@@ -1,0 +1,91 @@
+--KEY--
+C-<ch> control+char
+M-<ch> alt+char
+
+[Cut]		C+w
+[Copy]		M+w
+[Paste]		C+y
+[Page Up]	M-v
+[Page Down]	C+v
+[search File]	C+s
+[Stop Cmd]	C+g
+
+1. look into kaggle 5 day course event
+
+2. config google drive api key for Oauth & drive-ocamlfuse
+
+3. Gnome Tricks
+3.1 Handy Tricks
+3.2 File & Folder Manipulation
+   - make dirs with inrementing ints:		mkdir $(seq --format '<name>%.0f' n m) *only works with dirs
+   - add text to file:				echo "<text>" >> <filename>
+
+3.1.1 identify terminal name:			ps -p $$
+3.1.2 access change screen timeout settings:	gsettings get org.gnome.desktop.session idle-delay
+3.1.3 change screen timeout settings:    		gsettings set org.gnome.desktop.session idle-delay <seconds>
+
+3.3 Wireless
+3.3.1 connect to wireless network:			nmcli connection up <ssid>
+3.3.2 show available networks:				nmcli device wifi
+3.6 [linux operations history/logs]
+     	    - command history with timestamps:		HISTTIMEFORMAT="%F %T " history
+   	    - currently running proccesses:		ps aux
+   	    - most recent processes:			sudo journalctl -u <service>
+	    - file change history:			ls -lt
+	    - file change in certain dir:		find /path/to/dir -type f -mtime -1
+   	    - system logs:				sudo last
+	    - package changes				cat /var/log/apt/term.log
+	    - show basic pc info			uname -a
+	    - list all installed packages:		dpkg -l
+	    - show all hardware on pc			sudo lshw (-short)
+	    - list cpu details	   			cat /proc/cpuinfo
+	    - list memory details			cat/proc/meminfo
+	    - list pci devices				lspci
+	    - list firmware & versions			sudo dmesg | grep -i firmware
+	    - list all sound cards/devices		arecord -l
+	    - show current audio hardware		cat /proc/asound/cards
+	    - disable audio device			sudo modprobe -r <device-name>
+
+3.7 File & Folder Manipulation
+   - make dirs with incrementing ints:			mkdir $(seq --format '<name>%.0f' n m) *only works with dirs
+   - name files:    		 			mv <name> <name>
+3.8 List All Bash Commands {sorted}			compgen -c {| sort -u}
+    - List Installed Commands
+      - User Installed					
+
+3.9 Searching
+    - list path of file					find $PWD -type f -name <filename>
+    - list path of folder				find $PWD -type d -name <folder>
+
+4. Pip Tricks
+   - keep dependencies in git repo in
+   a txt file but libs elswhere:		pip freeze > requirements.txt
+
+5. Ubuntu Backup Methods
+   - use bacula
+   - bash shell scripts
+
+6. Anaconda
+   - activate env:				source ~/anaconda3/bin/activate
+   - create new venv: 				conda create --name <name>
+
+7. Zipping Guide
+7.1 zip to folder:					zip -r <zip name>.zip <folder_name>
+7.2 zip multiple files:					zip <zip name>.zip file-1 ... file-n>
+7.3 remove file from zip archive:			zip -d <zip name>.zip <file_to_remove>
+[Activity]
+
+8. Internet Browsing via Lynx
+8.1 start a search session:				lynx htts://duckduckgo.com (can use a different browser url)
+
+5/19
+/etc/.java/.systemPrefs$ rm .system.lock .systemRootModFile
+rm: remove write-protected regular empty file '.system.lock'? y
+rm: cannot remove '.system.lock': Permission denied
+rm: remove write-protected regular empty file '.systemRootModFile'? y
+rm: cannot remove '.systemRootModFile': Permission denied
+emeka@emeka-ThinkPad-L14-Gen-2:/etc/.java/.systemPrefs$ cd ..
+emeka@emeka-ThinkPad-L14-Gen-2:/etc/.java$ sudo rm -r .systemPrefs
+emeka@emeka-ThinkPad-L14-Gen-2:/etc/.java$ ls -a
+.  ..
+
