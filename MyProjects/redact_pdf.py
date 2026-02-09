@@ -18,7 +18,7 @@ from pypdf import PdfReader, PdfWriter
 from reportlab.lib.colors import black
 import pdfplumber
 import os
-
+import re
 # ============================================================================
 # CONFIGURATION - CUSTOMIZE THESE VALUES
 # ============================================================================
@@ -48,7 +48,8 @@ REDACTION_RULES = [
 REDACTION_PADDING = 2
 
 # ============================================================================
-# MAIN SCRIPT - YOU SHOULDN'T NEED TO MODIFY BELOW THIS LINE
+# MAIN SCRIPT - YOU SHOULDN'T NEED TO MODIFY BELOW THIS LINE.
+# CONTAINS OPTIONS SUCH AS REDACTING DOLLAR ($) AMOUNTS
 # ============================================================================
 
 def _words_on_same_line(words, ref_top, tolerance=2):
@@ -225,6 +226,62 @@ def redact_pdf(input_path, output_path, rules):
     print(f"  - Output: {output_path}")
     print(f"  - Total pages: {len(reader.pages)}")
     print(f"  - Total items redacted: {total_redactions}")
+
+def find_dollar_amounts_to_redact(words):
+    """
+    Find dollar amounts using regex pattern matching.
+    This handles cases like: $1,656.00, $ 1,656.00, $1,656, etc.
+    """
+    redact_boxes = []
+    
+    # Join words into text with their positions
+    text_with_positions = []
+    for word in words:
+        text_with_positions.append({
+            'text': word['text'],
+            'x0': word['x0'],
+            'x1': word['x1'],
+            'top': word['top'],
+            'bottom': word['bottom']
+        })
+    
+    # Look for dollar amounts
+    for i, word_info in enumerate(text_with_positions):
+        text = word_info['text']
+        
+        # Pattern for dollar amounts
+        # Matches: $123, $1,234.56, $ 123.45, etc.
+        dollar_pattern = r'\$\s*\d{1,3}(?:,\d{3})*(?:\.\d{2})?'
+        
+        if re.match(dollar_pattern, text):
+            # Found a dollar amount - redact it
+            redact_boxes.append({
+                'x0': word_info['x0'],
+                'x1': word_info['x1'],
+                'top': word_info['top'],
+                'bottom': word_info['bottom']
+            })
+        elif text == '$':
+            # Dollar sign by itself, check if next word is a number
+            if i + 1 < len(text_with_positions):
+                next_text = text_with_positions[i + 1]['text']
+                number_pattern = r'\d{1,3}(?:,\d{3})*(?:\.\d{2})?'
+                if re.match(number_pattern, next_text):
+                    # Redact dollar sign and the number
+                    redact_boxes.append({
+                        'x0': word_info['x0'],
+                        'x1': word_info['x1'],
+                        'top': word_info['top'],
+                        'bottom': word_info['bottom']
+                    })
+                    redact_boxes.append({
+                        'x0': text_with_positions[i + 1]['x0'],
+                        'x1': text_with_positions[i + 1]['x1'],
+                        'top': text_with_positions[i + 1]['top'],
+                        'bottom': text_with_positions[i + 1]['bottom']
+                    })
+    
+    return redact_boxes
 
 if __name__ == "__main__":
     print("=" * 60)
