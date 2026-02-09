@@ -23,8 +23,10 @@ import os
 # CONFIGURATION - CUSTOMIZE THESE VALUES
 # ============================================================================
 
-# Input and output file paths
-INPUT_PDF = "file.path"  # Change this to your PDF filename
+
+# Change this to your PDF filename
+INPUT_PDF = "file.path"  
+# Change this to the output
 OUTPUT_PDF = "file.path"
 
 # Define what text to look for and redact
