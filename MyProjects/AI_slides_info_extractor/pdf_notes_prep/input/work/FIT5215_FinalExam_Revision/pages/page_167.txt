@@ -1,0 +1,9 @@
+167
+Global attention
+Drawback
+❑Drawback: employ all items on the source 
+side for deriving each target item.
+o expensive computation
+o impractical to translate longer 
+sequences
+Local attention

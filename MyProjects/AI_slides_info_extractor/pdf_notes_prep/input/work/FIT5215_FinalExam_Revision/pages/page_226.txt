@@ -1,0 +1,16 @@
+226
+Issues with GAN
+#2: Convergence is hard due to minimax formulation
+o Training GAN is very challenging!
+Two serious technical problems with GAN
+Mini-max problem
+●min
+𝐺max
+D 𝐽𝐺, 𝐷=
+𝔼
+𝒙~𝑝𝑑(𝒙) log 𝐷𝒙
++ 𝔼
+𝒛~𝑝𝒛log(1 −𝐷(𝐺𝒛) 
+No unique loss function
+Discriminator loss
+Generator loss

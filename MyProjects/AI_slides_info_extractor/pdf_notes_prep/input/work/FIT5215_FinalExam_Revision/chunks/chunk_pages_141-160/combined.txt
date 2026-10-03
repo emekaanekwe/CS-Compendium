@@ -1,0 +1,985 @@
+--- Page 141 ---
+141
+Word2Vec: Pretext task
+Pretext task
+What is the pretext task of Word2Vec?
+The
+quick
+brown
+fox
+jumps
+over  
+the
+lazy
+dogs.
+The
+quick
+brown
+fox
+jumps
+over  
+the
+lazy
+dogs.
+The
+quick
+brown
+fox
+jumps
+over  
+the
+lazy
+dogs.
+The
+quick
+brown
+fox
+jumps
+over  
+the
+lazy
+dogs.
+The
+quick
+brown
+fox
+jumps
+over  
+the
+lazy
+dogs.
+The
+quick
+brown
+fox
+jumps
+over  
+the
+lazy
+dogs.
+Original sentence
+target word
+context word
+context word
+Skip-gram
+❑ Target word 
+𝒑𝒓𝒆𝒅𝒊𝒄𝒕 context words
+Continuous Bag of Words (CBOW)
+❑ Context words 
+𝒑𝒓𝒆𝒅𝒊𝒄𝒕 target word
+
+--- Page 142 ---
+142
+Skip-gram
+Pretext task
+What is the pretext task of Skip-gram?
+The
+quick
+brown
+fox
+jumps
+over  
+the
+lazy
+dogs.
+The
+quick
+brown
+fox
+jumps
+over  
+the
+lazy
+dogs.
+The
+quick
+brown
+fox
+jumps
+over  
+the
+lazy
+dogs.
+The
+quick
+brown
+fox
+jumps
+over  
+the
+lazy
+dogs.
+The
+quick
+brown
+fox
+jumps
+over  
+the
+lazy
+dogs.
+The
+quick
+brown
+fox
+jumps
+over  
+the
+lazy
+dogs.
+target word
+context word
+context word
+Skip-gram
+❑ Target word 
+𝒑𝒓𝒆𝒅𝒊𝒄𝒕 context words
+(brown, the), (brown, quick), (brown, for), 
+(brown, jumps) 
+(fox, quick), (fox, brown), (fox, jumps), (fox, 
+overs) 
+(jumps, brown), (jumps, fox), (jumps, over), 
+(jumps, the) 
+(over, fox), (over, jumps), (over, the), (over, 
+lazy) 
+(the, jumps), (the, over), (the, lazy), (the, 
+dogs)
+
+--- Page 143 ---
+143
+Skip-gram
+Modelling
+
+Current window
+o
+The quick brown fox jumps
+
+𝑃𝑡ℎ𝑒, 𝑞𝑢𝑖𝑐𝑘, 𝑓𝑜𝑥, 𝑗𝑢𝑚𝑝𝑠
+𝑏𝑟𝑜𝑤𝑛
+= 𝑃𝑡ℎ𝑒
+𝑏𝑟𝑜𝑤𝑛
+×
+𝑃𝑞𝑢𝑖𝑐𝑘
+𝑏𝑟𝑜𝑤𝑛
+× 𝑃𝑓𝑜𝑥
+𝑏𝑟𝑜𝑤𝑛
+× 𝑃(𝑗𝑢𝑚𝑝𝑠∣𝑏𝑟𝑜𝑤𝑛)
+
+log 𝑃𝑡ℎ𝑒, 𝑞𝑢𝑖𝑐𝑘, 𝑓𝑜𝑥 𝑗𝑢𝑚𝑝𝑠
+𝑏𝑟𝑜𝑤𝑛
+=
+log 𝑃𝑡ℎ𝑒
+𝑏𝑟𝑜𝑤𝑛
++ ⋯+ log 𝑃(𝑗𝑢𝑚𝑝𝑠∣𝑏𝑟𝑜𝑤𝑛)
+
+(brown, the), (brown, quick), (brown, for), (brown, jumps). Let consider 
+𝑡𝑤= 𝑏𝑟𝑜𝑤𝑛 and 𝑐𝑤= 𝑡ℎ𝑒.
+
+Two matrices
+o
+𝑼∈ℝ𝑵×𝒅 (𝑁 is vocabulary size, 𝑑 is embedding size)
+o
+𝑽∈ℝ𝒅×𝑵
+
+Assume that indices of 𝑡𝑤 and 𝑐𝑤 are 1 ≤𝑡, 𝑐≤𝑁 respectively. The 
+forward propagation is as follows:
+o
+ℎ= 1𝑡𝑈= 𝑈𝑡
+𝑟∈ℝ1×𝑑, 𝑜= ℎ𝑉∈ℝ1×𝑁, 𝑝= 𝑠𝑜𝑓𝑡𝑚𝑎𝑥(𝑜) ∈ℝ1×𝑁
+o
+𝑃𝑐𝑤= 𝑡ℎ𝑒
+𝑡𝑤= 𝑏𝑟𝑜𝑤𝑛
+= 𝑝𝑐
+o
+log 𝑃𝑐𝑤= 𝑡ℎ𝑒
+𝑡𝑤= 𝑏𝑟𝑜𝑤𝑛
+= log 𝑝𝑐= 𝑈𝑡
+𝑟𝑉𝑐𝑐−log(σ𝑘=1
+𝑁
+exp(𝑈𝑡
+𝑟𝑉𝑘
+𝑐))
+
+Train the model by maximizing log likelihood.
+brow
+n
+the
+quick
+fox
+jumps
+𝑈∈ℝ𝑁×𝑑
+𝒉
+𝑉∈ℝ𝑑×𝑁
+𝟏𝒕
+One-hot
+vector
+𝒑
+𝑁
+𝑁
+𝑑
+
+--- Page 144 ---
+144
+Toy example
+Corpus: the quick brown fox jumps over the lazy dog
+o Tokens: {'brown’: 1, 'lazy’: 2, 'over’: 3, 'fox’: 4, 'dog’: 5, 'quick’: 6, 'the’: 7, 'jumps’: 8}
+o Number of tokens N = 8
+o Context (window) size C = 3
+o Size of embedded vectors d = 3
+o U&V: collections of input & output vectors 
+quick
+one-hot encoding 
+[0 0 0 0 0 1 0 0]
+
+--- Page 145 ---
+145
+Skip-gram, forward propagation
+1xN
+quick
+the
+brown
+center
+context
+1
+0
+0
+0
+0
+0
+0
+0
+𝑇
+0
+0
+0
+0
+0
+0
+1
+0
+𝑇
+𝑤𝑡= 16
+𝑤𝑡+1
+𝑤𝑡−1
+1xd
+𝒉= 𝟏𝟔𝑼
+ℎ= 0.7 0.7,0.6
+1xN
+𝒐= 𝒉𝑽
+0.45
+0.53
+0.89
+0.48
+0.67
+1.32
+0.77
+0.81
+𝑇
+1xN
+𝑝(𝑐𝑤|𝑡𝑤)
+.09
+.10
+.14
+.09
+.11
+.21
+.12
+.13
+𝑇
+Nxd
+U
+.5
+.0
+.3
+.3
+.7
+.6
+.3
+.5
+.2
+.4
+.7
+.6
+.8
+.7
+.1
+.6
+.7
+.7
+.8
+.1
+.5
+.7
+.8
+.9
+V
+dxN
+.4
+.3
+.0
+.3
+.5
+.0
+.2
+.3
+.8
+.1
+.3
+.3
+.3
+.7
+.0
+.1
+.9
+.9
+.0
+.4
+.7
+.3
+.2
+.7
+softmax
+{'brown’: 1, 'lazy’: 2, 'over’: 3, 'fox’: 4, 'dog’: 5, 'quick’: 6, 'the’: 7, 'jumps’: 
+8}
+[0 0 0 0 0 1 0 0]
+the quick brown
+CE loss
+
+--- Page 146 ---
+146
+Skip-gram
+Drawback
+Two matrices
+o 𝑼∈ℝ𝑵×𝒅 (𝑁 is vocabulary size, 𝑑 is embedding size)
+o 𝑽∈ℝ𝒅×𝑵
+Assume that indices of 𝑡𝑤 and 𝑐𝑤 are 1 ≤𝑡, 𝑐≤𝑁 
+respectively. The forward propagation is as follows:
+o ℎ= 1𝑡𝑈= 𝑈𝑡
+𝑟∈ℝ1×𝑑, 𝑜= ℎ𝑉∈ℝ1×𝑁, 𝑝= 𝑠𝑜𝑓𝑡𝑚𝑎𝑥(𝑜) ∈
+ℝ1×𝑁
+o 𝑃𝑐𝑤= 𝑡ℎ𝑒
+𝑡𝑤= 𝑏𝑟𝑜𝑤𝑛
+= 𝑝𝑐
+o log 𝑃𝑐𝑤= 𝑡ℎ𝑒
+𝑡𝑤= 𝑏𝑟𝑜𝑤𝑛
+= log 𝑝𝑐= 𝑈𝑡
+𝑟𝑉𝑐𝑐−
+log(σ𝑘=1
+𝑁
+exp(𝑈𝑡
+𝑟𝑉𝑘
+𝑐))
+Some drawbacks
+o 𝑝= 𝑠𝑜𝑓𝑡𝑚𝑎𝑥(𝑜) is computationally expensive
+o 𝑝∈ℝ1×𝑁 is a distribution over the vocabulary with size 𝑵 (usually very 
+big) → the values of 𝑝𝑖 are very tiny → hard to train
+▪Hierarchical SoftMax
+▪Negative sampling (more popular and efficient)
+𝑈∈ℝ𝑁×𝑑
+𝒉
+𝑉∈ℝ𝑑×𝑁
+𝟏𝒕
+One-hot
+vector
+𝒑
+𝑁
+𝑁
+𝑑
+
+--- Page 147 ---
+147
+Skip-gram
+Negative sampling
+Transform 𝑵-class prediction to binary prediction with 
+negative examples
+Consider a positive (true) pair (tw=brown, cw = the)
+o [(brown, the),1]
+o Sample randomly some (two) words
+▪[(brown, 𝑛𝑔1 = hello), 0] and [(brown, 𝑛𝑔2 = awsome), 0]
+▪
+Let denote the indices of 𝑛𝑔1 and 𝑛𝑔2 by 1 ≤𝑛1, 𝑛2 ≤𝑁.
+The forward propagation
+o
+ℎ= 1𝑡𝑈= 𝑈𝑡
+𝑟∈ℝ1×𝑑, 𝑜= ℎ𝑉∈ℝ1×𝑁, 𝑝= 𝑠𝑖𝑔𝑚𝑜𝑖𝑑(𝑜) ∈ℝ1×𝑁
+o
+𝑃𝑦= 1
+tw=brown, cw =𝑡ℎ𝑒
+= 𝑝𝑐
+o
+𝑃𝑦= 1
+tw=brown, 𝑛𝑔1=ℎ𝑒𝑙𝑙𝑜
+= 𝑝𝑛1
+o
+𝑃𝑦= 1
+tw=brown, 𝑛𝑔2=𝑎𝑤𝑠𝑜𝑚𝑒
+= 𝑝𝑛2
+Optimization problem
+o
+𝐦𝐚𝐱log 𝑝𝑐−𝛼log 𝑝𝑛1 −𝛼log 𝑝𝑛2 where 𝛼>0 is a trade-off parameter.
+𝑈∈ℝ𝑑×𝑁
+𝒉
+𝑉∈ℝ𝑁×𝑑
+𝟏𝒕
+One-hot
+vector
+𝒑
+𝑁
+𝑑
+𝑁
+
+--- Page 148 ---
+148
+Continuous Bag of Words (CBOW)
+Pretext task
+What is the pretext task of CBOW?
+The
+quick
+brown
+fox
+jumps
+over  
+the
+lazy
+dogs.
+The
+quick
+brown
+fox
+jumps
+over  
+the
+lazy
+dogs.
+The
+quick
+brown
+fox
+jumps
+over  
+the
+lazy
+dogs.
+The
+quick
+brown
+fox
+jumps
+over  
+the
+lazy
+dogs.
+The
+quick
+brown
+fox
+jumps
+over  
+the
+lazy
+dogs.
+The
+quick
+brown
+fox
+jumps
+over  
+the
+lazy
+dogs.
+target word
+context word
+context word
+Continuous Bag of Words (CBOW)
+❑ Context words 
+𝒑𝒓𝒆𝒅𝒊𝒄𝒕 target word
+(the | quick | for | jumps, brown) 
+(quick | brown | jumps | over, fox) 
+(brown | fox | over | the, jumps) 
+(for | jumps | the | lazy, over) 
+(jumps | over | lazy| dog, the)
+
+--- Page 149 ---
+149
+Continuous Bag of Words (CBOW)
+Modelling
+
+Current window
+o
+The quick brown fox jumps
+
+Need to formulate: 𝑃𝑏𝑟𝑜𝑤𝑛
+𝑡ℎ𝑒, 𝑞𝑢𝑖𝑐𝑘, 𝑓𝑜𝑥, 𝑗𝑢𝑚𝑝𝑠
+
+(the | quick | fox | jumps, brown). Let consider 𝑡𝑤= 𝑏𝑟𝑜𝑤𝑛 and 
+𝑐𝑤1 = 𝑡ℎ𝑒, 𝑐𝑤2 = 𝑞𝑢𝑖𝑐𝑘, 𝑐𝑤3 = 𝑓𝑜𝑟, 𝑐𝑤4 = 𝑗𝑢𝑚𝑝𝑠.
+
+Two matrices
+o
+𝑼∈ℝ𝑵×𝒅 (𝑁 is vocabulary size, 𝑑 is embedding size)
+o
+𝑽∈ℝ𝒅×𝑵
+
+Assume that indices of 𝑡𝑤 is 1 ≤𝑡≤𝑁 and 𝑐𝑤1:4 are 1 ≤𝑐1:4 ≤𝑁 
+respectively. The forward propagation is as follows:
+o
+ℎ=
+1𝑐1+⋯+1𝑐4
+4
+𝑈=
+1
+4 𝑈𝑐1
+𝑟+ ⋯+ 𝑈𝑐4
+𝑟
+= 𝑈𝑟∈ℝ1×𝑑, 𝑜= ℎ𝑉∈ℝ1×𝑁, 𝑝=
+𝑠𝑜𝑓𝑡𝑚𝑎𝑥(𝑜) ∈ℝ1×𝑁
+o
+𝑃𝑏𝑟𝑜𝑤𝑛
+𝑡ℎ𝑒, 𝑞𝑢𝑖𝑐𝑘, 𝑓𝑜𝑥 𝑗𝑢𝑚𝑝𝑠
+= 𝑝𝑡
+o
+log 𝑃𝑏𝑟𝑜𝑤𝑛
+𝑡ℎ𝑒, 𝑞𝑢𝑖𝑐𝑘, 𝑓𝑜𝑥 𝑗𝑢𝑚𝑝𝑠
+= log 𝑝𝑡= 𝑈𝑟𝑉𝑡
+𝑐−
+log(σ𝑘=1
+𝑁
+exp(𝑈𝑟𝑉𝑘
+𝑐))
+
+Train the model by maximizing log likelihood.
+𝑈∈ℝ𝑁×𝑑
+𝒉
+𝑉∈ℝ𝑑×𝑁
+𝟏
+𝟒(𝟏𝒄𝟏
++ 𝟏𝒄𝟐
++ 𝟏𝒄𝟑
+ +𝟏𝒄𝟒)
+Vector
+𝒑
+brow
+n
+the
+quick
+fox
+jumps
+𝑁
+𝑁
+𝑑
+
+--- Page 150 ---
+150
+CBOW: forward propagation
+1xN
+quick
+the
+brown
+center
+context
+0
+0
+0
+0
+0
+1
+0
+0
+𝑇
+1
+0
+0
+0
+0
+0
+0
+0
+𝑇
+0
+0
+0
+0
+0
+0
+1
+0
+𝑇
+𝑤𝑡
+𝑤𝑡+1
+𝑤𝑡−1
+1xd
+ℎ= 11 + 17
+2
+𝑈
+ℎ= 0.75 0.15 0.4
+1xN
+𝑜= 𝑉ℎ
+0.55
+0.44
+0.93
+0.40
+0.46
+0.94
+0.60
+0.97
+𝑇
+1xN
+𝑝(𝑜|𝑖)
+.11
+.10
+.16
+.09
+.10
+.16
+.11
+.17
+𝑇
+Nxd
+U
+V
+dxN
+.4
+.3
+.0
+.3
+.5
+.0
+.2
+.3
+.8
+.1
+.3
+.3
+.3
+.7
+.0
+.1
+.9
+.9
+.0
+.4
+.7
+.3
+.2
+.7
+softmax
+.5
+.0
+.3
+.3
+.7
+.6
+.3
+.5
+.2
+.4
+.7
+.6
+.8
+.7
+.1
+.6
+.7
+.7
+.8
+.1
+.5
+.7
+.8
+.9
+CE loss
+
+--- Page 151 ---
+Advanced Sequential Models
+
+--- Page 152 ---
+152
+Encoder-Decoder Models
+Target structured data
+Source structured data
+Context or encode 𝒄
+𝒄
+Image captioning
+Machine translation
+𝒄= 𝒉𝒍𝒂𝒔𝒕
+Many more applications
+❖C++ programs to Java programs, texts to images, question answering (questions to answers), and etc.
+
+--- Page 153 ---
+153
+Introduction
+Problem statement of seq2seq
+o Source sequence: 𝑥= 𝑥1, 𝑥2, … , 𝑥𝑇𝑥 where 𝑥𝑖𝜖𝑉𝑥
+o Target sequence: y = 𝑦1, 𝑦2, … , 𝑦𝑇𝑦 where 𝑦𝑖𝜖𝑉𝑦
+o Training set: 
+▪
+𝔇=
+𝑥(1), 𝑦(1) , 𝑥(2), 𝑦(2) , … , 𝑥(𝑁), 𝑦(𝑁)
+=
+𝑥(𝑖), 𝑦(𝑖)
+𝑖=1
+𝑁
+▪𝑆𝑥: set of possible source sequences ( 𝑥(𝑖) ⊆𝑆𝑥)
+▪𝑆𝑦: set of possible target sequences ( 𝑦(𝑖) ⊆𝑆𝑦)
+o Task
+▪ Learn a function 𝑓: 𝑆𝑥→𝑆𝑦
+ Applications
+o Machine Translation
+o Image Captioning
+
+--- Page 154 ---
+154
+Machine translation
+Translate a sentence in a language to another 
+language
+o Input: He loved to eat. (English)
+o Output: Il aimait manger. (French)
+𝑞1
+𝐼𝑙
+𝑎𝑖𝑚𝑎𝑖𝑡
+𝑞2
+𝑎𝑖𝑚𝑎𝑖𝑡
+𝑚𝑎𝑛𝑔𝑒𝑟
+𝑞3
+𝑚𝑎𝑛𝑔𝑒𝑟
+< 𝑬𝑶𝑺>
+ℎ1
+𝐻𝑒
+ℎ2
+ℎ3
+𝑙𝑜𝑣𝑒𝑑
+𝑡𝑜
+𝑐= ℎ4
+𝑒𝑎𝑡
+𝑞0
+<BOS>
+𝐼𝑙
+Paper: paper link
+...
+...
+vocabulary size+1
+...
+...
+
+--- Page 155 ---
+155
+Encoder-decoder model for seq2seq
+Fixed context vector
+Encoder
+o Produces the context vector 𝒄= 𝒉𝑻𝒙 of the input sequence
+o Context vector c summarizes input sequence [𝐱𝟏, … , 𝐱𝐓𝐱].
+Decoder
+o Decodes the encode c to the output sequence
+Special symbols
+o <EOS> signifies the end of a sequence
+o <BOS> signifies the beginning of a sequence
+ℎ1
+𝑥1
+ℎ2
+ℎ𝑖−1
+𝑥2
+𝑥𝑖−1
+ℎ𝑖
+𝑥𝑖
+𝑐= ℎ𝑇𝑥
+𝑥𝑇𝑥
+𝑞𝑗−1
+𝑦𝑗−1
+𝑦𝑗
+𝑞𝑗
+𝑦𝑗
+𝑦𝑗+1
+𝑞𝑇𝑦
+𝑦𝑇𝑦
+<EOS>
+𝑞2
+𝑦2
+𝑦3
+𝑞1
+𝑦1
+𝑦2
+𝑞0
+<BOS>
+𝑦1
+ℎ𝑇𝑥−1
+𝑥𝑇𝑥−1
+
+--- Page 156 ---
+156
+Training of seq2seq
+❑We need to maximize the log-likelihood:
+max
+θ
+J θ =
+෍
+𝒙,𝒚𝜖𝔇
+log 𝑃𝒚|𝒙, 𝜃 
+where 𝜃= [𝜃𝑒, 𝜃𝑑] and 𝜃𝑒, 𝜃𝑑 are encoding and decoding parameters respectively.
+❑ Product rule:
+𝑃𝒚|𝒙, 𝜃 = 𝑃
+𝒚𝟏:𝑻𝒚
+𝒙𝟏:𝑻𝒙, 𝜃
+= 𝑃
+𝒚𝟏:𝑻𝒚
+𝒄, 𝜃
+= 𝑃𝒚𝟏
+𝒄, 𝜃𝑃𝒚𝟐
+𝒚𝟏, 𝒄, 𝜃… 𝑃𝒚𝒋
+𝒚𝟏:𝒋−𝟏, 𝒄, 𝜃
+… 𝑃
+𝒚𝑻𝒚
+𝒚𝟏:𝑻𝒚−𝟏, 𝒄, 𝜃
+= ෑ
+𝑗=1
+𝑇𝑦
+𝑃𝒚𝒋
+𝒚𝟏:𝒋−𝟏, 𝒄, 𝜃
+log 𝑃𝒚|𝒙, 𝜃 = log 𝑃𝒚|𝒄, 𝜃= ෍
+𝑗=1
+𝑇𝑦
+log 𝑃𝒚𝒋|𝒚𝟏:𝒋−𝟏, 𝒄, 𝜃= ෍
+𝑗=1
+𝑇𝑦
+log 𝑃𝒚𝒋|𝒒𝒋−𝟏, 𝒄, 𝜃
+o We can compute 𝑃𝒚𝒋𝒒𝒋−𝟏, 𝒄= 𝑔𝒚𝒋, 𝒒𝒋−𝟏, 𝒄 where 𝑔 is a nonlinear, potentially multi-layered NN that 
+outputs the probability of 𝑦𝑗.
+Pay attention on how 𝑐 is used in every step during decoding
+ℎ1
+𝑥1
+𝒒𝟎
+<BOS>
+𝒄= 𝒉𝑻𝒙
+𝑥𝑇𝑥
+𝑞𝑇𝑦
+𝑦𝑇𝑦
+<EOS>
+𝑞1
+𝑦1
+𝑦2
+𝑦1
+𝑞𝑗−1
+𝑦𝑗−1
+𝑦𝑗
+
+--- Page 157 ---
+157
+Training of seq2seq
+❑We need to maximize the log-
+likelihood:
+max
+θ
+J θ =
+෍
+𝒙,𝒚𝜖𝔇
+log 𝑃𝒚|𝒙, 𝜃 
+where 𝜃= [𝜃𝑒, 𝜃𝑑] and 𝜃𝑒, 𝜃𝑑 are encoding and 
+decoding parameters, respectively.
+❑ Product rule:
+  log 𝑃𝒚|𝒙, 𝜃 = log 𝑃𝒚|𝒄, 𝜃=
+σ𝑗=1
+𝑇𝑦log 𝑃𝒚𝒋|𝒚𝟏:𝒋−𝟏, 𝒄, 𝜃=
+σ𝑗=1
+𝑇𝑦log 𝑃𝒚𝒋|𝒒𝒋−𝟏, 𝒄, 𝜃
+❖
+𝒒𝒋−𝟏 contains the information of 𝒄.
+❖
+(1): 𝑃𝒚𝒋|𝒒𝒋−𝟏, 𝒄, 𝜃= 𝑃𝒚𝒋|𝒒𝒋−𝟏, 𝜃
+              𝑞𝑗−1 = 𝑓(𝑞𝑗−2, 𝑦𝑗−1)
+❖
+(2): 𝑃𝒚𝒋|𝒒𝒋−𝟏, 𝒄, 𝜃= 𝑃𝒚𝒋|𝒒𝒋−𝟏, 𝜃
+              𝑞𝑗−1 = 𝑓(𝑞𝑗−2, 𝑐𝑜𝑛𝑐𝑎𝑡(𝑐, 𝑦𝑗−1))
+❖
+𝑓 is a memory cell (e.g., LSTM or GRU) 
+(1) [Sutskever et al. 2014]
+(2)
+Big drawback: the context vector 𝒄 is fixed across timesteps.
+
+--- Page 158 ---
+158
+Inference
+Given a trained model and input sequence 𝒙
+o We need to infer the corresponding output sequence 𝒚
+Two common strategies
+o Greedy Decoding and Beam Search Decoding 
+𝒒𝟎
+<BOS>
+𝑞1
+𝑦1
+𝑦2 =?
+𝑦1
+We know 𝑃(𝑦2 = ∘∣𝑐)
+ℎ1
+𝑥1
+𝒄= 𝒉𝑻𝒙
+𝑥𝑇𝑥
+𝒒𝟎
+<BOS>
+𝑦1 =?
+We know 𝑃(𝑦1 = ∘∣𝑐)
+𝒄= 𝒉𝑻𝒙
+𝒄= 𝒉𝑻𝒙
+𝑞𝑇𝑦
+𝑦𝑇𝑦
+𝒒𝟎
+<BOS>
+<EOS>
+𝑞1
+𝑦1
+𝑦2
+𝑦1
+𝑞𝑗−1
+𝑦𝑗−1
+𝑦𝑗 
+𝒄= 𝒉𝑻𝒙
+
+--- Page 159 ---
+159
+Inference
+Greedy decoding
+Greedy Decoding
+o Given x, find word 𝒚𝟏 with highest probability
+o Given 𝒚𝟏 and x, find word 𝒚𝟐 with highest probability
+o …
+o Stop when seeing <EOS>
+ℎ1
+𝑥1
+𝑞0
+<BOS>
+𝑐= ℎ𝑇𝑥
+𝑥𝑇𝑥
+𝑞𝑇𝑦
+𝑦𝑇𝑦
+<EOS>
+𝑞1
+𝑦1
+𝑦2
+𝑦1
+𝑃(𝑦1 = ∘∣𝑐)
+𝑃(𝑦2 = ∘∣𝑐)
+𝑃(𝑦𝑇𝑦+1 = ∘∣𝑐)
+
+--- Page 160 ---
+160
+Inference
+Beam search
+❑ Beam Search Decoding with beam width 𝒌 
+o Given x, find k candidates for 𝒚𝟏 with highest probability
+o Given x, for each candidate 𝒚𝟏, find k candidates for word 𝒚𝟐 with highest probability
+o Pick top-k sequences 𝑦1𝑦2 with highest joint probability
+o For each 𝑦1𝑦2, find k candidates for word 𝒚𝟑 with highest probability
+o Pick top-k sequences 𝑦1𝑦2𝑦3 with highest joint probability
+o …..
+o Stop when see <EOS> on each beam
+o Finally, pick 1 sequence with highest probability from top-k sequences 
+ℎ1
+𝑥1
+𝑞0
+<BOS>
+ℎ𝑇𝑥
+𝑥𝑇𝑥
+𝑞𝑇𝑦
+𝑦𝑇𝑦
+<EOS>
+𝑞1
+𝑦1
+𝑦2
+𝑦1

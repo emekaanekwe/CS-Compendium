@@ -1,0 +1,39 @@
+14
+Training deep nets
+
+DNN parameters: 𝜃≔
+𝑊𝑙, 𝑏𝑙
+𝑙=1
+𝐿
+
+Find model parameters (weight matrices and biases) so that the 
+model predictions fit the training set as much as possible:
+ 
+ 
+ 
+ 
+ min
+𝜃𝐿(𝐷; 𝜃)  
+
+Use optimizers SGD, Adagrad, Adam, RMSProp to update the 
+model parameters (lectures 4)
+Training set
+𝐷= { 𝑥1, 𝑦1 , … (𝑥𝑁, 𝑦𝑁)}
+Loss function
+𝐿𝐷; 𝜃≔1
+𝑁෍
+𝑖=1
+𝑁
+𝐶𝐸1𝑦𝑖, 𝑝𝑥𝑖
+= −1
+𝑁෍
+𝑖=1
+𝑁
+log 𝑝𝑦𝑖(𝑥𝑖)
+𝑊2, 𝑏2
+𝑥
+ො𝑦
+…
+(negative log likelihood)
+suffer loss 𝑙𝑦, ො𝑦= CE 1𝑦, 𝑝𝑥
+= −log 𝑝𝑦(𝑥)

@@ -1,0 +1,53 @@
+3
+Knowledge graph of Deep Learning unit
+Deep Learning models
+Supervised models
+Self-Supervised models
+Feed-forward
+NN
+Convolution
+NN
+Recurrent
+NN
+Advanced 
+sequential 
+modes
+Word2Vec
+Seq2Seq
+Transformer
+Define loss function
+min𝜃 𝐽𝜃= 𝛺𝜃+ 1
+𝑁෍
+𝒊=𝟏
+𝑵
+𝑙𝑦𝑖, 𝑓𝑥𝑖; 𝜃
+Forward propagation
+❖ Input → Layers → Prediction Probabilities → Loss
+Backward propagation
+❖ Loss → Layers → Input
+How to train supervised models?
+Attention mechanism
+Self-
+Attention 
+mechanism
+▪
+Skip-Gram
+▪
+CBOW
+Pretext: 
+predicts 
+target or 
+context words
+Vision data
+Visualize
+Attack/defense
+Vector data
+Sequential data
+BERT
+ViT
+Model Fine-tuning
+- Prompt-tuning, LoRA, Adapter
+Generative models
+Generative 
+Adversarial 
+Networks

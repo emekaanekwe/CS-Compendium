@@ -1,0 +1,8 @@
+A different point of view
+ViTs are both local and global!
+The ViT learns only global information 
+with low amount of data
+0.7
+0.0
+1
+Heads focus on farther patches

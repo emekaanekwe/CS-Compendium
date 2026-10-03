@@ -1,0 +1,9 @@
+224
+Issues with GAN
+#1: mode collapsing problem
+o Impeach the ability to generate diverse, realistic data/images
+Two serious technical problems with GAN
+Generated (fake) examples 𝐺(𝒛) where 𝒛~𝑝(𝒛) 
+o Can only cover a few modes in the data distribution 
+𝑝𝑑(𝒙)
+o Miss many other modes in the data distribution.

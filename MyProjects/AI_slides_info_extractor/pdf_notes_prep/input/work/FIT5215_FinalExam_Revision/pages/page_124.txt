@@ -1,0 +1,28 @@
+124
+RNNs Architecture Zoo
+𝒙
+𝒉
+𝒚
+𝒉
+𝒉
+𝒙
+𝒙
+many to many (1)
+𝒉
+𝒉
+𝒚
+𝒚
+(machine translation)
+𝒙
+𝒉
+𝒚
+𝒉
+𝒉
+𝒙
+𝒙
+many to many (2)
+𝒚
+𝒚
+(video classification)
+RNNs architecture is very flexible for many real-world tasks
+… more to come in our next lectures

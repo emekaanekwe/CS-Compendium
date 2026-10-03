@@ -1,0 +1,6 @@
+8
+Importance of Activation Functions
+Aims to bring non-linearities to neural networks
+Our data
+Networks without activations
+Networks with activations

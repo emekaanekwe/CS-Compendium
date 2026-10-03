@@ -1,0 +1,31 @@
+42
+AdaGrad
+
+Learning rates are scaled by the square root of the cumulative sum 
+of squared gradients
+
+Direction with large partial derivatives
+o
+Thus, rapid decrease in their learning rates
+
+Direction with small partial derivatives
+o
+Hence relatively small decrease in their learning rates
+
+Weakness: always decrease the learning rate!
+o
+Excellent for convex problem, but not so good for DL (with non-convex problems)
+o Input: 𝜂> 0, 𝜖> 0 (10−6), and initial model 𝜃
+while stopping criterion not met do
+    Sample a mini-batch { 𝒙𝟏, 𝒚𝟏, … , (𝒙𝒃, 𝒚𝒃)}
+    Compute 𝒈= 𝟏
+𝒃σ𝒊=𝟏
+𝒃
+𝛁𝜽𝒍(𝒇(𝒙𝒊, 𝜽), 𝒚𝒊)
+    Accumulate the square gradient: 𝜸= 𝜸+ 𝒈⨀𝒈 
+    Update 𝜽= 𝜽−
+𝜼
+𝝐+𝜸⨀𝒈 
+end while
+Note: ⨀ means element-wise product
+AdaGrad

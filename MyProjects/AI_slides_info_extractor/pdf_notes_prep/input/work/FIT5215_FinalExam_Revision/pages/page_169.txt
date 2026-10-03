@@ -1,0 +1,24 @@
+169
+Local attention
+Main idea
+o Selectively focuses on a small window of context and is differentiable
+For current target word, predict aligned position 𝑝𝑡
+o
+𝑝𝑡= 𝑆∙sigmoid 𝑣𝑝𝑇tanh 𝑊𝑝𝑞𝑡
+ 
+where 𝑊𝑝 and 𝑣𝑝 are the model parameters, 𝑆 is the source sentence 
+length, and hence 0 ≤𝑝𝑡≤𝑆
+Alignment weights:
+o
+𝑎𝑡𝑠= align 𝑞𝑡, ℎ𝑠exp −
+𝑠−𝑝𝑡2
+2𝜎2
+  with 𝜎= Τ
+𝐷2
+o
+align 𝑞𝑡, ℎ𝑠 =
+exp 𝑠𝑐𝑜𝑟𝑒𝑞𝑡,ℎ𝑠
+σ𝑠′ exp 𝑠𝑐𝑜𝑟𝑒𝑞𝑡,ℎ𝑠′   (temporary alignment 
+weights)
+Context is now computed as before but within a 
+windows of size D, centered at 𝑝𝑡

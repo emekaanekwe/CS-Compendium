@@ -1,0 +1,13 @@
+59
+How CNNs work?
+
+Higher level filters combine lower level filters to represent more abstract objects
+o
+The context is locally expanded
+Human face recognition ☺
+Filter 1 (depth=1)
+Filter 2 (depth=1)
+Filter 1 (depth=2)
+Feature map 1
+Feature map 2
+Feature map

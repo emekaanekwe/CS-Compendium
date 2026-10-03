@@ -1,0 +1,134 @@
+92
+Internal covariate shift problem
+Internal covariate shift 
+problem:
+o
+Significant difference in statistics 
+of input batches and also 
+representation batches.
+o
+Statistical differences among 
+mini-batches make the classifier 
+harder to learn from data.
+𝑊1, 𝑏1
+𝑊4, 𝑏4
+𝑊2, 𝑏2
+Feature extractor
+Classifier
+𝑊3, 𝑏3
+𝒙𝟏
+𝟏𝒙𝟐
+𝟏𝒙𝟑
+𝟏𝒙𝟒
+𝟏
+𝒙𝟏
+𝟐𝒙𝟐
+𝟐𝒙𝟑
+𝟐𝒙𝟒
+𝟐
+𝒙𝟏
+𝟑𝒙𝟐
+𝟑𝒙𝟑
+𝟑𝒙𝟒
+𝟑
+𝒙𝟏
+𝟒𝒙𝟐
+𝟒𝒙𝟑
+𝟒𝒙𝟒
+𝟒
+𝐳𝟏
+𝟏𝐳𝟐
+𝟏𝐳𝟑
+𝟏
+𝐳𝟏
+𝟐𝐳𝟐
+𝟐𝐳𝟑
+𝟐
+𝐳𝟏
+𝟑𝐳𝟐
+𝟑𝐳𝟑
+𝟑
+𝐳𝟏
+𝟒𝐳𝟐
+𝟒𝐳𝟑
+𝟒
+Input batch 1
+Representation batch 1
+𝒙𝟏
+𝟓𝒙𝟐
+𝟓𝒙𝟑
+𝟓𝒙𝟒
+𝟓
+𝒙𝟏
+𝟔𝒙𝟐
+𝟔𝒙𝟑
+𝟔𝒙𝟒
+𝟔
+𝒙𝟏
+𝟕𝒙𝟐
+𝟕𝒙𝟑
+𝟕𝒙𝟒
+𝟕
+𝒙𝟏
+𝟖𝒙𝟐
+𝟖𝒙𝟑
+𝟖𝒙𝟒
+𝟖
+𝐳𝟏
+𝟓𝐳𝟐
+𝟓𝐳𝟑
+𝟓
+𝐳𝟏
+𝟔𝐳𝟐
+𝟔𝐳𝟑
+𝟔
+𝐳𝟏
+𝟕𝐳𝟐
+𝟕𝐳𝟑
+𝟕
+𝐳𝟏
+𝟖𝐳𝟐
+𝟖𝐳𝟑
+𝟖
+Input batch 2
+Representation batch 2
+𝒙𝟏
+𝟗𝒙𝟐
+𝟗𝒙𝟑
+𝟗𝒙𝟒
+𝟗
+𝒙𝟏
+𝟏𝟎𝒙𝟐
+𝟏𝟎𝒙𝟑
+𝟏𝟎𝒙𝟒
+𝟏𝟎
+𝒙𝟏
+𝟏𝟏𝒙𝟐
+𝟏𝟏𝒙𝟑
+𝟏𝟏𝒙𝟒
+𝟏𝟏
+𝒙𝟏
+𝟏𝟐𝒙𝟐
+𝟏𝟐𝒙𝟑
+𝟏𝟐𝒙𝟒
+𝟏𝟐
+𝐳𝟏
+𝟗𝐳𝟐
+𝟗𝐳𝟑
+𝟗
+𝐳𝟏
+𝟏𝟎𝐳𝟐
+𝟏𝟎𝐳𝟑
+𝟏𝟎
+𝐳𝟏
+𝟏𝟏𝐳𝟐
+𝟏𝟏𝐳𝟑
+𝟏𝟏
+𝐳𝟏
+𝟏𝟐𝐳𝟐
+𝟏𝟐𝐳𝟑
+𝟏𝟐
+Input batch 3
+Representation batch 3
+difference
+difference

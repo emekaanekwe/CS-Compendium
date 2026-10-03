@@ -1,0 +1,31 @@
+81
+He and Xavier weight initialization
+
+Xavier initialization
+o Ensure the variance of the outputs of each 
+layer equal to the variance of its inputs
+o Also need the gradients to have equal 
+variance before and after flowing through a 
+layer in the reverse direction
+o Good for sigmoid and tanh activation functions
+o Not good for ReLU
+He initialization
+o A variant of Xavier initialization where 𝛼= 1 
+o Works better for ReLU.
+𝑛𝑖𝑛= 3
+𝑛𝑜𝑢𝑡= 2
+𝑤𝑋𝑎~𝑁
+0,
+2
+𝑛𝑖𝑛+ 𝑛𝑜𝑢𝑡
+𝑤𝐻𝑒~𝑁
+0, 𝛼×
+2
+𝑛𝑖𝑛+ 𝑛𝑜𝑢𝑡
+𝛼= ቐ
+1 if sigmoid
+4 
+if tanh
+2 
+if ReLU
+Paper link: https://www.cv-foundation.org/openaccess/content_iccv_2015/papers/He_Delving_Deep_into_ICCV_2015_paper.pdf

@@ -1,0 +1,15 @@
+97
+Data Augmentation
+Reality
+o You have a tiny dataset of 10K images, and you need 
+to train a good deep net.
+What are the criteria of a qualified training set?
+Quantity?
+- Collect more and more data?
+Quality?
+-
+More diverge data?
+-
+More qualified data?
+Prof Dinh Phung
+Create many variants

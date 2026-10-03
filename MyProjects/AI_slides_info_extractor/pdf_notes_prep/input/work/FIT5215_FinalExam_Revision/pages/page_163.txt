@@ -1,0 +1,11 @@
+163
+Attention mechanism
+Attention mechanism allows the decoding network to refer to the input.
+o Global attention
+▪Use all input hidden states of the encoder when deriving the context 𝑐𝑡.
+o Local attention
+▪Use a selective window of input hidden states of the encoder when deriving the context 𝑐𝑡.
+Luong, Pham, Manning, Effective Approach Attention-based Neural 
+Machine Translation, EMNLP, 2015 
+Bahdanau, Cho, Bengio, Neural Machine Translation by 
+Jointly Learning to Align and Translate, ICLR 2015

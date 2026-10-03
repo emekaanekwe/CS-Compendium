@@ -1,0 +1,61 @@
+120
+Recurrent Neural Networks
+Parametrization over multiple time slices
+Simplest RNN with multiple time-slices (with output)
+𝑥𝑡
+ℎ𝑡
+ො𝑦𝑡
+𝑈
+𝑊
+𝑉
+𝑥𝑡−1
+ℎ𝑡−1
+ො𝑦𝑡−1
+𝑥𝑡
+ℎ𝑡
+ො𝑦𝑡
+𝑥𝑡+1
+ℎ𝑡+1
+ො𝑦𝑡+1
+𝑈
+𝑈
+𝑈
+𝑊
+𝑊
+𝑉
+𝑉
+𝑉
+ℎ0
+ℎ1
+ො𝑦1
+𝑉
+𝑥1
+ො𝑦0
+𝑉
+𝑈
+𝑥0
+𝑈
+
+Input:𝑥0, 𝑥1, . . , 𝑥𝑡, … ∈ℝ1×𝑖𝑛𝑝𝑢𝑡_𝑠𝑖𝑧𝑒 , 𝑦0, 𝑦1, … ∈𝑌
+
+ℎ0 = tanh(𝑥0𝑈+ 𝑏)
+
+ො𝑦0 = ቊ
+ℎ0𝑉+ 𝑐 (regression)
+softmax (ℎ0𝑉+ 𝑐) (classification)
+o Suffer loss 𝑙(ො𝑦0, 𝑦0)
+
+for t=1,2,..., T 
+ℎ𝑡= some function of ℎ𝑡−1 and 𝑥𝑡
+ 
+= tanh(ℎ𝑡−1𝑊+ 𝑥𝑡𝑈+ 𝑏) 
+ො𝑦𝑡= ቊ
+ℎ𝑡𝑉+ 𝑐 (regression)
+softmax (ℎ𝑡𝑉+ 𝑐) (classification)
+o
+Suffer loss 𝑙(ො𝑦𝑡, 𝑦𝑡)
+
+𝑻𝒐𝒕𝒂𝒍_𝒍𝒐𝒔𝒔= σ𝑡=0
+𝑇
+𝑙(ො𝑦𝑡, 𝑦𝑡)
+𝑊

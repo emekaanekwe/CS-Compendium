@@ -1,0 +1,126 @@
+47
+Convolution layer with zero padding
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+1
+-2
+-1
+5
+3
+2
+1
+0
+0
+1
+3
+-1
+4
+3
+3
+1
+0
+0
+1
+-2
+1
+6
+3
+3
+2
+0
+0
+2
+-2
+2
+5
+2
+1
+0
+0
+0
+0
+3
+-2
+5
+4
+1
+2
+0
+0
+1
+2
+-3
+1
+1
+2
+-1
+0
+0
+1
+-2
+-1
+1
+2
+1
+1
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+1
+1
+1
+1
+1
+1
+1
+1
+1
+𝑾 (filter or kernel)
+3
+8
+19
+7
+3
+15
+30
+10
+6
+11
+22
+5
+2
+-2
+9
+3
+𝒙 (input tensor (7,7))
+feature map
+strides = (2,2)
+kernel size =(3,3)
+𝑓ℎ= 3
+𝑓𝑤= 3
+𝐻𝑜= 4
+𝑊𝑜= 4
+𝑊𝑖=7
+𝐻𝑖= 7
+
+The sliding window moves from left → right, top → bottom with strides.
+
+We convolve the filter and the sliding windows to work out the neurons 
+on the feature map.
+(Source: https://towardsdatascience.com/)
+𝑝= 1 zero padding

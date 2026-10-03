@@ -1,0 +1,19 @@
+60
+How CNNs work?
+
+CNN cannot capture spatial relationships 
+among objects
+o
+How spatially related of two eyes, nose and  
+eye, eye and mouth
+Human face recognition ☺
+Filter 1
+Feature map 1
+Filter 2
+Feature map 2
+Feature map 3
+Filter 3
+Filter 4
+Feature map 4
+Prediction
+Flatten

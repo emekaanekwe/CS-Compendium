@@ -1,0 +1,6 @@
+• Tokens as the features from an object detector
+Transformers in Computer Vision
+Tokens!
+ROI Pooling
+ROI Pooling
+ROI Pooling

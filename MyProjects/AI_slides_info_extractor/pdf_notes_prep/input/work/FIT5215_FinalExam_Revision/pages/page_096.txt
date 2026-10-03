@@ -1,0 +1,17 @@
+96
+Batch Normalization
+Testing Phase
+At testing time, let’s say we only want to 
+test on a single input 𝑥
+Hence, we don’t have a set of mini-
+batch samples to compute mean and 
+standard deviation.
+So, we replace the mini-batch 𝜇𝐵  and  
+𝜎𝐵  with running averages of  ෤𝜇𝐵  and  
+෤𝜎𝐵  computed during the training 
+process.
+o
+෤𝜇𝐵= 𝜃෤𝜇𝐵+ 1 −𝜃𝜇𝐵
+o
+෤𝜎𝐵= 𝜃෤𝜎𝐵+ 1 −𝜃𝜎𝐵 
+o 0 < 𝜃< 1 is the momentum decay

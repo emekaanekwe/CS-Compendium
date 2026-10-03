@@ -1,0 +1,35 @@
+36
+Stochastic gradient descent
+The optimization problem in deep learning has the form
+o min
+𝜃𝐿𝐷; 𝜃≔
+1
+𝑁σ𝑖=1
+𝑁
+𝑙𝑥𝑖, 𝑦𝑖; 𝜃 =
+1
+𝑁σ𝑖=1
+𝑁
+𝑙𝑦𝑖, 𝑓(𝑥𝑖; 𝜃)
+Evaluation of the full gradient is expensive. We want to just estimate this gradient
+o Sample a mini-batch 𝒊𝟏, 𝒊𝟐, … , 𝒊𝒃~𝑼𝒏𝒊({𝟏, 𝟐, … , 𝑵}) where 𝑏 is the mini-batch (batch) size. 
+▪The batch size is usually 32,64,128,256, and so on.
+o Construct ෨𝐿𝜃: =
+1
+𝑏σ𝑘=1
+𝑏
+𝑙(𝑥𝑖𝑘, 𝑦𝑖𝑘; 𝜃) as the average loss of those in the current batch.
+o 𝐸𝑖1,…,𝑖𝑏𝛻𝜃෨𝐿𝜃𝑡
+= 𝛻𝜃𝐿𝐷; 𝜃𝑡
+▪𝛻𝜃෨𝐿𝜃𝑡=
+1
+𝑏σ𝑘=1
+𝑏
+∇𝜃𝑙(𝑥𝑖𝑘, 𝑦𝑖𝑘; 𝜃𝑡) is unbiased estimation of 𝛻𝜃𝐿𝐷; 𝜃𝑡
+▪𝑂(𝑏) compares to 𝑂(𝑁).
+The update rule of SGD
+o 𝜃𝑡+1 = 𝜃𝑡−𝜂𝑡𝛻𝜃෨𝐿𝜃𝑡 with learning rate 𝜼𝒕∝𝑶(
+𝟏
+𝒕)
+o We use 𝛻𝜃෨𝐿𝜃𝑡 as an unbiased estimate of the full gradient 𝛻𝜃𝐿(𝐷; 𝜃) 
+o How to compute 𝛻𝜃෨𝐿𝜃𝑡 efficiently for deep networks?

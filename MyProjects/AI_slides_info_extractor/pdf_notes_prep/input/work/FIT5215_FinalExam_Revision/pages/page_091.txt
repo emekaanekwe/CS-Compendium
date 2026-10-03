@@ -1,0 +1,55 @@
+91
+Internal covariate shift problem
+𝑊1, 𝑏1
+𝑊4, 𝑏4
+𝑊2, 𝑏2
+Feature extractor
+Classifier
+𝑊3, 𝑏3
+𝒙𝟏
+𝟏𝒙𝟐
+𝟏𝒙𝟑
+𝟏𝒙𝟒
+𝟏
+𝒙𝟏
+𝟐𝒙𝟐
+𝟐𝒙𝟑
+𝟐𝒙𝟒
+𝟐
+𝒙𝟏
+𝟑𝒙𝟐
+𝟑𝒙𝟑
+𝟑𝒙𝟒
+𝟑
+𝒙𝟏
+𝟒𝒙𝟐
+𝟒𝒙𝟑
+𝟒𝒙𝟒
+𝟒
+𝐳𝟏
+𝟏
+𝐳𝟐
+𝟏
+𝐳𝟑
+𝟏
+𝐳𝟏
+𝟐
+𝐳𝟐
+𝟐
+𝐳𝟑
+𝟐
+𝐳𝟏
+𝟑
+𝐳𝟐
+𝟑
+𝐳𝟑
+𝟑
+𝐳𝟏
+𝟒
+𝐳𝟐
+𝟒
+𝐳𝟑
+𝟒
+Input batch
+Representation batch
+Paper link: http://proceedings.mlr.press/v37/ioffe15.pdf

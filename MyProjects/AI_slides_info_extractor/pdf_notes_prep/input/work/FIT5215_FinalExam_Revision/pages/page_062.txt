@@ -1,0 +1,38 @@
+62
+Why Do We Need Pooling Layer?
+Some 
+Conv2D + 
+Pooling
+More
+Difference
+Less
+Difference
+Flatten
+Prediction
+Less
+Difference
+Less
+Difference
+Less
+Difference
+Less
+Difference
+Nose 
+feature 
+map
+Mouth 
+feature 
+map
+Eyes 
+feature 
+maps
+Nose 
+feature 
+map
+Mouth 
+feature 
+map
+Eyes 
+feature 
+maps
+down-sampling and sharpening

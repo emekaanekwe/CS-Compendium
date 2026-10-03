@@ -1,0 +1,564 @@
+--- Page 101 ---
+101
+Data mix-up
+❑for (𝑥1, 𝑦1), (𝑥2, 𝑦2) in zip(batch1, batch 2)
+1.
+𝜆~Beta 𝛼, 𝛼
+2.
+෤𝑥= 𝜆× 𝑥1 + 1 −𝜆× 𝑥2
+3.
+෤𝑦= 𝜆× 𝟏𝑦1 + 1 −𝜆× 𝟏𝑦2
+4.
+Update optimizer to minimize 𝑪𝑬(෥𝒚, 𝒑(෥𝒙))
+Paper link: https://openreview.net/pdf?id=r1Ddp1-Rb
+[Source: https://medium.com/]
+(𝑥1, 𝟏𝑦1)
+(𝑥2, 𝟏𝑦2)
+Blended image ෤𝑥= 𝜆× 𝑥1 + 1 −𝜆× 𝑥2
+Blended label ෤𝑦= 𝜆× 𝟏𝑦1 + 1 −𝜆× 𝟏𝑦2
+𝜆~Beta(𝛼, 𝛼)
+𝐦𝐢𝐧𝑪𝑬(෥𝒚, 𝒑(෥𝒙))
+
+--- Page 102 ---
+102
+Cut-mix
+[Source: https://encord.com/blog/data-augmentation-guide/] 
+[Source: https://arxiv.org/pdf/1905.04899 ] 
+𝜆~Beta(𝛼, 𝛼)
+෤𝑥= 𝑀⊙𝑥1 + 1 −𝑀⊙𝑥2, 𝑀∈0,1 𝐻×𝑊
+෤𝑦= 𝜆× 𝟏𝑦1 + 1 −𝜆× 𝟏𝑦2
+𝑥1, 𝟏𝑦1 , 𝑥1 ∈ℝ𝐶×𝑊×𝐻
+𝑥2, 𝟏𝑦2 , 𝑥2 ∈ℝ𝐶×𝑊×𝐻
+𝐦𝐢𝐧𝑪𝑬(෥𝒚, 𝒑(෥𝒙))
+❑for (𝑥1, 𝑦1), (𝑥2, 𝑦2) in zip(batch1, batch 2)
+1.
+𝜆~Beta 𝛼, 𝛼
+2.
+Sample a bounding box 𝐵= [𝑟𝑥, 𝑟𝑦, 𝑟𝑤, 𝑟ℎ]
+1.
+𝑟𝑥∼𝑈𝑛𝑖[0, 𝑊], 𝑟𝑤∼𝑊1 −𝜆 
+2.
+𝑟𝑦∼𝑈𝑛𝑖[0, 𝐻], 𝑟ℎ∼𝐻1 −𝜆
+3.
+𝑴∈𝟎, 𝟏𝑾×𝑯 by filling 1 outside B and 0 otherwise
+4.
+෤𝑥= 𝑀⊙𝑥1 + 1 −𝑀⊙𝑥2
+5.
+෤𝑦= 𝜆× 𝟏𝑦1 + 1 −𝜆× 𝟏𝑦2
+6.
+Update optimizer to minimize 𝑪𝑬(෥𝒚, 𝒑(෥𝒙))
+1 1 1 1 1 1
+1 1 1 1 1 1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+𝑴
+0 0 0
+0 0 0
+0 0 0
+⊙𝑀=
+⊙(1 −𝑀) =
+𝑎𝑟𝑒𝑎(𝐵)
+𝑎𝑟𝑒𝑎(𝑖𝑚𝑎𝑔𝑒) = 𝑊𝐻(1 −𝜆)
+𝑊𝐻
+= 1 −𝜆
+𝐵= [𝑟𝑥, 𝑟𝑦, 𝑟𝑤, 𝑟ℎ]
+෤𝑥
+
+--- Page 103 ---
+Adversarial Attack and Defense
+
+--- Page 104 ---
+104
+Some notions
+𝑥, 𝑦∈{1,2, … , 𝑀}
+ℎ(𝑥; 𝜃) (logits)
+𝒉𝜽
+softmax
+𝑓𝑥; 𝜃= 𝑠𝑜𝑓𝑡𝑚𝑎𝑥(ℎ(𝑥; 𝜃)) (prediction probabilities)
+𝑓𝑥; 𝜃= 𝑓𝑚𝑥; 𝜃
+𝑚=1
+𝑀
+𝑝𝑦= 𝑚
+𝑥
+= 𝑓𝑚(𝑥; 𝜃) for 1 ≤𝑚≤𝑀
+𝑙𝑓𝑥; 𝜃, 𝑦= 𝐶𝐸𝟏𝑦, 𝑓𝑥; 𝜃
+= −log 𝑓𝑦(𝑥; 𝜃)
+
+--- Page 105 ---
+105
+Distance between two images
+
+𝑥𝑖𝑗𝑘 (1 ≤𝑖≤𝐶 , 1 ≤𝑗≤𝐻, 1 ≤𝑘≤𝑊) is the pixel with coordinate (ℎ𝑒𝑖𝑔ℎ𝑡= 𝑗, 𝑤𝑖𝑑𝑡ℎ= 𝑘) on 
+the channel (or slice) 𝑖 of image 𝑥.
+o
+0 ≤𝑥𝑖𝑗𝑘≤255 (original colour image) or 0 ≤𝑥𝑖𝑗𝑘≤1 (grey-scale image)
+
+L2 distance
+o
+𝑥−𝑥′ 2 =
+σ𝑖=1
+𝐶
+σ𝑗=1
+𝐻
+σ𝑘=1
+𝑊
+𝑥𝑖𝑗𝑘−𝑥𝑖𝑗𝑘
+′
+2
+
+L1 distance
+o
+𝑥−𝑥′ 1 = σ𝑖=1
+𝐶
+σ𝑗=1
+𝐻
+σ𝑘=1
+𝑊
+|𝑥𝑖𝑗𝑘−𝑥𝑖𝑗𝑘
+′ |
+
+L∞ distance
+o
+𝑥−𝑥′ ∞=
+max
+1≤𝑖≤𝐶,1≤𝑗≤𝐻,1≤𝑘≤𝑊|𝑥𝑖𝑗𝑘−𝑥𝑖𝑗𝑘
+′ |
+H
+H
+W
+W
+C
+C
+Image 𝒙
+Image 𝒙′
+
+--- Page 106 ---
+106
+Adversarial examples
+
+The true sense of a robust model
+o
+If 𝒙′ and 𝒙 are close, the predictions of 𝒙′ and 𝒙 must be the same.
+o
+If 𝒙′ ∈𝑩𝝐(𝒙) (i.e., 𝒙′ −𝒙
+≤𝝐), 𝑎𝑟𝑔𝑚𝑎𝑥1≤𝑖≤𝑀 𝑓𝑖𝑥; 𝜃= ො𝑦= ො𝑦′ = 𝑎𝑟𝑔𝑚𝑎𝑥1≤𝑖≤𝑀 𝑓𝑖𝑥′; 𝜃.
+
+Unfortunately, we can easily find adversarial examples 𝑥𝑎𝑑𝑣∈𝐵𝜖(𝑥) that can fool the classifier
+o
+𝑎𝑟𝑔𝑚𝑎𝑥1≤𝑖≤𝑀 𝑓𝑖𝑥; 𝜃= ො𝑦≠ො𝑦𝑎𝑑𝑣= 𝑎𝑟𝑔𝑚𝑎𝑥1≤𝑖≤𝑀 𝑓𝑖𝑥𝑎𝑑𝑣; 𝜃
+𝒙
+𝒙𝒂𝒅𝒗
+crafted noise
+𝝐 ball 𝐵𝜖𝑥= {𝑥′: 𝑥′ −𝑥
+≤𝜖} with a small 𝝐> 0. 
+𝒉𝜽
+softmax
+𝒇𝒙; 𝜽= 𝑠𝑜𝑓𝑡𝑚𝑎𝑥(ℎ(𝑥; 𝜃)) 
+𝒉(𝒙; 𝜽)
+𝑎𝑟𝑔𝑚𝑎𝑥1≤𝑖≤𝑀 𝑓𝑖𝑥; 𝜃= ො𝑦≠ො𝑦𝑎𝑑𝑣= 𝑎𝑟𝑔𝑚𝑎𝑥1≤𝑖≤𝑀 𝑓𝑖𝑥𝑎𝑑𝑣; 𝜃
+𝒙′
+Good example which has same predicted label as 𝒙.
+Adversarial example which has different predicted label as 𝒙.
+
+--- Page 107 ---
+107
+Adversarial examples
+Small perturbation
+not  difference
+difference
+𝒙
+𝒙𝒂𝒅𝒗= 𝒙+ 𝒏𝒐𝒊𝒔𝒆
+Misleading autonomous car driving system
+Adversarial example 𝒙𝒂𝒅𝒗 of a clean data example 𝒙 w.r.t a model  
+𝑓(. ; 𝜃)
+o 𝑑(𝑥𝑎𝑑𝑣, 𝑥) = ‖𝑥𝑎𝑑𝑣−𝑥‖ ≤𝜖 where . is a norm (e.g., .
+1, .
+2, .
+∞)
+o 𝑓 predicts 𝑥 and 𝑥𝑎𝑑𝑣 with different labels, i.e., 𝑎𝑟𝑔𝑚𝑎𝑥𝑖𝑓𝑖𝑥; 𝜃≠𝑎𝑟𝑔𝑚𝑎𝑥𝑖𝑓𝑖𝑥𝑎𝑑𝑣; 𝜃
+(Source: OpenAI)
+(Source: Internet)
+
+--- Page 108 ---
+108
+𝑔= ∇𝑥𝑙(𝑓(𝑥; 𝜃), 𝑦)
+𝑔⊥
+𝑔𝑇𝑔⊥= 0
+Each colour 
+represents a class 
+𝒙(0,0)
+Visualization of decision regions
+ResNet-50
+𝜶
+𝜷
+𝒙′ = 𝒙+ 𝜶𝒈+ 𝜷𝒈⊥
+Predicts 𝒙′ = 𝒙+ 𝜶𝒈+ 𝜷𝒈⊥
+to decide the colour 
+Following the gradient direction is easy to get out the blue region. 
+❑Start from 𝑥= 𝑥+ 0𝑔+ 0𝑔⊥ (coordinate (𝟎, 𝟎)), if we go along with the gradient direction 𝑔=
+∇𝑥𝑙(𝑓(𝑥; 𝜃), 𝑦), we can reach 𝑥𝑎𝑑𝑣= 𝑥+ 𝛼𝑔+ 0𝑔⊥ such that
+❑𝑥𝑎𝑑𝑣 is very close to 𝑥 → human cannot tell how they are different→ the same class from human 
+perceptron
+❑𝑥𝑎𝑑𝑣 is predicted to different class from 𝑥 by the classifier
+❑𝑥𝑎𝑑𝑣 is called adversarial example of 𝑥
+ℎ(𝑥; 𝜃) and f 𝑥; 𝜃= 𝑠𝑜𝑓𝑡𝑚𝑎𝑥(ℎ(𝑥; 𝜃)
+
+--- Page 109 ---
+109
+Decision regions of deep learning model
+Deep learning models are fragile and easy to be attacked
+o Start from 𝑥= 𝑥+ 0𝑔+ 0𝑔⊥ (coordinate (𝟎, 𝟎)), if we go along with the gradient 
+direction 𝑔= ∇𝑥𝑙(𝑓(𝑥; 𝜃), 𝑦), we can reach 𝑥𝑎𝑑𝑣= 𝑥+ 𝛼𝑔+ 0𝑔⊥ such that
+▪𝑥𝑎𝑑𝑣 is very close to 𝑥 → human cannot tell how they are different→ the same class from 
+human perceptron
+▪𝑥𝑎𝑑𝑣 is predicted to different class from 𝑥 by the classifier
+▪𝑥𝑎𝑑𝑣 is called adversarial example of 𝑥
+𝑔= ∇𝑥𝑙(𝑓(𝑥; 𝜃), 𝑦)
+𝑔⊥
+𝑔𝑇𝑔⊥= 0
+Each colour 
+represents a class 
+Delving into Transferable Adversarial Examples and Black-box Attacks
+Yanpei L., et al., ICLR 2016 
+𝒙(0,0)
+𝒙(0,0)
+𝒙(0,0)
+𝒙(0,0)
+𝒙(0,0)
+𝒙(0,0)
+
+--- Page 110 ---
+110
+Loss surface of deep learning model
+At the data point 𝒙, if we move along with the gradient direction 
+𝑔, the loss function is maximally locally increased.
+Taylor expansion around 𝑥
+o 𝑙𝑓(𝑥+ ℎ; 𝜃), 𝑦≈𝑙𝑓(𝑥; 𝜃), 𝑦+ 𝑔𝑇ℎ where 𝑔= ∇𝑥𝑙(𝑓(𝑥; 𝜃), 𝑦).
+o The gradient direction is the steepest direction to increase the loss function locally.
+Zoom out
+Zoom in
+The loss surface of DL model around 𝒙. This is plotted on 𝒙′ = 𝒙+ 𝝐𝟏𝒈+ 𝝐𝟐𝒈⊥.
+Ensemble Adversarial Training Attacks and Defences
+Tramer et al., ICLR 2017
+𝒈
+𝒈
+𝒈⊥
+𝒈⊥
+
+--- Page 111 ---
+111
+Adversarial attack
+How to run untargeted attack?
+
+Fast Gradient Sign Method (FGSM)
+o
+𝑥𝑎𝑑𝑣= 𝑥+ 𝜖𝑠𝑖𝑔𝑛(∇𝑥𝑙(𝑓𝑥; 𝜃, 𝑦))
+o
+𝑠𝑖𝑔𝑛𝑡= ቐ
+1 
+𝑖𝑓 𝑡> 0 
+−1 
+𝑖𝑓 𝑡< 0
+0 
+𝑜𝑡ℎ𝑒𝑟𝑤𝑖𝑠𝑒
+o
+One-step update
+𝒙
+𝐵𝜖𝑥= 𝑥′: 𝑥′ −𝑥
+≤𝜖
+𝒙 has true label 𝒚∈{𝟏, 𝟐, … , 𝑴}
+𝒙𝑎𝑑𝑣
+Loss surface 𝒍(𝒇𝒙′; 𝜽, 𝒚)
+𝒙𝒂𝒅𝒗= 𝒂𝒓𝒈𝒎𝒂𝒙𝒙′∈𝑩𝝐𝒙𝒍(𝒇𝒙′; 𝜽, 𝒚) 
+
+Projected Gradient Descent (Ascent) 
+(PGD)
+o
+𝑥0 = 𝑥+ 𝑈𝑛𝑖𝑓𝑜𝑟𝑚([−𝜖, 𝜖])
+o
+෥𝒙𝑡+1 = 𝑥𝑡+ 𝜂𝑠𝑖𝑔𝑛(∇𝑥𝑙𝑓𝑥𝑡; 𝜃, 𝑦)
+o
+𝑥𝑡+1 = 𝑃𝑟𝑜𝑗𝐵𝜖𝑥(෤𝑥𝑡+1)
+o
+Run in 𝑘 steps (𝑘= 20), 𝜂> 0 is the 
+learning rate
+o
+𝑥𝑎𝑑𝑣= 𝑥𝑘
+Untargeted attacks
+Explaining and Harnessing Adversarial Examples
+Goodfellow et al., ICLR 2015
+Towards Deep Learning Models Resistant to Adversarial Attacks
+Madry et al., ICLR 2017
+
+--- Page 112 ---
+112
+Adversarial attack
+How to run targeted attack?
+
+Fast Gradient Sign Method (FGSM)
+o
+𝑥𝑎𝑑𝑣= 𝑥−𝜖𝑠𝑖𝑔𝑛(∇𝑥𝑙(𝑓𝑥; 𝜃, 𝑦#))
+o
+𝑠𝑖𝑔𝑛𝑡= ቐ
+1 
+𝑖𝑓 𝑡> 0 
+−1 
+𝑖𝑓 𝑡< 0
+0 
+𝑜𝑡ℎ𝑒𝑟𝑤𝑖𝑠𝑒
+o
+One-step update
+𝒙
+𝐵𝜖𝑥= 𝑥′: 𝑥′ −𝑥
+≤𝜖
+𝒙 has true label 𝒚∈{𝟏, 𝟐, … , 𝑴}
+𝒙𝑎𝑑𝑣
+Loss surface 𝒍(𝒇𝒙′; 𝜽, 𝒚≠)
+𝒚≠ is different from y
+𝒙𝒂𝒅𝒗= 𝒂𝒓𝒈𝒎𝒊𝒏𝒙′∈𝑩𝝐𝒙𝒍(𝒇𝒙′; 𝜽, 𝒚≠) 
+
+Projected Gradient Descent (Ascent) 
+(PGD)
+o
+𝑥0 = 𝑥+ 𝑈𝑛𝑖𝑓𝑜𝑟𝑚([−𝜖, 𝜖])
+o
+෤𝑥𝑡+1 = 𝑥𝑡−𝜂𝑠𝑖𝑔𝑛(∇𝑥𝑙(𝑓𝑥𝑡; 𝜃, 𝑦#))
+o
+𝑥𝑡+1 = 𝑃𝑟𝑜𝑗𝐵𝜖𝑥(෤𝑥𝑡+1)
+o
+Run in 𝑘 steps (𝑘= 20), 𝜂> 0 is the 
+learning rate
+o
+𝑥𝑎𝑑𝑣= 𝑥𝑘
+Targeted attacks
+
+--- Page 113 ---
+113
+Adversarial Examples and Perturbations
+
+--- Page 114 ---
+114
+The ideal optimization problem for adversarial training
+o min
+𝜃𝔼𝑥,𝑦~𝑝(𝑥,𝑦)
+max
+𝑥′∈𝐵𝜖(𝑥) 𝑙(𝑓𝑥′; 𝜃, 𝑦)
+o 𝑝(𝑥, 𝑦) is the data distribution that generates the pair of data point 𝑥 and label 𝑦
+o Minimize the loss of over most violated adversarial examples
+PGD adversarial training
+o for epoch in n_epochs
+▪for iter in range(n_iter_per_epoch)
+o
+Sample mini-batch 𝑥1, 𝑦1 , … , (𝑥𝑏, 𝑦𝑏) from the training set
+o
+Find PGD untargeted adversarial examples 𝑥1
+𝑎𝑑𝑣, … , 𝑥𝑏
+𝑎𝑑𝑣 for 𝑥1, … , 𝑥𝑏 w.r.t labels 𝑦1, … , 𝑦𝑏
+o
+𝑏𝑎𝑡𝑐ℎ_𝑙𝑜𝑠𝑠=
+1
+𝑏σ𝑖=1
+𝑏
+𝑙(𝑓𝑥𝑖; 𝜃, 𝑦𝑖) +
+1
+𝑏σ𝑖=1
+𝑏
+𝑙(𝑓𝑥𝑖
+𝑎𝑑𝑣; 𝜃, 𝑦𝑖)
+o
+𝜃= 𝜃−𝜂
+𝜕𝑏𝑎𝑡𝑐ℎ_𝑙𝑜𝑠𝑠
+𝜕𝜃
+Adversarial training
+Loss surface 𝒍(𝒇𝒙′; 𝜽, 𝒚)
+We wish a smooth (or 
+flat) loss surface around 𝒙
+𝒙
+
+--- Page 115 ---
+Recurrent Neural Networks
+
+--- Page 116 ---
+116
+Recurrent Neural Networks
+Input: 𝑥0 ∈ℝ1×𝑖𝑛𝑝𝑢𝑡_𝑠𝑖𝑧𝑒 , 𝑥1 ∈ℝ1×𝑖𝑛𝑝𝑢𝑡_𝑠𝑖𝑧𝑒
+ℎ0 = tanh 𝑥0𝑈+ 𝑏∈ℝ1×ℎ𝑖𝑑𝑑𝑒𝑛_𝑠𝑖𝑧𝑒
+o 𝑈∈ℝ𝑖𝑛𝑝𝑢𝑡_𝑠𝑖𝑧𝑒×ℎ𝑖𝑑𝑑𝑒𝑛_𝑠𝑖𝑧𝑒 
+ℎ1 = some function of ℎ0 and 𝑥1
+               = tanh ℎ0𝑊+ 𝑥1𝑈+ 𝑏∈ℝ1×ℎ𝑖𝑑𝑑𝑒𝑛_𝑠𝑖𝑧𝑒
+o 𝑊∈ℝℎ𝑖𝑑𝑑𝑒𝑛_𝑠𝑖𝑧𝑒×ℎ𝑖𝑑𝑑𝑒𝑛_𝑠𝑖𝑧𝑒
+𝑥0
+ℎ0
+𝑥1
+ℎ1
+Simplest RNN with two time-slices (no output)
+𝑈
+𝑈
+𝑊
+values known 
+from data
+hidden nodes, values to be 
+inferred from our models
+
+--- Page 117 ---
+117
+Recurrent Neural Networks
+𝑋0
+ℎ0
+𝑋1
+ℎ1
+𝑈
+𝑈
+𝑊
+
+Input: 𝑋0, 𝑋1 ∈ℝ𝑏𝑠×𝑖𝑛𝑝𝑢𝑡_𝑠𝑖𝑧𝑒 
+
+ℎ0 = tanh 𝑋0𝑈+ 𝑏∈
+ℝ𝑏𝑠×ℎ𝑖𝑑𝑑𝑒𝑛_𝑠𝑖𝑧𝑒
+o
+𝑈∈ℝ𝑖𝑛𝑝𝑢𝑡_𝑠𝑖𝑧𝑒×ℎ𝑖𝑑𝑑𝑒𝑛_𝑠𝑖𝑧𝑒 
+
+ℎ1 = tanh ℎ0𝑊+ 𝑋1𝑈+ 𝑏∈
+ℝ1×ℎ𝑖𝑑𝑑𝑒𝑛_𝑠𝑖𝑧𝑒
+batch_size = 4
+input_size = 3
+seq_len = 2
+input_size = 3
+[batch_size, seq_len, input_size]
+batch_size = 4
+hidden_size = 5
+[batch_size, seq_len, hidden_size]
+[seq_len, batch_size, input_size]
+torch.transpose(X, 0, 1)
+
+--- Page 118 ---
+118
+Recurrent Neural Networks
+with no output
+Idea: sharing parameters for each data of the time index
+ Given a data sequence 𝑥1, 𝑥2, … , 𝑥𝑇
+RNN models a dynamic system driven by an external signal 𝑥𝑡
+ℎ𝑡= 𝑓ℎ𝑡−1 , 𝑥𝑡= 𝑓𝑓ℎ𝑡−2, 𝑥𝑡−1 , 𝑥𝑡= ⋯= summary 𝑥1:𝑡, ℎ0 
+ℎ𝑡 can be considered as a kind of lossy summary of the history 𝑥1:𝑡 
+An unrolled RNN (no output)
+𝑥𝑡−1
+ℎ𝑡−1 
+𝑥𝑡
+ℎ𝑡
+𝑥𝑡+1
+ℎ𝑡+1
+unrolling
+𝑥𝑡
+ℎ𝑡
+𝑈
+𝑊
+𝑊
+𝑊
+𝑊
+𝑈
+𝑈
+𝑈
+
+--- Page 119 ---
+119
+Recurrent Neural Networks
+Parameterization - 2 time slices
+Input: 𝑥0, 𝑥1 ∈ℝ1×𝑖𝑛𝑝𝑢𝑡_𝑠𝑖𝑧𝑒 , 𝑦0, 𝑦1 ∈𝑌
+ℎ0 = tanh(𝑥0𝑈+ 𝑏)
+
+ො𝑦0 = ቊ
+ℎ0𝑉+ 𝑐 (regression)
+softmax (ℎ0𝑉+ 𝑐) (classification)
+o Suffer loss 𝑙(ො𝑦0, 𝑦0)
+ℎ1 = some function of ℎ0 and 𝑥1
+ 
+= tanh(ℎ0𝑊+ 𝑥1𝑈+ 𝑏) 
+
+ො𝑦1 = ቊ
+ℎ1𝑉+ 𝑐 (regression)
+softmax (ℎ1𝑉+ 𝑐) (classification)
+o Suffer loss 𝑙(ො𝑦1, 𝑦1)
+𝑇𝑜𝑡𝑎𝑙_𝑙𝑜𝑠𝑠= 𝑙ො𝑦0, 𝑦0 + 𝑙(ො𝑦1, 𝑦1)
+𝑥0
+ℎ0
+𝑥1
+ℎ1
+Simplest RNN with two time-slices (with output)
+𝑈
+𝑈
+𝑊
+ො𝑦0
+ො𝑦1
+𝑉
+𝑉
+
+--- Page 120 ---
+120
+Recurrent Neural Networks
+Parametrization over multiple time slices
+Simplest RNN with multiple time-slices (with output)
+𝑥𝑡
+ℎ𝑡
+ො𝑦𝑡
+𝑈
+𝑊
+𝑉
+𝑥𝑡−1
+ℎ𝑡−1
+ො𝑦𝑡−1
+𝑥𝑡
+ℎ𝑡
+ො𝑦𝑡
+𝑥𝑡+1
+ℎ𝑡+1
+ො𝑦𝑡+1
+𝑈
+𝑈
+𝑈
+𝑊
+𝑊
+𝑉
+𝑉
+𝑉
+ℎ0
+ℎ1
+ො𝑦1
+𝑉
+𝑥1
+ො𝑦0
+𝑉
+𝑈
+𝑥0
+𝑈
+
+Input:𝑥0, 𝑥1, . . , 𝑥𝑡, … ∈ℝ1×𝑖𝑛𝑝𝑢𝑡_𝑠𝑖𝑧𝑒 , 𝑦0, 𝑦1, … ∈𝑌
+
+ℎ0 = tanh(𝑥0𝑈+ 𝑏)
+
+ො𝑦0 = ቊ
+ℎ0𝑉+ 𝑐 (regression)
+softmax (ℎ0𝑉+ 𝑐) (classification)
+o Suffer loss 𝑙(ො𝑦0, 𝑦0)
+
+for t=1,2,..., T 
+ℎ𝑡= some function of ℎ𝑡−1 and 𝑥𝑡
+ 
+= tanh(ℎ𝑡−1𝑊+ 𝑥𝑡𝑈+ 𝑏) 
+ො𝑦𝑡= ቊ
+ℎ𝑡𝑉+ 𝑐 (regression)
+softmax (ℎ𝑡𝑉+ 𝑐) (classification)
+o
+Suffer loss 𝑙(ො𝑦𝑡, 𝑦𝑡)
+
+𝑻𝒐𝒕𝒂𝒍_𝒍𝒐𝒔𝒔= σ𝑡=0
+𝑇
+𝑙(ො𝑦𝑡, 𝑦𝑡)
+𝑊

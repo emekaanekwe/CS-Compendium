@@ -1,0 +1,22 @@
+109
+Decision regions of deep learning model
+Deep learning models are fragile and easy to be attacked
+o Start from 𝑥= 𝑥+ 0𝑔+ 0𝑔⊥ (coordinate (𝟎, 𝟎)), if we go along with the gradient 
+direction 𝑔= ∇𝑥𝑙(𝑓(𝑥; 𝜃), 𝑦), we can reach 𝑥𝑎𝑑𝑣= 𝑥+ 𝛼𝑔+ 0𝑔⊥ such that
+▪𝑥𝑎𝑑𝑣 is very close to 𝑥 → human cannot tell how they are different→ the same class from 
+human perceptron
+▪𝑥𝑎𝑑𝑣 is predicted to different class from 𝑥 by the classifier
+▪𝑥𝑎𝑑𝑣 is called adversarial example of 𝑥
+𝑔= ∇𝑥𝑙(𝑓(𝑥; 𝜃), 𝑦)
+𝑔⊥
+𝑔𝑇𝑔⊥= 0
+Each colour 
+represents a class 
+Delving into Transferable Adversarial Examples and Black-box Attacks
+Yanpei L., et al., ICLR 2016 
+𝒙(0,0)
+𝒙(0,0)
+𝒙(0,0)
+𝒙(0,0)
+𝒙(0,0)
+𝒙(0,0)

@@ -1,0 +1,17 @@
+A different point of view
+ViTs are both local and global!
+The ViT learns also local information 
+with more data
+0.7
+0.0
+1
+Higher layers heads still focus on farther 
+patches
+0.01
+0.4
+0.3
+Lower layers heads focus on both farther 
+and closer patches
+0.6
+0.0
+6

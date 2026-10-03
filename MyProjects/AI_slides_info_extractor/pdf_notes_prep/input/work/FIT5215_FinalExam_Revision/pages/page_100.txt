@@ -1,0 +1,28 @@
+100
+Label smoothing
+Given data instance (𝒙, 𝒚) with the label 𝒚∈{𝟏, … , 𝑴}, we compute the CE loss between the 
+prediction probabilities 𝒑(𝒙) and the smooth label
+o
+𝑙𝑦, ො𝑦= 𝐶𝐸(෩𝟏𝑦, 𝒑(𝒙)) with ෩𝟏𝑦= 1 −𝛼× 𝟏𝑦+
+𝛼
+𝑀× 𝟏 where 𝟏 is a vector of all 1 and 0 < 𝛼< 1.
+Paper link: https://papers.nips.cc/paper/2019/file/f1748d6b0fd9d439f71450117eba2725-Paper.pdf
+𝑊2, 𝑏2
+𝑥
+…
+𝑦∈{1, … , 𝑀}
+𝒉𝑳(𝒙)
+𝑝𝑥= 𝑠𝑜𝑓𝑡𝑚𝑎𝑥(ℎ𝐿𝑥)
+logits
+𝑙𝑦, ො𝑦= 𝐶𝐸(𝟏𝑦, 𝒑(𝒙))
+ො𝑦= 𝑎𝑟𝑔𝑚𝑎𝑥1≤𝑚≤𝑀𝑝𝑚(𝑥)
+No label smoothing
+Label smoothing
+𝑙𝑦, ො𝑦= 𝐶𝐸(෩𝟏𝑦, 𝒑(𝒙))
+෩𝟏𝑦= 𝛼
+𝑀, … , 1 −𝛼+ 𝛼
+𝑀, … , 𝛼
+𝑀
+𝟏𝑦= [0, . . , 1, … , 0]
+𝒚-th position
+𝒚-th position

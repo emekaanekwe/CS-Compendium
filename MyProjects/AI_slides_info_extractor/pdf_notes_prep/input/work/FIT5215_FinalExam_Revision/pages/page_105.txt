@@ -1,0 +1,46 @@
+105
+Distance between two images
+
+𝑥𝑖𝑗𝑘 (1 ≤𝑖≤𝐶 , 1 ≤𝑗≤𝐻, 1 ≤𝑘≤𝑊) is the pixel with coordinate (ℎ𝑒𝑖𝑔ℎ𝑡= 𝑗, 𝑤𝑖𝑑𝑡ℎ= 𝑘) on 
+the channel (or slice) 𝑖 of image 𝑥.
+o
+0 ≤𝑥𝑖𝑗𝑘≤255 (original colour image) or 0 ≤𝑥𝑖𝑗𝑘≤1 (grey-scale image)
+
+L2 distance
+o
+𝑥−𝑥′ 2 =
+σ𝑖=1
+𝐶
+σ𝑗=1
+𝐻
+σ𝑘=1
+𝑊
+𝑥𝑖𝑗𝑘−𝑥𝑖𝑗𝑘
+′
+2
+
+L1 distance
+o
+𝑥−𝑥′ 1 = σ𝑖=1
+𝐶
+σ𝑗=1
+𝐻
+σ𝑘=1
+𝑊
+|𝑥𝑖𝑗𝑘−𝑥𝑖𝑗𝑘
+′ |
+
+L∞ distance
+o
+𝑥−𝑥′ ∞=
+max
+1≤𝑖≤𝐶,1≤𝑗≤𝐻,1≤𝑘≤𝑊|𝑥𝑖𝑗𝑘−𝑥𝑖𝑗𝑘
+′ |
+H
+H
+W
+W
+C
+C
+Image 𝒙
+Image 𝒙′

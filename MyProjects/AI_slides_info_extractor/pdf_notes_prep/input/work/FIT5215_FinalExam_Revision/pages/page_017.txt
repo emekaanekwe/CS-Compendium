@@ -1,0 +1,85 @@
+17
+Training FFNs using Mini-batches
+Training set
+𝒙𝟏
+𝒚𝟏= 𝒄𝒂𝒕
+…
+A mini-batch
+𝒙𝟐
+𝒚𝟐= 𝒅𝒐𝒈
+𝒙𝟑𝟐
+𝒚𝟔𝟒= 𝒍𝒊𝒐𝒏
+…
+𝒙∗
+𝒚∗= 𝒔𝒑𝒊𝒅𝒆𝒓
+…
+Another mini-batch
+𝒙∗+𝟑𝟏
+𝒚∗+𝟔𝟑= 𝒄𝒐𝒘
+… … 𝒙𝟔𝟎𝟎𝟎𝟎
+𝒚𝟔𝟎𝟎𝟎𝟎= 𝒄𝒂𝒕
+Our FFN
+One vector: [1, 5]
+ → Batch: [32, 5]  
+Model parameters 𝜃= 𝑊𝑙, 𝑏𝑙
+𝑙=1
+𝐿
+ 
+𝑏𝑎𝑡𝑐ℎ_𝑙𝑜𝑠𝑠(𝜃) = 1
+32 ෍
+𝑖=1
+32
+𝐶𝐸(1𝑦𝑖, 𝑝𝑥𝑖, 𝜃)
+Optimizer
+-
+Adam, 
+-
+RMSProp, 
+-
+SGD
+min
+𝜃𝑏𝑎𝑡𝑐ℎ_𝑙𝑜𝑠𝑠(𝜃) 
+Testing set
+Test accuracy
+…….
+1 epoch
+…
+…
+…
+…
+…
+…
+…
+…
+…
+………
+32
+5
+…
+…
+…
+…
+…
+…
+𝒙′𝟏
+𝒙′𝟐
+𝒙′𝟏𝟎𝟎𝟎
+Input 
+Layer
+Hidden 
+Layer 1
+Hidden 
+Layer 2
+Output 
+Layer
+ℎ0 𝑥= 𝑥
+ℎ1 𝑥
+ℎ2 𝑥
+ℎ3 𝑥
+𝑝𝑥= 𝑠𝑜𝑓𝑡𝑚𝑎𝑥(ℎ3(𝑥))
+𝑊1 ∈ℝ3×4
+𝑏1 ∈ℝ4×1
+𝑊2 ∈ℝ4×3
+𝑏2 ∈ℝ3×1
+𝑊3 ∈ℝ3×2
+𝑏3 ∈ℝ2×1

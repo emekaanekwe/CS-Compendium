@@ -1,0 +1,36 @@
+187
+Target tokens “from 
+the point of view” of 
+the source 
+sequence
+Queries
+Target
+Sequence
+Source
+Sequence
+FFN
+FFN
+FFN
+FFN
+Keys & Values
+FFN
+FFN
+∙
+∙
+∙
+∙
+Norm & 
+Softmax
+Dot 
+product
+Il
+gatto
+salta
+The
+cat
+jumps
+the
+…
+…
+FFN
+Transformer's Attention Mechanism

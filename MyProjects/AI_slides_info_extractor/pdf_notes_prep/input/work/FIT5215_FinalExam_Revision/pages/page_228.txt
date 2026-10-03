@@ -1,0 +1,22 @@
+228
+How to evaluate GAN: Inception score
+Except for trivial cases, we don’t know the true data distribution 𝑝𝑑 so how can we 
+say how good the generated distribution 𝑝𝑔 is?
+How to know that a generative model can generate diverge examples that cover 
+many modes in data?
+How to compare two generative models trained on the same training set?
+𝒵
+𝒛~𝑝(𝒛)
+𝐺1(𝒛)
+y=1
+y=2
+y=3
+y=4
+𝒵
+𝒛~𝑝(𝒛)
+𝐺2(𝒛)
+y=1
+y=2
+y=3
+y=4
+Two generators 𝑮𝟏 and 𝑮𝟐, which one is better?

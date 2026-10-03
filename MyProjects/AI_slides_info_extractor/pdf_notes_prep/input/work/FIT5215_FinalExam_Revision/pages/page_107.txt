@@ -1,0 +1,17 @@
+107
+Adversarial examples
+Small perturbation
+not  difference
+difference
+𝒙
+𝒙𝒂𝒅𝒗= 𝒙+ 𝒏𝒐𝒊𝒔𝒆
+Misleading autonomous car driving system
+Adversarial example 𝒙𝒂𝒅𝒗 of a clean data example 𝒙 w.r.t a model  
+𝑓(. ; 𝜃)
+o 𝑑(𝑥𝑎𝑑𝑣, 𝑥) = ‖𝑥𝑎𝑑𝑣−𝑥‖ ≤𝜖 where . is a norm (e.g., .
+1, .
+2, .
+∞)
+o 𝑓 predicts 𝑥 and 𝑥𝑎𝑑𝑣 with different labels, i.e., 𝑎𝑟𝑔𝑚𝑎𝑥𝑖𝑓𝑖𝑥; 𝜃≠𝑎𝑟𝑔𝑚𝑎𝑥𝑖𝑓𝑖𝑥𝑎𝑑𝑣; 𝜃
+(Source: OpenAI)
+(Source: Internet)

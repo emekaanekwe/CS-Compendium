@@ -1,0 +1,28 @@
+185
+Transformer- Pointwise 
+Feed-forward NN
+𝑾𝟎
+LayerNorm(
+)
+ҧ𝑍= 𝑅𝑒𝐿𝑈𝑊1𝑍+ 𝑏1 𝑊2 + 𝑏2
+Pointwise Feed-forward NN
+ҧ𝑍
+LayerNorm(
+ҧ𝑍
+)
+Next Encoder
+Multi-head Self-attention
+𝑥1
+𝑥2
+𝑥3
+𝑥𝑇
+…
+FFN
+FFN
+FFN
+FFN
+…
+𝑧1
+𝑧2
+𝑧3
+𝑧𝑇

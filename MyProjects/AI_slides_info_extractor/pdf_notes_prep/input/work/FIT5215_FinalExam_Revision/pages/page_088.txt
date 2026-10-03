@@ -1,0 +1,35 @@
+88
+Add Regularization
+Reduce Overfitting
+Optimization problem
+min𝜽 𝐽θ = 𝛺θ + 1
+𝑁෍
+𝒊=𝟏
+𝑵
+𝑙𝑦𝑖, 𝑓xi; θ
+L2 regularization
+Ω θ = 𝜆෍
+𝑘
+෍
+𝑖,𝑗
+𝑊𝑖,𝑗
+𝐤
+2 = 𝜆෍
+𝑘
+𝑾𝐤
+𝐹
+2
+o 𝜆> 0 is regularization parameter
+o Gradient: 𝛻𝑾𝑘Ω 𝜽= 2𝑾𝑘
+o Apply on weights (𝑾) only, not on biases (𝒃)
+L1 regularization
+Ω 𝜽= 𝜆෍
+𝑘
+෍
+𝑖,𝑗
+|𝑊𝑖,𝑗
+𝐤|
+o 𝜆> 0 is regularization parameter
+o Optimization is now much harder – subgradient.
+o Apply on weights (𝑾) only, not on biases (𝒃)
+𝜆 increases

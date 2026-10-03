@@ -1,0 +1,16 @@
+110
+Loss surface of deep learning model
+At the data point 𝒙, if we move along with the gradient direction 
+𝑔, the loss function is maximally locally increased.
+Taylor expansion around 𝑥
+o 𝑙𝑓(𝑥+ ℎ; 𝜃), 𝑦≈𝑙𝑓(𝑥; 𝜃), 𝑦+ 𝑔𝑇ℎ where 𝑔= ∇𝑥𝑙(𝑓(𝑥; 𝜃), 𝑦).
+o The gradient direction is the steepest direction to increase the loss function locally.
+Zoom out
+Zoom in
+The loss surface of DL model around 𝒙. This is plotted on 𝒙′ = 𝒙+ 𝝐𝟏𝒈+ 𝝐𝟐𝒈⊥.
+Ensemble Adversarial Training Attacks and Defences
+Tramer et al., ICLR 2017
+𝒈
+𝒈
+𝒈⊥
+𝒈⊥

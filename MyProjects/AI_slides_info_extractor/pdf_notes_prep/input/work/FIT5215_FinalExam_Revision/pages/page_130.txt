@@ -1,0 +1,15 @@
+130
+Gated Recurrent Unit
+[Cho et. al, 2014]
+❑Proposed by Cho et al. 2014 
+❑Was introduced for Encoder-Decoder network
+❑Can be viewed as a simplified version of the LSTM:
+❑Both long-term 𝑐𝑡 and short-term ℎ𝑡 are merged to a single state ℎ𝑡
+❑Single update gate controller 𝑧𝑡 is used to control both forget and input gates
+❑= 1: open input gate, close forget gate
+❑= 0: close input gate, open forget gate
+❑i.e., whenever a memory must be stored, the location to be stored will be erased first!
+❑ Output gate is removed, but an additional reset gate 𝑟𝑡 controls how much previous state should be carried 
+forward
+Cho et al., Learning Phrase Representation using RNN Encoder-Decoder for 
+Statistical Machine Translation, Proceedings of EMNLP, 2014.

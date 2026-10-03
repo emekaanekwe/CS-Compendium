@@ -1,0 +1,10 @@
+68
+ResNet
+Residual Block
+Learn 𝑓𝑥= 𝑔𝑥+ 𝑥 where 𝑔𝑥= 𝑓𝑥−𝑥
+o The model expressiveness is the same as previous
+o The gradient ∇𝑓𝑥= ∇𝑔𝑥+ 𝟏 looks better where 𝟏 is the vector of all 1 with the 
+same shape as 𝑥
+Without skip connection
+With skip connection
+(Source:Dive into DL)

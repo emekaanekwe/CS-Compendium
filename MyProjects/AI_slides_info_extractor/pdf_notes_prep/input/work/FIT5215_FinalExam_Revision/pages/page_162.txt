@@ -1,0 +1,21 @@
+162
+Drawback of fixed context
+Fixed context vector 𝒄 is easily 
+overwhelmed by long inputs or long 
+outputs.
+At a specific timestep 𝑗, some words or 
+items in the input sequence might 
+possibly contribute more to the 
+generation of next item or word in the 
+output sequence.
+o I want to see  you every day → Je veux te voir 
+chaque jour 
+o I want to see  you every day → Je veux te ?
+(voir) ….
+How to timely adapt the context vector
+𝑐𝑗?
+o 𝑐𝑗= 𝛼(ℎ1, . . , ℎ𝑇𝑥 , 𝑞𝑗−1)
+o Computed using attention mechanism
+Timely varied context vectors 𝒄𝒋
+Fixed context vector 𝒄
+Paper: paper link

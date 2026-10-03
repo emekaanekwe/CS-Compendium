@@ -1,0 +1,49 @@
+219
+Optimal discriminator solution
+Recall the GAN objective:
+𝐽𝐺, 𝐷=
+𝔼
+𝒙~𝑝𝑑𝑎𝑡𝑎(𝒙) log 𝐷𝒙
++ 𝔼
+𝒛~𝑝𝒛log(1 −𝐷(𝐺𝒛) 
+Let 𝑝𝑔 be the distribution over 𝐺(𝑧) when 𝑧~𝑝𝑧 and let 𝑝𝑑 
+denotes 𝑝𝑑𝑎𝑡𝑎:
+𝐽𝐺, 𝐷=
+𝔼
+𝒙~𝑝𝑑log𝐷𝒙
++
+𝔼
+𝒙~𝒑𝒈log(1 −𝐷(𝑥) 
+= න
+𝑥
+𝑝𝑑𝑥log𝐷𝑥𝑑𝑥+ න
+𝑥
+𝑝𝑔𝑥log 1 −𝐷𝑥
+𝑑𝑥
+We need to maximize D, let’s do this pointwise 
+at each position of 𝑥:
+max
+𝐷{ 𝑝𝑑𝑥log 𝐷𝑥+ 𝑝𝑔𝑥log 1 −𝐷𝑥
+}
+o 𝛻𝐷=
+𝑝𝑑𝒙
+𝐷
+−
+𝑝𝑔𝒙
+1−𝐷= 0
+o Optimal discriminator: 𝐷∗(𝒙) =
+𝑝𝑑(𝒙)
+𝑝𝑑𝒙+𝑝𝑔(𝒙)
+o When G generates perfect samples, 𝑝𝑔= 𝑝𝑑 at which 𝐷𝑥=
+0.5 ∀𝑥
+𝑟𝑒𝑎𝑙
+𝒛 ~ 𝑝𝒛
+𝐺
+𝒙𝑓𝑎𝑘𝑒
+𝑑𝑎𝑡𝑎
+𝒙𝑟𝑒𝑎𝑙
+𝐷
+𝑓𝑎𝑘𝑒
+When training is perfect, discriminator D 
+can NO longer tell the fake (money) from 
+the real (money), i.e., 0.5 probability

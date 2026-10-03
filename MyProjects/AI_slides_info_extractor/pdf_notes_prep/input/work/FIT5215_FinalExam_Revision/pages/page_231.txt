@@ -1,0 +1,15 @@
+231
+GAN: Summary
+Adversarial training: a game of two players [Goodfellows et al., 
+2014]
+o Generator 𝐺: generate fake samples indistinguishable from real samples
+o Discriminator 𝐷: discriminate real and fake samples
+Min-max problem
+min
+𝐺max
+D 𝐽𝐺, 𝐷= 𝔼𝒙 ~ 𝑝𝑑𝒙log 𝐷𝒙
++ 𝔼𝒛 ~ 𝑝𝒛
+log(1 −𝐷(𝐺𝒛) 
+Issues and challenges
+o Mode collapse, min-max problem
+Yann Lecun

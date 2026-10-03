@@ -1,0 +1,10 @@
+Transformers in Computer Vision
+224px
+224px
+2244 
+calculations
+Impossible!
+2242  
+pixels
+The transformer works with a set of tokens
+What are tokens/visual words in images?

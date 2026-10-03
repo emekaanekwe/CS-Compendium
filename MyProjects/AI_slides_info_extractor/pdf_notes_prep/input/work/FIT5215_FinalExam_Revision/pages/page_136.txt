@@ -1,0 +1,94 @@
+136
+Sentiment analysis
+The word/item embedding
+o 𝑒1 = 18𝐸∈ℝ1×6
+o 𝑒2 = 17𝐸∈ℝ1×6
+o 𝑒3 = 18𝐸∈ℝ1×6
+o 𝑒4 = 14𝐸∈ℝ1×6
+o 𝑒5 = 17𝐸∈ℝ1×6
+The sequence embedding
+o 𝑒=
+𝑒1
+𝑒2
+𝑒3
+𝑒4
+𝑒5
+∈ℝ5×6 = ℝ𝑠𝑒𝑞_𝑙𝑒𝑛 ×𝑒𝑚𝑏𝑒𝑑_𝑠𝑖𝑧𝑒 
+The sequence batch embedding 
+o The embedding for one sequence:  
+ℝ𝑠𝑒𝑞_𝑙𝑒𝑛 ×𝑒𝑚𝑏𝑒𝑑_𝑠𝑖𝑧𝑒 .
+o The embedding for entire batch with  
+𝑏𝑎𝑡𝑐ℎ_𝑠𝑖𝑧𝑒 sequences: 
+ℝ𝑏𝑎𝑡𝑐ℎ_𝑠𝑖𝑧𝑒×𝑠𝑒𝑞_𝑙𝑒𝑛 ×𝑒𝑚𝑏𝑒𝑑_𝑠𝑖𝑧𝑒 
+[0,0,0,0,0,0,0,1] [0,0,0,0,0,0,1,0]
+[0,0,0,0,0,0,1,0]
+[0,0,0,0,0,0,0,1] [0,0,0,1,0,0,0,0]
+𝟖
+This
+𝟕
+movie
+𝟖
+ is
+𝟒
+fantastic
+𝟕
+<pad>
+× 𝐸
+× 𝐸
+× 𝐸
+× 𝐸
+× 𝐸
+ℎ1
+ℎ2
+ℎ3
+ℎ4
+ℎ5
+Output layer (sigmoid)
+≥0.5(pos) and < 0.5(neg)
+embedding size =6
+𝑊
+𝑊
+𝑊
+𝑊
+Embedding layer
+𝑒1
+𝑒2
+𝑒3
+𝑒4
+𝑒5
+ℎ1
+ℎ2
+ℎ3
+ℎ4
+ℎ5
+Output layer (sigmoid)
+≥0.5(pos) and < 0.5(neg)
+embedding size =6
+𝑊
+𝑊
+𝑊
+𝑊
+Embedding layer
+𝑒1
+𝑒2
+𝑒3
+𝑒4
+𝑒5
+8
+3
+7
+2
+8
+3
+4
+5
+7
+4
+× 𝐸
+× 𝐸
+× 𝐸
+× 𝐸
+× 𝐸
+[𝑏𝑎𝑡𝑐ℎ_𝑠𝑖𝑧𝑒, 𝑠𝑒𝑞_𝑙𝑒𝑛]
+Input:
+batch_size=2

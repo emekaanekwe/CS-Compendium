@@ -1,0 +1,18 @@
+209
+General formulation for a Deep Generative 
+Models (DGM)
+Given a training set 𝐷=
+𝒙1, 𝒙2, … , 𝒙𝑁 where each 𝒙𝑖~𝑝𝑑𝒙.
+o 𝑝𝑑𝒙 exists but unknown.
+Learn a generator 𝑮 mapping from 
+the ‘noise’/latent space 𝒵 to data 
+space
+o 𝒛~𝑝(𝒛) →෥𝒙= 𝐺(𝒛)~𝑝𝑑𝒙
+o ෥𝒙= 𝐺(𝒛) looks ‘similar’ to those in 𝐷.
+Use 𝑮 to generate novel and new 
+data samples.
+𝒵
+𝒛~𝑝(𝒛)
+𝐺(𝒛)
+𝐷= 𝒙1, 𝒙2, … , 𝒙𝑁
+Deep NNs

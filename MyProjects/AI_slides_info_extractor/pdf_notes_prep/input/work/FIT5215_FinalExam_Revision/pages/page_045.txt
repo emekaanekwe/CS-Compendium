@@ -1,0 +1,8 @@
+45
+General architecture of  CNNs
+1.
+Convolutional layer
+2.
+Pooling layer
+3.
+Fully connected layer

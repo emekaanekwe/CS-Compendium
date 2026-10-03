@@ -1,0 +1,4 @@
+86
+[DL, ch11]
+We can also experiment with model 
+capacity itself in parallel.

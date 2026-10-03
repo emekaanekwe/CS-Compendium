@@ -1,0 +1,36 @@
+158
+Inference
+Given a trained model and input sequence 𝒙
+o We need to infer the corresponding output sequence 𝒚
+Two common strategies
+o Greedy Decoding and Beam Search Decoding 
+𝒒𝟎
+<BOS>
+𝑞1
+𝑦1
+𝑦2 =?
+𝑦1
+We know 𝑃(𝑦2 = ∘∣𝑐)
+ℎ1
+𝑥1
+𝒄= 𝒉𝑻𝒙
+𝑥𝑇𝑥
+𝒒𝟎
+<BOS>
+𝑦1 =?
+We know 𝑃(𝑦1 = ∘∣𝑐)
+𝒄= 𝒉𝑻𝒙
+𝒄= 𝒉𝑻𝒙
+𝑞𝑇𝑦
+𝑦𝑇𝑦
+𝒒𝟎
+<BOS>
+<EOS>
+𝑞1
+𝑦1
+𝑦2
+𝑦1
+𝑞𝑗−1
+𝑦𝑗−1
+𝑦𝑗 
+𝒄= 𝒉𝑻𝒙

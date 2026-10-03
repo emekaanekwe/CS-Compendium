@@ -1,0 +1,9 @@
+168
+Local attention
+Main idea
+o Selectively focuses on a small window of 
+context and is differentiable. 
+ 𝑐𝑡 is then derived as a weighted average over 
+the set of source hidden states within the 
+window 𝒑𝒕−𝑫; 𝒑𝒕+ 𝑫, 𝐷 is empirically 
+selected.

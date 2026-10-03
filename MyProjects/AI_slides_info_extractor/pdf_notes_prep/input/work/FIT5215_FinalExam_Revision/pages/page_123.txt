@@ -1,0 +1,25 @@
+123
+RNNs Architecture Zoo
+𝒙
+𝒉
+𝒚
+𝒉
+𝒉
+𝒚
+𝒚
+one to many
+(image captioning)
+RNN’s architecture is very flexible for many real-world tasks
+(sentiment analysis, image classification)
+𝒙
+𝒉
+𝒚
+𝒉
+𝒉
+𝒙
+𝒙
+many to one
+Sentiment analysis 
+[https://www.twilio.com]
+Image captioning 
+[https://www.pcworld.com]

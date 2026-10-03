@@ -1,0 +1,9 @@
+178
+Transformer – Self Attention
+Self attention among a sequence of items/tokens
+o Keys and queries for computing self attention weights
+o 𝑊𝑄, 𝑊𝐾, 𝑊𝑉 are learnable matrices.
+Multiplying 𝒙𝟏, 𝒙𝟐 with 𝑾𝑸, 𝑾𝑲, 𝑾𝑽 to gain 
+queries, keys, and values.
+𝑧1 = 0.88 × 𝑣1 + 0.12 × 𝑣2
+[Source: https://jalammar.github.io/illustrated-transformer/]

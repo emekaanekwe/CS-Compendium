@@ -1,0 +1,12 @@
+87
+Early stopping
+At first, the train and valid losses gradually drop, but the model is not good enough to 
+characterise data
+o Underfitting is happening
+At a certain point, the train loss still decreases, while the valid loss starts increasing
+o Overfitting starts happening and we need to do early stopping  at this point
+Underfitting
+Overfitting
+Early stopping point
+Generalization 
+gap

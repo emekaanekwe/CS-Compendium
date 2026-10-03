@@ -1,0 +1,32 @@
+188
+Key
+Value
+“A4”
+“N9”
+“O7”
+“A4”
+“N2”
+Transformer's Attention Mechanism
+Query
+“N5”
+Weighted 
+average
+“gatto” token, built by 
+aggregating value vectors 
+in the source dictionary 
+Lookup Table
+Target
+Sequence
+Source
+Sequence
+Il
+gatto
+salta
+The
+cat
+jumps
+the
+…
+wall
+Soft-matching
+From a different perspective

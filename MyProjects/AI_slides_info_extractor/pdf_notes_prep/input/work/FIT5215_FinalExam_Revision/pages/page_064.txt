@@ -1,0 +1,10 @@
+64
+Global pooling layer
+Like pooling layer, but the kernel 
+size is set to input size
+o Each feature map becomes a single neuron
+o Global average pooling (GAP)
+o Global max pooling (GMP)
+o 4D input tensor [batch_size, in_channel, 
+in_height, in_width]→ 2D output tensor 
+[batch_size, in_channel]

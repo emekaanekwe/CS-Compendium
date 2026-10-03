@@ -1,0 +1,1027 @@
+--- Page 121 ---
+121
+Shape Transformation in RNNs
+𝑥𝑡−1
+ℎ𝑡−1
+ො𝑦𝑡−1
+𝑥𝑡
+ℎ𝑡
+ො𝑦𝑡
+𝑥𝐿
+ℎ𝐿
+ො𝑦𝐿
+𝑈
+𝑈
+𝑈
+𝑊
+𝑊
+𝑉
+𝑉
+𝑉
+ℎ1
+ℎ2
+ො𝑦2
+𝑉
+𝑥2
+ො𝑦1
+𝑉
+𝑈
+𝑥1
+𝑈
+𝑊
+batch_size
+…
+𝑉
+batch_size
+batch_size
+…
+batch_size
+seq_len
+seq_len
+…
+batch_size
+seq_len
+[seq_len, batch_size, input_size]
+[batch_size, seq_len, input_size]
+torch.transpose(X, 0, 1)
+[batch_size, seq_len, hidden_size]
+real input
+real output
+
+--- Page 122 ---
+122
+Deeper RNNs
+𝑥𝑡−1
+ℎ𝑡−1
+1
+𝑥𝑡
+ℎ𝑡
+1
+𝑥𝑡+1
+ℎ𝑡+1
+1
+ℎ𝑡−1
+2
+ℎ𝑡
+2
+ℎ𝑡+1
+2
+ℎ𝑡−1
+3
+ℎ𝑡
+3
+ℎ𝑡+1
+3
+ො𝑦𝑡−1
+ො𝑦𝑡
+ො𝑦𝑡+1
+𝑥𝑡−1
+ℎ𝑡−1
+1
+𝑥𝑡
+ℎ𝑡
+1
+𝑥𝑡+1
+ℎ𝑡+1
+1
+ℎ𝑡−1
+2
+ℎ𝑡
+2
+ℎ𝑡+1
+2
+ℎ𝑡−1
+3
+ℎ𝑡
+3
+ℎ𝑡+1
+3
+
+--- Page 123 ---
+123
+RNNs Architecture Zoo
+𝒙
+𝒉
+𝒚
+𝒉
+𝒉
+𝒚
+𝒚
+one to many
+(image captioning)
+RNN’s architecture is very flexible for many real-world tasks
+(sentiment analysis, image classification)
+𝒙
+𝒉
+𝒚
+𝒉
+𝒉
+𝒙
+𝒙
+many to one
+Sentiment analysis 
+[https://www.twilio.com]
+Image captioning 
+[https://www.pcworld.com]
+
+--- Page 124 ---
+124
+RNNs Architecture Zoo
+𝒙
+𝒉
+𝒚
+𝒉
+𝒉
+𝒙
+𝒙
+many to many (1)
+𝒉
+𝒉
+𝒚
+𝒚
+(machine translation)
+𝒙
+𝒉
+𝒚
+𝒉
+𝒉
+𝒙
+𝒙
+many to many (2)
+𝒚
+𝒚
+(video classification)
+RNNs architecture is very flexible for many real-world tasks
+… more to come in our next lectures
+
+--- Page 125 ---
+125
+Problems of RNN
+
+RNNs don’t capture long-term dependency 
+adequately
+o
+A hidden state is computed based on only one previous 
+state → can only capture short-term dependency
+
+Modelling drawbacks
+o
+Technical problem when training long sequences 
+▪
+vanishing gradient problem
+o
+Many layers of nonlinear transformation prevent the data 
+signals and gradient from flowing easily through the 
+network.
+
+How to address this?
+o
+Using gating mechanism: adding linear component from 
+previous layer!
+▪
+RNN → LSTM/GRU
+𝒙
+𝒉
+𝒚
+𝒉
+𝒉
+𝒙
+𝒙
+the
+𝒙
+𝒉
+𝒙
+𝒉
+𝒙
+𝒉
+clouds
+the
+are
+in
+sky
+𝒚
+𝒉
+𝒙
+Vietnam
+𝒙
+𝒉
+𝒉
+𝒙
+I
+𝒙
+𝒉
+𝒙
+𝒉
+𝒙
+𝒉
+was
+born
+in
+I
+𝒙
+𝒉
+𝒙
+𝒉
+𝒙
+𝒉
+speak fluent
+Vietnamese
+
+--- Page 126 ---
+126
+Memory cells
+Our RNN includes many simple RNN cells
+o Input to a cell: ℎ𝑡−1 (previous hidden state) and 𝑥𝑡 (current input 
+token)
+o Output: ℎ𝑡= tanh(𝑥𝑡𝑈+ ℎ𝑡−1𝑊+ 𝑏)
+o ℎ𝑡 can only capture short-term dependency → short-term memory
+How to capture long-term memory more efficiently?
+o LSTM cell and GRU cell 
+Biological memory cells in human brain 
+(Source: news.feinberg.northwestern.edu)
+Artificial 
+memory cell
+(Source: colah)
+LSTM memory cell
+𝑐𝑡−1
+❖ long-term 
+memory
+ℎ𝑡−1
+❖short-term 
+memory
+𝑐𝑡
+❖ long-term 
+memory
+
+--- Page 127 ---
+127
+Long Short-Term Memory (LSTM)
+Short-term
+Long-term
+𝑥𝑡
+ℎ𝑡
+ො𝑦𝑡
+𝑐𝑡
+ℎ𝑡−1
+ො𝑦𝑡
+𝑐𝑡−1
+\
+\
+𝑐𝑡
+𝑥𝑡
+ℎ𝑡
+ො𝑦𝑡+1
+\
+\
+𝑐𝑡+1
+𝑥𝑡+1
+ℎ𝑡+1
+ො𝑦𝑇
+\
+\
+𝑐𝑇
+𝑥𝑇
+ℎ𝑇
+…
+…
+Time
+
+--- Page 128 ---
+128
+Long Short-Term Memory (LSTM)
+
+Regression
+ 
+      ො𝑦𝑡= 𝒉𝒕𝑽+ 𝒄
+
+Classification
+ො𝑦𝑡= softmax(𝒉𝒕𝑽+ 𝒄)
+
+𝑔𝑡= tanh(ℎ𝑡−1𝑊+ 𝑥𝑡𝑈+ 𝑏 )
+
+Forget gate: 𝑓𝑡= 𝜎𝑥𝑡𝑈𝑓+ ℎ𝑡−1 𝑊𝑓+ 𝑏𝑓
+
+Input gate:  𝑖𝑡= 𝜎(𝑥𝑡𝑈𝑖+ ℎ𝑡−1𝑊𝑖+ 𝑏𝑖)
+
+LSTM long-term state: 𝑐𝑡= 𝑓𝑡⊙𝑐𝑡−1 + 𝑔𝑡⊙𝑖𝑡
+
+Output gate: 𝑜𝑡= 𝜎𝑥𝑡𝑈𝑜+ ℎ𝑡−1𝑊𝑜+ 𝑏𝑜
+
+LSTM short-term state: ℎ𝑡= 𝑜𝑡⊙tanh(𝑐𝑡 )
+
+LSTM output: ෝ𝒚𝒕= 𝒉𝒕𝑽+ 𝒄 or ෝ𝒚𝒕= softmax(𝒉𝒕𝑽+ 𝒄)
+𝑥𝑡−1
+ℎ𝑡−1
+ො𝑦𝑡−1
+𝑥𝑡
+ℎ𝑡
+ො𝑦𝑡
+𝑥𝑡+1
+ℎ𝑡+1
+ො𝑦𝑡+1
+𝑐𝑡−1
+𝑐𝑡
+𝑐𝑡+1
+Short-term 
+memory state
+Long-term 
+memory state
+ℎ𝑡−1
+FC
+sigmoid
+ℎ𝑡
+𝑓𝑡
+Forget gate
+ො𝑦𝑡
+\
+𝑐𝑡−1
+FC
+tanh
+FC
+sigmoid
+𝑔𝑡
+𝑖𝑡
+Input gate
+\
+FC
+sigmoid
+𝑜𝑡
+Output gate
+\
+tanh
+𝑐𝑡
+𝑥𝑡
+
+--- Page 129 ---
+129
+Long Short-Term Memory (LSTM)
+Summary
+
+LSTM belongs to a class of gated RNN models
+
+LSTM introduces self-loops to create paths where the 
+gradient can flow for long durations
+
+Improve over basic RNN cell
+o
+Can capture long-term dependency
+o
+Faster and more robust to train, often with quicker convergence
+
+LSTM cells manage two state vectors, and for 
+performance reasons they are kept separate by 
+default
+▪ℎ𝑡 as the short-term state
+▪𝑐𝑡 as the long-term state
+
+Gates can remove or add information to the cell state: 
+forget, input, output
+ℎ𝑡−1
+FC
+sigmoid
+ℎ𝑡
+𝑓𝑡
+Forget gate
+𝑦𝑡
+\
+𝑐𝑡−1
+FC
+tanh
+FC
+sigmoid
+𝑔𝑡
+𝑖𝑡
+Input gate
+\
+FC
+sigmoid
+𝑜𝑡
+Output gate
+\
+tanh
+𝑐𝑡
+𝑥𝑡
+
+--- Page 130 ---
+130
+Gated Recurrent Unit
+[Cho et. al, 2014]
+❑Proposed by Cho et al. 2014 
+❑Was introduced for Encoder-Decoder network
+❑Can be viewed as a simplified version of the LSTM:
+❑Both long-term 𝑐𝑡 and short-term ℎ𝑡 are merged to a single state ℎ𝑡
+❑Single update gate controller 𝑧𝑡 is used to control both forget and input gates
+❑= 1: open input gate, close forget gate
+❑= 0: close input gate, open forget gate
+❑i.e., whenever a memory must be stored, the location to be stored will be erased first!
+❑ Output gate is removed, but an additional reset gate 𝑟𝑡 controls how much previous state should be carried 
+forward
+Cho et al., Learning Phrase Representation using RNN Encoder-Decoder for 
+Statistical Machine Translation, Proceedings of EMNLP, 2014.
+
+--- Page 131 ---
+131
+FC
+sigmoid
+𝑟𝑡
+Update gate
+ො𝑦𝑡
+\
+ℎ𝑡−1
+FC
+tanh
+𝑧𝑡
+\
+FC
+sigmoid
+\
+ℎ𝑡
+𝑥𝑡
+Reset gate
+1-
+𝑔𝑡
+
+Update gate 𝑧𝑡 decides how much the unit 
+updates its state: 
+𝑧𝑡= 𝜎𝑥𝑡𝑈𝑧+ ℎ𝑡−1𝑊𝑧
+
+Reset gate controls which parts of the state get 
+used to compute the next target state 
+𝑟𝑡= 𝜎𝑥𝑡𝑈𝑟+ ℎ𝑡−1𝑊𝑟
+
+The memory state ℎ𝑡 is a linear interpolation 
+between ℎ𝑡−1 and 𝑔𝑡 
+ 
+ℎ𝑡= 1 −𝑧𝑡⊙ℎ𝑡−1 + 𝑧𝑡⊙𝑔𝑡 
+where the candidate 𝑔𝑡 is pre-computed
+𝑔𝑡= tanh 𝑥𝑡𝑈𝑔+ 𝑟𝑡⊙ℎ𝑡−1 𝑊𝑔
+
+When 𝑧𝑡 and 𝑟𝑡 are close to 1, GRU will be 
+reduced to Basic RNN
+Gated Recurrent Unit
+[Cho et. al, 2014]
+
+--- Page 132 ---
+132
+Sentiment analysis
+Movie review dataset
+1.
+I like that movie (pos:1).
+2.
+This is a bad movie to watch (neg:0)
+3.
+I love the movie (pos: 1)
+4.
+I do not recommend you to watch this movie (neg:0)
+5.
+This movie is fantastic (pos:1)
+This
+RNN
+cell
+RNN
+cell
+RNN
+cell
+RNN
+cell
+RNN
+cell
+movie
+is
+fantastic
+<pad>
+Output layer (sigmoid)
+≥0.5(pos) and < 0.5(neg)
+How to feed symbolic words to an RNN?
+
+--- Page 133 ---
+133
+Sentiment analysis
+
+Movie review dataset
+1.
+I like this movie (pos:1).
+2.
+This is a bad movie to watch (neg:0)
+3.
+I love this movie (pos: 1)
+4.
+I do not recommend you to watch this movie (neg:0)
+5.
+This movie is fantastic (pos:1)
+
+Build up vocabulary
+1.
+Like (index: 1)
+2.
+Love (index: 2)
+3.
+Bad (index: 3)
+4.
+Fantastic (index: 4)
+5.
+Not (index: 5)
+6.
+Recommend (index: 6)
+❑
+Not in vocabulary (out of vocabulary bucket: 2)
+1.
+I, movie, to, pad (index: 7)
+2.
+This, is, watch (index: 8)
+This
+RNN
+cell
+RNN
+cell
+RNN
+cell
+RNN
+cell
+RNN
+cell
+movie
+is
+fantastic
+<pad>
+Output layer (sigmoid)
+≥0.5(pos) and < 0.5(neg)
+embedding size =6
+𝑬𝟏
+1
+2
+1.5
+-1.2
+1.3
+1
+𝑬𝟐
+-1
+1.3
+-2.5
+-1.2
+1.6
+-1
+𝑬𝟑
+1
+3.3
+-3.5
+-1.0
+2.6
+1
+𝑬𝟒
+-1
+1.3
+-2.5
+-1.2
+1.8
+-1
+𝑬𝟓
+-1.2
+2.3
+-2.5
+-1.2
+-1.6
+1
+𝑬𝟔
+-1.7
+-1.3
+-2.5
+-1.2
+3.6
+1.2
+𝑬𝟕
+-4.2
+2.3
+-3.5
+4.3
+1.8
+-2
+𝑬𝟖
+-1.7
+-1.3
+-4.5
+-2.2
+-3.6
+1
+Embedding matrix (𝑬 [𝟖× 𝟔])
+
+--- Page 134 ---
+134
+Sentiment analysis
+
+Movie review dataset
+1.
+I like this movie (pos:1).
+2.
+This is a bad movie to watch (neg:0)
+3.
+I love this movie (pos: 1)
+4.
+I do not recommend you to watch this movie (neg:0)
+5.
+This movie is fantastic (pos:1)
+
+Build up vocabulary
+1.
+Like (index: 1)
+2.
+Love (index: 2)
+3.
+Bad (index: 3)
+4.
+Fantastic (index: 4)
+5.
+Not (index: 5)
+6.
+Recommend (index: 6)
+❑
+Not in vocabulary (out of vocabulary bucket: 2)
+1.
+I, movie, to, pad (index: 7)
+2.
+This, is, watch (index: 8)
+𝟖
+This
+ℎ1
+ℎ2
+ℎ3
+ℎ4
+ℎ5
+𝟕
+movie
+𝟖
+ is
+𝟒
+fantastic
+𝟕
+<pad>
+Output layer (sigmoid)
+≥0.5(pos) and < 0.5(neg)
+embedding size =6
+× 𝐸
+× 𝐸
+× 𝐸
+× 𝐸
+× 𝐸
+[0,0,0,0,0,0,0,1] [0,0,0,0,0,0,1,0]
+[0,0,0,0,0,0,1,0]
+[0,0,0,0,0,0,0,1] [0,0,0,1,0,0,0,0]
+𝑊
+𝑊
+𝑊
+𝑊
+𝑬𝟏
+1
+2
+1.5
+-1.2
+1.3
+1
+𝑬𝟐
+-1
+1.3
+-2.5
+-1.2
+1.6
+-1
+𝑬𝟑
+1
+3.3
+-3.5
+-1.0
+2.6
+1
+𝑬𝟒
+-1
+1.3
+-2.5
+-1.2
+1.8
+-1
+𝑬𝟓
+-1.2
+2.3
+-2.5
+-1.2
+-1.6
+1
+𝑬𝟔
+-1.7
+-1.3
+-2.5
+-1.2
+3.6
+1.2
+𝑬𝟕
+-4.2
+2.3
+-3.5
+4.3
+1.8
+-2
+𝑬𝟖
+-1.7
+-1.3
+-4.5
+-2.2
+-3.6
+1
+Embedding matrix (𝑬 [𝟖× 𝟔])
+
+--- Page 135 ---
+135
+Sentiment analysis
+The word/item embedding
+o 𝑒1 = 18𝐸= 𝐸8 ∈ℝ1×6
+▪
+1 × 8 × 8 × 6 = 1 × 6
+▪1𝑖 is one-hot vector in which the 𝑖−𝑡ℎ element is 1 
+and the rest are 0.
+o 𝑒2 = 17𝐸= 𝐸7 ∈ℝ1×6
+o 𝑒3 = 18𝐸= 𝐸8 ∈ℝ1×6
+o 𝑒4 = 14𝐸= 𝐸4 ∈ℝ1×6
+o 𝑒5 = 17𝐸= 𝐸7 ∈ℝ1×6
+The sequence embedding
+o 𝑒=
+𝑒1
+𝑒2
+𝑒3
+𝑒4
+𝑒5
+∈ℝ5×6 = ℝ𝑠𝑒𝑞_𝑙𝑒𝑛 ×𝑒𝑚𝑏𝑒𝑑_𝑠𝑖𝑧𝑒 
+o Embedding lookup operation
+▪Pick rows with indices 8, 7, 8, 4, 7
+ℎ1
+ℎ2
+ℎ3
+ℎ4
+ℎ5
+Output layer (sigmoid)
+≥0.5(pos) and < 0.5(neg)
+embedding size =6
+[0,0,0,0,0,0,0,1] [0,0,0,0,0,0,1,0]
+[0,0,0,0,0,0,1,0]
+[0,0,0,0,0,0,0,1] [0,0,0,1,0,0,0,0]
+𝟖
+This
+𝟕
+movie
+𝟖
+ is
+𝟒
+fantastic
+𝟕
+<pad>
+× 𝐸
+× 𝐸
+× 𝐸
+× 𝐸
+× 𝐸
+𝑊
+𝑊
+𝑊
+𝑊
+Embedding layer
+𝑒1
+𝑒2
+𝑒3
+𝑒4
+𝑒5
+𝑬𝟏
+1
+2
+1.5
+-1.2
+1.3
+1
+𝑬𝟐
+-1
+1.3
+-2.5
+-1.2
+1.6
+-1
+𝑬𝟑
+1
+3.3
+-3.5
+-1.0
+2.6
+1
+𝑬𝟒
+-1
+1.3
+-2.5
+-1.2
+1.8
+-1
+𝑬𝟓
+-1.2
+2.3
+-2.5
+-1.2
+-1.6
+1
+𝑬𝟔
+-1.7
+-1.3
+-2.5
+-1.2
+3.6
+1.2
+𝑬𝟕
+-4.2
+2.3
+-3.5
+4.3
+1.8
+-2
+𝑬𝟖
+-1.7
+-1.3
+-4.5
+-2.2
+-3.6
+1
+Embedding matrix (𝑬 [𝟖× 𝟔])
+𝑈
+𝑈
+𝑈
+
+--- Page 136 ---
+136
+Sentiment analysis
+The word/item embedding
+o 𝑒1 = 18𝐸∈ℝ1×6
+o 𝑒2 = 17𝐸∈ℝ1×6
+o 𝑒3 = 18𝐸∈ℝ1×6
+o 𝑒4 = 14𝐸∈ℝ1×6
+o 𝑒5 = 17𝐸∈ℝ1×6
+The sequence embedding
+o 𝑒=
+𝑒1
+𝑒2
+𝑒3
+𝑒4
+𝑒5
+∈ℝ5×6 = ℝ𝑠𝑒𝑞_𝑙𝑒𝑛 ×𝑒𝑚𝑏𝑒𝑑_𝑠𝑖𝑧𝑒 
+The sequence batch embedding 
+o The embedding for one sequence:  
+ℝ𝑠𝑒𝑞_𝑙𝑒𝑛 ×𝑒𝑚𝑏𝑒𝑑_𝑠𝑖𝑧𝑒 .
+o The embedding for entire batch with  
+𝑏𝑎𝑡𝑐ℎ_𝑠𝑖𝑧𝑒 sequences: 
+ℝ𝑏𝑎𝑡𝑐ℎ_𝑠𝑖𝑧𝑒×𝑠𝑒𝑞_𝑙𝑒𝑛 ×𝑒𝑚𝑏𝑒𝑑_𝑠𝑖𝑧𝑒 
+[0,0,0,0,0,0,0,1] [0,0,0,0,0,0,1,0]
+[0,0,0,0,0,0,1,0]
+[0,0,0,0,0,0,0,1] [0,0,0,1,0,0,0,0]
+𝟖
+This
+𝟕
+movie
+𝟖
+ is
+𝟒
+fantastic
+𝟕
+<pad>
+× 𝐸
+× 𝐸
+× 𝐸
+× 𝐸
+× 𝐸
+ℎ1
+ℎ2
+ℎ3
+ℎ4
+ℎ5
+Output layer (sigmoid)
+≥0.5(pos) and < 0.5(neg)
+embedding size =6
+𝑊
+𝑊
+𝑊
+𝑊
+Embedding layer
+𝑒1
+𝑒2
+𝑒3
+𝑒4
+𝑒5
+ℎ1
+ℎ2
+ℎ3
+ℎ4
+ℎ5
+Output layer (sigmoid)
+≥0.5(pos) and < 0.5(neg)
+embedding size =6
+𝑊
+𝑊
+𝑊
+𝑊
+Embedding layer
+𝑒1
+𝑒2
+𝑒3
+𝑒4
+𝑒5
+8
+3
+7
+2
+8
+3
+4
+5
+7
+4
+× 𝐸
+× 𝐸
+× 𝐸
+× 𝐸
+× 𝐸
+[𝑏𝑎𝑡𝑐ℎ_𝑠𝑖𝑧𝑒, 𝑠𝑒𝑞_𝑙𝑒𝑛]
+Input:
+batch_size=2
+
+--- Page 137 ---
+137
+Shape Transformation in RNNs
+ℎ3
+ℎ4
+ℎ5
+𝑈
+𝑈
+𝑈
+𝑊
+𝑊
+ℎ1
+ℎ2
+𝑈
+𝑈
+𝑊
+batch_size
+batch_size
+batch_size
+…
+batch_size
+seq_len
+[batch_size, seq_len, embed_size]
+[batch_size, seq_len, hidden_size 1]
+8
+3
+7
+2
+8
+3
+4
+5
+7
+4
+[𝑏𝑎𝑡𝑐ℎ_𝑠𝑖𝑧𝑒, 𝑠𝑒𝑞_𝑙𝑒𝑛]
+Input:
+Embedding Layer (E: [vocab_size, embed_size])
+ℎ3
+ℎ4
+ℎ5
+ℎ1
+ℎ2
+…
+seq_len
+batch_size
+batch_size
+
+--- Page 138 ---
+138
+Sentiment analysis
+(batch_size, seq_len)
+(batch_size, seq_len, embed_size)
+(batch_size, seq_len, 128)
+(batch_size, 128)
+(batch_size, 1)
+
+--- Page 139 ---
+Word2Vec
+
+--- Page 140 ---
+140
+Word embedding (Word2Vec)
+Wikipedia text corpus
+We desire…
+King
+Queen
+Football
+Australia
+Canberra
+Paris
+vector space ℝ𝑑
+further
+Canberra : Australia = Paris : ???
+𝑎𝑟𝑔𝑚𝑖𝑛𝑣𝑣𝐶𝑎𝑛𝑏𝑒𝑟𝑟𝑎−𝑣𝐴𝑢𝑠𝑡𝑟𝑎𝑙𝑖𝑎+ 𝑣𝑃𝑎𝑟𝑖𝑠−𝑣
+= 𝑣𝐹𝑟𝑎𝑛𝑐𝑒
+
+We have: Many texts in Wikipedia
+
+We want: Learn vector representations for words that preserve semantic and linguistic relationship carried in the text corpus
+
+We need: Devise pretext task to cast the learning word representation to supervised learning.

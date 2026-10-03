@@ -1,0 +1,36 @@
+172
+Problems
+1.
+We forget tokens too far in the past in the context vector c
+2.
+We need to wait the previous token to compute the next hidden-state
+The
+cat
+jumps
+the
+wall
+h0
+hstart
+h1
+h2
+h3
+h4
+h5
+h6
+h7
+h8
+Il 
+gatto salta
+il 
+h9
+<EOS>
+muro 
+Encoder
+Context vector 𝒄
+Decoder
+<BOS> Il 
+gatto 
+h10
+salta
+il 
+muro

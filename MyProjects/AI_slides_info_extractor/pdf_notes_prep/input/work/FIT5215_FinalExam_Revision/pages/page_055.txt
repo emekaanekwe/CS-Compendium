@@ -1,0 +1,12 @@
+55
+Fully connected layer
+The last tensor is flattened, and some fully connected layers are added to classify 
+the input.
+o The last 3D tensor [5,5,10] → 1 flat layer with 5x5x10= 250 neurons
+Fully connected layers
+Feature extractor
+Classifier
+[3,32,32]
+[5,5,10]
+[1, 5x5x10]
+flatten

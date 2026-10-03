@@ -1,0 +1,19 @@
+179
+Transformer
+Self-Attention
+For each token 𝑥𝑖, calculate its query, key, and value
+    𝑞𝑖= 𝑥𝑖𝑊𝑄, 𝑘𝑖= 𝑥𝑖𝑊𝐾, 𝑣𝑖= 𝑥𝑖𝑊𝑉
+Matrix/stacked version (𝑋=
+𝑥1
+…
+𝑥𝐿
+, 𝐿= 𝑠𝑒𝑞_𝑙𝑒𝑛)
+    𝑄= 𝑋𝑊𝑄, 𝐾= 𝑋𝑊𝐾, 𝑉= 𝑋𝑊𝑉  
+Calculate the attention probabilities between query 
+and key
+o Scaled dot-product attention
+𝐴= 𝑠𝑜𝑓𝑡𝑚𝑎𝑥
+𝑄𝐾𝑇
+𝑑𝑘
+Take a weighted sum of values
+𝑍= 𝐴𝑉

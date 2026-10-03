@@ -1,0 +1,28 @@
+5
+Deep NNs: parameterisation
+Input layer is the 𝑑-
+dimensional vector of
+ℎ0(𝑥) = 𝑥 
+Hidden layer
+ℎ1(𝑥)
+Hidden layer
+ℎ𝐿−1(𝑥)
+Output  layer
+ℎ𝐿(𝑥) has 𝑀 nodes 
+providing 
+discriminative values
+𝑊2, 𝑏2
+
+Layer 𝑘 has 𝑛𝑘 neurons
+o
+𝑛0 = 𝑑 and 𝑛𝐿= 𝑀
+
+Weight matrices and biases
+●
+𝑊𝑘∈ℝ𝑛𝑘−1×𝑛𝑘 and 𝑏𝑘∈ℝ1×𝑛𝑘 for 𝑘= 1,2, … , 𝐿
+softmax layer for 
+classification
+𝑥= 𝑥1, … , 𝑥𝑑∈ℝ1×𝑑
+ො𝑦
+…
+…

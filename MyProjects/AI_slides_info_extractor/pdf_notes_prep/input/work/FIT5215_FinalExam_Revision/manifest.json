@@ -1,0 +1,1626 @@
+[
+  {
+    "page_number": 1,
+    "text_file": "page_001.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_001.png"
+  },
+  {
+    "page_number": 2,
+    "text_file": "page_002.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_002.png"
+  },
+  {
+    "page_number": 3,
+    "text_file": "page_003.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_003.png"
+  },
+  {
+    "page_number": 4,
+    "text_file": "page_004.txt",
+    "was_ocr": false,
+    "has_diagram": false,
+    "image_file": null
+  },
+  {
+    "page_number": 5,
+    "text_file": "page_005.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_005.png"
+  },
+  {
+    "page_number": 6,
+    "text_file": "page_006.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_006.png"
+  },
+  {
+    "page_number": 7,
+    "text_file": "page_007.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_007.png"
+  },
+  {
+    "page_number": 8,
+    "text_file": "page_008.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_008.png"
+  },
+  {
+    "page_number": 9,
+    "text_file": "page_009.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_009.png"
+  },
+  {
+    "page_number": 10,
+    "text_file": "page_010.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_010.png"
+  },
+  {
+    "page_number": 11,
+    "text_file": "page_011.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_011.png"
+  },
+  {
+    "page_number": 12,
+    "text_file": "page_012.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_012.png"
+  },
+  {
+    "page_number": 13,
+    "text_file": "page_013.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_013.png"
+  },
+  {
+    "page_number": 14,
+    "text_file": "page_014.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_014.png"
+  },
+  {
+    "page_number": 15,
+    "text_file": "page_015.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_015.png"
+  },
+  {
+    "page_number": 16,
+    "text_file": "page_016.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_016.png"
+  },
+  {
+    "page_number": 17,
+    "text_file": "page_017.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_017.png"
+  },
+  {
+    "page_number": 18,
+    "text_file": "page_018.txt",
+    "was_ocr": false,
+    "has_diagram": false,
+    "image_file": null
+  },
+  {
+    "page_number": 19,
+    "text_file": "page_019.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_019.png"
+  },
+  {
+    "page_number": 20,
+    "text_file": "page_020.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_020.png"
+  },
+  {
+    "page_number": 21,
+    "text_file": "page_021.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_021.png"
+  },
+  {
+    "page_number": 22,
+    "text_file": "page_022.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_022.png"
+  },
+  {
+    "page_number": 23,
+    "text_file": "page_023.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_023.png"
+  },
+  {
+    "page_number": 24,
+    "text_file": "page_024.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_024.png"
+  },
+  {
+    "page_number": 25,
+    "text_file": "page_025.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_025.png"
+  },
+  {
+    "page_number": 26,
+    "text_file": "page_026.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_026.png"
+  },
+  {
+    "page_number": 27,
+    "text_file": "page_027.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_027.png"
+  },
+  {
+    "page_number": 28,
+    "text_file": "page_028.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_028.png"
+  },
+  {
+    "page_number": 29,
+    "text_file": "page_029.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_029.png"
+  },
+  {
+    "page_number": 30,
+    "text_file": "page_030.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_030.png"
+  },
+  {
+    "page_number": 31,
+    "text_file": "page_031.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_031.png"
+  },
+  {
+    "page_number": 32,
+    "text_file": "page_032.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_032.png"
+  },
+  {
+    "page_number": 33,
+    "text_file": "page_033.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_033.png"
+  },
+  {
+    "page_number": 34,
+    "text_file": "page_034.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_034.png"
+  },
+  {
+    "page_number": 35,
+    "text_file": "page_035.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_035.png"
+  },
+  {
+    "page_number": 36,
+    "text_file": "page_036.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_036.png"
+  },
+  {
+    "page_number": 37,
+    "text_file": "page_037.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_037.png"
+  },
+  {
+    "page_number": 38,
+    "text_file": "page_038.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_038.png"
+  },
+  {
+    "page_number": 39,
+    "text_file": "page_039.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_039.png"
+  },
+  {
+    "page_number": 40,
+    "text_file": "page_040.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_040.png"
+  },
+  {
+    "page_number": 41,
+    "text_file": "page_041.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_041.png"
+  },
+  {
+    "page_number": 42,
+    "text_file": "page_042.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_042.png"
+  },
+  {
+    "page_number": 43,
+    "text_file": "page_043.txt",
+    "was_ocr": false,
+    "has_diagram": false,
+    "image_file": null
+  },
+  {
+    "page_number": 44,
+    "text_file": "page_044.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_044.png"
+  },
+  {
+    "page_number": 45,
+    "text_file": "page_045.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_045.png"
+  },
+  {
+    "page_number": 46,
+    "text_file": "page_046.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_046.png"
+  },
+  {
+    "page_number": 47,
+    "text_file": "page_047.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_047.png"
+  },
+  {
+    "page_number": 48,
+    "text_file": "page_048.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_048.png"
+  },
+  {
+    "page_number": 49,
+    "text_file": "page_049.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_049.png"
+  },
+  {
+    "page_number": 50,
+    "text_file": "page_050.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_050.png"
+  },
+  {
+    "page_number": 51,
+    "text_file": "page_051.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_051.png"
+  },
+  {
+    "page_number": 52,
+    "text_file": "page_052.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_052.png"
+  },
+  {
+    "page_number": 53,
+    "text_file": "page_053.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_053.png"
+  },
+  {
+    "page_number": 54,
+    "text_file": "page_054.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_054.png"
+  },
+  {
+    "page_number": 55,
+    "text_file": "page_055.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_055.png"
+  },
+  {
+    "page_number": 56,
+    "text_file": "page_056.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_056.png"
+  },
+  {
+    "page_number": 57,
+    "text_file": "page_057.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_057.png"
+  },
+  {
+    "page_number": 58,
+    "text_file": "page_058.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_058.png"
+  },
+  {
+    "page_number": 59,
+    "text_file": "page_059.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_059.png"
+  },
+  {
+    "page_number": 60,
+    "text_file": "page_060.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_060.png"
+  },
+  {
+    "page_number": 61,
+    "text_file": "page_061.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_061.png"
+  },
+  {
+    "page_number": 62,
+    "text_file": "page_062.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_062.png"
+  },
+  {
+    "page_number": 63,
+    "text_file": "page_063.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_063.png"
+  },
+  {
+    "page_number": 64,
+    "text_file": "page_064.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_064.png"
+  },
+  {
+    "page_number": 65,
+    "text_file": "page_065.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_065.png"
+  },
+  {
+    "page_number": 66,
+    "text_file": "page_066.txt",
+    "was_ocr": false,
+    "has_diagram": false,
+    "image_file": null
+  },
+  {
+    "page_number": 67,
+    "text_file": "page_067.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_067.png"
+  },
+  {
+    "page_number": 68,
+    "text_file": "page_068.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_068.png"
+  },
+  {
+    "page_number": 69,
+    "text_file": "page_069.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_069.png"
+  },
+  {
+    "page_number": 70,
+    "text_file": "page_070.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_070.png"
+  },
+  {
+    "page_number": 71,
+    "text_file": "page_071.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_071.png"
+  },
+  {
+    "page_number": 72,
+    "text_file": "page_072.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_072.png"
+  },
+  {
+    "page_number": 73,
+    "text_file": "page_073.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_073.png"
+  },
+  {
+    "page_number": 74,
+    "text_file": "page_074.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_074.png"
+  },
+  {
+    "page_number": 75,
+    "text_file": "page_075.txt",
+    "was_ocr": false,
+    "has_diagram": false,
+    "image_file": null
+  },
+  {
+    "page_number": 76,
+    "text_file": "page_076.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_076.png"
+  },
+  {
+    "page_number": 77,
+    "text_file": "page_077.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_077.png"
+  },
+  {
+    "page_number": 78,
+    "text_file": "page_078.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_078.png"
+  },
+  {
+    "page_number": 79,
+    "text_file": "page_079.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_079.png"
+  },
+  {
+    "page_number": 80,
+    "text_file": "page_080.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_080.png"
+  },
+  {
+    "page_number": 81,
+    "text_file": "page_081.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_081.png"
+  },
+  {
+    "page_number": 82,
+    "text_file": "page_082.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_082.png"
+  },
+  {
+    "page_number": 83,
+    "text_file": "page_083.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_083.png"
+  },
+  {
+    "page_number": 84,
+    "text_file": "page_084.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_084.png"
+  },
+  {
+    "page_number": 85,
+    "text_file": "page_085.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_085.png"
+  },
+  {
+    "page_number": 86,
+    "text_file": "page_086.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_086.png"
+  },
+  {
+    "page_number": 87,
+    "text_file": "page_087.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_087.png"
+  },
+  {
+    "page_number": 88,
+    "text_file": "page_088.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_088.png"
+  },
+  {
+    "page_number": 89,
+    "text_file": "page_089.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_089.png"
+  },
+  {
+    "page_number": 90,
+    "text_file": "page_090.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_090.png"
+  },
+  {
+    "page_number": 91,
+    "text_file": "page_091.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_091.png"
+  },
+  {
+    "page_number": 92,
+    "text_file": "page_092.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_092.png"
+  },
+  {
+    "page_number": 93,
+    "text_file": "page_093.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_093.png"
+  },
+  {
+    "page_number": 94,
+    "text_file": "page_094.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_094.png"
+  },
+  {
+    "page_number": 95,
+    "text_file": "page_095.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_095.png"
+  },
+  {
+    "page_number": 96,
+    "text_file": "page_096.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_096.png"
+  },
+  {
+    "page_number": 97,
+    "text_file": "page_097.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_097.png"
+  },
+  {
+    "page_number": 98,
+    "text_file": "page_098.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_098.png"
+  },
+  {
+    "page_number": 99,
+    "text_file": "page_099.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_099.png"
+  },
+  {
+    "page_number": 100,
+    "text_file": "page_100.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_100.png"
+  },
+  {
+    "page_number": 101,
+    "text_file": "page_101.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_101.png"
+  },
+  {
+    "page_number": 102,
+    "text_file": "page_102.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_102.png"
+  },
+  {
+    "page_number": 103,
+    "text_file": "page_103.txt",
+    "was_ocr": false,
+    "has_diagram": false,
+    "image_file": null
+  },
+  {
+    "page_number": 104,
+    "text_file": "page_104.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_104.png"
+  },
+  {
+    "page_number": 105,
+    "text_file": "page_105.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_105.png"
+  },
+  {
+    "page_number": 106,
+    "text_file": "page_106.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_106.png"
+  },
+  {
+    "page_number": 107,
+    "text_file": "page_107.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_107.png"
+  },
+  {
+    "page_number": 108,
+    "text_file": "page_108.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_108.png"
+  },
+  {
+    "page_number": 109,
+    "text_file": "page_109.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_109.png"
+  },
+  {
+    "page_number": 110,
+    "text_file": "page_110.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_110.png"
+  },
+  {
+    "page_number": 111,
+    "text_file": "page_111.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_111.png"
+  },
+  {
+    "page_number": 112,
+    "text_file": "page_112.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_112.png"
+  },
+  {
+    "page_number": 113,
+    "text_file": "page_113.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_113.png"
+  },
+  {
+    "page_number": 114,
+    "text_file": "page_114.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_114.png"
+  },
+  {
+    "page_number": 115,
+    "text_file": "page_115.txt",
+    "was_ocr": false,
+    "has_diagram": false,
+    "image_file": null
+  },
+  {
+    "page_number": 116,
+    "text_file": "page_116.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_116.png"
+  },
+  {
+    "page_number": 117,
+    "text_file": "page_117.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_117.png"
+  },
+  {
+    "page_number": 118,
+    "text_file": "page_118.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_118.png"
+  },
+  {
+    "page_number": 119,
+    "text_file": "page_119.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_119.png"
+  },
+  {
+    "page_number": 120,
+    "text_file": "page_120.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_120.png"
+  },
+  {
+    "page_number": 121,
+    "text_file": "page_121.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_121.png"
+  },
+  {
+    "page_number": 122,
+    "text_file": "page_122.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_122.png"
+  },
+  {
+    "page_number": 123,
+    "text_file": "page_123.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_123.png"
+  },
+  {
+    "page_number": 124,
+    "text_file": "page_124.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_124.png"
+  },
+  {
+    "page_number": 125,
+    "text_file": "page_125.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_125.png"
+  },
+  {
+    "page_number": 126,
+    "text_file": "page_126.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_126.png"
+  },
+  {
+    "page_number": 127,
+    "text_file": "page_127.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_127.png"
+  },
+  {
+    "page_number": 128,
+    "text_file": "page_128.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_128.png"
+  },
+  {
+    "page_number": 129,
+    "text_file": "page_129.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_129.png"
+  },
+  {
+    "page_number": 130,
+    "text_file": "page_130.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_130.png"
+  },
+  {
+    "page_number": 131,
+    "text_file": "page_131.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_131.png"
+  },
+  {
+    "page_number": 132,
+    "text_file": "page_132.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_132.png"
+  },
+  {
+    "page_number": 133,
+    "text_file": "page_133.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_133.png"
+  },
+  {
+    "page_number": 134,
+    "text_file": "page_134.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_134.png"
+  },
+  {
+    "page_number": 135,
+    "text_file": "page_135.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_135.png"
+  },
+  {
+    "page_number": 136,
+    "text_file": "page_136.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_136.png"
+  },
+  {
+    "page_number": 137,
+    "text_file": "page_137.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_137.png"
+  },
+  {
+    "page_number": 138,
+    "text_file": "page_138.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_138.png"
+  },
+  {
+    "page_number": 139,
+    "text_file": "page_139.txt",
+    "was_ocr": false,
+    "has_diagram": false,
+    "image_file": null
+  },
+  {
+    "page_number": 140,
+    "text_file": "page_140.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_140.png"
+  },
+  {
+    "page_number": 141,
+    "text_file": "page_141.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_141.png"
+  },
+  {
+    "page_number": 142,
+    "text_file": "page_142.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_142.png"
+  },
+  {
+    "page_number": 143,
+    "text_file": "page_143.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_143.png"
+  },
+  {
+    "page_number": 144,
+    "text_file": "page_144.txt",
+    "was_ocr": false,
+    "has_diagram": false,
+    "image_file": null
+  },
+  {
+    "page_number": 145,
+    "text_file": "page_145.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_145.png"
+  },
+  {
+    "page_number": 146,
+    "text_file": "page_146.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_146.png"
+  },
+  {
+    "page_number": 147,
+    "text_file": "page_147.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_147.png"
+  },
+  {
+    "page_number": 148,
+    "text_file": "page_148.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_148.png"
+  },
+  {
+    "page_number": 149,
+    "text_file": "page_149.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_149.png"
+  },
+  {
+    "page_number": 150,
+    "text_file": "page_150.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_150.png"
+  },
+  {
+    "page_number": 151,
+    "text_file": "page_151.txt",
+    "was_ocr": false,
+    "has_diagram": false,
+    "image_file": null
+  },
+  {
+    "page_number": 152,
+    "text_file": "page_152.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_152.png"
+  },
+  {
+    "page_number": 153,
+    "text_file": "page_153.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_153.png"
+  },
+  {
+    "page_number": 154,
+    "text_file": "page_154.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_154.png"
+  },
+  {
+    "page_number": 155,
+    "text_file": "page_155.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_155.png"
+  },
+  {
+    "page_number": 156,
+    "text_file": "page_156.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_156.png"
+  },
+  {
+    "page_number": 157,
+    "text_file": "page_157.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_157.png"
+  },
+  {
+    "page_number": 158,
+    "text_file": "page_158.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_158.png"
+  },
+  {
+    "page_number": 159,
+    "text_file": "page_159.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_159.png"
+  },
+  {
+    "page_number": 160,
+    "text_file": "page_160.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_160.png"
+  },
+  {
+    "page_number": 161,
+    "text_file": "page_161.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_161.png"
+  },
+  {
+    "page_number": 162,
+    "text_file": "page_162.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_162.png"
+  },
+  {
+    "page_number": 163,
+    "text_file": "page_163.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_163.png"
+  },
+  {
+    "page_number": 164,
+    "text_file": "page_164.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_164.png"
+  },
+  {
+    "page_number": 165,
+    "text_file": "page_165.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_165.png"
+  },
+  {
+    "page_number": 166,
+    "text_file": "page_166.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_166.png"
+  },
+  {
+    "page_number": 167,
+    "text_file": "page_167.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_167.png"
+  },
+  {
+    "page_number": 168,
+    "text_file": "page_168.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_168.png"
+  },
+  {
+    "page_number": 169,
+    "text_file": "page_169.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_169.png"
+  },
+  {
+    "page_number": 170,
+    "text_file": "page_170.txt",
+    "was_ocr": false,
+    "has_diagram": false,
+    "image_file": null
+  },
+  {
+    "page_number": 171,
+    "text_file": "page_171.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_171.png"
+  },
+  {
+    "page_number": 172,
+    "text_file": "page_172.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_172.png"
+  },
+  {
+    "page_number": 173,
+    "text_file": "page_173.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_173.png"
+  },
+  {
+    "page_number": 174,
+    "text_file": "page_174.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_174.png"
+  },
+  {
+    "page_number": 175,
+    "text_file": "page_175.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_175.png"
+  },
+  {
+    "page_number": 176,
+    "text_file": "page_176.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_176.png"
+  },
+  {
+    "page_number": 177,
+    "text_file": "page_177.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_177.png"
+  },
+  {
+    "page_number": 178,
+    "text_file": "page_178.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_178.png"
+  },
+  {
+    "page_number": 179,
+    "text_file": "page_179.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_179.png"
+  },
+  {
+    "page_number": 180,
+    "text_file": "page_180.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_180.png"
+  },
+  {
+    "page_number": 181,
+    "text_file": "page_181.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_181.png"
+  },
+  {
+    "page_number": 182,
+    "text_file": "page_182.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_182.png"
+  },
+  {
+    "page_number": 183,
+    "text_file": "page_183.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_183.png"
+  },
+  {
+    "page_number": 184,
+    "text_file": "page_184.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_184.png"
+  },
+  {
+    "page_number": 185,
+    "text_file": "page_185.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_185.png"
+  },
+  {
+    "page_number": 186,
+    "text_file": "page_186.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_186.png"
+  },
+  {
+    "page_number": 187,
+    "text_file": "page_187.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_187.png"
+  },
+  {
+    "page_number": 188,
+    "text_file": "page_188.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_188.png"
+  },
+  {
+    "page_number": 189,
+    "text_file": "page_189.txt",
+    "was_ocr": false,
+    "has_diagram": false,
+    "image_file": null
+  },
+  {
+    "page_number": 190,
+    "text_file": "page_190.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_190.png"
+  },
+  {
+    "page_number": 191,
+    "text_file": "page_191.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_191.png"
+  },
+  {
+    "page_number": 192,
+    "text_file": "page_192.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_192.png"
+  },
+  {
+    "page_number": 193,
+    "text_file": "page_193.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_193.png"
+  },
+  {
+    "page_number": 194,
+    "text_file": "page_194.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_194.png"
+  },
+  {
+    "page_number": 195,
+    "text_file": "page_195.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_195.png"
+  },
+  {
+    "page_number": 196,
+    "text_file": "page_196.txt",
+    "was_ocr": true,
+    "has_diagram": true,
+    "image_file": "page_196.png"
+  },
+  {
+    "page_number": 197,
+    "text_file": "page_197.txt",
+    "was_ocr": false,
+    "has_diagram": false,
+    "image_file": null
+  },
+  {
+    "page_number": 198,
+    "text_file": "page_198.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_198.png"
+  },
+  {
+    "page_number": 199,
+    "text_file": "page_199.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_199.png"
+  },
+  {
+    "page_number": 200,
+    "text_file": "page_200.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_200.png"
+  },
+  {
+    "page_number": 201,
+    "text_file": "page_201.txt",
+    "was_ocr": false,
+    "has_diagram": false,
+    "image_file": null
+  },
+  {
+    "page_number": 202,
+    "text_file": "page_202.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_202.png"
+  },
+  {
+    "page_number": 203,
+    "text_file": "page_203.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_203.png"
+  },
+  {
+    "page_number": 204,
+    "text_file": "page_204.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_204.png"
+  },
+  {
+    "page_number": 205,
+    "text_file": "page_205.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_205.png"
+  },
+  {
+    "page_number": 206,
+    "text_file": "page_206.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_206.png"
+  },
+  {
+    "page_number": 207,
+    "text_file": "page_207.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_207.png"
+  },
+  {
+    "page_number": 208,
+    "text_file": "page_208.txt",
+    "was_ocr": false,
+    "has_diagram": false,
+    "image_file": null
+  },
+  {
+    "page_number": 209,
+    "text_file": "page_209.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_209.png"
+  },
+  {
+    "page_number": 210,
+    "text_file": "page_210.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_210.png"
+  },
+  {
+    "page_number": 211,
+    "text_file": "page_211.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_211.png"
+  },
+  {
+    "page_number": 212,
+    "text_file": "page_212.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_212.png"
+  },
+  {
+    "page_number": 213,
+    "text_file": "page_213.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_213.png"
+  },
+  {
+    "page_number": 214,
+    "text_file": "page_214.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_214.png"
+  },
+  {
+    "page_number": 215,
+    "text_file": "page_215.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_215.png"
+  },
+  {
+    "page_number": 216,
+    "text_file": "page_216.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_216.png"
+  },
+  {
+    "page_number": 217,
+    "text_file": "page_217.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_217.png"
+  },
+  {
+    "page_number": 218,
+    "text_file": "page_218.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_218.png"
+  },
+  {
+    "page_number": 219,
+    "text_file": "page_219.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_219.png"
+  },
+  {
+    "page_number": 220,
+    "text_file": "page_220.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_220.png"
+  },
+  {
+    "page_number": 221,
+    "text_file": "page_221.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_221.png"
+  },
+  {
+    "page_number": 222,
+    "text_file": "page_222.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_222.png"
+  },
+  {
+    "page_number": 223,
+    "text_file": "page_223.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_223.png"
+  },
+  {
+    "page_number": 224,
+    "text_file": "page_224.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_224.png"
+  },
+  {
+    "page_number": 225,
+    "text_file": "page_225.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_225.png"
+  },
+  {
+    "page_number": 226,
+    "text_file": "page_226.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_226.png"
+  },
+  {
+    "page_number": 227,
+    "text_file": "page_227.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_227.png"
+  },
+  {
+    "page_number": 228,
+    "text_file": "page_228.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_228.png"
+  },
+  {
+    "page_number": 229,
+    "text_file": "page_229.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_229.png"
+  },
+  {
+    "page_number": 230,
+    "text_file": "page_230.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_230.png"
+  },
+  {
+    "page_number": 231,
+    "text_file": "page_231.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_231.png"
+  },
+  {
+    "page_number": 232,
+    "text_file": "page_232.txt",
+    "was_ocr": false,
+    "has_diagram": true,
+    "image_file": "page_232.png"
+  }
+]

@@ -1,0 +1,15 @@
+“An image is worth 16x16 words”  
+Image 
+to 
+Patches
+Tokens!
+Flatten Patches + 
+Linear Projection
+224px
+224px
+16px
+16px
+Vision Transformers (ViTs)
+“An image is worth 16x16 words” | Dosovitskiy et al., 2020
+14 segments
+14 segments

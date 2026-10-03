@@ -1,0 +1,38 @@
+220
+Optimal generator solution
+Fix 𝐷∗ in: 𝒎𝒊𝒏𝑮𝒎𝒂𝒙𝑫𝑱𝑫, 𝑮= 𝒎𝒊𝒏𝑮𝑱(𝑫∗, 𝑮)
+Recall Jensen-Shannon divergence: 
+𝐷𝐽𝑆𝑑, 𝑔= 1
+2 𝐾𝐿𝑑𝑚+ 1
+2 𝐾𝐿𝑔𝑚, 𝑚= 1
+2 (𝑑+ 𝑔)
+𝐽(𝐷∗, 𝐺)=𝔼𝒙~𝑝𝑑log 𝐷∗(𝒙) + 𝔼𝒙~𝑝𝑔log 1 −𝐷∗(𝒙)
+= 𝔼𝒙~𝑝𝑑log
+𝑝𝑑(𝒙)
+𝑝𝑑𝒙+𝑝𝑔(𝒙) + 𝔼𝒙~𝑝𝑔log 1 −
+𝑝𝑑(𝒙)
+𝑝𝑑𝒙+𝑝𝑔(𝒙)
+= 𝔼𝒙~𝑝𝑑log
+𝑝𝑑(𝒙)
+𝑝𝑑𝒙+𝑝𝑔(𝒙) + 𝔼𝒙~𝑝𝑔log
+𝑝𝑔(𝒙)
+𝑝𝑑𝒙+𝑝𝑔(𝒙)
+= 𝐷𝐽𝑆𝑝𝑑𝒙||𝑝𝑔(𝒙) −2 log 2
+Therefore,
+o 𝑚𝑖𝑛𝐺𝐷𝐽𝑆𝑝𝑑𝒙||𝑝𝑔(𝒙)
+→ 𝑝𝑔∗= 𝑝𝑑
+𝑟𝑒𝑎𝑙
+𝒛 ~ 𝑝𝒛
+𝐺
+𝒙𝑓𝑎𝑘𝑒
+𝑑𝑎𝑡𝑎
+𝒙𝑟𝑒𝑎𝑙
+𝐷
+𝑓𝑎𝑘𝑒
+When training is perfect, discriminator D 
+can NO longer tell the fake (money) from 
+the real (money), i.e., 0.5 probability
+𝑝𝑔∗
+𝑝𝑑
+=
+Optimal G

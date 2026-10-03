@@ -1,0 +1,58 @@
+25
+Recall optimization problem in deep learning
+
+How to solve the optimization problem efficiently (𝜃≔
+𝑊𝑙, 𝑏𝑙
+𝑙=1
+𝐿
+)?
+o min
+𝜃𝐿𝐷; 𝜃≔−
+1
+𝑁σ𝑖=1
+𝑁
+log 𝑝𝑦𝑖𝑥𝑖= −
+1
+𝑁σ𝑖=1
+𝑁
+log
+exp{ℎ𝑦𝑖
+𝐿(𝑥𝑖)}
+σ𝑚=1
+𝑀
+exp{ℎ𝑚
+𝐿(𝑥𝑖)} 
+o Generalize: min
+𝜃𝐽(𝜃) ≔
+1
+𝑁σ𝑖=1
+𝑁
+𝑙(𝑓𝑥𝑖; 𝜃, 𝑦𝑖) 
+SoftMax
+Input layer
+ℎ0(𝒙) = 𝒙
+Hidden layer
+ℎ1(𝒙)
+Hidden layer
+ℎ𝐿−1(𝒙)
+Output  layer
+ℎ𝐿(𝒙)
+𝑝𝑥= 𝑠𝑜𝑓𝑡𝑚𝑎𝑥(ℎ𝐿(𝑥))
+Training set
+𝐷= { 𝑥1, 𝑦1 , … (𝑥𝑁, 𝑦𝑁)}
+Loss function
+𝐿𝐷; 𝜃≔1
+𝑁෍
+𝑖=1
+𝑁
+𝐶𝐸1𝑦𝑖, 𝑝𝑥𝑖
+= −1
+𝑁෍
+𝑖=1
+𝑁
+log 𝑝𝑦𝑖(𝑥𝑖)
+Ground-
+truth label
+𝒚
+𝑙𝑦, ො𝑦= 𝐶𝐸1𝑦, 𝑝(𝑥) = −log 𝑝𝑦(𝑥)
+ො𝑦= argmax1≤𝑚≤𝑀𝑝𝑚(𝑥)

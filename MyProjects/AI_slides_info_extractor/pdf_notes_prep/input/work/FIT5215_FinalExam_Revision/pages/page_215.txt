@@ -1,0 +1,28 @@
+215
+Training GAN
+Training 𝐷 is to maximize the 
+probability of detecting correct labels
+min
+𝐺max
+D 𝐽𝐺, 𝐷=
+𝔼
+𝒙~𝑝𝑑𝑎𝑡𝑎(𝒙) log 𝐷𝒙
++ 𝔼
+𝒛~𝑝𝒛
+log(1 −𝐷(𝐺𝒛) 
+Ascent update 𝐷:  𝒛(𝑖)~𝑝𝑧, 𝒙(𝑖)~𝑝𝑑𝑎𝑡𝑎
+         𝛻𝜽d
+1
+M σ𝑖=1
+𝑀
+log 𝐷𝒙𝑖
++ log 1 −𝐷𝐺𝒛𝑖
+•
+Gradient ascent to train discriminator 𝐷𝜃𝑑:
+ 
+ max
+𝜃𝑑
+𝔼
+𝒙~𝑝𝑑𝑎𝑡𝑎(𝒙) log 𝐷𝜃𝑑𝒙
++ 𝔼
+𝒛~𝑝𝒛log(1 −𝐷𝜃𝑑(𝐺𝒛)

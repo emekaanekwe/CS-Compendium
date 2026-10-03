@@ -1,0 +1,68 @@
+141
+Word2Vec: Pretext task
+Pretext task
+What is the pretext task of Word2Vec?
+The
+quick
+brown
+fox
+jumps
+over  
+the
+lazy
+dogs.
+The
+quick
+brown
+fox
+jumps
+over  
+the
+lazy
+dogs.
+The
+quick
+brown
+fox
+jumps
+over  
+the
+lazy
+dogs.
+The
+quick
+brown
+fox
+jumps
+over  
+the
+lazy
+dogs.
+The
+quick
+brown
+fox
+jumps
+over  
+the
+lazy
+dogs.
+The
+quick
+brown
+fox
+jumps
+over  
+the
+lazy
+dogs.
+Original sentence
+target word
+context word
+context word
+Skip-gram
+❑ Target word 
+𝒑𝒓𝒆𝒅𝒊𝒄𝒕 context words
+Continuous Bag of Words (CBOW)
+❑ Context words 
+𝒑𝒓𝒆𝒅𝒊𝒄𝒕 target word

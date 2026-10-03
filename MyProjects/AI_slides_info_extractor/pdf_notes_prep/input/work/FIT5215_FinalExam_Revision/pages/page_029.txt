@@ -1,0 +1,32 @@
+29
+More on saddle point
+𝑓𝜃= 𝑓𝜃1, 𝜃2 = 𝜃1
+2 −𝜃2
+2
+Gradient 𝑔=
+𝜕𝑓
+𝜕𝜃1
+𝜕𝑓
+𝜕𝜃2
+=
+2𝜃1
+−2𝜃2 = 0
+0 → a critical point 0
+0 .
+Hessian matrix is 𝐻=
+𝜕2𝑓
+𝜕𝜃12
+𝜕2𝑓
+𝜕𝜃1𝜕𝜃2
+𝜕2𝑓
+𝜕𝜃2𝜕𝜃1
+𝜕2𝑓
+𝜕𝜃22
+= 2
+0
+0
+−2
+Two eigenvalues 𝜆1 = −2 < 0 < 2 = 𝜆2 →0
+0 is a saddle point.
+[Source: Internet]
+Saddle point

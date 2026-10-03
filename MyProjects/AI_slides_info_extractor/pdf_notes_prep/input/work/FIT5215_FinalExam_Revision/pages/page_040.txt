@@ -1,0 +1,108 @@
+40
+Mini-batch feed-forward
+
+Input
+o Batch 𝑋: [𝑏, 𝑛0 = 𝑑= 5]  (b is 
+the batch size)
+
+Hidden layer 1
+o
+𝒉𝟏= 𝝈(𝑿𝑾𝟏+ 𝒃𝟏)
+o
+Tensor [𝑏, 𝑛1 = 7]
+
+Hidden layer 2
+o
+𝒉𝟐= 𝝈(𝒉𝟏𝑾𝟐+ 𝒃𝟐)
+o
+Tensor [𝑏, 𝑛2 = 7]
+
+Output layer
+o
+𝒉𝟑= 𝒉𝟐𝑾𝟑+ 𝒃𝟑
+o
+𝑃= 𝑠𝑜𝑓𝑡𝑚𝑎𝑥(ℎ3, 𝑑𝑖𝑚= 1)
+o
+Tensor P: [𝑏, 𝑛𝐿= 𝑀= 4]
+
+The loss of the batch
+o
+1
+𝑏σ𝑖=1
+𝑏
+𝐶𝐸(1𝑦𝑖, 𝑝𝑖) =
+−
+1
+𝑏σ𝑖=1
+𝑏
+log 𝑝𝑦𝑖
+𝑖
+o Update weight matrices and 
+biases to minimize the batch loss.
+Input layer
+ℎ0(𝑥) = 𝑥
+Hidden layer
+ℎ1(𝑥)
+Hidden layer
+ℎ2(𝑥)
+Output  layer
+ℎ3(𝑥)
+𝑊1 ∈ℝ5×7,
+𝑏1 ∈ℝ1×7
+𝑊2 ∈ℝ7×5,
+𝑏2 ∈ℝ1×5
+𝑊3 ∈ℝ5×4,
+𝑏3 ∈ℝ1×4
+𝑏= 32 
+(batch size)
+𝑏= 32
+ℎ1
+𝑋
+𝑛1 = 7
+𝑏= 32
+ℎ2
+𝑛2 = 5
+𝑏= 32
+ℎ3
+𝑛3 = 𝑀= 4
+𝑏= 32
+𝑃
+𝑏= 32
+𝑌
+𝑛3 = 𝑀= 4
+Data
+𝑏𝑎𝑡𝑐ℎ_𝑙𝑜𝑠𝑠= 1
+𝑏෍
+𝑖=1
+𝑏
+𝐶𝐸(1𝑦𝑖, 𝑝𝑖)
+𝑦1 = 3, 𝑀= 4
+1𝑦1 = [0,0,1,0]
+One-hot labels
+Prediction 
+probabilities
+Training set
+Form a mini-batch
+𝑥2
+𝑥𝑏
+𝑥1
+𝑑= 𝑛0 = 5
+𝑙𝑜𝑔𝑖𝑡1
+𝑙𝑜𝑔𝑖𝑡2
+𝑙𝑜𝑔𝑖𝑡𝑏
+𝑝1
+𝑝2
+𝑝𝑏
+1𝑦1
+1𝑦2
+1𝑦𝑏
+Labels
+𝑥1, 𝑦1 , … , (𝑥𝑏, 𝑦𝑏),
+𝑥𝑏+1, 𝑦𝑏+1 , … , (𝑥2𝑏, 𝑦2𝑏)
+………………………….
+𝑥∗, 𝑦∗, … , (𝑥𝑁, 𝑦𝑁)
+Mini-batches
+Forward 
+propagation
+Backward 
+propagation

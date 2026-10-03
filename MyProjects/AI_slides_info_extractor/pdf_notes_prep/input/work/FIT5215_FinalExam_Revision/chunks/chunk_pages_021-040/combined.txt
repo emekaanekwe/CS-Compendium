@@ -1,0 +1,926 @@
+--- Page 21 ---
+21
+Example
+𝑦= 𝑓𝑥= 𝑓𝑥1, 𝑥2, 𝑥3 = 𝑥1
+2 + 𝑥2
+2, 𝑥2
+2 + 𝑥3
+2𝑥2
+o 𝑓: ℝ3 →ℝ2
+o 𝑓1 𝑥= 𝑓1 𝑥1, 𝑥2, 𝑥3 = 𝑥1
+2 + 𝑥2
+2
+o 𝑓2 𝑥= 𝑓2 𝑥1, 𝑥2, 𝑥3 = 𝑥2
+2 + 𝑥3
+2𝑥2
+o
+𝜕𝑦
+𝜕𝑥= ∇𝑓∈ℝ2×3
+𝜕𝑦
+𝜕𝑥= ∇𝑥𝑓=
+𝜕𝑓1
+𝜕𝑥1
+𝜕𝑓1
+𝜕𝑥2
+𝜕𝑓1
+𝜕𝑥3
+𝜕𝑓2
+𝜕𝑥1
+𝜕𝑓2
+𝜕𝑥2
+𝜕𝑓2
+𝜕𝑥3
+= 2𝑥1
+2𝑥2
+0
+0
+2𝑥2 + 𝑥3
+2
+2𝑥2𝑥3
+
+--- Page 22 ---
+22
+Example
+Output layer
+❑𝑙= −𝑙𝑜𝑔
+𝑒ℎ2
+𝑒ℎ1+𝑒ℎ2+𝑒ℎ3+𝑒ℎ4 = log 𝑒ℎ1 + 𝑒ℎ2 + 𝑒ℎ3 + 𝑒ℎ4 −ℎ2
+❑
+𝜕𝑙
+𝜕ℎ1 =
+∇ℎ1𝑢
+𝑢
+=
+𝑒ℎ1
+𝑒ℎ1+𝑒ℎ2+𝑒ℎ3+𝑒ℎ4 = 𝑝1
+❑
+𝜕𝑙
+𝜕ℎ2 =
+∇ℎ2𝑢
+𝑢
+−1 =
+𝑒ℎ2
+𝑒ℎ1+𝑒ℎ2+𝑒ℎ3+𝑒ℎ4 −1 = 𝑝2 −1
+❑
+𝜕𝑙
+𝜕ℎ3 =
+∇ℎ3𝑢
+𝑢
+=
+𝑒ℎ3
+𝑒ℎ1+𝑒ℎ2+𝑒ℎ3+𝑒ℎ4 = 𝑝3
+❑
+𝜕𝑙
+𝜕ℎ4 =
+∇ℎ4𝑢
+𝑢
+=
+𝑒ℎ4
+𝑒ℎ1+𝑒ℎ2+𝑒ℎ3+𝑒ℎ4 = 𝑝4
+❑
+𝜕𝑙
+𝜕𝒉= 𝑝1, 𝑝2 −1, 𝑝3, 𝑝4 = 𝑝1, 𝑝2, 𝑝3, 𝑝4 −0,1,0,0 = 𝒑−𝟏𝟐= 𝒑−𝟏𝒚
+softmax
+Output 
+Layer
+Penultimate 
+Layer
+𝒑𝒙= 𝑠𝑜𝑓𝑡𝑚𝑎𝑥(ℎ𝐿(𝑥))
+Prediction Probabilities
+Logit ℎ= ℎ1 ℎ2 ℎ3 ℎ4
+Prob p = 𝑝1 𝑝2 𝑝3 𝑝4
+𝒉𝟏
+𝒉𝟐
+𝒉𝟑
+𝒉𝟒
+𝒑𝟏
+𝒑𝟐
+𝒑𝟑
+𝒑𝟒
+𝒑𝟏=
+𝒆𝒉𝟏
+𝒆𝒉𝟏+ 𝒆𝒉𝟐+ 𝒆𝒉𝟑+ 𝒆𝒉𝟒
+𝒑𝟐=
+𝒆𝒉𝟐
+𝒆𝒉𝟏+ 𝒆𝒉𝟐+ 𝒆𝒉𝟑+ 𝒆𝒉𝟒
+𝒑𝟑=
+𝒆𝒉𝟑
+𝒆𝒉𝟏+ 𝒆𝒉𝟐+ 𝒆𝒉𝟑+ 𝒆𝒉𝟒
+𝒑𝟒=
+𝒆𝒉𝟒
+𝒆𝒉𝟏+ 𝒆𝒉𝟐+ 𝒆𝒉𝟑+ 𝒆𝒉𝟒
+𝑥= 𝑥1 𝑥2 𝑥2 ∈ℝ1×3
+𝑦= 2
+𝑙= 𝑙𝑜𝑠𝑠= −log 𝑝2
+=−𝑙𝑜𝑔
+𝑒ℎ2
+𝑒ℎ1+𝑒ℎ2+𝑒ℎ3+𝑒ℎ4
+loss
+Compute 
+𝜕𝑙
+𝜕𝒉?
+𝑢
+
+--- Page 23 ---
+23
+Example
+
+തℎ= 𝑥𝑊+ 𝑏 and ℎ= 𝜎(തℎ)
+o
+ℎ= 𝜎(𝑥𝑊+ 𝑏)
+o
+𝜎 is the activation function
+
+𝜕ℎ
+𝜕𝑥=
+𝜕ℎ
+𝜕ഥℎ×
+𝜕ഥℎ
+𝜕𝑥= 𝑑𝑖𝑎𝑔𝜎′ തℎ
+𝑊𝑇∈ℝ4×3
+𝑥∈ℝ1×3
+തℎ= 𝑥𝑊+ 𝑏
+𝑊∈ℝ3×4
+𝑏∈ℝ1×4
+ℎ= 𝜎(തℎ)
+𝜎𝜎𝜎𝜎
+തℎ1 തℎ2തℎ3 തℎ4
+ℎ1 ℎ2ℎ3ℎ4
+
+𝜕ℎ
+𝜕തℎ=
+𝜕ℎ1
+𝜕തℎ1
+𝜕ℎ1
+𝜕തℎ2
+𝜕ℎ1
+𝜕തℎ3
+𝜕ℎ1
+𝜕തℎ4
+𝜕ℎ2
+𝜕തℎ1
+𝜕ℎ2
+𝜕തℎ2
+𝜕ℎ2
+𝜕തℎ3
+𝜕ℎ2
+𝜕തℎ4
+𝜕ℎ3
+𝜕തℎ1
+𝜕ℎ3
+𝜕തℎ2
+𝜕ℎ3
+𝜕തℎ3
+𝜕ℎ3
+𝜕തℎ4
+𝜕ℎ4
+𝜕തℎ1
+𝜕ℎ4
+𝜕തℎ2
+𝜕ℎ4
+𝜕തℎ3
+𝜕ℎ4
+𝜕തℎ4
+=
+𝜎′(തℎ1)
+0
+0
+0
+0
+𝜎′(തℎ2)
+0
+0
+0
+0
+𝜎′(തℎ3)
+0
+0
+0
+0
+𝜎′(തℎ4)
+= 𝑑𝑖𝑎𝑔(𝜎′(തℎ))
+
+𝜕തℎ
+𝜕𝑥= 𝑊𝑇
+Intermediate layer
+
+--- Page 24 ---
+24
+How to code with PyTorch
+
+തℎ= 𝑥𝑊+ 𝑏 and ℎ= 𝑠𝑖𝑔𝑚𝑜𝑖𝑑(തℎ)
+o
+ℎ= 𝑠𝑖𝑔𝑚𝑜𝑖𝑑(𝑥𝑊+ 𝑏)
+o
+𝜎= 𝑠𝑖𝑔𝑚𝑜𝑖𝑑 is the activation function
+
+𝜕ℎ
+𝜕𝑥=
+𝜕ℎ
+𝜕തℎ×
+𝜕തℎ
+𝜕𝑥= 𝑑𝑖𝑎𝑔𝜎′ തℎ
+𝑊𝑇= 𝑑𝑖𝑎𝑔𝜎തℎ⊗[1 −𝜎തℎ] 𝑊𝑇= 𝑑𝑖𝑎𝑔ℎ⊗1 −ℎ
+𝑊𝑇
+o
+⊗ is element-wise product
+ 
+Declare 𝑾, 𝒙, 𝒃
+Forward propagation
+Backward propagation
+
+--- Page 25 ---
+25
+Recall optimization problem in deep learning
+
+How to solve the optimization problem efficiently (𝜃≔
+𝑊𝑙, 𝑏𝑙
+𝑙=1
+𝐿
+)?
+o min
+𝜃𝐿𝐷; 𝜃≔−
+1
+𝑁σ𝑖=1
+𝑁
+log 𝑝𝑦𝑖𝑥𝑖= −
+1
+𝑁σ𝑖=1
+𝑁
+log
+exp{ℎ𝑦𝑖
+𝐿(𝑥𝑖)}
+σ𝑚=1
+𝑀
+exp{ℎ𝑚
+𝐿(𝑥𝑖)} 
+o Generalize: min
+𝜃𝐽(𝜃) ≔
+1
+𝑁σ𝑖=1
+𝑁
+𝑙(𝑓𝑥𝑖; 𝜃, 𝑦𝑖) 
+SoftMax
+Input layer
+ℎ0(𝒙) = 𝒙
+Hidden layer
+ℎ1(𝒙)
+Hidden layer
+ℎ𝐿−1(𝒙)
+Output  layer
+ℎ𝐿(𝒙)
+𝑝𝑥= 𝑠𝑜𝑓𝑡𝑚𝑎𝑥(ℎ𝐿(𝑥))
+Training set
+𝐷= { 𝑥1, 𝑦1 , … (𝑥𝑁, 𝑦𝑁)}
+Loss function
+𝐿𝐷; 𝜃≔1
+𝑁෍
+𝑖=1
+𝑁
+𝐶𝐸1𝑦𝑖, 𝑝𝑥𝑖
+= −1
+𝑁෍
+𝑖=1
+𝑁
+log 𝑝𝑦𝑖(𝑥𝑖)
+Ground-
+truth label
+𝒚
+𝑙𝑦, ො𝑦= 𝐶𝐸1𝑦, 𝑝(𝑥) = −log 𝑝𝑦(𝑥)
+ො𝑦= argmax1≤𝑚≤𝑀𝑝𝑚(𝑥)
+
+--- Page 26 ---
+26
+Optimization problem in ML and DL
+
+Most of optimization problems (OP) in machine learning (deep learning) has the following form:
+min𝜃 𝐽𝜃= 𝛺𝜃+ 1
+𝑁෍
+𝒊=𝟏
+𝑵
+𝑙𝑦𝑖, 𝑓𝑥𝑖; 𝜃
+First-order iterative methods (gradient 
+descent, steepest descent) 
+Use the gradient (first derivative) g = 𝛻𝛉𝐽(𝛉) to 
+update parameters
+Second-order iterative methods (Newton and 
+quasi Newton methods)
+Use the Hessian matrix (second derivative) H =
+𝛻𝛉
+2𝐽(𝛉) to update parameters
+How to efficiently solve this optimization problem?
+N is the training size and might be very big (e.g., 𝑁≈106)
+Regularization term
+- Ω θ = 𝜆σ𝑘σ𝑖,𝑗𝑊𝑖,𝑗
+𝐤
+2 = 𝜆σ𝑘𝑾𝐤
+𝐹
+2 
+- Encourage simple models
+- Avoid overfitting
+Empirical loss
+- Work well on training set
+-
+Occam's Razor 
+principle: prefer 
+simplest model that 
+can well predict data.
+
+--- Page 27 ---
+27
+Gradient and Hessian matrix
+
+Given an objective function 𝐽(𝜃) with 𝜃= [𝜃1, 𝜃2, … , 𝜃𝑃]
+o
+For DL models
+▪
+𝜃 includes weight matrices, filters, and biases which are trainable model parameters.
+▪
+𝑃 is the number of trainable parameters (𝑃 could be 20 × 106).
+▪
+𝐽(𝜃) is the loss function over a training set.
+
+Gradient g = ∇𝐽(𝜃) is the first order derivative and defined as 
+o
+∇𝐽𝜃= 𝑔=
+𝜕𝐽
+𝜕𝜃1 (𝜃)
+… … … .
+𝜕𝐽
+𝜕𝜃𝑃(𝜃)
+
+Hessian matrix 𝐻(𝜃) is the second order derivative ∇2𝐽(𝜃) and defined as
+o
+∇2𝐽𝜃= 𝐻(𝜃) =
+𝜕2𝐽
+𝜕𝜃1𝜕𝜃1 (𝜃)
+…
+…
+𝜕2𝐽
+𝜕𝜃1𝜕𝜃𝑗(𝜃)
+…
+𝜕2𝐽
+𝜕𝜃1𝜕𝜃𝑃(𝜃)
+…
+…
+…
+…
+…
+…
+…
+…
+…
+…
+…
+…
+𝜕2𝐽
+𝜕𝜃𝑖𝜕𝜃1 (𝜃)
+…
+…
+𝜕2𝐽
+𝜕𝜃𝑖𝜕𝜃𝑗(𝜃)
+…
+𝜕2𝐽
+𝜕𝜃𝑖𝜕𝜃𝑃(𝜃)
+…
+…
+…
+…
+…
+…
+𝜕2𝐽
+𝜕𝜃𝑃𝜕𝜃1 (𝜃)
+…
+…
+𝜕2𝐽
+𝜕𝜃𝑃𝜕𝜃𝑗(𝜃)
+…
+𝜕2𝐽
+𝜕𝜃𝑃𝜕𝜃𝑃(𝜃)
+
+--- Page 28 ---
+28
+Local minima-maxima and saddle point
+
+Given an objective function 𝐽(𝜃) with 𝜃=
+[𝜃1, 𝜃2, … , 𝜃𝑃]
+o
+𝜃 is said to be a critical point if ∇𝐽𝜃= 𝟎 (vector 𝟎)
+
+Let us denote the set of eigenvalues of Hessian 
+matrix ∇2𝐽𝜃= 𝐻(𝜃) by
+o
+𝜆1 ≤𝜆2 ≤⋯≤𝜆𝑃
+
+Local minima
+o
+∇𝐽𝜃= 𝟎 and ∇2𝐽𝜃= 𝐻(𝜃) ≻0 (positive semi-
+definite matrix)
+o
+0 ≤𝜆1 ≤𝜆2 ≤⋯≤𝜆𝑃
+
+Local maxima
+o
+∇𝐽𝜃= 𝟎 and ∇2𝐽𝜃= 𝐻(𝜃) ≺0 (negative semi-
+definite matrix)
+o
+𝜆1 ≤𝜆2 ≤⋯≤𝜆𝑃≤0
+
+Saddle point
+o
+∇𝐽𝜃= 𝟎 and ∇2𝐽𝜃= 𝐻(𝜃) ≺0 (indefinite matrix)
+o
+𝜆1 ≤𝜆2 ≤⋯< 0 < ⋯≤𝜆𝑃
+A
+B
+C
+D
+E
+
+--- Page 29 ---
+29
+More on saddle point
+𝑓𝜃= 𝑓𝜃1, 𝜃2 = 𝜃1
+2 −𝜃2
+2
+Gradient 𝑔=
+𝜕𝑓
+𝜕𝜃1
+𝜕𝑓
+𝜕𝜃2
+=
+2𝜃1
+−2𝜃2 = 0
+0 → a critical point 0
+0 .
+Hessian matrix is 𝐻=
+𝜕2𝑓
+𝜕𝜃12
+𝜕2𝑓
+𝜕𝜃1𝜕𝜃2
+𝜕2𝑓
+𝜕𝜃2𝜕𝜃1
+𝜕2𝑓
+𝜕𝜃22
+= 2
+0
+0
+−2
+Two eigenvalues 𝜆1 = −2 < 0 < 2 = 𝜆2 →0
+0 is a saddle point.
+[Source: Internet]
+Saddle point
+
+--- Page 30 ---
+30
+Numbers of local minima vs saddle points
+We assume to pick randomly a training set
+o The Hessian matrix 𝐻(𝜃) is a random matrix with random eigenvalues 
+𝜆1, 𝜆2, … , 𝜆𝑃
+o We assume that ℙ𝜆1 ≥0 = ℙ𝜆2 ≥0 = ⋯= ℙ𝜆𝑃≥0 = 0.5
+Therefore, we have
+o ℙ𝑚𝑖𝑛𝑖𝑚𝑎= ℙ𝜆1 ≥0 ℙ𝜆2 ≥0 … ℙ𝜆𝑃≥0 = 0.5𝑃
+o ℙ𝑚𝑎𝑥𝑖𝑚𝑎= ℙ𝜆1 ≤0 ℙ𝜆2 ≤0 … ℙ𝜆𝑃≤0 = 0.5𝑃
+o ℙ𝑠𝑎𝑑𝑑𝑙𝑒 𝑝𝑜𝑖𝑛𝑡= 1 −ℙ𝑚𝑖𝑛𝑖𝑚𝑎−ℙ𝑚𝑎𝑥𝑖𝑚𝑎= 1 −0.5𝑃−1
+The ratio of #local minima/maxima against #saddle points
+o #local-minima:#local-maxima:#saddle-point=1: 1: 2𝑃−2
+o Number of saddle points is even exponentially much more than that of local 
+minima/maxima
+
+--- Page 31 ---
+31
+The loss surface of DL optimization problem
+The optimization problem in deep learning:
+o min
+𝜃𝐽𝜃≔𝐿𝐷; 𝜃≔
+1
+𝑁σ𝑖=1
+𝑁
+𝑙𝑓𝑥𝑖; 𝜃, 𝑦𝑖= −
+1
+𝑁σ𝑛=1
+𝑁
+log
+exp{ℎ𝑦𝑖
+𝐿(𝑥𝑖)}
+σ𝑚=1
+𝑀
+exp{ℎ𝑚
+𝐿(𝑥𝑖)} 
+A very complex and complicated objective function
+o
+Highly non-linear and non-convex function
+o
+The loss surface is very complex
+o
+Many local minima points, but the number of saddle points is even exponentially much more
+Loss surface of a ResNet without skip connection [Hao Li et al., NeurIPS 2017]
+
+--- Page 32 ---
+32
+Gradient descend
+❑We need to solve 
+o min
+𝜃𝐽(𝜃)
+❑Follow to the opposite side of the current gradient
+o 𝜃𝑡+1 = 𝜃𝑡−𝜂𝛻𝜃𝐽𝜃𝑡 where 𝜼> 𝟎 is the learning rate.
+❑Guarantee to converge to a global minima if 𝐽(. ) is 
+convex.
+❑Get stuck in a local minima or saddle points if 𝐽(. ) 
+is non-convex.
+−𝛻𝜃𝐽𝜃𝑡
+−𝛻𝜃𝐽𝜃𝑡
+−𝛻𝜃𝐽𝜃𝑡
+−𝛻𝜃𝐽𝜃𝑡= 0
+Convex case
+(Source: www.cs.ubc.ca)
+Non-convex case
+DL case: easy to get stuck 
+in saddle points
+
+--- Page 33 ---
+33
+Gradient descend
+Algorithm
+❑Input: objective function 𝑱(𝜽)
+❑Output: optimal solution 𝜽∗
+1.
+Initialize parameters 𝜃0 randomly ~𝑁(0, 𝜎2).
+2.
+for t=1 to T
+3.
+       Compute gradients ∇𝜃𝐽𝜃𝑡= 𝜕𝐽
+𝜕𝜃(𝜃𝑡)
+4.
+       Update 𝜃𝑡+1 = 𝜃𝑡−𝜂𝑡∇𝜃𝐽𝜃𝑡
+5.
+Return 𝜃∗= 𝜃𝑇+1
+𝜽𝟏
+𝜽𝟐
+𝜽𝟑
+
+--- Page 34 ---
+34
+Example of Gradient Descend
+❑Consider the optimization problem:
+                     min
+𝑤
+𝑓𝑤= 𝑤−1 2 + 𝑤−3 2
+❑Currently, we are at 𝑤𝑡= 1 with 𝑓𝑤𝑡= 𝑓1 =
+02 + 22 = 4. What is 𝑤𝑡+1 if using learning rate 
+𝜂= 0.1?
+o 𝑓′ 𝑤= 2 𝑤−1 + 2 𝑤−3 = 4𝑤−8
+o 𝑓′ 𝑤𝑡= 𝑓′ 1 = −4
+o 𝑤𝑡+1 = 𝑤𝑡−𝜂𝑓′ 𝑤𝑡= 1 −0.1 −4 = 1.4
+o 𝑓𝑤𝑡+1 = 2.72 < 𝑓𝑤𝑡= 4
+𝑤𝑡𝑤𝑡+1
+
+--- Page 35 ---
+35
+Gradient descent for deep learning
+For training deep nets, we need to solve
+o min
+𝜃𝐿𝐷; 𝜃≔
+1
+𝑁σ𝑖=1
+𝑁
+𝑙𝑥𝑖, 𝑦𝑖; 𝜃=
+1
+𝑁σ𝑖=1
+𝑁
+𝑙𝑦𝑖, 𝑓(𝑥𝑖; 𝜃) 
+where 𝑙𝑥𝑖, 𝑦𝑖; 𝜃= −log 𝑝(𝑦= 𝑦𝑖|𝑥𝑖) = −log
+exp{ℎ𝑦𝑖
+𝐿(𝑥𝑖)}
+σ𝑚=1
+𝑀
+exp{ℎ𝑚
+𝐿(𝑥𝑖)} is the loss incurred by 
+(𝑥𝑖, 𝑦𝑖).
+ Gradient descent update
+o 𝜃𝑡+1 = 𝜃𝑡−𝜂∇𝜃𝐿𝐷; 𝜃𝑡= 𝜃𝑡−
+𝜂
+𝑁σ𝑖=1
+𝑁
+∇𝜃𝑙(𝑥𝑖, 𝑦𝑖; 𝜃𝑡) where 𝜼> 𝟎 is a learning rate.
+o To compute the gradient ∇𝜃𝐿𝐷; 𝜃𝑡=
+1
+𝑁σ𝑖=1
+𝑁
+∇𝜃𝑙(𝑥𝑖, 𝑦𝑖; 𝜃𝑡), we need to go through all 
+data points in 𝐷 → the computational cost is 𝑂(𝑁).
+This is very computationally expensive for big datasets (𝑁≈106).
+How to estimate the gradient ∇𝜃𝐿𝐷; 𝜃𝑡 more efficiently?
+
+--- Page 36 ---
+36
+Stochastic gradient descent
+The optimization problem in deep learning has the form
+o min
+𝜃𝐿𝐷; 𝜃≔
+1
+𝑁σ𝑖=1
+𝑁
+𝑙𝑥𝑖, 𝑦𝑖; 𝜃 =
+1
+𝑁σ𝑖=1
+𝑁
+𝑙𝑦𝑖, 𝑓(𝑥𝑖; 𝜃)
+Evaluation of the full gradient is expensive. We want to just estimate this gradient
+o Sample a mini-batch 𝒊𝟏, 𝒊𝟐, … , 𝒊𝒃~𝑼𝒏𝒊({𝟏, 𝟐, … , 𝑵}) where 𝑏 is the mini-batch (batch) size. 
+▪The batch size is usually 32,64,128,256, and so on.
+o Construct ෨𝐿𝜃: =
+1
+𝑏σ𝑘=1
+𝑏
+𝑙(𝑥𝑖𝑘, 𝑦𝑖𝑘; 𝜃) as the average loss of those in the current batch.
+o 𝐸𝑖1,…,𝑖𝑏𝛻𝜃෨𝐿𝜃𝑡
+= 𝛻𝜃𝐿𝐷; 𝜃𝑡
+▪𝛻𝜃෨𝐿𝜃𝑡=
+1
+𝑏σ𝑘=1
+𝑏
+∇𝜃𝑙(𝑥𝑖𝑘, 𝑦𝑖𝑘; 𝜃𝑡) is unbiased estimation of 𝛻𝜃𝐿𝐷; 𝜃𝑡
+▪𝑂(𝑏) compares to 𝑂(𝑁).
+The update rule of SGD
+o 𝜃𝑡+1 = 𝜃𝑡−𝜂𝑡𝛻𝜃෨𝐿𝜃𝑡 with learning rate 𝜼𝒕∝𝑶(
+𝟏
+𝒕)
+o We use 𝛻𝜃෨𝐿𝜃𝑡 as an unbiased estimate of the full gradient 𝛻𝜃𝐿(𝐷; 𝜃) 
+o How to compute 𝛻𝜃෨𝐿𝜃𝑡 efficiently for deep networks?
+
+--- Page 37 ---
+37
+Example of Stochastic Gradient Descent
+Given the function 𝑓𝑤=
+1
+1000 σ𝑖=1
+1000 𝑤−𝑖2, we need to solve 
+min
+𝑤𝑓(𝑤)
+using SGD with the learning rate 𝜂= 0.1.
+ Assume we sample a batch 𝑖1 = 1, 𝑖2 = 2, 𝑖3 = 3, 𝑖4 = 4 of indices. At the iteration 
+𝑡,  𝑤𝑡= 10. What is the value of 𝑤𝑡+1 at the next iteration?
+❑ሚ𝑓𝑤=
+1
+4 [ 𝑤−1 2 + 𝑤−2 2 + 𝑤−3 4 + 𝑤−4 2]
+❑ሚ𝑓′ 𝑤= 2𝑤−5
+❑ሚ𝑓′ 𝑤t = ሚ𝑓′ 10 = 2 × 10 −5 = 15
+❑𝑤𝑡+1 = 𝑤𝑡−𝜂ሚ𝑓′ 𝑤𝑡= 10 −0.1 × 15 = 8.5.
+
+--- Page 38 ---
+38
+SGD for deep learning
+b = 32                                         //batch size
+iter_per_epoch = N/b             //epoch means one round going  
+                                                     through all data points
+n_epoch = 50                            //number of epochs
+for epoch=1 to n_epoch do
+     for i=1 to iter_per_epoch do
+          Sample a minibatch 𝐵=
+𝑥𝑖𝑗, 𝑦𝑖𝑗
+𝑗=1
+𝑏
+ from the training set
+          Do forward propagation for B
+          Do back propagation to compute
+𝜕𝑙
+𝜕𝑊𝑘,
+𝜕𝑙
+𝜕𝑏𝑘𝑘=1
+𝐿
+          for k=1 to L do
+                𝑊𝑘= 𝑊𝑘−𝜂
+𝜕𝑙
+𝜕𝑊𝑘
+                𝑏𝑘= 𝑏𝑘−𝜂
+𝜕𝑙
+𝜕𝑏𝑘 
+ 
+ 
+ℎ0 = 𝑥
+തℎ1, ℎ1 = 𝜎(തℎ1)
+ℎ3, 𝑝= 𝑠𝑜𝑓𝑡𝑚𝑎𝑥(ℎ3)
+𝑊1 ∈ℝ3×4
+𝑏1 ∈ℝ1×4
+𝑊2 ∈ℝ4×3
+𝑏2 ∈ℝ1×3
+𝑊3 ∈ℝ3×2
+𝑏3 ∈ℝ1×2
+തℎ2, ℎ2 = 𝜎(തℎ2)
+
+--- Page 39 ---
+39
+Forward – Backward Propagations
+ℎ3
+ℎ0 = 𝑥
+*
+𝑊1
+𝑏1
++
+𝝈
+𝑊2
+𝑏2
+*
++
+𝝈
+𝑊3
+*
+𝑏3
++
+softmax
+തℎ1
+ℎ1
+തℎ2
+𝒑
+ℎ2
+𝒈𝟑= 𝝏𝒍
+𝝏𝒉𝟑= 𝒑−𝟏𝒚∈ℝ𝟏×𝒏𝟑
+CE loss
+𝝏𝒍
+𝝏𝑾𝟑=
+𝝏𝒍
+𝝏𝒉𝟑. 
+𝝏𝒉𝟑
+𝝏𝑾𝟑= 𝒉𝟐𝑻𝒈𝟑∈ℝ𝒏𝟐×𝒏𝟑
+𝑾𝟑= 𝑾𝟑−𝜼𝝏𝒍
+𝝏𝑾𝟑
+𝝏𝒍
+𝝏𝒃𝟑=
+𝝏𝒍
+𝝏𝒉𝟑. 
+𝝏𝒉𝟑
+𝝏𝒃𝟑= 𝒈𝟑∈ℝ𝟏×𝒏𝟑
+𝒃𝟑= 𝒃𝟑−𝜼𝝏𝒍
+𝝏𝒃𝟑
+𝒈𝟐=
+𝝏𝒍
+𝝏𝒉𝟐=
+𝝏𝒍
+𝝏𝒉𝟑. 
+𝝏𝒉𝟑
+𝝏𝒉𝟐= 𝒈𝟑𝑾𝟑∈ℝ𝟏×𝒏𝟐
+𝒍
+ഥ𝒈𝟐= 𝝏𝒍
+𝝏ഥ𝒉𝟐= 𝝏𝒍
+𝝏𝒉𝟐. 𝝏𝒉𝟐
+𝝏ഥ𝒉𝟐= 𝒈𝟐𝒅𝒊𝒂𝒈(𝝈′(ഥ𝒉𝟐)) ∈ℝ𝟏×𝒏𝟐
+𝝏𝒍
+𝝏𝑾𝟐=
+𝝏𝒍
+𝝏ഥ𝒉𝟐. 
+𝝏ഥ𝒉𝟐
+𝝏𝑾𝟐= 𝒉𝟏𝑻ഥ𝒈𝟐∈ℝ𝒏𝟏×𝒏𝟐
+𝑾𝟐= 𝑾𝟐−𝜼𝝏𝒍
+𝝏𝑾𝟐
+𝝏𝒍
+𝝏𝒃𝟐=
+𝝏𝒍
+𝝏ഥ𝒉𝟐. 
+𝝏ഥ𝒉𝟐
+𝝏𝒃𝟐=∈ℝ𝟏×𝒏𝟐
+𝒃𝟐= 𝒃𝟐−𝜼𝝏𝒍
+𝝏𝒃𝟐
+𝒈𝟏=
+𝝏𝒍
+𝝏𝒉𝟏=
+𝝏𝒍
+𝝏ഥ𝒉𝟐. 
+𝝏ഥ𝒉𝟐
+𝝏𝒉𝟏= ഥ𝒈𝟐𝑾𝟐∈ℝ𝟏×𝒏𝟏
+ഥ𝒈𝟏=
+𝝏𝒍
+𝝏ഥ𝒉𝟏=
+𝝏𝒍
+𝝏𝒉𝟏.
+𝝏𝒉𝟏
+𝝏ഥ𝒉𝟏= 𝒈𝟏𝒅𝒊𝒂𝒈𝝈′ ഥ𝒉𝟏
+∈ℝ𝟏×𝒏𝟏
+𝝏𝒍
+𝝏𝑾𝟏=
+𝝏𝒍
+𝝏ഥ𝒉𝟏. 
+𝝏ഥ𝒉𝟏
+𝝏𝑾𝟏= 𝒉𝟎𝑻ഥ𝒈𝟏∈ℝ𝒏𝟎×𝒏𝟏
+𝑾𝟏= 𝑾𝟏−𝜼𝝏𝒍
+𝝏𝑾𝟏
+𝝏𝒍
+𝝏𝒃𝟏=
+𝝏𝒍
+𝝏ഥ𝒉𝟏. 
+𝝏ഥ𝒉𝟏
+𝝏𝒃𝟏= ഥ𝒈𝟏∈ℝ𝟏×𝒏𝟏
+𝒃𝟏= 𝒃𝟏−𝜼𝝏𝒍
+𝝏𝒃𝟏
+Backward
+Forward
+
+--- Page 40 ---
+40
+Mini-batch feed-forward
+
+Input
+o Batch 𝑋: [𝑏, 𝑛0 = 𝑑= 5]  (b is 
+the batch size)
+
+Hidden layer 1
+o
+𝒉𝟏= 𝝈(𝑿𝑾𝟏+ 𝒃𝟏)
+o
+Tensor [𝑏, 𝑛1 = 7]
+
+Hidden layer 2
+o
+𝒉𝟐= 𝝈(𝒉𝟏𝑾𝟐+ 𝒃𝟐)
+o
+Tensor [𝑏, 𝑛2 = 7]
+
+Output layer
+o
+𝒉𝟑= 𝒉𝟐𝑾𝟑+ 𝒃𝟑
+o
+𝑃= 𝑠𝑜𝑓𝑡𝑚𝑎𝑥(ℎ3, 𝑑𝑖𝑚= 1)
+o
+Tensor P: [𝑏, 𝑛𝐿= 𝑀= 4]
+
+The loss of the batch
+o
+1
+𝑏σ𝑖=1
+𝑏
+𝐶𝐸(1𝑦𝑖, 𝑝𝑖) =
+−
+1
+𝑏σ𝑖=1
+𝑏
+log 𝑝𝑦𝑖
+𝑖
+o Update weight matrices and 
+biases to minimize the batch loss.
+Input layer
+ℎ0(𝑥) = 𝑥
+Hidden layer
+ℎ1(𝑥)
+Hidden layer
+ℎ2(𝑥)
+Output  layer
+ℎ3(𝑥)
+𝑊1 ∈ℝ5×7,
+𝑏1 ∈ℝ1×7
+𝑊2 ∈ℝ7×5,
+𝑏2 ∈ℝ1×5
+𝑊3 ∈ℝ5×4,
+𝑏3 ∈ℝ1×4
+𝑏= 32 
+(batch size)
+𝑏= 32
+ℎ1
+𝑋
+𝑛1 = 7
+𝑏= 32
+ℎ2
+𝑛2 = 5
+𝑏= 32
+ℎ3
+𝑛3 = 𝑀= 4
+𝑏= 32
+𝑃
+𝑏= 32
+𝑌
+𝑛3 = 𝑀= 4
+Data
+𝑏𝑎𝑡𝑐ℎ_𝑙𝑜𝑠𝑠= 1
+𝑏෍
+𝑖=1
+𝑏
+𝐶𝐸(1𝑦𝑖, 𝑝𝑖)
+𝑦1 = 3, 𝑀= 4
+1𝑦1 = [0,0,1,0]
+One-hot labels
+Prediction 
+probabilities
+Training set
+Form a mini-batch
+𝑥2
+𝑥𝑏
+𝑥1
+𝑑= 𝑛0 = 5
+𝑙𝑜𝑔𝑖𝑡1
+𝑙𝑜𝑔𝑖𝑡2
+𝑙𝑜𝑔𝑖𝑡𝑏
+𝑝1
+𝑝2
+𝑝𝑏
+1𝑦1
+1𝑦2
+1𝑦𝑏
+Labels
+𝑥1, 𝑦1 , … , (𝑥𝑏, 𝑦𝑏),
+𝑥𝑏+1, 𝑦𝑏+1 , … , (𝑥2𝑏, 𝑦2𝑏)
+………………………….
+𝑥∗, 𝑦∗, … , (𝑥𝑁, 𝑦𝑁)
+Mini-batches
+Forward 
+propagation
+Backward 
+propagation

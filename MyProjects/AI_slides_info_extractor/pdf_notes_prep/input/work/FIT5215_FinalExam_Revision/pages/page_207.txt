@@ -1,0 +1,31 @@
+ViT: Model Fine-Tuning with Additional LoRA
+1
+2
+3
+4
+5
+6
+7
+8
+9
+1
+2
+3
+4
+5
+6
+7
+8
+9
+Linear Projection of Flattened Patches
+*
+class token
+*
+New dataset
+𝑊𝑄+ 𝑩𝑸× 𝑨𝑸
+𝑊𝐾+ 𝑩𝑲× 𝑨𝒌
+𝑊𝑉+ 𝑩𝑽× 𝑨𝑽
+[𝑚, 𝑛] [𝑚, 𝑟] [𝑟, 𝑛]
+𝑟≪𝑚, 𝑛
+Fine-tuning
+Fine-tuning

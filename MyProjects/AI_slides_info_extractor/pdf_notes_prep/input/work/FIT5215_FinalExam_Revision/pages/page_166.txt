@@ -1,0 +1,21 @@
+166
+Global attention
+Example
+1.
+Convert into alignment weights.
+2.
+Build context vector: weighted average
+3.
+Compute the next hidden state.
+4.
+Predictive distribution:
+𝑝𝑦𝑡|𝑦<𝑡, 𝑥= 𝑠𝑜𝑓𝑡𝑚𝑎𝑥𝑊𝑠෤𝑞𝑡
+𝑎𝑡𝑠=
+𝑒𝑥𝑝𝑠𝑐𝑜𝑟𝑒𝑞𝑡, ℎ𝑠
+σ𝑠′ 𝑒𝑥𝑝𝑠𝑐𝑜𝑟𝑒𝑞𝑡, ℎ𝑠′
+𝑐𝑡= ෍
+𝑠
+𝑎𝑡(𝑠) ℎ𝑠
+෤𝑞𝑡= 𝑡𝑎𝑛ℎ𝑊𝑐𝑐𝑡; 𝑞𝑡
+𝑞𝑡
+𝑞𝑡

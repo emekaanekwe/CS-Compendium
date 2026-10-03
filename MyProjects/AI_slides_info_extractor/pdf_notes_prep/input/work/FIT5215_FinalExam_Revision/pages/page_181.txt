@@ -1,0 +1,8 @@
+181
+Transformer
+Multi-Head Self-Attention
+Main idea: 
+o Perform self-attention multiple times in parallel and combine results
+Multiple attention heads through multiple Q, K, V matrices
+Each attention head performs attention independently
+o Allow attending to parts of the sequence differently

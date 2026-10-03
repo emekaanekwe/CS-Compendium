@@ -1,0 +1,20 @@
+153
+Introduction
+Problem statement of seq2seq
+o Source sequence: 𝑥= 𝑥1, 𝑥2, … , 𝑥𝑇𝑥 where 𝑥𝑖𝜖𝑉𝑥
+o Target sequence: y = 𝑦1, 𝑦2, … , 𝑦𝑇𝑦 where 𝑦𝑖𝜖𝑉𝑦
+o Training set: 
+▪
+𝔇=
+𝑥(1), 𝑦(1) , 𝑥(2), 𝑦(2) , … , 𝑥(𝑁), 𝑦(𝑁)
+=
+𝑥(𝑖), 𝑦(𝑖)
+𝑖=1
+𝑁
+▪𝑆𝑥: set of possible source sequences ( 𝑥(𝑖) ⊆𝑆𝑥)
+▪𝑆𝑦: set of possible target sequences ( 𝑦(𝑖) ⊆𝑆𝑦)
+o Task
+▪ Learn a function 𝑓: 𝑆𝑥→𝑆𝑦
+ Applications
+o Machine Translation
+o Image Captioning

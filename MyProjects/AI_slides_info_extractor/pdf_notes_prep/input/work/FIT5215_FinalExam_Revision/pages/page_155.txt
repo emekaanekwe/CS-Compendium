@@ -1,0 +1,41 @@
+155
+Encoder-decoder model for seq2seq
+Fixed context vector
+Encoder
+o Produces the context vector 𝒄= 𝒉𝑻𝒙 of the input sequence
+o Context vector c summarizes input sequence [𝐱𝟏, … , 𝐱𝐓𝐱].
+Decoder
+o Decodes the encode c to the output sequence
+Special symbols
+o <EOS> signifies the end of a sequence
+o <BOS> signifies the beginning of a sequence
+ℎ1
+𝑥1
+ℎ2
+ℎ𝑖−1
+𝑥2
+𝑥𝑖−1
+ℎ𝑖
+𝑥𝑖
+𝑐= ℎ𝑇𝑥
+𝑥𝑇𝑥
+𝑞𝑗−1
+𝑦𝑗−1
+𝑦𝑗
+𝑞𝑗
+𝑦𝑗
+𝑦𝑗+1
+𝑞𝑇𝑦
+𝑦𝑇𝑦
+<EOS>
+𝑞2
+𝑦2
+𝑦3
+𝑞1
+𝑦1
+𝑦2
+𝑞0
+<BOS>
+𝑦1
+ℎ𝑇𝑥−1
+𝑥𝑇𝑥−1

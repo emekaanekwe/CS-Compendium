@@ -1,0 +1,16 @@
+221
+The Nash equilibrium point
+The solution of the minimax problem 𝒎𝒊𝒏𝑮𝒎𝒂𝒙𝑫𝑱𝑫, 𝑮
+o Nash equilibrium point 𝐷∗, 𝐺∗ which satisfies
+▪𝑝𝑔∗= 𝑝𝑑
+▪𝐷∗(𝒙) =
+𝑝𝑑(𝒙)
+𝑝𝑑𝒙+𝑝𝑔∗(𝒙) = 0.5, 𝑓𝑜𝑟 𝑎𝑙𝑙 𝑥
+[Goodfellow et al, NIPS 14]
+Our own simulation
+𝐷
+𝑝𝑑
+𝑝𝑔
+𝑝𝑔∗= 𝑝𝑑
+𝐷∗𝑥
+= 0.5, ∀𝑥

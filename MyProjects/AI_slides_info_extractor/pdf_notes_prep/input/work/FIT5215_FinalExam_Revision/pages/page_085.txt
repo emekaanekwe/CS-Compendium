@@ -1,0 +1,13 @@
+85
+Overfitting in Deep NNs
+Overfitting
+Overfitting occurs when your network models the training data too well and fails to generalize 
+to your test (validation) data. 
+o Performance measured by errors on “unseen” data.
+o Minimize error alone on training data is not enough
+o Causes: too many layers, too many hidden nodes, and overtrained. 
+Overfit: tendency of the network to “memorize” all 
+training samples, leading to poor generalization
+Overfitting with classification
+[Source: https://www.ibm.com/cloud/learn/overfitting]
+Testing data

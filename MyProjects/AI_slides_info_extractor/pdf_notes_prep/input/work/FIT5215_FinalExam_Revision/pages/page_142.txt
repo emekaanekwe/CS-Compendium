@@ -1,0 +1,74 @@
+142
+Skip-gram
+Pretext task
+What is the pretext task of Skip-gram?
+The
+quick
+brown
+fox
+jumps
+over  
+the
+lazy
+dogs.
+The
+quick
+brown
+fox
+jumps
+over  
+the
+lazy
+dogs.
+The
+quick
+brown
+fox
+jumps
+over  
+the
+lazy
+dogs.
+The
+quick
+brown
+fox
+jumps
+over  
+the
+lazy
+dogs.
+The
+quick
+brown
+fox
+jumps
+over  
+the
+lazy
+dogs.
+The
+quick
+brown
+fox
+jumps
+over  
+the
+lazy
+dogs.
+target word
+context word
+context word
+Skip-gram
+❑ Target word 
+𝒑𝒓𝒆𝒅𝒊𝒄𝒕 context words
+(brown, the), (brown, quick), (brown, for), 
+(brown, jumps) 
+(fox, quick), (fox, brown), (fox, jumps), (fox, 
+overs) 
+(jumps, brown), (jumps, fox), (jumps, over), 
+(jumps, the) 
+(over, fox), (over, jumps), (over, the), (over, 
+lazy) 
+(the, jumps), (the, over), (the, lazy), (the, 
+dogs)

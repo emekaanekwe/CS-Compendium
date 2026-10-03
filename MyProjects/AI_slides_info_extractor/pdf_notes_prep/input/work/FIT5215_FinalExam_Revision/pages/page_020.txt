@@ -1,0 +1,102 @@
+20
+Derivative for multi-variate functions
+Given a function 𝑓: ℝ𝑚→ℝ𝑛
+o 𝑓𝑥= (𝑓1 𝑥, … , 𝑓𝑛(𝑥)) where 𝑓1, … , 𝑓𝑛: ℝ𝑚→
+ℝ and 𝑥= (𝑥1, … , 𝑥𝑚). Let denote 𝑦= 𝑓(𝑥). 
+o The derivative of 𝑓 at the point 𝒂∈ℝ𝒎, denoted by 
+∇𝑓(𝑎) (function related notion) or 
+𝜕𝑦
+𝜕𝑥(𝑎) (variable 
+related notion) is a matrix 𝑛 by 𝑚 (i.e., the Jacobian 
+matrix).
+ℝ𝑚
+ℝ𝑛
+ℝ𝑝
+ 
+𝑓 
+ 
+𝑔 
+ℎ
+𝑥
+𝑦= 𝑓(𝑥) 𝑧= 𝑔𝑦= 𝑔𝑓𝑥
+= ℎ(𝑥)
+Chain rule 
+o
+Given a function 𝒇: ℝ𝒎→ℝ𝒏, 𝐠: ℝ𝒏→ℝ𝒑, denote 𝒉= 𝒈∘𝒇: ℝ𝒎→ℝ𝒑, meaning that 𝒉𝒙=
+𝒈𝒇𝒙
+. We further define 𝑦= 𝑓(𝑥) and 𝑧= 𝑔𝑦= 𝑔𝑓𝑥
+= ℎ(𝑥).
+o
+For  x ∈ℝ𝑚,∇ℎ𝑥= ∇𝑔𝑓𝑥
+× ∇𝑓𝑥 or equivalently 
+𝜕𝑧
+𝜕𝑥=
+𝜕𝑧
+𝜕𝑦.
+𝜕𝑦
+𝜕𝑥.
+𝑝× 𝑚
+𝑝× 𝑛
+𝑛× 𝑚
+Jacobian matrix
+𝜕𝑦
+𝜕𝑥(𝑎) = ∇𝑓(𝑎) =
+𝜕𝑓1
+𝜕𝑥1
+(𝑎)
+…
+…
+𝜕𝑓1
+𝜕𝑥𝑗
+(𝑎)
+…
+𝜕𝑓1
+𝜕𝑥𝑚
+(𝑎)
+…
+…
+…
+…
+…
+…
+…
+…
+…
+…
+…
+…
+𝜕𝑓𝑖
+𝜕𝑥1
+(𝑎)
+…
+…
+𝜕𝑓𝑖
+𝜕𝑥𝑗
+(𝑎)
+…
+𝜕𝑓𝑖
+𝜕𝑥𝑚
+(𝑎)
+…
+…
+…
+…
+…
+…
+𝜕𝑓𝑛
+𝜕𝑥1
+(𝑎)
+…
+…
+𝜕𝑓𝑛
+𝜕𝑥𝑗
+(𝑎)
+…
+𝜕𝑓𝑛
+𝜕𝑥𝑚
+(𝑎)
+𝑚
+𝑛
+𝑥= 1 1 1
+ℝ3
+ℝ2

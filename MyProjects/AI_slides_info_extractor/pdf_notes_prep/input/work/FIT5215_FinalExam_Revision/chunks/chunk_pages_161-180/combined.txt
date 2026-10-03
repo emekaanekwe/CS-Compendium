@@ -1,0 +1,511 @@
+--- Page 161 ---
+161
+Inference
+Beam search
+Input
+𝑥
+Hi
+(𝑝1)
+Yes
+(𝑝2)
+Please
+(𝑝3)
+, (𝑝11)
+How (𝑝12)
+What (𝑝13)
+sure (𝑝21)
+certainly (𝑝22)
+I(𝑝23)
+I (𝑝31)
+see (𝑝32)
+come (𝑝33)
+Joint Probability
+𝑝1𝑝11…
+𝑝1𝑝12…
+𝑝1𝑝13…
+𝑝2𝑝11…
+…
+Beam width = 3
+-
+We always 
+choose three 
+sentences with 
+highest joint 
+probabilities
+
+--- Page 162 ---
+162
+Drawback of fixed context
+Fixed context vector 𝒄 is easily 
+overwhelmed by long inputs or long 
+outputs.
+At a specific timestep 𝑗, some words or 
+items in the input sequence might 
+possibly contribute more to the 
+generation of next item or word in the 
+output sequence.
+o I want to see  you every day → Je veux te voir 
+chaque jour 
+o I want to see  you every day → Je veux te ?
+(voir) ….
+How to timely adapt the context vector
+𝑐𝑗?
+o 𝑐𝑗= 𝛼(ℎ1, . . , ℎ𝑇𝑥 , 𝑞𝑗−1)
+o Computed using attention mechanism
+Timely varied context vectors 𝒄𝒋
+Fixed context vector 𝒄
+Paper: paper link
+
+--- Page 163 ---
+163
+Attention mechanism
+Attention mechanism allows the decoding network to refer to the input.
+o Global attention
+▪Use all input hidden states of the encoder when deriving the context 𝑐𝑡.
+o Local attention
+▪Use a selective window of input hidden states of the encoder when deriving the context 𝑐𝑡.
+Luong, Pham, Manning, Effective Approach Attention-based Neural 
+Machine Translation, EMNLP, 2015 
+Bahdanau, Cho, Bengio, Neural Machine Translation by 
+Jointly Learning to Align and Translate, ICLR 2015
+
+--- Page 164 ---
+164
+Global attention
+❑Main idea
+o Consider all input hidden states of the encoder when deriving the 
+context: 𝑐𝑡= σ𝑠=1
+3
+𝑎𝑡(𝑠) ℎ𝑠
+Alignment weights: 
+𝑎𝑡𝑠= align 𝑞𝑡, ℎ𝑠 =
+exp 𝑠𝑐𝑜𝑟𝑒𝑞𝑡, ℎ𝑠
+σ𝑠′ exp 𝑠𝑐𝑜𝑟𝑒𝑞𝑡, ℎ𝑠′
+where 𝑞𝑡 is current target state, ℎ𝑠 is each source states.
+Alignment score function:
+𝑠𝑐𝑜𝑟𝑒𝑞𝑡, ℎ𝑠= ൦
+𝑞𝑡
+Tℎ𝑠
+𝑞𝑡
+T𝑊𝑎ℎ𝑠
+𝑣𝑎T𝑡𝑎𝑛ℎ𝑊𝑎𝑞𝑡; ℎ𝑠
+𝑑𝑜𝑡 𝑝𝑟𝑜𝑑𝑢𝑐𝑡
+𝑔𝑒𝑛𝑒𝑟𝑎𝑙 𝑚𝑒𝑡𝑟𝑖𝑐
+𝑐𝑜𝑛𝑐𝑎𝑡
+keys
+query
+
+--- Page 165 ---
+165
+Global attention
+Context vector: 
+𝑐𝑡= ෍
+𝑠=1
+3
+𝑎𝑡(𝑠) ℎ𝑠
+Attentional hidden state:
+෤𝑞𝑡= 𝑡𝑎𝑛ℎ𝑊𝑐𝑐𝑡; 𝑞𝑡
+Predictive distribution:
+𝑝𝑦𝑡|𝑦<𝑡, 𝑥= 𝑠𝑜𝑓𝑡𝑚𝑎𝑥𝑊𝑠෤𝑞𝑡
+ො𝑦𝑡
+
+--- Page 166 ---
+166
+Global attention
+Example
+1.
+Convert into alignment weights.
+2.
+Build context vector: weighted average
+3.
+Compute the next hidden state.
+4.
+Predictive distribution:
+𝑝𝑦𝑡|𝑦<𝑡, 𝑥= 𝑠𝑜𝑓𝑡𝑚𝑎𝑥𝑊𝑠෤𝑞𝑡
+𝑎𝑡𝑠=
+𝑒𝑥𝑝𝑠𝑐𝑜𝑟𝑒𝑞𝑡, ℎ𝑠
+σ𝑠′ 𝑒𝑥𝑝𝑠𝑐𝑜𝑟𝑒𝑞𝑡, ℎ𝑠′
+𝑐𝑡= ෍
+𝑠
+𝑎𝑡(𝑠) ℎ𝑠
+෤𝑞𝑡= 𝑡𝑎𝑛ℎ𝑊𝑐𝑐𝑡; 𝑞𝑡
+𝑞𝑡
+𝑞𝑡
+
+--- Page 167 ---
+167
+Global attention
+Drawback
+❑Drawback: employ all items on the source 
+side for deriving each target item.
+o expensive computation
+o impractical to translate longer 
+sequences
+Local attention
+
+--- Page 168 ---
+168
+Local attention
+Main idea
+o Selectively focuses on a small window of 
+context and is differentiable. 
+ 𝑐𝑡 is then derived as a weighted average over 
+the set of source hidden states within the 
+window 𝒑𝒕−𝑫; 𝒑𝒕+ 𝑫, 𝐷 is empirically 
+selected.
+
+--- Page 169 ---
+169
+Local attention
+Main idea
+o Selectively focuses on a small window of context and is differentiable
+For current target word, predict aligned position 𝑝𝑡
+o
+𝑝𝑡= 𝑆∙sigmoid 𝑣𝑝𝑇tanh 𝑊𝑝𝑞𝑡
+ 
+where 𝑊𝑝 and 𝑣𝑝 are the model parameters, 𝑆 is the source sentence 
+length, and hence 0 ≤𝑝𝑡≤𝑆
+Alignment weights:
+o
+𝑎𝑡𝑠= align 𝑞𝑡, ℎ𝑠exp −
+𝑠−𝑝𝑡2
+2𝜎2
+  with 𝜎= Τ
+𝐷2
+o
+align 𝑞𝑡, ℎ𝑠 =
+exp 𝑠𝑐𝑜𝑟𝑒𝑞𝑡,ℎ𝑠
+σ𝑠′ exp 𝑠𝑐𝑜𝑟𝑒𝑞𝑡,ℎ𝑠′   (temporary alignment 
+weights)
+Context is now computed as before but within a 
+windows of size D, centered at 𝑝𝑡
+
+--- Page 170 ---
+Transformers
+
+--- Page 171 ---
+171
+The
+cat
+jumps
+the
+wall
+h0
+hstart
+h1
+h2
+h3
+h4
+h5
+h6
+h7
+h8
+Il 
+gatto salta
+il 
+h9
+<EOS>
+muro 
+Encoder
+Context vector 𝒄
+Decoder
+<BOS> 
+A step back: Recurrent Networks (RNNs)
+Il 
+gatto 
+h10
+salta
+il 
+muro
+
+--- Page 172 ---
+172
+Problems
+1.
+We forget tokens too far in the past in the context vector c
+2.
+We need to wait the previous token to compute the next hidden-state
+The
+cat
+jumps
+the
+wall
+h0
+hstart
+h1
+h2
+h3
+h4
+h5
+h6
+h7
+h8
+Il 
+gatto salta
+il 
+h9
+<EOS>
+muro 
+Encoder
+Context vector 𝒄
+Decoder
+<BOS> Il 
+gatto 
+h10
+salta
+il 
+muro
+
+--- Page 173 ---
+173
+Solving problem 1
+Solution: Add an attention mechanism
+"We forget tokens too far in the past"
+The
+cat
+jumps
+the
+wall
+h0
+hstart
+h1
+h2
+h3
+h4
+h5
+h6
+h7
+h8
+Il 
+gatto salta
+il 
+h9
+<EOS>
+muro 
+Encoder
+Context vector 𝒄
+Decoder
+<BOS> Il 
+gatto 
+h10
+salta
+il 
+muro 
++ +
++
+Context 𝑐𝑡
+=
+Attention
++
+𝛼0
+𝛼1
+𝛼2
+𝛼3
+𝛼4
+
+--- Page 174 ---
+174
+Solving problem 2
+2017 paper
+"Attention Is All You Need"
+Solution
+Throw away recurrent
+connections
+"We need to wait the previous token to compute the next hidden-state"
+The
+cat
+jumps
+the
+wall
+h0
+hstart
+h1
+h2
+h3
+h4
+h5
+h6
+h7
+h8
+Il 
+gatto salta
+il 
+h9
+<EOS>
+muro 
+<BOS> Il 
+gatto 
+h10
+salta
+il 
+muro 
++ +
++
+Context 𝑐𝑡
+=
+Attention
++
+
+--- Page 175 ---
+175
+Transformer Motivations
+Problem using RNNs for Seq2Seq models
+o Slow due to sequential nature
+o Poor long-range dependency modelling
+Transformer
+o Enable parallel computation, hence exploit the power of GPU. How?
+o Remove the dependency between words
+o But position/location matters → resolve by positional encoding
+o Extremely good at capturing long-range dependency
+
+--- Page 176 ---
+176
+Transformer – General Architecture
+Some building blocks
+o Positional encoding
+o Self-attention and Multi-Head Self-attention Attention
+o Masked Multi-Head Attention
+o Residual add and layer norm
+Model architecture
+Encoder
+Decoder
+[Source: main paper]
+[Source: https://jalammar.github.io/illustrated-transformer/]
+
+--- Page 177 ---
+177
+Overview 
+Architecture of 
+Transformer 
+Encoder
+I
+love
+deep
+learning
+Hello
+the
+world
+<pad>
+8
+3
+7
+2
+9
+5
+4
+0
+[𝑏𝑎𝑡𝑐ℎ_𝑠𝑖𝑧𝑒, 𝑠𝑒𝑞_𝑙𝑒𝑛]
+Input:
+Embedding Layer (E: [vocab_size, embed_size])
+batch_size
+seq_len
+[batch_size,seq_len, d_model]
+Self-Attention (SA)/ Multi-head SA
+seq_len
+batch_size
+[batch_size,seq_len, d_model]
+Add & Normalize(Layer-Norm +Skip Connection)
+[batch_size,seq_len, d_model]
+Point-wise Feed-forward NN
+Add & Normalize(Layer-Norm +Skip Connection)
+[batch_size,seq_len, d_model]
+× n Encoders
+[batch_size,seq_len, d_model]
+Encoder output
+
+--- Page 178 ---
+178
+Transformer – Self Attention
+Self attention among a sequence of items/tokens
+o Keys and queries for computing self attention weights
+o 𝑊𝑄, 𝑊𝐾, 𝑊𝑉 are learnable matrices.
+Multiplying 𝒙𝟏, 𝒙𝟐 with 𝑾𝑸, 𝑾𝑲, 𝑾𝑽 to gain 
+queries, keys, and values.
+𝑧1 = 0.88 × 𝑣1 + 0.12 × 𝑣2
+[Source: https://jalammar.github.io/illustrated-transformer/]
+
+--- Page 179 ---
+179
+Transformer
+Self-Attention
+For each token 𝑥𝑖, calculate its query, key, and value
+    𝑞𝑖= 𝑥𝑖𝑊𝑄, 𝑘𝑖= 𝑥𝑖𝑊𝐾, 𝑣𝑖= 𝑥𝑖𝑊𝑉
+Matrix/stacked version (𝑋=
+𝑥1
+…
+𝑥𝐿
+, 𝐿= 𝑠𝑒𝑞_𝑙𝑒𝑛)
+    𝑄= 𝑋𝑊𝑄, 𝐾= 𝑋𝑊𝐾, 𝑉= 𝑋𝑊𝑉  
+Calculate the attention probabilities between query 
+and key
+o Scaled dot-product attention
+𝐴= 𝑠𝑜𝑓𝑡𝑚𝑎𝑥
+𝑄𝐾𝑇
+𝑑𝑘
+Take a weighted sum of values
+𝑍= 𝐴𝑉
+
+--- Page 180 ---
+180
+Self-Attention
+I
+love
+deep
+learning
+Hello
+the
+world
+<pad>
+8
+3
+7
+2
+9
+5
+4
+0
+[𝑏𝑎𝑡𝑐ℎ_𝑠𝑖𝑧𝑒, 𝑠𝑒𝑞_𝑙𝑒𝑛]
+Input:
+Embedding Layer (E: [vocab_size, embed_size])
+batch_size
+seq_len
+[batch_size,seq_len, d_model]
+𝑊𝑄
+𝑊𝐾
+𝑊𝑉
+𝑑_𝑚𝑜𝑑𝑒𝑙
+𝑑_𝑚𝑜𝑑𝑒𝑙
+𝑑_𝑚𝑜𝑑𝑒𝑙
+𝑑𝑄= 𝑑𝐾
+𝑑𝐾= 𝑑𝑄
+𝑑𝑉
+seq_len
+seq_len
+seq_len
+𝑄= 𝑋𝑊𝑄 [𝑏𝑎𝑡𝑐ℎ_𝑠𝑖𝑧𝑒, 𝑠𝑒𝑞_𝑙𝑒𝑛, 𝑑𝑄= 𝑑𝐾]
+𝐾= 𝑋𝑊𝐾 [𝑏𝑎𝑡𝑐ℎ_𝑠𝑖𝑧𝑒, 𝑠𝑒𝑞_𝑙𝑒𝑛, 𝑑𝑄= 𝑑𝐾]
+𝑉= 𝑋𝑊𝑉 [𝑏𝑎𝑡𝑐ℎ_𝑠𝑖𝑧𝑒, 𝑠𝑒𝑞_𝑙𝑒𝑛, 𝑑𝑉]
+Attention probs: 𝐴= 𝑠𝑜𝑓𝑡𝑚𝑎𝑥𝐵, 𝑑𝑖𝑚= 2
+seq_len
+[batch_size,seq_len, seq_len]
+𝐵𝑖𝑗
+1 = 𝑄1 𝑖, : 𝐾1 𝑗, : 𝑇→𝑠𝑖𝑚(𝑥𝑖
+1, 𝑥𝑗
+1)
+𝑍= 𝐴𝑉
+[batch_size,seq_len, 𝑑𝑉]
+seq_len
+𝑊𝑂
+Output: 𝑍= 𝑍𝑊𝑂
+𝑋1
+𝑋2
+𝑋
+𝐴
+𝑍
+Attention scores: 𝐵=
+𝑄𝐾𝑇
+𝑑𝐾
+𝐵
+[batch_size,seq_len, seq_len]
+[batch_size,seq_len, d_model]
+𝑍

@@ -1,0 +1,7 @@
+222
+GAN: example results
+(from Goodfellow, et al, NIPS14’s paper)
+MNIST
+nearest neighbour 
+samples from training
+CIFAR-10

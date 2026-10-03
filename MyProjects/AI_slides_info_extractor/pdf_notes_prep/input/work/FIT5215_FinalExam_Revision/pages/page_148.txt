@@ -1,0 +1,69 @@
+148
+Continuous Bag of Words (CBOW)
+Pretext task
+What is the pretext task of CBOW?
+The
+quick
+brown
+fox
+jumps
+over  
+the
+lazy
+dogs.
+The
+quick
+brown
+fox
+jumps
+over  
+the
+lazy
+dogs.
+The
+quick
+brown
+fox
+jumps
+over  
+the
+lazy
+dogs.
+The
+quick
+brown
+fox
+jumps
+over  
+the
+lazy
+dogs.
+The
+quick
+brown
+fox
+jumps
+over  
+the
+lazy
+dogs.
+The
+quick
+brown
+fox
+jumps
+over  
+the
+lazy
+dogs.
+target word
+context word
+context word
+Continuous Bag of Words (CBOW)
+❑ Context words 
+𝒑𝒓𝒆𝒅𝒊𝒄𝒕 target word
+(the | quick | for | jumps, brown) 
+(quick | brown | jumps | over, fox) 
+(brown | fox | over | the, jumps) 
+(for | jumps | the | lazy, over) 
+(jumps | over | lazy| dog, the)

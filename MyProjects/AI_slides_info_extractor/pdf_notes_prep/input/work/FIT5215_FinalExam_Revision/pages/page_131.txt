@@ -1,0 +1,40 @@
+131
+FC
+sigmoid
+𝑟𝑡
+Update gate
+ො𝑦𝑡
+\
+ℎ𝑡−1
+FC
+tanh
+𝑧𝑡
+\
+FC
+sigmoid
+\
+ℎ𝑡
+𝑥𝑡
+Reset gate
+1-
+𝑔𝑡
+
+Update gate 𝑧𝑡 decides how much the unit 
+updates its state: 
+𝑧𝑡= 𝜎𝑥𝑡𝑈𝑧+ ℎ𝑡−1𝑊𝑧
+
+Reset gate controls which parts of the state get 
+used to compute the next target state 
+𝑟𝑡= 𝜎𝑥𝑡𝑈𝑟+ ℎ𝑡−1𝑊𝑟
+
+The memory state ℎ𝑡 is a linear interpolation 
+between ℎ𝑡−1 and 𝑔𝑡 
+ 
+ℎ𝑡= 1 −𝑧𝑡⊙ℎ𝑡−1 + 𝑧𝑡⊙𝑔𝑡 
+where the candidate 𝑔𝑡 is pre-computed
+𝑔𝑡= tanh 𝑥𝑡𝑈𝑔+ 𝑟𝑡⊙ℎ𝑡−1 𝑊𝑔
+
+When 𝑧𝑡 and 𝑟𝑡 are close to 1, GRU will be 
+reduced to Basic RNN
+Gated Recurrent Unit
+[Cho et. al, 2014]

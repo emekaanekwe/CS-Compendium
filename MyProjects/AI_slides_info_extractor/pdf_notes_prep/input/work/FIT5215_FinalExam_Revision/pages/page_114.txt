@@ -1,0 +1,37 @@
+114
+The ideal optimization problem for adversarial training
+o min
+𝜃𝔼𝑥,𝑦~𝑝(𝑥,𝑦)
+max
+𝑥′∈𝐵𝜖(𝑥) 𝑙(𝑓𝑥′; 𝜃, 𝑦)
+o 𝑝(𝑥, 𝑦) is the data distribution that generates the pair of data point 𝑥 and label 𝑦
+o Minimize the loss of over most violated adversarial examples
+PGD adversarial training
+o for epoch in n_epochs
+▪for iter in range(n_iter_per_epoch)
+o
+Sample mini-batch 𝑥1, 𝑦1 , … , (𝑥𝑏, 𝑦𝑏) from the training set
+o
+Find PGD untargeted adversarial examples 𝑥1
+𝑎𝑑𝑣, … , 𝑥𝑏
+𝑎𝑑𝑣 for 𝑥1, … , 𝑥𝑏 w.r.t labels 𝑦1, … , 𝑦𝑏
+o
+𝑏𝑎𝑡𝑐ℎ_𝑙𝑜𝑠𝑠=
+1
+𝑏σ𝑖=1
+𝑏
+𝑙(𝑓𝑥𝑖; 𝜃, 𝑦𝑖) +
+1
+𝑏σ𝑖=1
+𝑏
+𝑙(𝑓𝑥𝑖
+𝑎𝑑𝑣; 𝜃, 𝑦𝑖)
+o
+𝜃= 𝜃−𝜂
+𝜕𝑏𝑎𝑡𝑐ℎ_𝑙𝑜𝑠𝑠
+𝜕𝜃
+Adversarial training
+Loss surface 𝒍(𝒇𝒙′; 𝜽, 𝒚)
+We wish a smooth (or 
+flat) loss surface around 𝒙
+𝒙

@@ -1,0 +1,24 @@
+126
+Memory cells
+Our RNN includes many simple RNN cells
+o Input to a cell: ℎ𝑡−1 (previous hidden state) and 𝑥𝑡 (current input 
+token)
+o Output: ℎ𝑡= tanh(𝑥𝑡𝑈+ ℎ𝑡−1𝑊+ 𝑏)
+o ℎ𝑡 can only capture short-term dependency → short-term memory
+How to capture long-term memory more efficiently?
+o LSTM cell and GRU cell 
+Biological memory cells in human brain 
+(Source: news.feinberg.northwestern.edu)
+Artificial 
+memory cell
+(Source: colah)
+LSTM memory cell
+𝑐𝑡−1
+❖ long-term 
+memory
+ℎ𝑡−1
+❖short-term 
+memory
+𝑐𝑡
+❖ long-term 
+memory

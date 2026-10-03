@@ -1,0 +1,18 @@
+83
+Regularization and Overfitting
+Three elements in ML and DL
+o Data: training data, testing data, validation data
+o Model: a mathematical function 𝒇(𝒙; 𝜽) that maps an input instance 𝑥 to outcome 𝑦
+o Evaluation: a performance metric to quantitively measure how well 𝑓(𝑥; 𝜃) is
+Machine learning as an optimization process. Learning from data by optimizing 
+its loss
+o Define a measure of loss via a loss function: 𝑙(𝑓𝑥; 𝜃, 𝑦)
+o Compute its loss over all training data  J 𝜃= 𝑁−1 σ𝑖=1
+𝑁
+𝑙(𝑓𝑥𝑖, 𝜃, 𝑦𝑖)
+o Learning = finding 𝜽∗ that minimizes the loss: 𝜃∗= arg min
+𝜃𝐽𝜃
+What might go wrong with this formulation?
+o The choice of learning function 𝑓(𝑥; 𝜃) is too hard to learn
+o The choice of loss function 𝑙(𝑓𝑥, 𝑦) is inadequate
+o The model does well on training data, but perform poorly on unseen test data: overfitting problem!

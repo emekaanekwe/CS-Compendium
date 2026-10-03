@@ -1,0 +1,32 @@
+80
+He and Xavier weight initialization
+Xavier initialization
+o Try to ensure the variance of the 
+outputs of each layer equal to the 
+variance of its inputs
+o Also need the gradients to have 
+equal variance before and after 
+flowing through a layer in the 
+reverse direction
+o Good for sigmoid and tanh 
+functions
+o Not good for ReLU
+𝑛𝑖𝑛= 3
+𝑛𝑜𝑢𝑡= 2
+Why
+2
+𝑛𝑖𝑛+𝑛𝑜𝑢𝑡 ?
+𝑤𝑋𝑎~𝑁
+0,
+2
+𝑛𝑖𝑛+ 𝑛𝑜𝑢𝑡
+𝑤𝑋𝑎~Uniform
+−
+6
+𝑛𝑖𝑛+ 𝑛𝑜𝑢𝑡
+,
+6
+𝑛𝑖𝑛+ 𝑛𝑜𝑢𝑡
+Uniform alternative
+Gaussian version
+Paper link: https://proceedings.mlr.press/v9/glorot10a/glorot10a.pdf

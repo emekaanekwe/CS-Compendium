@@ -1,0 +1,41 @@
+174
+Solving problem 2
+2017 paper
+"Attention Is All You Need"
+Solution
+Throw away recurrent
+connections
+"We need to wait the previous token to compute the next hidden-state"
+The
+cat
+jumps
+the
+wall
+h0
+hstart
+h1
+h2
+h3
+h4
+h5
+h6
+h7
+h8
+Il 
+gatto salta
+il 
+h9
+<EOS>
+muro 
+<BOS> Il 
+gatto 
+h10
+salta
+il 
+muro 
++ +
++
+Context 𝑐𝑡
+=
+Attention
++

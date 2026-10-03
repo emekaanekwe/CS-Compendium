@@ -1,0 +1,48 @@
+129
+Long Short-Term Memory (LSTM)
+Summary
+
+LSTM belongs to a class of gated RNN models
+
+LSTM introduces self-loops to create paths where the 
+gradient can flow for long durations
+
+Improve over basic RNN cell
+o
+Can capture long-term dependency
+o
+Faster and more robust to train, often with quicker convergence
+
+LSTM cells manage two state vectors, and for 
+performance reasons they are kept separate by 
+default
+▪ℎ𝑡 as the short-term state
+▪𝑐𝑡 as the long-term state
+
+Gates can remove or add information to the cell state: 
+forget, input, output
+ℎ𝑡−1
+FC
+sigmoid
+ℎ𝑡
+𝑓𝑡
+Forget gate
+𝑦𝑡
+\
+𝑐𝑡−1
+FC
+tanh
+FC
+sigmoid
+𝑔𝑡
+𝑖𝑡
+Input gate
+\
+FC
+sigmoid
+𝑜𝑡
+Output gate
+\
+tanh
+𝑐𝑡
+𝑥𝑡

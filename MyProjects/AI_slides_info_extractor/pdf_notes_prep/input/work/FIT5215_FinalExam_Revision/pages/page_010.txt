@@ -1,0 +1,58 @@
+10
+What is a softmax layer?
+
+Softmax function transforms real-valued 
+discriminative scores ℎ to discrete probabilities 𝑝.
+
+Input: vector of dimension 𝑀
+o
+e.g., ℎ= ℎ1, ℎ2, ℎ3 = 1, 2, 3 , M = 3
+
+Output: a discrete distribution of dimension 𝑀
+o
+e.g., 𝑝= 𝑝1, 𝑝2, 𝑝3 = [0.09, 0.24, 0.67]
+
+How to calculate 𝑝𝑚?
+o
+ℎ= ℎ𝑚𝑚=1
+𝑀
+→𝑝= softmax ℎ≔
+exp{ℎ𝑚}
+σ𝑖=1
+𝑀
+exp{ℎ𝑖} 𝑚=1
+𝑀
+o
+𝑝= 𝑝𝑚𝑚=1
+𝑀
+ becomes a distribution over classes {1, … , 𝑀}
+▪
+𝑝𝑚≥0 (1 ≤𝑚≤𝑀) and σ𝑚=1
+𝑀
+𝑝𝑚= 1 .
+Output  layer
+ℎ𝐿(𝒙)
+
+Prediction step: return the prediction for the class 
+that has the highest probability 
+ො𝑦= argmax
+1≤𝑚≤𝑀
+ 𝑝𝑚
+●
+i.e., return 3 in the above example (why?)
+predicted class ො𝑦
+𝑝= softmax ℎ𝐿
+ො𝑦= argmax
+1≤𝑚≤𝑀
+ 𝑝𝑚 
+softmax
+p (pred prob)
+h (logits)
+real-valued scores
+probabilities
+transforms 
+real-valued 
+discriminative 
+scores 
+(ranged in (−∞, +∞)) to probability values (ranged 
+in [0, 1]) but preserving the order.

@@ -1,0 +1,26 @@
+106
+Adversarial examples
+
+The true sense of a robust model
+o
+If 𝒙′ and 𝒙 are close, the predictions of 𝒙′ and 𝒙 must be the same.
+o
+If 𝒙′ ∈𝑩𝝐(𝒙) (i.e., 𝒙′ −𝒙
+≤𝝐), 𝑎𝑟𝑔𝑚𝑎𝑥1≤𝑖≤𝑀 𝑓𝑖𝑥; 𝜃= ො𝑦= ො𝑦′ = 𝑎𝑟𝑔𝑚𝑎𝑥1≤𝑖≤𝑀 𝑓𝑖𝑥′; 𝜃.
+
+Unfortunately, we can easily find adversarial examples 𝑥𝑎𝑑𝑣∈𝐵𝜖(𝑥) that can fool the classifier
+o
+𝑎𝑟𝑔𝑚𝑎𝑥1≤𝑖≤𝑀 𝑓𝑖𝑥; 𝜃= ො𝑦≠ො𝑦𝑎𝑑𝑣= 𝑎𝑟𝑔𝑚𝑎𝑥1≤𝑖≤𝑀 𝑓𝑖𝑥𝑎𝑑𝑣; 𝜃
+𝒙
+𝒙𝒂𝒅𝒗
+crafted noise
+𝝐 ball 𝐵𝜖𝑥= {𝑥′: 𝑥′ −𝑥
+≤𝜖} with a small 𝝐> 0. 
+𝒉𝜽
+softmax
+𝒇𝒙; 𝜽= 𝑠𝑜𝑓𝑡𝑚𝑎𝑥(ℎ(𝑥; 𝜃)) 
+𝒉(𝒙; 𝜽)
+𝑎𝑟𝑔𝑚𝑎𝑥1≤𝑖≤𝑀 𝑓𝑖𝑥; 𝜃= ො𝑦≠ො𝑦𝑎𝑑𝑣= 𝑎𝑟𝑔𝑚𝑎𝑥1≤𝑖≤𝑀 𝑓𝑖𝑥𝑎𝑑𝑣; 𝜃
+𝒙′
+Good example which has same predicted label as 𝒙.
+Adversarial example which has different predicted label as 𝒙.

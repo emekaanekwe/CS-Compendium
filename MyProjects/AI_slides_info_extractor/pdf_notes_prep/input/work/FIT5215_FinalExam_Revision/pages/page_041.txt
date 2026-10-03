@@ -1,0 +1,45 @@
+41
+SGD and SGD with momentum
+
+SGD uses only the gradient of the mini-batch to update the 
+model
+
+It is fast at first several epochs and becomes much slower later.
+(Source: Sebastian Ruder) 
+
+SGD with momentum uses a velocity vector 𝒗 which 
+stores the past gradients together with the current 
+gradient to speed up SGD
+o
+𝛼 is a hyper-parameter that indicates how quickly the contributions of previous 
+gradients. In practice, this is usually set to 0.5, 0.9, and 0.99.
+o
+The momentum primarily solves 2 problems: poor conditioning of the Hessian 
+matrix and variance in the stochastic gradient.
+o Input: 𝜂> 0 and initial model 𝜃
+while stopping criterion not met do
+    Sample a mini-batch { 𝒙𝟏, 𝒚𝟏, … , (𝒙𝒃, 𝒚𝒃)}
+    Compute 𝒈= 𝟏
+𝒃σ𝒊=𝟏
+𝒃
+𝛁𝜽𝒍(𝒇(𝒙𝒊, 𝜽), 𝒚𝒊)
+    Update 𝜽= 𝜽−𝜼𝒈 
+end while
+ 
+ 
+ 
+SGD
+o Input: 𝜂> 0, 𝛼∈[0,1] and initial model 𝜃
+while stopping criterion not met do
+    Sample a mini-batch { 𝒙𝟏, 𝒚𝟏, … , (𝒙𝒃, 𝒚𝒃)}
+    Compute 𝒈= 𝟏
+𝒃σ𝒊=𝟏
+𝒃
+𝛁𝜽𝒍(𝒇(𝒙𝒊, 𝜽), 𝒚𝒊)
+    Compute 𝒗= 𝜶𝒈+ 𝟏−𝜶𝒗  //velocity 𝑣
+    Update 𝜽= 𝜽−𝜼𝒗 
+end while
+ 
+ 
+ 
+SGD with momentum

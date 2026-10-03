@@ -1,0 +1,20 @@
+58
+Automatic feature extractor
+Deep learning for visual data
+Low-level 
+feature/representation
+- edges, pixels, corners
+Mid-level 
+feature/representation
+- circles, triangles, boxes
+High-level 
+feature/representation
+- objects
+Neurons on higher layers 
+have larger receptive fields 
+(patches) on input images 
+receptive 
+field 
+receptive 
+field 
+neuron

@@ -1,0 +1,29 @@
+117
+Recurrent Neural Networks
+𝑋0
+ℎ0
+𝑋1
+ℎ1
+𝑈
+𝑈
+𝑊
+
+Input: 𝑋0, 𝑋1 ∈ℝ𝑏𝑠×𝑖𝑛𝑝𝑢𝑡_𝑠𝑖𝑧𝑒 
+
+ℎ0 = tanh 𝑋0𝑈+ 𝑏∈
+ℝ𝑏𝑠×ℎ𝑖𝑑𝑑𝑒𝑛_𝑠𝑖𝑧𝑒
+o
+𝑈∈ℝ𝑖𝑛𝑝𝑢𝑡_𝑠𝑖𝑧𝑒×ℎ𝑖𝑑𝑑𝑒𝑛_𝑠𝑖𝑧𝑒 
+
+ℎ1 = tanh ℎ0𝑊+ 𝑋1𝑈+ 𝑏∈
+ℝ1×ℎ𝑖𝑑𝑑𝑒𝑛_𝑠𝑖𝑧𝑒
+batch_size = 4
+input_size = 3
+seq_len = 2
+input_size = 3
+[batch_size, seq_len, input_size]
+batch_size = 4
+hidden_size = 5
+[batch_size, seq_len, hidden_size]
+[seq_len, batch_size, input_size]
+torch.transpose(X, 0, 1)

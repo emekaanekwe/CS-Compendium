@@ -1,0 +1,21 @@
+79
+He and Xavier weight initialization
+Initialisation in deep learning training is crucial:
+o Some optimizers can be theoretically guaranteed to converge 
+regardless of initializations
+o Deep learning algorithms do not have these luxuries:
+▪It is iterative, but optimization deep neural networks is not yet well 
+understood
+▪Initial point is extremely important: it can determine if the algorithm 
+converges, or with some bad initialisation, it becomes unstable and fails 
+together
+What is a good weight/filter initialization?
+o Break the ‘symmetry’ of the network: two hidden nodes with the same 
+input should have different weights.
+o The gradient signal to flow well in both directions and don’t want the 
+signal to die out or to explode and saturate.
+o Large initial weights has better symmetry breaking effect, help 
+avoiding losing signals and redundant units, but could result in 
+exploding values during backward and forward passes, especially in 
+Recurrent Neural Networks.
+Initialization is important for training DL models.

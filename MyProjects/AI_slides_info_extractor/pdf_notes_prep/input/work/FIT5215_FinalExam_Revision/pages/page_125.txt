@@ -1,0 +1,71 @@
+125
+Problems of RNN
+
+RNNs don’t capture long-term dependency 
+adequately
+o
+A hidden state is computed based on only one previous 
+state → can only capture short-term dependency
+
+Modelling drawbacks
+o
+Technical problem when training long sequences 
+▪
+vanishing gradient problem
+o
+Many layers of nonlinear transformation prevent the data 
+signals and gradient from flowing easily through the 
+network.
+
+How to address this?
+o
+Using gating mechanism: adding linear component from 
+previous layer!
+▪
+RNN → LSTM/GRU
+𝒙
+𝒉
+𝒚
+𝒉
+𝒉
+𝒙
+𝒙
+the
+𝒙
+𝒉
+𝒙
+𝒉
+𝒙
+𝒉
+clouds
+the
+are
+in
+sky
+𝒚
+𝒉
+𝒙
+Vietnam
+𝒙
+𝒉
+𝒉
+𝒙
+I
+𝒙
+𝒉
+𝒙
+𝒉
+𝒙
+𝒉
+was
+born
+in
+I
+𝒙
+𝒉
+𝒙
+𝒉
+𝒙
+𝒉
+speak fluent
+Vietnamese

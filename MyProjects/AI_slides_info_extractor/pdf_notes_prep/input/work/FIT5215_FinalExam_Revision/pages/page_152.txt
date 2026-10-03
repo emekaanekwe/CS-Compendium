@@ -1,0 +1,11 @@
+152
+Encoder-Decoder Models
+Target structured data
+Source structured data
+Context or encode 𝒄
+𝒄
+Image captioning
+Machine translation
+𝒄= 𝒉𝒍𝒂𝒔𝒕
+Many more applications
+❖C++ programs to Java programs, texts to images, question answering (questions to answers), and etc.

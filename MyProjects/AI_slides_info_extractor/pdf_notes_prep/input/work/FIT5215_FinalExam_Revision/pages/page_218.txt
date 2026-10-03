@@ -1,0 +1,19 @@
+218
+Basic theory of GAN
+𝑝𝑑(𝒙)
+𝑝𝑔𝒙
+y=1
+y=-1
+𝐽𝐷∗, 𝐺= 𝔼𝒙~𝑃𝑑log 𝐷∗(𝒙) + 𝔼𝑥~𝑃𝑔log 1 −𝐷∗(𝒙) is large
+𝑝𝑑(𝒙)
+𝑝𝑔𝒙
+y=1
+y=-1
+𝐽𝐷∗, 𝐺= 𝔼𝒙~𝑃𝑑log 𝐷∗(𝒙) + 𝔼𝑥~𝑃𝑔log 1 −𝐷∗(𝒙) decreases
+𝑝𝑑(𝒙)
+𝑝𝑔𝒙
+y=1
+y=-1
+𝐽𝐷∗, 𝐺= 𝔼𝒙~𝑃𝑑log 𝐷∗(𝒙) + 𝔼𝒙~𝑃𝑔log 1 −𝐷∗(𝒙) is smallest
+It comes with the minimax problem
+𝒎𝒊𝒏𝑮𝒎𝒂𝒙𝑫𝑱𝑫, 𝑮

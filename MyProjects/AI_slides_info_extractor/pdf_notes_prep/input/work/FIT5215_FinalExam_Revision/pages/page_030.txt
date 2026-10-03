@@ -1,0 +1,14 @@
+30
+Numbers of local minima vs saddle points
+We assume to pick randomly a training set
+o The Hessian matrix 𝐻(𝜃) is a random matrix with random eigenvalues 
+𝜆1, 𝜆2, … , 𝜆𝑃
+o We assume that ℙ𝜆1 ≥0 = ℙ𝜆2 ≥0 = ⋯= ℙ𝜆𝑃≥0 = 0.5
+Therefore, we have
+o ℙ𝑚𝑖𝑛𝑖𝑚𝑎= ℙ𝜆1 ≥0 ℙ𝜆2 ≥0 … ℙ𝜆𝑃≥0 = 0.5𝑃
+o ℙ𝑚𝑎𝑥𝑖𝑚𝑎= ℙ𝜆1 ≤0 ℙ𝜆2 ≤0 … ℙ𝜆𝑃≤0 = 0.5𝑃
+o ℙ𝑠𝑎𝑑𝑑𝑙𝑒 𝑝𝑜𝑖𝑛𝑡= 1 −ℙ𝑚𝑖𝑛𝑖𝑚𝑎−ℙ𝑚𝑎𝑥𝑖𝑚𝑎= 1 −0.5𝑃−1
+The ratio of #local minima/maxima against #saddle points
+o #local-minima:#local-maxima:#saddle-point=1: 1: 2𝑃−2
+o Number of saddle points is even exponentially much more than that of local 
+minima/maxima

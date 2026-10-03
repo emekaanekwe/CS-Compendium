@@ -1,0 +1,18 @@
+212
+GAN: analogy to minimax game
+Generator
+Discriminator
+Target/data distribution
+Task: produce counterfeit 
+money
+Goal: try to fool/confuse the 
+police officer
+Task: distinguish between real and 
+counterfeit money
+Goal: try to sabotage the counterfeit 
+maker
+Final output 
+from GANs
+Adversarial or Cooperative
+Termination at Nash equilibrium point
+No player can improve any more

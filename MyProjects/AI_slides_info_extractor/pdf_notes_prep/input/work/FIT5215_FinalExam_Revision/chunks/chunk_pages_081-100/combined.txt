@@ -1,0 +1,814 @@
+--- Page 81 ---
+81
+He and Xavier weight initialization
+
+Xavier initialization
+o Ensure the variance of the outputs of each 
+layer equal to the variance of its inputs
+o Also need the gradients to have equal 
+variance before and after flowing through a 
+layer in the reverse direction
+o Good for sigmoid and tanh activation functions
+o Not good for ReLU
+He initialization
+o A variant of Xavier initialization where 𝛼= 1 
+o Works better for ReLU.
+𝑛𝑖𝑛= 3
+𝑛𝑜𝑢𝑡= 2
+𝑤𝑋𝑎~𝑁
+0,
+2
+𝑛𝑖𝑛+ 𝑛𝑜𝑢𝑡
+𝑤𝐻𝑒~𝑁
+0, 𝛼×
+2
+𝑛𝑖𝑛+ 𝑛𝑜𝑢𝑡
+𝛼= ቐ
+1 if sigmoid
+4 
+if tanh
+2 
+if ReLU
+Paper link: https://www.cv-foundation.org/openaccess/content_iccv_2015/papers/He_Delving_Deep_into_ICCV_2015_paper.pdf
+
+--- Page 82 ---
+82
+Deep Learning Pipeline
+We want to train our DL model on a training set such that the trained model can predict well unseen data in 
+a separate testing set.
+Hyper-parameters to consider: learning rate, #layers, #neurons
+
+--- Page 83 ---
+83
+Regularization and Overfitting
+Three elements in ML and DL
+o Data: training data, testing data, validation data
+o Model: a mathematical function 𝒇(𝒙; 𝜽) that maps an input instance 𝑥 to outcome 𝑦
+o Evaluation: a performance metric to quantitively measure how well 𝑓(𝑥; 𝜃) is
+Machine learning as an optimization process. Learning from data by optimizing 
+its loss
+o Define a measure of loss via a loss function: 𝑙(𝑓𝑥; 𝜃, 𝑦)
+o Compute its loss over all training data  J 𝜃= 𝑁−1 σ𝑖=1
+𝑁
+𝑙(𝑓𝑥𝑖, 𝜃, 𝑦𝑖)
+o Learning = finding 𝜽∗ that minimizes the loss: 𝜃∗= arg min
+𝜃𝐽𝜃
+What might go wrong with this formulation?
+o The choice of learning function 𝑓(𝑥; 𝜃) is too hard to learn
+o The choice of loss function 𝑙(𝑓𝑥, 𝑦) is inadequate
+o The model does well on training data, but perform poorly on unseen test data: overfitting problem!
+
+--- Page 84 ---
+84
+Overfitting & Underfitting
+Underfitting
+o The model is too simple to characterise a training set
+▪Use linear model to learn from non-linear data
+Overfitting 
+o The model performs very well on the training set, but cannot generalise to perform well on a separate 
+testing set
+o This is the most common problem in DL since deep networks are very powerful!
+Overfitting with regression
+Ground-truth value
+Predicted value
+-
+Error
+
+--- Page 85 ---
+85
+Overfitting in Deep NNs
+Overfitting
+Overfitting occurs when your network models the training data too well and fails to generalize 
+to your test (validation) data. 
+o Performance measured by errors on “unseen” data.
+o Minimize error alone on training data is not enough
+o Causes: too many layers, too many hidden nodes, and overtrained. 
+Overfit: tendency of the network to “memorize” all 
+training samples, leading to poor generalization
+Overfitting with classification
+[Source: https://www.ibm.com/cloud/learn/overfitting]
+Testing data
+
+--- Page 86 ---
+86
+[DL, ch11]
+We can also experiment with model 
+capacity itself in parallel.
+
+--- Page 87 ---
+87
+Early stopping
+At first, the train and valid losses gradually drop, but the model is not good enough to 
+characterise data
+o Underfitting is happening
+At a certain point, the train loss still decreases, while the valid loss starts increasing
+o Overfitting starts happening and we need to do early stopping  at this point
+Underfitting
+Overfitting
+Early stopping point
+Generalization 
+gap
+
+--- Page 88 ---
+88
+Add Regularization
+Reduce Overfitting
+Optimization problem
+min𝜽 𝐽θ = 𝛺θ + 1
+𝑁෍
+𝒊=𝟏
+𝑵
+𝑙𝑦𝑖, 𝑓xi; θ
+L2 regularization
+Ω θ = 𝜆෍
+𝑘
+෍
+𝑖,𝑗
+𝑊𝑖,𝑗
+𝐤
+2 = 𝜆෍
+𝑘
+𝑾𝐤
+𝐹
+2
+o 𝜆> 0 is regularization parameter
+o Gradient: 𝛻𝑾𝑘Ω 𝜽= 2𝑾𝑘
+o Apply on weights (𝑾) only, not on biases (𝒃)
+L1 regularization
+Ω 𝜽= 𝜆෍
+𝑘
+෍
+𝑖,𝑗
+|𝑊𝑖,𝑗
+𝐤|
+o 𝜆> 0 is regularization parameter
+o Optimization is now much harder – subgradient.
+o Apply on weights (𝑾) only, not on biases (𝒃)
+𝜆 increases
+
+--- Page 89 ---
+89
+Dropout
+Reduce Overfitting
+This is a cheap technique to reduce model capacity
+o
+Reduce overfitting
+In each iteration, at each layer, randomly choose some neurons and drop all connections from 
+these neurons
+o
+dropout_rate= 1 – keep_prob
+Without dropout
+With dropout
+(Source: chatbotslife)
+(Source: Analytics Vidhya)
+
+--- Page 90 ---
+90
+Dropout
+Reduce Overfitting
+Computationally efficient
+Can be considered a bagged ensemble of an 
+exponential number (2𝑁) of neural networks.
+Training
+𝒓 ~ Bernoulli 𝜇
+෩𝒉𝑙= 𝒉𝑙⨀ 𝒓
+𝒉𝑙+1 = 𝜎𝑊𝑙⊤෩𝒉𝑙+ 𝒃𝑙
+Testing
+o No dropout (dropout_rate =0).
+𝒉𝑙
+𝒉𝑙−1
+𝒉𝑙+1
+× ×
+×
+×
+×
+× ×
+
+--- Page 91 ---
+91
+Internal covariate shift problem
+𝑊1, 𝑏1
+𝑊4, 𝑏4
+𝑊2, 𝑏2
+Feature extractor
+Classifier
+𝑊3, 𝑏3
+𝒙𝟏
+𝟏𝒙𝟐
+𝟏𝒙𝟑
+𝟏𝒙𝟒
+𝟏
+𝒙𝟏
+𝟐𝒙𝟐
+𝟐𝒙𝟑
+𝟐𝒙𝟒
+𝟐
+𝒙𝟏
+𝟑𝒙𝟐
+𝟑𝒙𝟑
+𝟑𝒙𝟒
+𝟑
+𝒙𝟏
+𝟒𝒙𝟐
+𝟒𝒙𝟑
+𝟒𝒙𝟒
+𝟒
+𝐳𝟏
+𝟏
+𝐳𝟐
+𝟏
+𝐳𝟑
+𝟏
+𝐳𝟏
+𝟐
+𝐳𝟐
+𝟐
+𝐳𝟑
+𝟐
+𝐳𝟏
+𝟑
+𝐳𝟐
+𝟑
+𝐳𝟑
+𝟑
+𝐳𝟏
+𝟒
+𝐳𝟐
+𝟒
+𝐳𝟑
+𝟒
+Input batch
+Representation batch
+Paper link: http://proceedings.mlr.press/v37/ioffe15.pdf
+
+--- Page 92 ---
+92
+Internal covariate shift problem
+Internal covariate shift 
+problem:
+o
+Significant difference in statistics 
+of input batches and also 
+representation batches.
+o
+Statistical differences among 
+mini-batches make the classifier 
+harder to learn from data.
+𝑊1, 𝑏1
+𝑊4, 𝑏4
+𝑊2, 𝑏2
+Feature extractor
+Classifier
+𝑊3, 𝑏3
+𝒙𝟏
+𝟏𝒙𝟐
+𝟏𝒙𝟑
+𝟏𝒙𝟒
+𝟏
+𝒙𝟏
+𝟐𝒙𝟐
+𝟐𝒙𝟑
+𝟐𝒙𝟒
+𝟐
+𝒙𝟏
+𝟑𝒙𝟐
+𝟑𝒙𝟑
+𝟑𝒙𝟒
+𝟑
+𝒙𝟏
+𝟒𝒙𝟐
+𝟒𝒙𝟑
+𝟒𝒙𝟒
+𝟒
+𝐳𝟏
+𝟏𝐳𝟐
+𝟏𝐳𝟑
+𝟏
+𝐳𝟏
+𝟐𝐳𝟐
+𝟐𝐳𝟑
+𝟐
+𝐳𝟏
+𝟑𝐳𝟐
+𝟑𝐳𝟑
+𝟑
+𝐳𝟏
+𝟒𝐳𝟐
+𝟒𝐳𝟑
+𝟒
+Input batch 1
+Representation batch 1
+𝒙𝟏
+𝟓𝒙𝟐
+𝟓𝒙𝟑
+𝟓𝒙𝟒
+𝟓
+𝒙𝟏
+𝟔𝒙𝟐
+𝟔𝒙𝟑
+𝟔𝒙𝟒
+𝟔
+𝒙𝟏
+𝟕𝒙𝟐
+𝟕𝒙𝟑
+𝟕𝒙𝟒
+𝟕
+𝒙𝟏
+𝟖𝒙𝟐
+𝟖𝒙𝟑
+𝟖𝒙𝟒
+𝟖
+𝐳𝟏
+𝟓𝐳𝟐
+𝟓𝐳𝟑
+𝟓
+𝐳𝟏
+𝟔𝐳𝟐
+𝟔𝐳𝟑
+𝟔
+𝐳𝟏
+𝟕𝐳𝟐
+𝟕𝐳𝟑
+𝟕
+𝐳𝟏
+𝟖𝐳𝟐
+𝟖𝐳𝟑
+𝟖
+Input batch 2
+Representation batch 2
+𝒙𝟏
+𝟗𝒙𝟐
+𝟗𝒙𝟑
+𝟗𝒙𝟒
+𝟗
+𝒙𝟏
+𝟏𝟎𝒙𝟐
+𝟏𝟎𝒙𝟑
+𝟏𝟎𝒙𝟒
+𝟏𝟎
+𝒙𝟏
+𝟏𝟏𝒙𝟐
+𝟏𝟏𝒙𝟑
+𝟏𝟏𝒙𝟒
+𝟏𝟏
+𝒙𝟏
+𝟏𝟐𝒙𝟐
+𝟏𝟐𝒙𝟑
+𝟏𝟐𝒙𝟒
+𝟏𝟐
+𝐳𝟏
+𝟗𝐳𝟐
+𝟗𝐳𝟑
+𝟗
+𝐳𝟏
+𝟏𝟎𝐳𝟐
+𝟏𝟎𝐳𝟑
+𝟏𝟎
+𝐳𝟏
+𝟏𝟏𝐳𝟐
+𝟏𝟏𝐳𝟑
+𝟏𝟏
+𝐳𝟏
+𝟏𝟐𝐳𝟐
+𝟏𝟐𝐳𝟑
+𝟏𝟐
+Input batch 3
+Representation batch 3
+difference
+difference
+
+--- Page 93 ---
+93
+Batch Normalization
+𝑊1, 𝑏1
+𝑊4, 𝑏4
+𝑊2, 𝑏2
+Feature extractor
+Classifier
+𝑊3, 𝑏3
+difference
+difference
+ො𝒛𝟏
+𝟏
+ො𝒛𝟐
+𝟏
+ො𝒛𝟑
+𝟏
+ො𝒛𝟏
+𝟐
+ො𝒛𝟐
+𝟐
+ො𝒛𝟑
+𝟐
+ො𝒛𝟏
+𝟑
+ො𝒛𝟐
+𝟑
+ො𝒛𝟑
+𝟑
+ො𝒛𝟏
+𝟒
+ො𝒛𝟐
+𝟒
+ො𝒛𝟑
+𝟒
+Normalized representation 1
+ො𝒛𝟏
+𝟓
+ො𝒛𝟐
+𝟓
+ො𝒛𝟑
+𝟓
+ො𝒛𝟏
+𝟔
+ො𝒛𝟐
+𝟔
+ො𝒛𝟑
+𝟔
+ො𝒛𝟏
+𝟕
+ො𝒛𝟐
+𝟕
+ො𝒛𝟑
+𝟕
+ො𝒛𝟏
+𝟖
+ො𝒛𝟐
+𝟖
+ො𝒛𝟑
+𝟖
+Normalized representation 2
+ො𝒛𝟏
+𝟗
+ො𝒛𝟐
+𝟗
+ො𝒛𝟑
+𝟗
+ො𝒛𝟏
+𝟏𝟎ො𝒛𝟐
+𝟏𝟎ො𝒛𝟑
+𝟏𝟎
+ො𝒛𝟏
+𝟏𝟏ො𝒛𝟐
+𝟏𝟏ො𝒛𝟑
+𝟏𝟏
+ො𝒛𝟏
+𝟏𝟐ො𝒛𝟐
+𝟏𝟐ො𝒛𝟑
+𝟏𝟐
+Normalized representation 3
+Normalize to 𝑁(0, 𝐼)
+Normalize to 𝑁(0, 𝐼)
+Normalize to 𝑁(0, 𝐼)
+𝒙𝟏
+𝟏𝒙𝟐
+𝟏𝒙𝟑
+𝟏𝒙𝟒
+𝟏
+𝒙𝟏
+𝟐𝒙𝟐
+𝟐𝒙𝟑
+𝟐𝒙𝟒
+𝟐
+𝒙𝟏
+𝟑𝒙𝟐
+𝟑𝒙𝟑
+𝟑𝒙𝟒
+𝟑
+𝒙𝟏
+𝟒𝒙𝟐
+𝟒𝒙𝟑
+𝟒𝒙𝟒
+𝟒
+Input batch 1
+𝒙𝟏
+𝟓𝒙𝟐
+𝟓𝒙𝟑
+𝟓𝒙𝟒
+𝟓
+𝒙𝟏
+𝟔𝒙𝟐
+𝟔𝒙𝟑
+𝟔𝒙𝟒
+𝟔
+𝒙𝟏
+𝟕𝒙𝟐
+𝟕𝒙𝟑
+𝟕𝒙𝟒
+𝟕
+𝒙𝟏
+𝟖𝒙𝟐
+𝟖𝒙𝟑
+𝟖𝒙𝟒
+𝟖
+Input batch 2
+𝒙𝟏
+𝟗𝒙𝟐
+𝟗𝒙𝟑
+𝟗𝒙𝟒
+𝟗
+𝒙𝟏
+𝟏𝟎𝒙𝟐
+𝟏𝟎𝒙𝟑
+𝟏𝟎𝒙𝟒
+𝟏𝟎
+𝒙𝟏
+𝟏𝟏𝒙𝟐
+𝟏𝟏𝒙𝟑
+𝟏𝟏𝒙𝟒
+𝟏𝟏
+𝒙𝟏
+𝟏𝟐𝒙𝟐
+𝟏𝟐𝒙𝟑
+𝟏𝟐𝒙𝟒
+𝟏𝟐
+Input batch 3
+𝐳𝟏
+𝟏𝐳𝟐
+𝟏𝐳𝟑
+𝟏
+𝐳𝟏
+𝟐𝐳𝟐
+𝟐𝐳𝟑
+𝟐
+𝐳𝟏
+𝟑𝐳𝟐
+𝟑𝐳𝟑
+𝟑
+𝐳𝟏
+𝟒𝐳𝟐
+𝟒𝐳𝟑
+𝟒
+Representation batch 1
+𝐳𝟏
+𝟓𝐳𝟐
+𝟓𝐳𝟑
+𝟓
+𝐳𝟏
+𝟔𝐳𝟐
+𝟔𝐳𝟑
+𝟔
+𝐳𝟏
+𝟕𝐳𝟐
+𝟕𝐳𝟑
+𝟕
+𝐳𝟏
+𝟖𝐳𝟐
+𝟖𝐳𝟑
+𝟖
+Representation batch 2
+𝐳𝟏
+𝟗
+𝐳𝟐
+𝟗
+𝐳𝟑
+𝟗
+𝐳𝟏
+𝟏𝟎𝐳𝟐
+𝟏𝟎𝐳𝟑
+𝟏𝟎
+𝐳𝟏
+𝟏𝟏𝐳𝟐
+𝟏𝟏𝐳𝟑
+𝟏𝟏
+𝐳𝟏
+𝟏𝟐𝐳𝟐
+𝟏𝟐𝐳𝟑
+𝟏𝟐
+Representation batch 3
+
+--- Page 94 ---
+94
+Batch Normalization
+𝑊1, 𝑏1
+𝑊4, 𝑏4
+𝑊2, 𝑏2
+Feature extractor
+Classifier
+𝑊3, 𝑏3
+𝒙𝟏
+𝟏𝒙𝟐
+𝟏𝒙𝟑
+𝟏𝒙𝟒
+𝟏
+𝒙𝟏
+𝟐𝒙𝟐
+𝟐𝒙𝟑
+𝟐𝒙𝟒
+𝟐
+𝒙𝟏
+𝟑𝒙𝟐
+𝟑𝒙𝟑
+𝟑𝒙𝟒
+𝟑
+𝒙𝟏
+𝟒𝒙𝟐
+𝟒𝒙𝟑
+𝟒𝒙𝟒
+𝟒
+𝐳𝟏
+𝟏𝐳𝟐
+𝟏𝐳𝟑
+𝟏
+𝐳𝟏
+𝟐𝐳𝟐
+𝟐𝐳𝟑
+𝟐
+𝐳𝟏
+𝟑𝐳𝟐
+𝟑𝐳𝟑
+𝟑
+𝐳𝟏
+𝟒𝐳𝟐
+𝟒𝐳𝟑
+𝟒
+Input batch
+Representation batch
+𝜇1 𝜇2 𝜇3
+𝜎1 𝜎2 𝜎3
+ො𝒛𝟏
+𝟏ො𝒛𝟐
+𝟏ො𝒛𝟑
+𝟏
+ො𝒛𝟏
+𝟐ො𝒛𝟐
+𝟐ො𝒛𝟑
+𝟐
+ො𝒛𝟏
+𝟑ො𝒛𝟐
+𝟑ො𝒛𝟑
+𝟑
+ො𝒛𝟏
+𝟒ො𝒛𝟐
+𝟒ො𝒛𝟑
+𝟒
+Normalize 
+to 𝑁(0, 𝐼)
+Scale by 𝜸 
+and shift by 𝜷
+𝐳𝐁𝐍𝟏
+𝟏𝐳𝐁𝐍𝟐
+𝟏𝐳𝐁𝐍𝟑
+𝟏
+𝐳𝐁𝐍𝟏
+𝟐𝐳𝐁𝐍𝟐
+𝟐𝐳𝐁𝐍𝟑
+𝟐
+𝐳𝐁𝐍𝟏
+𝟑𝐳𝐁𝐍𝟐
+𝟑𝐳𝐁𝐍𝟑
+𝟑
+𝐳𝐁𝐍𝟏
+𝟒𝐳𝐁𝐍𝟐
+𝟒𝐳𝐁𝐍𝟑
+𝟒
+Activation 
+with 𝝈
+Normalized representation
+BN representation
+
+--- Page 95 ---
+95
+Batch Normalization
+•
+Let 𝑧= 𝑊𝑘ℎ𝑘+ 𝑏𝑘 be the mini-batch before activation. We 
+compute the normalized Ƹ𝑧 as
+•
+Ƹ𝑧=
+𝑧−𝜇𝐵
+𝜎𝐵
+2+𝜖
+ where 𝜖 is a small value such as 1𝑒−7
+•
+𝜇𝐵=
+1
+𝑏σ𝑖=1
+𝑏
+𝑧𝑖 is the empirical mean
+•
+𝜎𝐵
+2 =
+1
+𝑏σ𝑖=1
+𝑏
+𝑧𝑖−𝜇𝐵2 is the empirical variance
+•
+We scale the normalized Ƹ𝑧
+•
+𝑧𝐵𝑁= 𝛾Ƹ𝑧+ 𝛽 where 𝛾, 𝛽> 0 are two learnable parameters 
+(i.e., scale and shift parameters)
+•
+We then apply the activation to obtain the next layer value
+•
+ℎ𝑘+1 = 𝜎(𝑧𝐵𝑁)
+1.
+Cope with internal covariate shift
+2.
+Reduce gradient 
+vanishing/exploding
+3.
+Reduce overfitting
+4.
+Make training more stable
+5.
+Converge faster
+1.
+Allow us to train with bigger learning rate
+ℎ1
+ℎ2
+𝑧1
+𝑧2
+0.1
+0.2
+…
+…
+0.5
+0.4
+Mini-batch size
+Standardize column-wise
+
+--- Page 96 ---
+96
+Batch Normalization
+Testing Phase
+At testing time, let’s say we only want to 
+test on a single input 𝑥
+Hence, we don’t have a set of mini-
+batch samples to compute mean and 
+standard deviation.
+So, we replace the mini-batch 𝜇𝐵  and  
+𝜎𝐵  with running averages of  ෤𝜇𝐵  and  
+෤𝜎𝐵  computed during the training 
+process.
+o
+෤𝜇𝐵= 𝜃෤𝜇𝐵+ 1 −𝜃𝜇𝐵
+o
+෤𝜎𝐵= 𝜃෤𝜎𝐵+ 1 −𝜃𝜎𝐵 
+o 0 < 𝜃< 1 is the momentum decay
+
+--- Page 97 ---
+97
+Data Augmentation
+Reality
+o You have a tiny dataset of 10K images, and you need 
+to train a good deep net.
+What are the criteria of a qualified training set?
+Quantity?
+- Collect more and more data?
+Quality?
+-
+More diverge data?
+-
+More qualified data?
+Prof Dinh Phung
+Create many variants
+
+--- Page 98 ---
+98
+Data Augmentation
+Use simple transformations to augment 
+data examples. Models will be challenged with 
+diverge data examples which might be 
+encountered in the testing set
+o Rotation, Width Shifting, Height Shifting, Brightness, Shear 
+Intensity, Zoom, Channel Shift, Horizontal Flip, Vertical Flip
+This will reduce overfitting, making this a 
+regularization technique. The trick is to 
+generate realistic training instances
+[Source: Stanford CS 230 Deep Learning]
+
+--- Page 99 ---
+99
+Data Augmentation in PyTorch
+Without augmentation
+With augmentation
+
+--- Page 100 ---
+100
+Label smoothing
+Given data instance (𝒙, 𝒚) with the label 𝒚∈{𝟏, … , 𝑴}, we compute the CE loss between the 
+prediction probabilities 𝒑(𝒙) and the smooth label
+o
+𝑙𝑦, ො𝑦= 𝐶𝐸(෩𝟏𝑦, 𝒑(𝒙)) with ෩𝟏𝑦= 1 −𝛼× 𝟏𝑦+
+𝛼
+𝑀× 𝟏 where 𝟏 is a vector of all 1 and 0 < 𝛼< 1.
+Paper link: https://papers.nips.cc/paper/2019/file/f1748d6b0fd9d439f71450117eba2725-Paper.pdf
+𝑊2, 𝑏2
+𝑥
+…
+𝑦∈{1, … , 𝑀}
+𝒉𝑳(𝒙)
+𝑝𝑥= 𝑠𝑜𝑓𝑡𝑚𝑎𝑥(ℎ𝐿𝑥)
+logits
+𝑙𝑦, ො𝑦= 𝐶𝐸(𝟏𝑦, 𝒑(𝒙))
+ො𝑦= 𝑎𝑟𝑔𝑚𝑎𝑥1≤𝑚≤𝑀𝑝𝑚(𝑥)
+No label smoothing
+Label smoothing
+𝑙𝑦, ො𝑦= 𝐶𝐸(෩𝟏𝑦, 𝒑(𝒙))
+෩𝟏𝑦= 𝛼
+𝑀, … , 1 −𝛼+ 𝛼
+𝑀, … , 𝛼
+𝑀
+𝟏𝑦= [0, . . , 1, … , 0]
+𝒚-th position
+𝒚-th position

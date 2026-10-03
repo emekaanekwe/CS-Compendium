@@ -1,0 +1,67 @@
+149
+Continuous Bag of Words (CBOW)
+Modelling
+
+Current window
+o
+The quick brown fox jumps
+
+Need to formulate: 𝑃𝑏𝑟𝑜𝑤𝑛
+𝑡ℎ𝑒, 𝑞𝑢𝑖𝑐𝑘, 𝑓𝑜𝑥, 𝑗𝑢𝑚𝑝𝑠
+
+(the | quick | fox | jumps, brown). Let consider 𝑡𝑤= 𝑏𝑟𝑜𝑤𝑛 and 
+𝑐𝑤1 = 𝑡ℎ𝑒, 𝑐𝑤2 = 𝑞𝑢𝑖𝑐𝑘, 𝑐𝑤3 = 𝑓𝑜𝑟, 𝑐𝑤4 = 𝑗𝑢𝑚𝑝𝑠.
+
+Two matrices
+o
+𝑼∈ℝ𝑵×𝒅 (𝑁 is vocabulary size, 𝑑 is embedding size)
+o
+𝑽∈ℝ𝒅×𝑵
+
+Assume that indices of 𝑡𝑤 is 1 ≤𝑡≤𝑁 and 𝑐𝑤1:4 are 1 ≤𝑐1:4 ≤𝑁 
+respectively. The forward propagation is as follows:
+o
+ℎ=
+1𝑐1+⋯+1𝑐4
+4
+𝑈=
+1
+4 𝑈𝑐1
+𝑟+ ⋯+ 𝑈𝑐4
+𝑟
+= 𝑈𝑟∈ℝ1×𝑑, 𝑜= ℎ𝑉∈ℝ1×𝑁, 𝑝=
+𝑠𝑜𝑓𝑡𝑚𝑎𝑥(𝑜) ∈ℝ1×𝑁
+o
+𝑃𝑏𝑟𝑜𝑤𝑛
+𝑡ℎ𝑒, 𝑞𝑢𝑖𝑐𝑘, 𝑓𝑜𝑥 𝑗𝑢𝑚𝑝𝑠
+= 𝑝𝑡
+o
+log 𝑃𝑏𝑟𝑜𝑤𝑛
+𝑡ℎ𝑒, 𝑞𝑢𝑖𝑐𝑘, 𝑓𝑜𝑥 𝑗𝑢𝑚𝑝𝑠
+= log 𝑝𝑡= 𝑈𝑟𝑉𝑡
+𝑐−
+log(σ𝑘=1
+𝑁
+exp(𝑈𝑟𝑉𝑘
+𝑐))
+
+Train the model by maximizing log likelihood.
+𝑈∈ℝ𝑁×𝑑
+𝒉
+𝑉∈ℝ𝑑×𝑁
+𝟏
+𝟒(𝟏𝒄𝟏
++ 𝟏𝒄𝟐
++ 𝟏𝒄𝟑
+ +𝟏𝒄𝟒)
+Vector
+𝒑
+brow
+n
+the
+quick
+fox
+jumps
+𝑁
+𝑁
+𝑑

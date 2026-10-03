@@ -1,0 +1,6 @@
+223
+GAN: example results
+For a complex dataset such as ImageNet
+o GANs can generate sharp images, but look unrealistic
+o Hard to know what objects they are
+Conditional GANs with labels work much better in practice!

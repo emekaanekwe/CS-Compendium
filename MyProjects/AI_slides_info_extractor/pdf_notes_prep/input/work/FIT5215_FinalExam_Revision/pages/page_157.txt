@@ -1,0 +1,31 @@
+157
+Training of seq2seq
+❑We need to maximize the log-
+likelihood:
+max
+θ
+J θ =
+෍
+𝒙,𝒚𝜖𝔇
+log 𝑃𝒚|𝒙, 𝜃 
+where 𝜃= [𝜃𝑒, 𝜃𝑑] and 𝜃𝑒, 𝜃𝑑 are encoding and 
+decoding parameters, respectively.
+❑ Product rule:
+  log 𝑃𝒚|𝒙, 𝜃 = log 𝑃𝒚|𝒄, 𝜃=
+σ𝑗=1
+𝑇𝑦log 𝑃𝒚𝒋|𝒚𝟏:𝒋−𝟏, 𝒄, 𝜃=
+σ𝑗=1
+𝑇𝑦log 𝑃𝒚𝒋|𝒒𝒋−𝟏, 𝒄, 𝜃
+❖
+𝒒𝒋−𝟏 contains the information of 𝒄.
+❖
+(1): 𝑃𝒚𝒋|𝒒𝒋−𝟏, 𝒄, 𝜃= 𝑃𝒚𝒋|𝒒𝒋−𝟏, 𝜃
+              𝑞𝑗−1 = 𝑓(𝑞𝑗−2, 𝑦𝑗−1)
+❖
+(2): 𝑃𝒚𝒋|𝒒𝒋−𝟏, 𝒄, 𝜃= 𝑃𝒚𝒋|𝒒𝒋−𝟏, 𝜃
+              𝑞𝑗−1 = 𝑓(𝑞𝑗−2, 𝑐𝑜𝑛𝑐𝑎𝑡(𝑐, 𝑦𝑗−1))
+❖
+𝑓 is a memory cell (e.g., LSTM or GRU) 
+(1) [Sutskever et al. 2014]
+(2)
+Big drawback: the context vector 𝒄 is fixed across timesteps.

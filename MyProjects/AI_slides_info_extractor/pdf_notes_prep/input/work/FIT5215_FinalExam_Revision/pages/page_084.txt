@@ -1,0 +1,14 @@
+84
+Overfitting & Underfitting
+Underfitting
+o The model is too simple to characterise a training set
+▪Use linear model to learn from non-linear data
+Overfitting 
+o The model performs very well on the training set, but cannot generalise to perform well on a separate 
+testing set
+o This is the most common problem in DL since deep networks are very powerful!
+Overfitting with regression
+Ground-truth value
+Predicted value
+-
+Error

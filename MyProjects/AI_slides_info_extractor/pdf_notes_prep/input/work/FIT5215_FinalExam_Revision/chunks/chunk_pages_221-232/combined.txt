@@ -1,0 +1,190 @@
+--- Page 221 ---
+221
+The Nash equilibrium point
+The solution of the minimax problem 𝒎𝒊𝒏𝑮𝒎𝒂𝒙𝑫𝑱𝑫, 𝑮
+o Nash equilibrium point 𝐷∗, 𝐺∗ which satisfies
+▪𝑝𝑔∗= 𝑝𝑑
+▪𝐷∗(𝒙) =
+𝑝𝑑(𝒙)
+𝑝𝑑𝒙+𝑝𝑔∗(𝒙) = 0.5, 𝑓𝑜𝑟 𝑎𝑙𝑙 𝑥
+[Goodfellow et al, NIPS 14]
+Our own simulation
+𝐷
+𝑝𝑑
+𝑝𝑔
+𝑝𝑔∗= 𝑝𝑑
+𝐷∗𝑥
+= 0.5, ∀𝑥
+
+--- Page 222 ---
+222
+GAN: example results
+(from Goodfellow, et al, NIPS14’s paper)
+MNIST
+nearest neighbour 
+samples from training
+CIFAR-10
+
+--- Page 223 ---
+223
+GAN: example results
+For a complex dataset such as ImageNet
+o GANs can generate sharp images, but look unrealistic
+o Hard to know what objects they are
+Conditional GANs with labels work much better in practice!
+
+--- Page 224 ---
+224
+Issues with GAN
+#1: mode collapsing problem
+o Impeach the ability to generate diverse, realistic data/images
+Two serious technical problems with GAN
+Generated (fake) examples 𝐺(𝒛) where 𝒛~𝑝(𝒛) 
+o Can only cover a few modes in the data distribution 
+𝑝𝑑(𝒙)
+o Miss many other modes in the data distribution.
+
+--- Page 225 ---
+225
+(Image credit: deeplearning.ai)
+
+--- Page 226 ---
+226
+Issues with GAN
+#2: Convergence is hard due to minimax formulation
+o Training GAN is very challenging!
+Two serious technical problems with GAN
+Mini-max problem
+●min
+𝐺max
+D 𝐽𝐺, 𝐷=
+𝔼
+𝒙~𝑝𝑑(𝒙) log 𝐷𝒙
++ 𝔼
+𝒛~𝑝𝒛log(1 −𝐷(𝐺𝒛) 
+No unique loss function
+Discriminator loss
+Generator loss
+
+--- Page 227 ---
+227
+(image credit: deeplearning.ai)
+
+--- Page 228 ---
+228
+How to evaluate GAN: Inception score
+Except for trivial cases, we don’t know the true data distribution 𝑝𝑑 so how can we 
+say how good the generated distribution 𝑝𝑔 is?
+How to know that a generative model can generate diverge examples that cover 
+many modes in data?
+How to compare two generative models trained on the same training set?
+𝒵
+𝒛~𝑝(𝒛)
+𝐺1(𝒛)
+y=1
+y=2
+y=3
+y=4
+𝒵
+𝒛~𝑝(𝒛)
+𝐺2(𝒛)
+y=1
+y=2
+y=3
+y=4
+Two generators 𝑮𝟏 and 𝑮𝟐, which one is better?
+
+--- Page 229 ---
+229
+How to evaluate GAN: Inception score
+Except for trivial cases, we don’t know the true data distribution 𝑝𝑑𝑎𝑡𝑎 so how can 
+we say how good the generated distribution 𝑝𝑔 is?
+How to know that a generative model can generate diverge examples that cover 
+many modes in data?
+How to compare two generative models trained on the same training set?
+𝒵
+𝒛~𝑝(𝒛)
+𝐺1(𝒛)
+y=1
+y=2
+y=3
+y=4
+𝒵
+𝒛~𝑝(𝒛)
+𝐺2(𝒛)
+y=1
+y=2
+y=3
+y=4
+𝑮𝟐 is better and generate more diverge examples, while 𝑮𝟏 misses the data mode 𝑦= 4.
+
+--- Page 230 ---
+230
+How to evaluate GAN: Inception score
+Assume that training examples have labels
+o y=1,2,3, and 4.
+We train a good classifier 𝐶 on the training set with labels
+o 𝐶𝒙= 𝑝𝑦
+𝒙
+= 𝑝𝑦= 𝑘
+𝒙
+𝑘=1
+4
+ is the prediction probabilities where 
+𝑝𝑦= 𝑘
+𝒙 is the probability to classify 𝑥 to the class 𝑘.
+Given ෥𝒙𝑖= 𝐺𝒛𝒊, 𝑖= 1, … , 𝑇, we wish
+o 𝐶෥𝒙𝑖= 𝑝(𝑦∣෥𝒙𝑖= 𝐺𝒛𝒊) is close to an one-hot vector
+▪𝐶෥𝒙𝑖 is confident and has a small entropy.
+o
+1
+𝑇σ𝑖=1
+𝑇
+𝐶෥𝒙𝑖= 1
+𝑇σ𝑖=1
+𝑇
+𝑝(𝑦∣෥𝒙𝑖= 𝐺𝒛𝒊) is close to the uniform distribution 
+[0.25, 0.25,0.25,0.25] (largest entropy).
+Inception score
+o
+1
+𝑇σ𝑖=1
+𝑇
+𝐾𝐿𝐶෥𝒙𝑖,
+1
+𝑇σ𝑗=1
+𝑇
+𝐶෥𝒙𝑗
+≈𝔼𝑧[𝐾𝐿𝑝𝑦
+෥𝒙= 𝐺𝒛
+, 𝑝(𝑦) ]
+o Higher is better → more diversity of generated images
+𝒵
+𝒛~𝑝(𝒛)
+𝐺(𝒛)
+y=1
+y=2
+y=3
+y=4
+Salimans et al, Improved Techniques for Training GANs, 2016
+
+--- Page 231 ---
+231
+GAN: Summary
+Adversarial training: a game of two players [Goodfellows et al., 
+2014]
+o Generator 𝐺: generate fake samples indistinguishable from real samples
+o Discriminator 𝐷: discriminate real and fake samples
+Min-max problem
+min
+𝐺max
+D 𝐽𝐺, 𝐷= 𝔼𝒙 ~ 𝑝𝑑𝒙log 𝐷𝒙
++ 𝔼𝒛 ~ 𝑝𝒛
+log(1 −𝐷(𝐺𝒛) 
+Issues and challenges
+o Mode collapse, min-max problem
+Yann Lecun
+
+--- Page 232 ---
+Thanks for your attention!
+Question time

@@ -1,0 +1,895 @@
+--- Page 1 ---
+FIT5215 Deep Learning
+Revision for Final Exam
+
+--- Page 2 ---
+2
+The big picture …
+Lectures 7,9: Deep learning for sequential, time-series
+RNNs, LSTM, GRU, Seq2Seq, attention mechanism,
+Transformers, Self-Attention  etc.
+Lecture 8: Discrete Learning Representation
+Word2Vec, Skip-Gram, CBOW
+Lecture 11: Deep Generative Models
+Generative Adversarial Network (GAN), Diffusion Models
+Week 07
+Deep learning for time-series and temporal data: RNNs, LSTMs
+Week 09
+Advanced sequential models
+Week 08
+Representation and deep learning for language: Word2Vec
+Week 11
+Deep generative models: GANs and Diffusion Models
+Lectures 3,6,10: Deep Computer Vision
+Convolutions, CNN, architectures, robustness
+Lectures 1,2,4,5: fundamentals
+    Deep Learning/ML
+    Deep Neural Networks
+   Computation graphs
+    Optimization, BackProp 
+Week 01
+Machine Learning and Mathematical Background Revisit
+Week 02
+Prelude to Deep Learning and Feed-forward Neural 
+Networks
+Week 04
+Back-Propagation and Optimization for Deep Learning
+Week 05
+Practical skills in deep learning
+Week 03
+DL for Vision (I): Convolutional Neural Networks
+Week 06
+DL for Vision (II): Network Architectures, Visualization, 
+Interpretability, and Robustness
+Week 10
+ViT and Model Fine-tuning Techniques
+
+--- Page 3 ---
+3
+Knowledge graph of Deep Learning unit
+Deep Learning models
+Supervised models
+Self-Supervised models
+Feed-forward
+NN
+Convolution
+NN
+Recurrent
+NN
+Advanced 
+sequential 
+modes
+Word2Vec
+Seq2Seq
+Transformer
+Define loss function
+min𝜃 𝐽𝜃= 𝛺𝜃+ 1
+𝑁෍
+𝒊=𝟏
+𝑵
+𝑙𝑦𝑖, 𝑓𝑥𝑖; 𝜃
+Forward propagation
+❖ Input → Layers → Prediction Probabilities → Loss
+Backward propagation
+❖ Loss → Layers → Input
+How to train supervised models?
+Attention mechanism
+Self-
+Attention 
+mechanism
+▪
+Skip-Gram
+▪
+CBOW
+Pretext: 
+predicts 
+target or 
+context words
+Vision data
+Visualize
+Attack/defense
+Vector data
+Sequential data
+BERT
+ViT
+Model Fine-tuning
+- Prompt-tuning, LoRA, Adapter
+Generative models
+Generative 
+Adversarial 
+Networks
+
+--- Page 4 ---
+Feed-forward NNs
+
+--- Page 5 ---
+5
+Deep NNs: parameterisation
+Input layer is the 𝑑-
+dimensional vector of
+ℎ0(𝑥) = 𝑥 
+Hidden layer
+ℎ1(𝑥)
+Hidden layer
+ℎ𝐿−1(𝑥)
+Output  layer
+ℎ𝐿(𝑥) has 𝑀 nodes 
+providing 
+discriminative values
+𝑊2, 𝑏2
+
+Layer 𝑘 has 𝑛𝑘 neurons
+o
+𝑛0 = 𝑑 and 𝑛𝐿= 𝑀
+
+Weight matrices and biases
+●
+𝑊𝑘∈ℝ𝑛𝑘−1×𝑛𝑘 and 𝑏𝑘∈ℝ1×𝑛𝑘 for 𝑘= 1,2, … , 𝐿
+softmax layer for 
+classification
+𝑥= 𝑥1, … , 𝑥𝑑∈ℝ1×𝑑
+ො𝑦
+…
+…
+
+--- Page 6 ---
+6
+DNNs: making prediction via FP
+Forward propagation- Classification
+Input layer
+ℎ0(𝑥) = 𝑥
+Hidden layer
+𝒉𝑳−𝟏𝒙= 𝜎(തℎ𝐿−1(𝑥))
+ഥ𝒉𝑳−𝟏𝒙= ℎ𝐿−2 𝑥𝑊𝐿−1 + 𝑏𝐿−1
+Output  layer
+𝒉𝑳𝒙= ℎ𝐿−1 𝑥𝑊𝐿+ 𝑏𝐿
+𝑊1, 𝑏1
+𝑊2, 𝑏2
+𝑊𝐿, 𝑏𝐿
+𝑊𝐿−1, 𝑏𝐿−1
+ො𝑦
+…
+softmax
+𝒑𝒙= 𝑠𝑜𝑓𝑡𝑚𝑎𝑥(ℎ𝐿(𝑥))
+ℎ0(𝑥) = 𝑥 with the ground-truth label 𝑦
+for 𝑘= 1 to 𝐿−1 do
+തℎ𝑘(𝑥) = ℎ𝑘−1(𝑥)𝑊𝑘+ 𝑏𝑘   //linear operation   
+ℎ𝑘(𝑥) = 𝜎തℎ𝑘(𝑥)              //activation to bring non-linearity
+ℎ𝐿(𝑥) = ℎ𝐿−1(𝑥)𝑊𝐿+ 𝑏𝐿
+𝑝𝑥= 𝑠𝑜𝑓𝑡𝑚𝑎𝑥(ℎ𝐿(𝑥))          //prediction probabilities
+
+Parameter: 𝜃= 𝑊𝑘, 𝑏𝑘
+𝑘=1
+𝐿
+ is given
+
+𝜎: ℝ→ℝ is the activation function
+●
+Sigmoid, tanh, ReLU, and etc.
+
+Output:    𝑝(𝑥) = softmax ℎ𝐿(𝑥)
+●
+Pr 𝑦= 𝑘𝑥= 𝑝𝑘(𝑥) =
+exp{ℎ𝑘
+𝐿𝑥}
+σ𝑗=1
+𝑀
+exp{ℎ𝑗
+𝐿𝑥}  
+●
+ො𝑦= argmax
+1≤𝑘≤𝑀 𝑝𝑘(𝑥)
+Hidden layer
+𝒉𝟏𝒙= 𝜎(തℎ1(𝑥))
+ഥ𝒉𝟏𝒙= 𝑥𝑊1 + 𝑏1
+Hidden layer
+𝒉𝟐𝒙= 𝜎(തℎ2(𝑥))
+ഥ𝒉𝟐𝒙= ℎ1(𝑥)𝑊2 + 𝑏2
+𝑪𝑬𝒙, 𝒚= −log𝑝𝑦(𝑥)
+Forward
+Propagation
+
+--- Page 7 ---
+7
+Modern Activation Functions
+
+The sigmoid function
+o 𝒔𝒛=
+𝟏
+𝟏+𝒆−𝒛
+o Logistic S-shaped, continuous, and differentiable 
+o Output range: 0 to 1
+
+The hyperbolic tangent function
+o 𝐭𝐚𝐧𝐡𝒛=
+𝒆𝒛−𝒆−𝒛
+𝒆𝒛+𝒆−𝒛
+o Logistic S-shaped, continuous, and differentiable 
+o Output range: −1 to 1, hence help speed up 
+convergence.
+
+The rectified linear function (ReLU)
+o ReLU 𝒛= 𝐦𝐚𝐱𝟎, 𝒛
+o Continuous, but not differentiable at 0
+o Hence, can make GD bounce around
+o Fast to compute, works very well in practice!
+o No cap on output value, hence help with gradient 
+vanishing problem.
+Σ
+sigmoid
+Σ
+tanh
+Σ
+ReLU
+𝜎𝑧= 𝑠𝑧=
+1
+1 + exp{−𝑧}
+𝜎′ 𝑧= 𝜎(𝑧)(1 −𝜎(𝑧))
+𝜎𝑧= 𝑡𝑎𝑛ℎ𝑧= exp{𝑧} −exp{−𝑧}
+exp 𝑧+ exp{−𝑧}
+𝜎′ 𝑧= 1 −𝜎2(𝑧)
+𝜎𝑧= 𝑅𝑒𝐿𝑈𝑧= max{0, 𝑧}
+𝜎′ 𝑧= ቊ1 
+𝑖𝑓 𝑧≥0
+0 
+𝑜𝑡ℎ𝑒𝑟𝑤𝑖𝑠𝑒
+
+--- Page 8 ---
+8
+Importance of Activation Functions
+Aims to bring non-linearities to neural networks
+Our data
+Networks without activations
+Networks with activations
+
+--- Page 9 ---
+9
+Linear and Softmax Layers 
+Input 
+Layer
+Hidden 
+Layer 1
+Hidden 
+Layer …
+Hidden 
+Layer
+𝑥= 1.2
+−1
+2
+𝑦∈{1,2, … , 𝑀}
+ℎ0 𝑥= 𝑥
+ℎ1 𝑥
+…
+ℎ𝐿−1 𝑥
+𝒑𝒙= 𝑠𝑜𝑓𝑡𝑚𝑎𝑥(ℎ𝐿(𝑥))
+softmax
+Output 
+Layer
+ℎ𝐿𝑥
+CE loss
+Prediction Probabilities
+𝑙𝑜𝑠𝑠= 𝐶𝐸1𝑦, 𝑝𝑥
+= −log 𝑝𝑦(𝑥)
+ഥ𝒉𝟏
+= 𝑥𝑊1 + 𝑏1 
+act
+𝜎 
+𝒉𝟏= 𝜎(തℎ1)
+𝒍𝒐𝒈𝒊𝒕𝒔= 𝒉𝑳𝒙
+= ℎ𝐿−1 𝑥𝑊𝐿+ 𝑏𝐿
+non-linearity
+softmax
+Output 
+Layer
+Penultimate 
+Layer
+𝒑𝒙= 𝑠𝑜𝑓𝑡𝑚𝑎𝑥(ℎ𝐿(𝑥))
+Prediction Probabilities
+Logit ℎ= ℎ1 ℎ2 ℎ3 ℎ4
+Prob p = 𝑝1 𝑝2 𝑝3 𝑝4
+𝒉𝟏
+𝒉𝟐
+𝒉𝟑
+𝒉𝟒
+𝒑𝟏
+𝒑𝟐
+𝒑𝟑
+𝒑𝟒
+𝒑𝟏=
+𝒆𝒉𝟏
+𝒆𝒉𝟏+ 𝒆𝒉𝟐+ 𝒆𝒉𝟑+ 𝒆𝒉𝟒
+𝒑𝟐=
+𝒆𝒉𝟐
+𝒆𝒉𝟏+ 𝒆𝒉𝟐+ 𝒆𝒉𝟑+ 𝒆𝒉𝟒
+𝒑𝟑=
+𝒆𝒉𝟑
+𝒆𝒉𝟏+ 𝒆𝒉𝟐+ 𝒆𝒉𝟑+ 𝒆𝒉𝟒
+𝒑𝟒=
+𝒆𝒉𝟒
+𝒆𝒉𝟏+ 𝒆𝒉𝟐+ 𝒆𝒉𝟑+ 𝒆𝒉𝟒
+softmax
+p (pred prob)
+h (logits)
+real-valued scores
+probabilities
+transforms 
+real-valued 
+discriminative 
+scores 
+(ranged in (−∞, +∞)) to probability values (ranged 
+in [0, 1]) but preserving the order.
+
+--- Page 10 ---
+10
+What is a softmax layer?
+
+Softmax function transforms real-valued 
+discriminative scores ℎ to discrete probabilities 𝑝.
+
+Input: vector of dimension 𝑀
+o
+e.g., ℎ= ℎ1, ℎ2, ℎ3 = 1, 2, 3 , M = 3
+
+Output: a discrete distribution of dimension 𝑀
+o
+e.g., 𝑝= 𝑝1, 𝑝2, 𝑝3 = [0.09, 0.24, 0.67]
+
+How to calculate 𝑝𝑚?
+o
+ℎ= ℎ𝑚𝑚=1
+𝑀
+→𝑝= softmax ℎ≔
+exp{ℎ𝑚}
+σ𝑖=1
+𝑀
+exp{ℎ𝑖} 𝑚=1
+𝑀
+o
+𝑝= 𝑝𝑚𝑚=1
+𝑀
+ becomes a distribution over classes {1, … , 𝑀}
+▪
+𝑝𝑚≥0 (1 ≤𝑚≤𝑀) and σ𝑚=1
+𝑀
+𝑝𝑚= 1 .
+Output  layer
+ℎ𝐿(𝒙)
+
+Prediction step: return the prediction for the class 
+that has the highest probability 
+ො𝑦= argmax
+1≤𝑚≤𝑀
+ 𝑝𝑚
+●
+i.e., return 3 in the above example (why?)
+predicted class ො𝑦
+𝑝= softmax ℎ𝐿
+ො𝑦= argmax
+1≤𝑚≤𝑀
+ 𝑝𝑚 
+softmax
+p (pred prob)
+h (logits)
+real-valued scores
+probabilities
+transforms 
+real-valued 
+discriminative 
+scores 
+(ranged in (−∞, +∞)) to probability values (ranged 
+in [0, 1]) but preserving the order.
+
+--- Page 11 ---
+11
+DNNs: making prediction via FP
+Example of spam email detection 
+
+From emails, assume that we extract three features, hence data points 𝑥∈ℝ3
+o
+𝑥= 𝑥1, 𝑥2, 𝑥3 ∈ℝ3
+o
+There are two classes and labels: spam (𝑦= 1) and non-spam (𝑦= 2)
+ℎ0(𝑥) = 𝑥
+for 𝑘= 1 to 2 do
+തℎ𝑘= ℎ𝑘−1(𝑥)𝑊𝑘+ 𝑏𝑘       //linear operation   
+ℎ𝑘(𝑥) = 𝜎തℎ𝑘(𝑥)              //activation
+ℎ3(𝑥) = ℎ2(𝑥)𝑊3 + 𝑏2
+𝑝𝑥= 𝑠𝑜𝑓𝑡𝑚𝑎𝑥(ℎ3(𝑥))           //prediction probabilities
+Input 
+Layer
+Hidden 
+Layer 1
+Hidden 
+Layer 2
+Output 
+Layer
+𝑥= 1.2
+−1
+2
+ℎ0 𝑥= 𝑥
+ℎ1 𝑥
+ℎ2 𝑥
+ℎ3 𝑥
+𝑝𝑥= 𝑠𝑜𝑓𝑡𝑚𝑎𝑥(ℎ3(𝑥))
+𝑊1 ∈ℝ3×4
+𝑏1 ∈ℝ1×4
+𝑊2 ∈ℝ4×3
+𝑏2 ∈ℝ1×3
+𝑊3 ∈ℝ3×2
+𝑏3 ∈ℝ1×2
+o
+Network architecture:
+o
+3 →4 𝑠𝑖𝑔𝑚𝑜𝑖𝑑→3 𝑠𝑖𝑔𝑚𝑜𝑖𝑑→2 𝑠𝑜𝑓𝑡𝑚𝑎𝑥
+o
+ℎ0 𝑥= 𝑥= 1.2, −1,2.2 ∈ℝ1×3
+o
+Hidden layer 1
+o
+തℎ1 𝑥= ℎ0 𝑥𝑊1 + 𝑏1 ∈ℝ1×4       (linear operation)   
+o
+ℎ1 𝑥= 𝑠𝑖𝑔𝑚𝑜𝑖𝑑തℎ1 𝑥
+= 𝑠𝑖𝑔𝑚𝑜𝑖𝑑തℎ𝑖
+1 𝑥
+𝑖=1
+4
+∈ℝ1×4  (activation)
+o
+Hidden layer 2
+o
+തℎ2 𝑥= ℎ1 𝑥𝑊2 + 𝑏2 ∈ℝ1×3        (linear operation) 
+o
+ℎ2 𝑥= 𝑠𝑖𝑔𝑚𝑜𝑖𝑑തℎ2 𝑥
+∈ℝ1×13    (element-wise activation)
+o
+Output layer
+o
+ℎ3 𝑥= ℎ2 𝑥𝑊3 + 𝑏3 ∈ℝ1×2       (linear operation) 
+o
+𝑝𝑥= 𝑠𝑜𝑓𝑡𝑚𝑎𝑥ℎ3 𝑥
+∈ℝ1×2     (softmax activation) 
+o
+Assume that 𝑝𝑥= 0.3,0.7
+o
+Prediction ො𝑦= 2 ≠𝑦= 1→ incorrect prediction
+𝑦= 1
+spam
+non-spam
+Exercise: check all the dimensions for matrix multiplication consistency! 
+What is the cross-entropy loss in this case?
+
+--- Page 12 ---
+12
+DNNs: making prediction via FP
+Forward propagation- Regression
+
+Parameter: 𝜃= 𝑊𝑘, 𝑏𝑘
+𝑘=1
+𝐿
+
+𝜎: ℝ→ℝ is the activation function
+o
+Sigmoid, tanh, ReLU
+
+Output:
+o
+ො𝑦= ℎ𝐿(𝑥) 
+ℎ0(𝑥) = 𝑥
+for 𝑘= 1 to 𝐿−1 do
+തℎ𝑘(𝑥) = ℎ𝑘−1(𝑥)𝑊𝑘+ 𝑏𝑘          //linear operation  
+ℎ𝑘(𝑥) = 𝜎തℎ𝑘(𝑥)                 //activation
+ℎ𝐿(𝑥) = ℎ𝐿−1(𝑥)𝑊𝐿+ 𝑏𝐿
+Input layer
+ℎ0(𝑥) = 𝒙
+Hidden layer
+ℎ1(𝑥)
+Hidden layer
+ℎ𝐿−1(𝑥)
+Output  layer
+ℎ𝐿(𝑥)
+𝑊1, 𝑏1
+𝑊2, 𝑏2
+𝑊𝐿, 𝑏𝐿
+𝑊𝐿−1, 𝑏𝐿−1
+…
+
+--- Page 13 ---
+Input layer
+ℎ0(𝑥) = 𝑥
+Hidden layer
+ℎ1(𝑥)
+Output  layer
+ℎ3(𝑥)
+𝑊1, 𝑏1
+𝑊2, 𝑏2
+𝑊3, 𝑏3
+Hidden layer
+ℎ2(𝑥)
+Declare FFN
+Declare one data example
+Forward propagation
+Making prediction
+
+--- Page 14 ---
+14
+Training deep nets
+
+DNN parameters: 𝜃≔
+𝑊𝑙, 𝑏𝑙
+𝑙=1
+𝐿
+
+Find model parameters (weight matrices and biases) so that the 
+model predictions fit the training set as much as possible:
+ 
+ 
+ 
+ 
+ min
+𝜃𝐿(𝐷; 𝜃)  
+
+Use optimizers SGD, Adagrad, Adam, RMSProp to update the 
+model parameters (lectures 4)
+Training set
+𝐷= { 𝑥1, 𝑦1 , … (𝑥𝑁, 𝑦𝑁)}
+Loss function
+𝐿𝐷; 𝜃≔1
+𝑁෍
+𝑖=1
+𝑁
+𝐶𝐸1𝑦𝑖, 𝑝𝑥𝑖
+= −1
+𝑁෍
+𝑖=1
+𝑁
+log 𝑝𝑦𝑖(𝑥𝑖)
+𝑊2, 𝑏2
+𝑥
+ො𝑦
+…
+(negative log likelihood)
+suffer loss 𝑙𝑦, ො𝑦= CE 1𝑦, 𝑝𝑥
+= −log 𝑝𝑦(𝑥)
+
+--- Page 15 ---
+15
+Mini-batch feed-forward
+
+Input
+o Batch 𝑋: [𝑏, 𝑛0 = 𝑑= 5]  (b is 
+the batch size)
+
+Hidden layer 1
+o
+𝒉𝟏= 𝝈(𝑿𝑾𝟏+ 𝒃𝟏)
+o
+Tensor [𝑏, 𝑛1 = 7]
+
+Hidden layer 2
+o
+𝒉𝟐= 𝝈(𝒉𝟏𝑾𝟐+ 𝒃𝟐)
+o
+Tensor [𝑏, 𝑛2 = 7]
+
+Output layer
+o
+𝒉𝟑= 𝒉𝟐𝑾𝟑+ 𝒃𝟑
+o
+𝑃= 𝑠𝑜𝑓𝑡𝑚𝑎𝑥(ℎ3, 𝑑𝑖𝑚= 1)
+o
+Tensor P: [𝑏, 𝑛𝐿= 𝑀= 4]
+
+The loss of the batch
+o
+1
+𝑏σ𝑖=1
+𝑏
+𝐶𝐸(1𝑦𝑖, 𝑝𝑖) =
+−
+1
+𝑏σ𝑖=1
+𝑏
+log 𝑝𝑦𝑖
+𝑖
+o Update weight matrices and 
+biases to minimize the batch loss.
+Input layer
+ℎ0(𝑥) = 𝑥
+Hidden layer
+ℎ1(𝑥)
+Hidden layer
+ℎ2(𝑥)
+Output  layer
+ℎ3(𝑥)
+𝑊1 ∈ℝ5×7,
+𝑏1 ∈ℝ1×7
+𝑊2 ∈ℝ7×5,
+𝑏2 ∈ℝ1×5
+𝑊3 ∈ℝ5×4,
+𝑏3 ∈ℝ1×4
+𝑏= 32 
+(batch size)
+𝑏= 32
+ℎ1
+𝑋
+𝑛1 = 7
+𝑏= 32
+ℎ2
+𝑛2 = 5
+𝑏= 32
+ℎ3
+𝑛3 = 𝑀= 4
+𝑏= 32
+𝑃
+𝑏= 32
+𝑌
+𝑛3 = 𝑀= 4
+Data
+𝑏𝑎𝑡𝑐ℎ_𝑙𝑜𝑠𝑠= 1
+𝑏෍
+𝑖=1
+𝑏
+𝐶𝐸(1𝑦𝑖, 𝑝𝑖)
+𝑦1 = 3, 𝑀= 4
+1𝑦1 = [0,0,1,0]
+One-hot labels
+Prediction 
+probabilities
+Training set
+Form a mini-batch
+𝑥2
+𝑥𝑏
+𝑥1
+𝑑= 𝑛0 = 5
+𝑙𝑜𝑔𝑖𝑡1
+𝑙𝑜𝑔𝑖𝑡2
+𝑙𝑜𝑔𝑖𝑡𝑏
+𝑝1
+𝑝2
+𝑝𝑏
+1𝑦1
+1𝑦2
+1𝑦𝑏
+Labels
+𝑥1, 𝑦1 , … , (𝑥𝑏, 𝑦𝑏),
+𝑥𝑏+1, 𝑦𝑏+1 , … , (𝑥2𝑏, 𝑦2𝑏)
+………………………….
+𝑥∗, 𝑦∗, … , (𝑥𝑁, 𝑦𝑁)
+Mini-batches
+
+--- Page 16 ---
+Declare FFN
+Declare a batch
+Forward propagation
+Making prediction
+
+--- Page 17 ---
+17
+Training FFNs using Mini-batches
+Training set
+𝒙𝟏
+𝒚𝟏= 𝒄𝒂𝒕
+…
+A mini-batch
+𝒙𝟐
+𝒚𝟐= 𝒅𝒐𝒈
+𝒙𝟑𝟐
+𝒚𝟔𝟒= 𝒍𝒊𝒐𝒏
+…
+𝒙∗
+𝒚∗= 𝒔𝒑𝒊𝒅𝒆𝒓
+…
+Another mini-batch
+𝒙∗+𝟑𝟏
+𝒚∗+𝟔𝟑= 𝒄𝒐𝒘
+… … 𝒙𝟔𝟎𝟎𝟎𝟎
+𝒚𝟔𝟎𝟎𝟎𝟎= 𝒄𝒂𝒕
+Our FFN
+One vector: [1, 5]
+ → Batch: [32, 5]  
+Model parameters 𝜃= 𝑊𝑙, 𝑏𝑙
+𝑙=1
+𝐿
+ 
+𝑏𝑎𝑡𝑐ℎ_𝑙𝑜𝑠𝑠(𝜃) = 1
+32 ෍
+𝑖=1
+32
+𝐶𝐸(1𝑦𝑖, 𝑝𝑥𝑖, 𝜃)
+Optimizer
+-
+Adam, 
+-
+RMSProp, 
+-
+SGD
+min
+𝜃𝑏𝑎𝑡𝑐ℎ_𝑙𝑜𝑠𝑠(𝜃) 
+Testing set
+Test accuracy
+…….
+1 epoch
+…
+…
+…
+…
+…
+…
+…
+…
+…
+………
+32
+5
+…
+…
+…
+…
+…
+…
+𝒙′𝟏
+𝒙′𝟐
+𝒙′𝟏𝟎𝟎𝟎
+Input 
+Layer
+Hidden 
+Layer 1
+Hidden 
+Layer 2
+Output 
+Layer
+ℎ0 𝑥= 𝑥
+ℎ1 𝑥
+ℎ2 𝑥
+ℎ3 𝑥
+𝑝𝑥= 𝑠𝑜𝑓𝑡𝑚𝑎𝑥(ℎ3(𝑥))
+𝑊1 ∈ℝ3×4
+𝑏1 ∈ℝ4×1
+𝑊2 ∈ℝ4×3
+𝑏2 ∈ℝ3×1
+𝑊3 ∈ℝ3×2
+𝑏3 ∈ℝ2×1
+
+--- Page 18 ---
+Optimization in Deep Learning
+
+--- Page 19 ---
+19
+A small detour to calculus
+Calculus = mathematics of change (very important for deep learning)
+Properties of derivative:
+o 𝑓′ 𝑥= ∇𝑓(𝑥) = lim
+ℎ→0
+𝑓𝑥+ℎ−𝑓(𝑥)
+ℎ
+o
+𝑢𝑣′ = 𝑢′𝑣+ 𝑢𝑣′ 
+o
+𝑢
+𝑣
+′
+=
+𝑢′𝑣−𝑢𝑣′
+𝑣2
+o
+𝑒𝑢′ = 𝑢′𝑒𝑢
+o
+log 𝑢′ =
+𝑢′
+𝑢
+Multi-variate function 𝑓: ℝ𝑛→ℝ with 𝑦= 𝑓𝑥= 𝑓(𝑥1, … , 𝑥𝑛).
+o Gradient/derivative: 
+𝜕𝑓
+𝜕𝑥(𝑎) = ∇𝑥𝑓(𝑎) = [∇𝑥1𝑓𝑎, ∇𝑥2𝑓𝑎, … , ∇𝑥𝑛𝑓𝑎].
+Chain rule       :
+o
+𝜕𝑢
+𝜕𝑥=
+𝜕𝑢
+𝜕𝑣×
+𝜕𝑣
+𝜕𝑥
+
+--- Page 20 ---
+20
+Derivative for multi-variate functions
+Given a function 𝑓: ℝ𝑚→ℝ𝑛
+o 𝑓𝑥= (𝑓1 𝑥, … , 𝑓𝑛(𝑥)) where 𝑓1, … , 𝑓𝑛: ℝ𝑚→
+ℝ and 𝑥= (𝑥1, … , 𝑥𝑚). Let denote 𝑦= 𝑓(𝑥). 
+o The derivative of 𝑓 at the point 𝒂∈ℝ𝒎, denoted by 
+∇𝑓(𝑎) (function related notion) or 
+𝜕𝑦
+𝜕𝑥(𝑎) (variable 
+related notion) is a matrix 𝑛 by 𝑚 (i.e., the Jacobian 
+matrix).
+ℝ𝑚
+ℝ𝑛
+ℝ𝑝
+ 
+𝑓 
+ 
+𝑔 
+ℎ
+𝑥
+𝑦= 𝑓(𝑥) 𝑧= 𝑔𝑦= 𝑔𝑓𝑥
+= ℎ(𝑥)
+Chain rule 
+o
+Given a function 𝒇: ℝ𝒎→ℝ𝒏, 𝐠: ℝ𝒏→ℝ𝒑, denote 𝒉= 𝒈∘𝒇: ℝ𝒎→ℝ𝒑, meaning that 𝒉𝒙=
+𝒈𝒇𝒙
+. We further define 𝑦= 𝑓(𝑥) and 𝑧= 𝑔𝑦= 𝑔𝑓𝑥
+= ℎ(𝑥).
+o
+For  x ∈ℝ𝑚,∇ℎ𝑥= ∇𝑔𝑓𝑥
+× ∇𝑓𝑥 or equivalently 
+𝜕𝑧
+𝜕𝑥=
+𝜕𝑧
+𝜕𝑦.
+𝜕𝑦
+𝜕𝑥.
+𝑝× 𝑚
+𝑝× 𝑛
+𝑛× 𝑚
+Jacobian matrix
+𝜕𝑦
+𝜕𝑥(𝑎) = ∇𝑓(𝑎) =
+𝜕𝑓1
+𝜕𝑥1
+(𝑎)
+…
+…
+𝜕𝑓1
+𝜕𝑥𝑗
+(𝑎)
+…
+𝜕𝑓1
+𝜕𝑥𝑚
+(𝑎)
+…
+…
+…
+…
+…
+…
+…
+…
+…
+…
+…
+…
+𝜕𝑓𝑖
+𝜕𝑥1
+(𝑎)
+…
+…
+𝜕𝑓𝑖
+𝜕𝑥𝑗
+(𝑎)
+…
+𝜕𝑓𝑖
+𝜕𝑥𝑚
+(𝑎)
+…
+…
+…
+…
+…
+…
+𝜕𝑓𝑛
+𝜕𝑥1
+(𝑎)
+…
+…
+𝜕𝑓𝑛
+𝜕𝑥𝑗
+(𝑎)
+…
+𝜕𝑓𝑛
+𝜕𝑥𝑚
+(𝑎)
+𝑚
+𝑛
+𝑥= 1 1 1
+ℝ3
+ℝ2

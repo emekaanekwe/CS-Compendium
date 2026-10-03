@@ -1,0 +1,88 @@
+94
+Batch Normalization
+𝑊1, 𝑏1
+𝑊4, 𝑏4
+𝑊2, 𝑏2
+Feature extractor
+Classifier
+𝑊3, 𝑏3
+𝒙𝟏
+𝟏𝒙𝟐
+𝟏𝒙𝟑
+𝟏𝒙𝟒
+𝟏
+𝒙𝟏
+𝟐𝒙𝟐
+𝟐𝒙𝟑
+𝟐𝒙𝟒
+𝟐
+𝒙𝟏
+𝟑𝒙𝟐
+𝟑𝒙𝟑
+𝟑𝒙𝟒
+𝟑
+𝒙𝟏
+𝟒𝒙𝟐
+𝟒𝒙𝟑
+𝟒𝒙𝟒
+𝟒
+𝐳𝟏
+𝟏𝐳𝟐
+𝟏𝐳𝟑
+𝟏
+𝐳𝟏
+𝟐𝐳𝟐
+𝟐𝐳𝟑
+𝟐
+𝐳𝟏
+𝟑𝐳𝟐
+𝟑𝐳𝟑
+𝟑
+𝐳𝟏
+𝟒𝐳𝟐
+𝟒𝐳𝟑
+𝟒
+Input batch
+Representation batch
+𝜇1 𝜇2 𝜇3
+𝜎1 𝜎2 𝜎3
+ො𝒛𝟏
+𝟏ො𝒛𝟐
+𝟏ො𝒛𝟑
+𝟏
+ො𝒛𝟏
+𝟐ො𝒛𝟐
+𝟐ො𝒛𝟑
+𝟐
+ො𝒛𝟏
+𝟑ො𝒛𝟐
+𝟑ො𝒛𝟑
+𝟑
+ො𝒛𝟏
+𝟒ො𝒛𝟐
+𝟒ො𝒛𝟑
+𝟒
+Normalize 
+to 𝑁(0, 𝐼)
+Scale by 𝜸 
+and shift by 𝜷
+𝐳𝐁𝐍𝟏
+𝟏𝐳𝐁𝐍𝟐
+𝟏𝐳𝐁𝐍𝟑
+𝟏
+𝐳𝐁𝐍𝟏
+𝟐𝐳𝐁𝐍𝟐
+𝟐𝐳𝐁𝐍𝟑
+𝟐
+𝐳𝐁𝐍𝟏
+𝟑𝐳𝐁𝐍𝟐
+𝟑𝐳𝐁𝐍𝟑
+𝟑
+𝐳𝐁𝐍𝟏
+𝟒𝐳𝐁𝐍𝟐
+𝟒𝐳𝐁𝐍𝟑
+𝟒
+Activation 
+with 𝝈
+Normalized representation
+BN representation

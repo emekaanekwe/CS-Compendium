@@ -1,0 +1,21 @@
+74
+Implementation of ResNet
+(Source:Dive into DL)
+ResNet block
+ResNet block
+Residual block
+Residual block
+Residual block
+Residual block
+down sample
+Input size by 2
+(1, 64,112,112)
+(1, 64,112,112)
+(1, 64,112,112)
+(1, 64,56,56)
+(1, 64,56,56)
+(1, 128,28,28)
+(1, 256,14,14)
+(1,256)
+(1, 256,1,1)
+(1,10)

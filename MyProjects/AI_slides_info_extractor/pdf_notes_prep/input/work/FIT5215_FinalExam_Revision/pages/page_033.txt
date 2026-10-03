@@ -1,0 +1,19 @@
+33
+Gradient descend
+Algorithm
+❑Input: objective function 𝑱(𝜽)
+❑Output: optimal solution 𝜽∗
+1.
+Initialize parameters 𝜃0 randomly ~𝑁(0, 𝜎2).
+2.
+for t=1 to T
+3.
+       Compute gradients ∇𝜃𝐽𝜃𝑡= 𝜕𝐽
+𝜕𝜃(𝜃𝑡)
+4.
+       Update 𝜃𝑡+1 = 𝜃𝑡−𝜂𝑡∇𝜃𝐽𝜃𝑡
+5.
+Return 𝜃∗= 𝜃𝑇+1
+𝜽𝟏
+𝜽𝟐
+𝜽𝟑

@@ -1,0 +1,14 @@
+67
+ResNet
+Won ImageNet competition in 2015
+Many ResNet blocks
+Each ResNet block contains many 
+residual blocks 
+o Number of residual blocks
+o Number of channels for residual blocks
+Each ResNet block
+o From the second block, the first residual block
+▪Use 1x1 Conv skip connection
+o Otherwise
+▪Use standard skip connection 
+ResNet architecture

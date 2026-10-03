@@ -1,0 +1,35 @@
+35
+Gradient descent for deep learning
+For training deep nets, we need to solve
+o min
+𝜃𝐿𝐷; 𝜃≔
+1
+𝑁σ𝑖=1
+𝑁
+𝑙𝑥𝑖, 𝑦𝑖; 𝜃=
+1
+𝑁σ𝑖=1
+𝑁
+𝑙𝑦𝑖, 𝑓(𝑥𝑖; 𝜃) 
+where 𝑙𝑥𝑖, 𝑦𝑖; 𝜃= −log 𝑝(𝑦= 𝑦𝑖|𝑥𝑖) = −log
+exp{ℎ𝑦𝑖
+𝐿(𝑥𝑖)}
+σ𝑚=1
+𝑀
+exp{ℎ𝑚
+𝐿(𝑥𝑖)} is the loss incurred by 
+(𝑥𝑖, 𝑦𝑖).
+ Gradient descent update
+o 𝜃𝑡+1 = 𝜃𝑡−𝜂∇𝜃𝐿𝐷; 𝜃𝑡= 𝜃𝑡−
+𝜂
+𝑁σ𝑖=1
+𝑁
+∇𝜃𝑙(𝑥𝑖, 𝑦𝑖; 𝜃𝑡) where 𝜼> 𝟎 is a learning rate.
+o To compute the gradient ∇𝜃𝐿𝐷; 𝜃𝑡=
+1
+𝑁σ𝑖=1
+𝑁
+∇𝜃𝑙(𝑥𝑖, 𝑦𝑖; 𝜃𝑡), we need to go through all 
+data points in 𝐷 → the computational cost is 𝑂(𝑁).
+This is very computationally expensive for big datasets (𝑁≈106).
+How to estimate the gradient ∇𝜃𝐿𝐷; 𝜃𝑡 more efficiently?

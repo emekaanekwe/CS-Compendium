@@ -1,0 +1,35 @@
+19
+A small detour to calculus
+Calculus = mathematics of change (very important for deep learning)
+Properties of derivative:
+o 𝑓′ 𝑥= ∇𝑓(𝑥) = lim
+ℎ→0
+𝑓𝑥+ℎ−𝑓(𝑥)
+ℎ
+o
+𝑢𝑣′ = 𝑢′𝑣+ 𝑢𝑣′ 
+o
+𝑢
+𝑣
+′
+=
+𝑢′𝑣−𝑢𝑣′
+𝑣2
+o
+𝑒𝑢′ = 𝑢′𝑒𝑢
+o
+log 𝑢′ =
+𝑢′
+𝑢
+Multi-variate function 𝑓: ℝ𝑛→ℝ with 𝑦= 𝑓𝑥= 𝑓(𝑥1, … , 𝑥𝑛).
+o Gradient/derivative: 
+𝜕𝑓
+𝜕𝑥(𝑎) = ∇𝑥𝑓(𝑎) = [∇𝑥1𝑓𝑎, ∇𝑥2𝑓𝑎, … , ∇𝑥𝑛𝑓𝑎].
+Chain rule       :
+o
+𝜕𝑢
+𝜕𝑥=
+𝜕𝑢
+𝜕𝑣×
+𝜕𝑣
+𝜕𝑥

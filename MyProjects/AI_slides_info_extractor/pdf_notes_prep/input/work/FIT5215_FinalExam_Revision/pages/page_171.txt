@@ -1,0 +1,33 @@
+171
+The
+cat
+jumps
+the
+wall
+h0
+hstart
+h1
+h2
+h3
+h4
+h5
+h6
+h7
+h8
+Il 
+gatto salta
+il 
+h9
+<EOS>
+muro 
+Encoder
+Context vector 𝒄
+Decoder
+<BOS> 
+A step back: Recurrent Networks (RNNs)
+Il 
+gatto 
+h10
+salta
+il 
+muro

@@ -1,0 +1,77 @@
+11
+DNNs: making prediction via FP
+Example of spam email detection 
+
+From emails, assume that we extract three features, hence data points 𝑥∈ℝ3
+o
+𝑥= 𝑥1, 𝑥2, 𝑥3 ∈ℝ3
+o
+There are two classes and labels: spam (𝑦= 1) and non-spam (𝑦= 2)
+ℎ0(𝑥) = 𝑥
+for 𝑘= 1 to 2 do
+തℎ𝑘= ℎ𝑘−1(𝑥)𝑊𝑘+ 𝑏𝑘       //linear operation   
+ℎ𝑘(𝑥) = 𝜎തℎ𝑘(𝑥)              //activation
+ℎ3(𝑥) = ℎ2(𝑥)𝑊3 + 𝑏2
+𝑝𝑥= 𝑠𝑜𝑓𝑡𝑚𝑎𝑥(ℎ3(𝑥))           //prediction probabilities
+Input 
+Layer
+Hidden 
+Layer 1
+Hidden 
+Layer 2
+Output 
+Layer
+𝑥= 1.2
+−1
+2
+ℎ0 𝑥= 𝑥
+ℎ1 𝑥
+ℎ2 𝑥
+ℎ3 𝑥
+𝑝𝑥= 𝑠𝑜𝑓𝑡𝑚𝑎𝑥(ℎ3(𝑥))
+𝑊1 ∈ℝ3×4
+𝑏1 ∈ℝ1×4
+𝑊2 ∈ℝ4×3
+𝑏2 ∈ℝ1×3
+𝑊3 ∈ℝ3×2
+𝑏3 ∈ℝ1×2
+o
+Network architecture:
+o
+3 →4 𝑠𝑖𝑔𝑚𝑜𝑖𝑑→3 𝑠𝑖𝑔𝑚𝑜𝑖𝑑→2 𝑠𝑜𝑓𝑡𝑚𝑎𝑥
+o
+ℎ0 𝑥= 𝑥= 1.2, −1,2.2 ∈ℝ1×3
+o
+Hidden layer 1
+o
+തℎ1 𝑥= ℎ0 𝑥𝑊1 + 𝑏1 ∈ℝ1×4       (linear operation)   
+o
+ℎ1 𝑥= 𝑠𝑖𝑔𝑚𝑜𝑖𝑑തℎ1 𝑥
+= 𝑠𝑖𝑔𝑚𝑜𝑖𝑑തℎ𝑖
+1 𝑥
+𝑖=1
+4
+∈ℝ1×4  (activation)
+o
+Hidden layer 2
+o
+തℎ2 𝑥= ℎ1 𝑥𝑊2 + 𝑏2 ∈ℝ1×3        (linear operation) 
+o
+ℎ2 𝑥= 𝑠𝑖𝑔𝑚𝑜𝑖𝑑തℎ2 𝑥
+∈ℝ1×13    (element-wise activation)
+o
+Output layer
+o
+ℎ3 𝑥= ℎ2 𝑥𝑊3 + 𝑏3 ∈ℝ1×2       (linear operation) 
+o
+𝑝𝑥= 𝑠𝑜𝑓𝑡𝑚𝑎𝑥ℎ3 𝑥
+∈ℝ1×2     (softmax activation) 
+o
+Assume that 𝑝𝑥= 0.3,0.7
+o
+Prediction ො𝑦= 2 ≠𝑦= 1→ incorrect prediction
+𝑦= 1
+spam
+non-spam
+Exercise: check all the dimensions for matrix multiplication consistency! 
+What is the cross-entropy loss in this case?

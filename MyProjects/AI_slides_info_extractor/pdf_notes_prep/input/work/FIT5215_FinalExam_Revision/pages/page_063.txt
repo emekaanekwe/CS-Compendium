@@ -1,0 +1,14 @@
+63
+Some comments from Hinton
+
+CNNs 
+cannot 
+capture 
+the 
+spatial 
+relationships among objects, hence it 
+wrongly predicts every face with two eyes, 
+one nose, and one mouth as a human face. 
+(Source: medium.com)
+(Source: original paper of Capsule Net)
+Paper link: https://arxiv.org/pdf/1710.09829.pdf

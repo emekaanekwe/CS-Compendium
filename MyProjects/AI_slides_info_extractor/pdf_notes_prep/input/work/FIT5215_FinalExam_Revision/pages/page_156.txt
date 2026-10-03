@@ -1,0 +1,55 @@
+156
+Training of seq2seq
+❑We need to maximize the log-likelihood:
+max
+θ
+J θ =
+෍
+𝒙,𝒚𝜖𝔇
+log 𝑃𝒚|𝒙, 𝜃 
+where 𝜃= [𝜃𝑒, 𝜃𝑑] and 𝜃𝑒, 𝜃𝑑 are encoding and decoding parameters respectively.
+❑ Product rule:
+𝑃𝒚|𝒙, 𝜃 = 𝑃
+𝒚𝟏:𝑻𝒚
+𝒙𝟏:𝑻𝒙, 𝜃
+= 𝑃
+𝒚𝟏:𝑻𝒚
+𝒄, 𝜃
+= 𝑃𝒚𝟏
+𝒄, 𝜃𝑃𝒚𝟐
+𝒚𝟏, 𝒄, 𝜃… 𝑃𝒚𝒋
+𝒚𝟏:𝒋−𝟏, 𝒄, 𝜃
+… 𝑃
+𝒚𝑻𝒚
+𝒚𝟏:𝑻𝒚−𝟏, 𝒄, 𝜃
+= ෑ
+𝑗=1
+𝑇𝑦
+𝑃𝒚𝒋
+𝒚𝟏:𝒋−𝟏, 𝒄, 𝜃
+log 𝑃𝒚|𝒙, 𝜃 = log 𝑃𝒚|𝒄, 𝜃= ෍
+𝑗=1
+𝑇𝑦
+log 𝑃𝒚𝒋|𝒚𝟏:𝒋−𝟏, 𝒄, 𝜃= ෍
+𝑗=1
+𝑇𝑦
+log 𝑃𝒚𝒋|𝒒𝒋−𝟏, 𝒄, 𝜃
+o We can compute 𝑃𝒚𝒋𝒒𝒋−𝟏, 𝒄= 𝑔𝒚𝒋, 𝒒𝒋−𝟏, 𝒄 where 𝑔 is a nonlinear, potentially multi-layered NN that 
+outputs the probability of 𝑦𝑗.
+Pay attention on how 𝑐 is used in every step during decoding
+ℎ1
+𝑥1
+𝒒𝟎
+<BOS>
+𝒄= 𝒉𝑻𝒙
+𝑥𝑇𝑥
+𝑞𝑇𝑦
+𝑦𝑇𝑦
+<EOS>
+𝑞1
+𝑦1
+𝑦2
+𝑦1
+𝑞𝑗−1
+𝑦𝑗−1
+𝑦𝑗

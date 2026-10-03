@@ -1,0 +1,39 @@
+177
+Overview 
+Architecture of 
+Transformer 
+Encoder
+I
+love
+deep
+learning
+Hello
+the
+world
+<pad>
+8
+3
+7
+2
+9
+5
+4
+0
+[𝑏𝑎𝑡𝑐ℎ_𝑠𝑖𝑧𝑒, 𝑠𝑒𝑞_𝑙𝑒𝑛]
+Input:
+Embedding Layer (E: [vocab_size, embed_size])
+batch_size
+seq_len
+[batch_size,seq_len, d_model]
+Self-Attention (SA)/ Multi-head SA
+seq_len
+batch_size
+[batch_size,seq_len, d_model]
+Add & Normalize(Layer-Norm +Skip Connection)
+[batch_size,seq_len, d_model]
+Point-wise Feed-forward NN
+Add & Normalize(Layer-Norm +Skip Connection)
+[batch_size,seq_len, d_model]
+× n Encoders
+[batch_size,seq_len, d_model]
+Encoder output

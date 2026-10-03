@@ -1,0 +1,11 @@
+144
+Toy example
+Corpus: the quick brown fox jumps over the lazy dog
+o Tokens: {'brown’: 1, 'lazy’: 2, 'over’: 3, 'fox’: 4, 'dog’: 5, 'quick’: 6, 'the’: 7, 'jumps’: 8}
+o Number of tokens N = 8
+o Context (window) size C = 3
+o Size of embedded vectors d = 3
+o U&V: collections of input & output vectors 
+quick
+one-hot encoding 
+[0 0 0 0 0 1 0 0]

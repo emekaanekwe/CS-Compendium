@@ -1,0 +1,20 @@
+217
+Basic theory of GAN
+We want to train NN-based function 𝐺𝜃(. ) such that 𝑝𝑔𝒙= 𝑝𝑑𝒙, but we do 
+not have 𝑝𝑑𝒙 at hand
+o Introduce a strong discriminator 𝐷𝒙 to implicitly justify how far 𝑝𝑑𝒙 and 𝑝𝑔𝒙 are.
+Source of randomness
+𝑝𝑑(𝒙)
+𝑝𝑔𝒙
+y=1
+y=-1
+❖D(x) = P(y=1|x): probability x is true data.
+❖1-D(x) = P(y=-1|x): probability x is fake data.
+The log likelihood function need to be maximized
+𝐽𝐷, 𝐺= 𝔼𝒙~𝑃𝑑log 𝐷(𝒙) + 𝔼𝒙~𝑃𝑔log 1 −𝐷(𝒙)
+= 𝔼𝒙~𝑃𝑑log 𝐷(𝒙) + 𝔼𝒛~𝑃𝑧log 1 −𝐷(𝐺(𝒛))
+𝒛~𝑝𝒛= 𝑁0, 𝐼𝑜𝑟 𝑈𝑛𝑖( 0,1 𝑑)
+𝐺𝜃(. )
+𝒙𝑓𝑎𝑘𝑒= 𝐺𝜃𝒛~𝑝𝑔𝒙
+Gap between two distributions
+𝑝𝑑(𝒙)

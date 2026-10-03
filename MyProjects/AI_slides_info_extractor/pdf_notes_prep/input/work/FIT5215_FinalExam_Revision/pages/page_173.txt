@@ -1,0 +1,45 @@
+173
+Solving problem 1
+Solution: Add an attention mechanism
+"We forget tokens too far in the past"
+The
+cat
+jumps
+the
+wall
+h0
+hstart
+h1
+h2
+h3
+h4
+h5
+h6
+h7
+h8
+Il 
+gatto salta
+il 
+h9
+<EOS>
+muro 
+Encoder
+Context vector 𝒄
+Decoder
+<BOS> Il 
+gatto 
+h10
+salta
+il 
+muro 
++ +
++
+Context 𝑐𝑡
+=
+Attention
++
+𝛼0
+𝛼1
+𝛼2
+𝛼3
+𝛼4

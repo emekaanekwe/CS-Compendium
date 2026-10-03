@@ -1,0 +1,5 @@
+82
+Deep Learning Pipeline
+We want to train our DL model on a training set such that the trained model can predict well unseen data in 
+a separate testing set.
+Hyper-parameters to consider: learning rate, #layers, #neurons

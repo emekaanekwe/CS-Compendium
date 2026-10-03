@@ -1,0 +1,31 @@
+132
+Sentiment analysis
+Movie review dataset
+1.
+I like that movie (pos:1).
+2.
+This is a bad movie to watch (neg:0)
+3.
+I love the movie (pos: 1)
+4.
+I do not recommend you to watch this movie (neg:0)
+5.
+This movie is fantastic (pos:1)
+This
+RNN
+cell
+RNN
+cell
+RNN
+cell
+RNN
+cell
+RNN
+cell
+movie
+is
+fantastic
+<pad>
+Output layer (sigmoid)
+≥0.5(pos) and < 0.5(neg)
+How to feed symbolic words to an RNN?

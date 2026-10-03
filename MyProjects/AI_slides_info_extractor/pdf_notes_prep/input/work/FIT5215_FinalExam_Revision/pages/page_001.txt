@@ -1,0 +1,11 @@
+FIT5215 Deep Learning
+Lecturer: Trung Le
+Email: trunglm@monash.edu
+Department of Data Science and AI
+Faculty of Information Technology, Monash University, Australia
+COPYRIGHT WARNING: Copyright in these original lectures is owned by Monash University. You may 
+transcribe, take notes, download or stream lectures for the purpose of your research and study only. If 
+used for any other purpose, (excluding exceptions in the Copyright Act 1969 (Cth)) the University may 
+take legal action for infringement of copyright.
+Do not share, redistribute, or upload the lecture to a third party without a written permission!
+Revision for Final Exam

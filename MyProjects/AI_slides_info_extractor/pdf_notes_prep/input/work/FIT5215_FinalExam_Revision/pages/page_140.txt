@@ -1,0 +1,21 @@
+140
+Word embedding (Word2Vec)
+Wikipedia text corpus
+We desire…
+King
+Queen
+Football
+Australia
+Canberra
+Paris
+vector space ℝ𝑑
+further
+Canberra : Australia = Paris : ???
+𝑎𝑟𝑔𝑚𝑖𝑛𝑣𝑣𝐶𝑎𝑛𝑏𝑒𝑟𝑟𝑎−𝑣𝐴𝑢𝑠𝑡𝑟𝑎𝑙𝑖𝑎+ 𝑣𝑃𝑎𝑟𝑖𝑠−𝑣
+= 𝑣𝐹𝑟𝑎𝑛𝑐𝑒
+
+We have: Many texts in Wikipedia
+
+We want: Learn vector representations for words that preserve semantic and linguistic relationship carried in the text corpus
+
+We need: Devise pretext task to cast the learning word representation to supervised learning.

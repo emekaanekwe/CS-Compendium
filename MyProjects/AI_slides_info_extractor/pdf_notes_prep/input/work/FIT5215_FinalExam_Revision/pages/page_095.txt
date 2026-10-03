@@ -1,0 +1,58 @@
+95
+Batch Normalization
+•
+Let 𝑧= 𝑊𝑘ℎ𝑘+ 𝑏𝑘 be the mini-batch before activation. We 
+compute the normalized Ƹ𝑧 as
+•
+Ƹ𝑧=
+𝑧−𝜇𝐵
+𝜎𝐵
+2+𝜖
+ where 𝜖 is a small value such as 1𝑒−7
+•
+𝜇𝐵=
+1
+𝑏σ𝑖=1
+𝑏
+𝑧𝑖 is the empirical mean
+•
+𝜎𝐵
+2 =
+1
+𝑏σ𝑖=1
+𝑏
+𝑧𝑖−𝜇𝐵2 is the empirical variance
+•
+We scale the normalized Ƹ𝑧
+•
+𝑧𝐵𝑁= 𝛾Ƹ𝑧+ 𝛽 where 𝛾, 𝛽> 0 are two learnable parameters 
+(i.e., scale and shift parameters)
+•
+We then apply the activation to obtain the next layer value
+•
+ℎ𝑘+1 = 𝜎(𝑧𝐵𝑁)
+1.
+Cope with internal covariate shift
+2.
+Reduce gradient 
+vanishing/exploding
+3.
+Reduce overfitting
+4.
+Make training more stable
+5.
+Converge faster
+1.
+Allow us to train with bigger learning rate
+ℎ1
+ℎ2
+𝑧1
+𝑧2
+0.1
+0.2
+…
+…
+0.5
+0.4
+Mini-batch size
+Standardize column-wise

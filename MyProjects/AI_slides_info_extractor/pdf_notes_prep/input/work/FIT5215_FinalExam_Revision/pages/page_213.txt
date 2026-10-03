@@ -1,0 +1,31 @@
+213
+Generative Adversarial Networks (GAN)
+How to formulate this?
+Introduce a noise variable 𝒛 ~ 𝑝𝒛 
+o
+This is the prior distribution; think of it as the 
+resource used to make money.
+A generator 𝐺 that maps 𝒛 to ෥𝒙 in data 
+space:
+෥𝒙= 𝐺𝒛 
+o
+Parameterize 𝐺 by a deep neural network with 
+parameter 𝜽𝑔.
+A discriminator 𝐷𝒙 maps 𝒙 to a 
+probability in [0, 1] representing the 
+probability that 𝒙 comes from the real 
+data rather than 𝐺.
+o
+Parameterize 𝐷(𝒙) by another deep neural 
+network 𝜽𝑑 .
+o
+𝐷(𝑥) close to 1 (real)
+o
+𝐷(𝑥) close to 0 (fake)
+(Figure credit: from Goodfellow, NIPS workshop’16)
+min
+𝐺max
+D
+𝐽𝐺, 𝐷= 𝔼𝒙 ~ 𝑝𝑑𝒙log 𝐷𝒙
++ 𝔼𝒛 ~ 𝑝𝒛
+log(1 −𝐷(𝐺𝒛)

@@ -1,0 +1,14 @@
+34
+Example of Gradient Descend
+❑Consider the optimization problem:
+                     min
+𝑤
+𝑓𝑤= 𝑤−1 2 + 𝑤−3 2
+❑Currently, we are at 𝑤𝑡= 1 with 𝑓𝑤𝑡= 𝑓1 =
+02 + 22 = 4. What is 𝑤𝑡+1 if using learning rate 
+𝜂= 0.1?
+o 𝑓′ 𝑤= 2 𝑤−1 + 2 𝑤−3 = 4𝑤−8
+o 𝑓′ 𝑤𝑡= 𝑓′ 1 = −4
+o 𝑤𝑡+1 = 𝑤𝑡−𝜂𝑓′ 𝑤𝑡= 1 −0.1 −4 = 1.4
+o 𝑓𝑤𝑡+1 = 2.72 < 𝑓𝑤𝑡= 4
+𝑤𝑡𝑤𝑡+1

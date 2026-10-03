@@ -1,0 +1,50 @@
+44
+Convolution operation
+𝟏𝑫 convolutional operation (𝑊, 𝑥∈ℝ𝑚×1)
+o 𝑊∗𝑥= σ𝑖=1
+𝑚𝑊𝑖𝑥𝑖
+𝟐𝑫 convolutional operation (𝑊, 𝑥∈ℝ𝑚×𝑛)
+o 𝑊∗𝑥= σ𝑖=1
+𝑚σ𝑗=1
+𝑛
+𝑊𝑖𝑗𝑥𝑖𝑗
+3𝑫 convolutional operation (𝑊, 𝑥∈ℝ𝑚×𝑛×𝑝)
+o 𝑊∗𝑥= σ𝑖=1
+𝑚σ𝑗=1
+𝑛
+σ𝑘=1
+𝑝
+𝑊𝑖𝑗𝑘𝑥𝑖𝑗𝑘
+𝑊=
+𝑊1
+…
+𝑊𝑚
+, 𝑥=
+𝑥1
+…
+𝑥𝑚
+𝑊=
+𝑊11
+…
+𝑊1𝑛
+…
+…
+…
+𝑊𝑚1
+…
+𝑊𝑚𝑛
+𝑥=
+𝑥11
+…
+𝑥1𝑛
+…
+…
+…
+𝑥𝑚1
+…
+𝑥𝑚𝑛
+❖𝑊 and 𝑥 are two tensors with the same shape, the convolutional operation between 𝑊 and 𝑥 
+defined as
+                                     𝑊∗𝑥= 𝑠𝑢𝑚(𝑊⊗𝑥) 
+    where 𝑊⊗𝑥 specifies the element-wise product and 𝑠𝑢𝑚 returns the sum of all elements in a   
+    tensor and multi-dimensional array.

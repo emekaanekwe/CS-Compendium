@@ -1,0 +1,15 @@
+Input layer
+ℎ0(𝑥) = 𝑥
+Hidden layer
+ℎ1(𝑥)
+Output  layer
+ℎ3(𝑥)
+𝑊1, 𝑏1
+𝑊2, 𝑏2
+𝑊3, 𝑏3
+Hidden layer
+ℎ2(𝑥)
+Declare FFN
+Declare one data example
+Forward propagation
+Making prediction

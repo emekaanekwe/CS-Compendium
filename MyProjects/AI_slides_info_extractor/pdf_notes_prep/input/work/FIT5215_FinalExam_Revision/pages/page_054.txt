@@ -1,0 +1,18 @@
+54
+Max/average pooling
+❑Max/average-pooling is locally invariant and applied 
+independently to each feature map/channel. 
+❑In the SOTA CNNs (ResNet, GoogleNet, VGG), we 
+employ the pooling layer with
+❑Kernel/filter size = (2,2), strides = (2,2), padding= 0
+❑Therefore, the output tensor has the size
+𝑊𝑜=
+224+0−2
+2
++ 1 = 112 
+𝐻𝑜=
+224+0−2
+2
++ 1 = 112
+❑With this setting, we down-sample the input size by 2 
+(Source: medium.com)

@@ -1,0 +1,20 @@
+90
+Dropout
+Reduce Overfitting
+Computationally efficient
+Can be considered a bagged ensemble of an 
+exponential number (2𝑁) of neural networks.
+Training
+𝒓 ~ Bernoulli 𝜇
+෩𝒉𝑙= 𝒉𝑙⨀ 𝒓
+𝒉𝑙+1 = 𝜎𝑊𝑙⊤෩𝒉𝑙+ 𝒃𝑙
+Testing
+o No dropout (dropout_rate =0).
+𝒉𝑙
+𝒉𝑙−1
+𝒉𝑙+1
+× ×
+×
+×
+×
+× ×

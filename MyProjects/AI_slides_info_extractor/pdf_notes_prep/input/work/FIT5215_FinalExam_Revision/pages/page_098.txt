@@ -1,0 +1,12 @@
+98
+Data Augmentation
+Use simple transformations to augment 
+data examples. Models will be challenged with 
+diverge data examples which might be 
+encountered in the testing set
+o Rotation, Width Shifting, Height Shifting, Brightness, Shear 
+Intensity, Zoom, Channel Shift, Horizontal Flip, Vertical Flip
+This will reduce overfitting, making this a 
+regularization technique. The trick is to 
+generate realistic training instances
+[Source: Stanford CS 230 Deep Learning]

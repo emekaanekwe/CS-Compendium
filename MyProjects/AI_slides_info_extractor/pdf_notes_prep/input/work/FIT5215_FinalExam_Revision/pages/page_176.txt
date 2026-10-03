@@ -1,0 +1,12 @@
+176
+Transformer – General Architecture
+Some building blocks
+o Positional encoding
+o Self-attention and Multi-Head Self-attention Attention
+o Masked Multi-Head Attention
+o Residual add and layer norm
+Model architecture
+Encoder
+Decoder
+[Source: main paper]
+[Source: https://jalammar.github.io/illustrated-transformer/]

@@ -1,0 +1,24 @@
+164
+Global attention
+❑Main idea
+o Consider all input hidden states of the encoder when deriving the 
+context: 𝑐𝑡= σ𝑠=1
+3
+𝑎𝑡(𝑠) ℎ𝑠
+Alignment weights: 
+𝑎𝑡𝑠= align 𝑞𝑡, ℎ𝑠 =
+exp 𝑠𝑐𝑜𝑟𝑒𝑞𝑡, ℎ𝑠
+σ𝑠′ exp 𝑠𝑐𝑜𝑟𝑒𝑞𝑡, ℎ𝑠′
+where 𝑞𝑡 is current target state, ℎ𝑠 is each source states.
+Alignment score function:
+𝑠𝑐𝑜𝑟𝑒𝑞𝑡, ℎ𝑠= ൦
+𝑞𝑡
+Tℎ𝑠
+𝑞𝑡
+T𝑊𝑎ℎ𝑠
+𝑣𝑎T𝑡𝑎𝑛ℎ𝑊𝑎𝑞𝑡; ℎ𝑠
+𝑑𝑜𝑡 𝑝𝑟𝑜𝑑𝑢𝑐𝑡
+𝑔𝑒𝑛𝑒𝑟𝑎𝑙 𝑚𝑒𝑡𝑟𝑖𝑐
+𝑐𝑜𝑛𝑐𝑎𝑡
+keys
+query

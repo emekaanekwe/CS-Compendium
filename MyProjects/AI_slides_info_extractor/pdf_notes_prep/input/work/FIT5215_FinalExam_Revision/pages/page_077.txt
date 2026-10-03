@@ -1,0 +1,34 @@
+77
+Gradient vanishing
+Gradient Vanishing
+o Gradients get smaller and smaller as the algorithm 
+progresses down to the lower layers. 
+▪SGD update leaves the lower layer connection weights 
+virtually unchanged, and training never converges to a 
+good solution.
+Some activation functions are easy to get 
+saturated
+o Sigmoid or tanh
+Recipe
+o Activation function plays an important role! Common 
+practice:
+▪Avoid sigmoid or saturated activation function
+▪ReLU is a common good choice
+o Good weight initialization is critical!
+𝜕𝑙
+𝜕𝑊1 = 𝜕𝑙
+𝜕ℎ3 . 𝜕ℎ3
+𝜕ℎ2 . 𝜕ℎ2
+𝜕തℎ2 . 𝜕തℎ2
+𝜕ℎ1 . 𝜕ℎ1
+𝜕തℎ1 . 𝜕തℎ1
+𝜕𝑊1
+=
+𝑝𝑇−1𝑦𝑊3𝑑𝑖𝑎𝑔𝜎′ തℎ2
+𝑊2𝑑𝑖𝑎𝑔𝜎′ തℎ1
+𝑇
+ℎ0 𝑇
+ℎ0 = 𝑥
+തℎ1, ℎ1 = 𝜎(തℎ1)
+ℎ3, 𝑝= 𝑠𝑜𝑓𝑡𝑚𝑎𝑥(ℎ3)
+തℎ2, ℎ2 = 𝜎(തℎ2)

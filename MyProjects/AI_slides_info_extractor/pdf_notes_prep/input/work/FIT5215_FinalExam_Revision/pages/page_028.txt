@@ -1,0 +1,37 @@
+28
+Local minima-maxima and saddle point
+
+Given an objective function 𝐽(𝜃) with 𝜃=
+[𝜃1, 𝜃2, … , 𝜃𝑃]
+o
+𝜃 is said to be a critical point if ∇𝐽𝜃= 𝟎 (vector 𝟎)
+
+Let us denote the set of eigenvalues of Hessian 
+matrix ∇2𝐽𝜃= 𝐻(𝜃) by
+o
+𝜆1 ≤𝜆2 ≤⋯≤𝜆𝑃
+
+Local minima
+o
+∇𝐽𝜃= 𝟎 and ∇2𝐽𝜃= 𝐻(𝜃) ≻0 (positive semi-
+definite matrix)
+o
+0 ≤𝜆1 ≤𝜆2 ≤⋯≤𝜆𝑃
+
+Local maxima
+o
+∇𝐽𝜃= 𝟎 and ∇2𝐽𝜃= 𝐻(𝜃) ≺0 (negative semi-
+definite matrix)
+o
+𝜆1 ≤𝜆2 ≤⋯≤𝜆𝑃≤0
+
+Saddle point
+o
+∇𝐽𝜃= 𝟎 and ∇2𝐽𝜃= 𝐻(𝜃) ≺0 (indefinite matrix)
+o
+𝜆1 ≤𝜆2 ≤⋯< 0 < ⋯≤𝜆𝑃
+A
+B
+C
+D
+E

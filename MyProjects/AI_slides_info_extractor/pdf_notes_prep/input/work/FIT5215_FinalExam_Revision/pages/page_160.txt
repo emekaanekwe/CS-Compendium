@@ -1,0 +1,25 @@
+160
+Inference
+Beam search
+❑ Beam Search Decoding with beam width 𝒌 
+o Given x, find k candidates for 𝒚𝟏 with highest probability
+o Given x, for each candidate 𝒚𝟏, find k candidates for word 𝒚𝟐 with highest probability
+o Pick top-k sequences 𝑦1𝑦2 with highest joint probability
+o For each 𝑦1𝑦2, find k candidates for word 𝒚𝟑 with highest probability
+o Pick top-k sequences 𝑦1𝑦2𝑦3 with highest joint probability
+o …..
+o Stop when see <EOS> on each beam
+o Finally, pick 1 sequence with highest probability from top-k sequences 
+ℎ1
+𝑥1
+𝑞0
+<BOS>
+ℎ𝑇𝑥
+𝑥𝑇𝑥
+𝑞𝑇𝑦
+𝑦𝑇𝑦
+<EOS>
+𝑞1
+𝑦1
+𝑦2
+𝑦1

@@ -1,0 +1,39 @@
+38
+SGD for deep learning
+b = 32                                         //batch size
+iter_per_epoch = N/b             //epoch means one round going  
+                                                     through all data points
+n_epoch = 50                            //number of epochs
+for epoch=1 to n_epoch do
+     for i=1 to iter_per_epoch do
+          Sample a minibatch 𝐵=
+𝑥𝑖𝑗, 𝑦𝑖𝑗
+𝑗=1
+𝑏
+ from the training set
+          Do forward propagation for B
+          Do back propagation to compute
+𝜕𝑙
+𝜕𝑊𝑘,
+𝜕𝑙
+𝜕𝑏𝑘𝑘=1
+𝐿
+          for k=1 to L do
+                𝑊𝑘= 𝑊𝑘−𝜂
+𝜕𝑙
+𝜕𝑊𝑘
+                𝑏𝑘= 𝑏𝑘−𝜂
+𝜕𝑙
+𝜕𝑏𝑘 
+ 
+ 
+ℎ0 = 𝑥
+തℎ1, ℎ1 = 𝜎(തℎ1)
+ℎ3, 𝑝= 𝑠𝑜𝑓𝑡𝑚𝑎𝑥(ℎ3)
+𝑊1 ∈ℝ3×4
+𝑏1 ∈ℝ1×4
+𝑊2 ∈ℝ4×3
+𝑏2 ∈ℝ1×3
+𝑊3 ∈ℝ3×2
+𝑏3 ∈ℝ1×2
+തℎ2, ℎ2 = 𝜎(തℎ2)

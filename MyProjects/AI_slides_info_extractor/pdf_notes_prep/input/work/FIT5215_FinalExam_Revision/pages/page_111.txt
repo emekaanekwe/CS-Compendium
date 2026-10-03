@@ -1,0 +1,43 @@
+111
+Adversarial attack
+How to run untargeted attack?
+
+Fast Gradient Sign Method (FGSM)
+o
+𝑥𝑎𝑑𝑣= 𝑥+ 𝜖𝑠𝑖𝑔𝑛(∇𝑥𝑙(𝑓𝑥; 𝜃, 𝑦))
+o
+𝑠𝑖𝑔𝑛𝑡= ቐ
+1 
+𝑖𝑓 𝑡> 0 
+−1 
+𝑖𝑓 𝑡< 0
+0 
+𝑜𝑡ℎ𝑒𝑟𝑤𝑖𝑠𝑒
+o
+One-step update
+𝒙
+𝐵𝜖𝑥= 𝑥′: 𝑥′ −𝑥
+≤𝜖
+𝒙 has true label 𝒚∈{𝟏, 𝟐, … , 𝑴}
+𝒙𝑎𝑑𝑣
+Loss surface 𝒍(𝒇𝒙′; 𝜽, 𝒚)
+𝒙𝒂𝒅𝒗= 𝒂𝒓𝒈𝒎𝒂𝒙𝒙′∈𝑩𝝐𝒙𝒍(𝒇𝒙′; 𝜽, 𝒚) 
+
+Projected Gradient Descent (Ascent) 
+(PGD)
+o
+𝑥0 = 𝑥+ 𝑈𝑛𝑖𝑓𝑜𝑟𝑚([−𝜖, 𝜖])
+o
+෥𝒙𝑡+1 = 𝑥𝑡+ 𝜂𝑠𝑖𝑔𝑛(∇𝑥𝑙𝑓𝑥𝑡; 𝜃, 𝑦)
+o
+𝑥𝑡+1 = 𝑃𝑟𝑜𝑗𝐵𝜖𝑥(෤𝑥𝑡+1)
+o
+Run in 𝑘 steps (𝑘= 20), 𝜂> 0 is the 
+learning rate
+o
+𝑥𝑎𝑑𝑣= 𝑥𝑘
+Untargeted attacks
+Explaining and Harnessing Adversarial Examples
+Goodfellow et al., ICLR 2015
+Towards Deep Learning Models Resistant to Adversarial Attacks
+Madry et al., ICLR 2017

@@ -1,0 +1,33 @@
+161
+Inference
+Beam search
+Input
+𝑥
+Hi
+(𝑝1)
+Yes
+(𝑝2)
+Please
+(𝑝3)
+, (𝑝11)
+How (𝑝12)
+What (𝑝13)
+sure (𝑝21)
+certainly (𝑝22)
+I(𝑝23)
+I (𝑝31)
+see (𝑝32)
+come (𝑝33)
+Joint Probability
+𝑝1𝑝11…
+𝑝1𝑝12…
+𝑝1𝑝13…
+𝑝2𝑝11…
+…
+Beam width = 3
+-
+We always 
+choose three 
+sentences with 
+highest joint 
+probabilities

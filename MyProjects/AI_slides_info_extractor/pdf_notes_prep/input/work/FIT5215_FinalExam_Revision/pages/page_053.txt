@@ -1,0 +1,8 @@
+53
+Pooling operation
+Makes the representations smaller 
+and more manageable
+Subsample the image
+Operates over each feature map 
+independently
+(Source: FDL Ch. 5)

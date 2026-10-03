@@ -1,0 +1,24 @@
+159
+Inference
+Greedy decoding
+Greedy Decoding
+o Given x, find word 𝒚𝟏 with highest probability
+o Given 𝒚𝟏 and x, find word 𝒚𝟐 with highest probability
+o …
+o Stop when seeing <EOS>
+ℎ1
+𝑥1
+𝑞0
+<BOS>
+𝑐= ℎ𝑇𝑥
+𝑥𝑇𝑥
+𝑞𝑇𝑦
+𝑦𝑇𝑦
+<EOS>
+𝑞1
+𝑦1
+𝑦2
+𝑦1
+𝑃(𝑦1 = ∘∣𝑐)
+𝑃(𝑦2 = ∘∣𝑐)
+𝑃(𝑦𝑇𝑦+1 = ∘∣𝑐)

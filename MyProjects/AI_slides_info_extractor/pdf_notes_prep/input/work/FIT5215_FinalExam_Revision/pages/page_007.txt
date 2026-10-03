@@ -1,0 +1,43 @@
+7
+Modern Activation Functions
+
+The sigmoid function
+o 𝒔𝒛=
+𝟏
+𝟏+𝒆−𝒛
+o Logistic S-shaped, continuous, and differentiable 
+o Output range: 0 to 1
+
+The hyperbolic tangent function
+o 𝐭𝐚𝐧𝐡𝒛=
+𝒆𝒛−𝒆−𝒛
+𝒆𝒛+𝒆−𝒛
+o Logistic S-shaped, continuous, and differentiable 
+o Output range: −1 to 1, hence help speed up 
+convergence.
+
+The rectified linear function (ReLU)
+o ReLU 𝒛= 𝐦𝐚𝐱𝟎, 𝒛
+o Continuous, but not differentiable at 0
+o Hence, can make GD bounce around
+o Fast to compute, works very well in practice!
+o No cap on output value, hence help with gradient 
+vanishing problem.
+Σ
+sigmoid
+Σ
+tanh
+Σ
+ReLU
+𝜎𝑧= 𝑠𝑧=
+1
+1 + exp{−𝑧}
+𝜎′ 𝑧= 𝜎(𝑧)(1 −𝜎(𝑧))
+𝜎𝑧= 𝑡𝑎𝑛ℎ𝑧= exp{𝑧} −exp{−𝑧}
+exp 𝑧+ exp{−𝑧}
+𝜎′ 𝑧= 1 −𝜎2(𝑧)
+𝜎𝑧= 𝑅𝑒𝐿𝑈𝑧= max{0, 𝑧}
+𝜎′ 𝑧= ቊ1 
+𝑖𝑓 𝑧≥0
+0 
+𝑜𝑡ℎ𝑒𝑟𝑤𝑖𝑠𝑒

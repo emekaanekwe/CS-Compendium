@@ -1,0 +1,40 @@
+2
+The big picture …
+Lectures 7,9: Deep learning for sequential, time-series
+RNNs, LSTM, GRU, Seq2Seq, attention mechanism,
+Transformers, Self-Attention  etc.
+Lecture 8: Discrete Learning Representation
+Word2Vec, Skip-Gram, CBOW
+Lecture 11: Deep Generative Models
+Generative Adversarial Network (GAN), Diffusion Models
+Week 07
+Deep learning for time-series and temporal data: RNNs, LSTMs
+Week 09
+Advanced sequential models
+Week 08
+Representation and deep learning for language: Word2Vec
+Week 11
+Deep generative models: GANs and Diffusion Models
+Lectures 3,6,10: Deep Computer Vision
+Convolutions, CNN, architectures, robustness
+Lectures 1,2,4,5: fundamentals
+    Deep Learning/ML
+    Deep Neural Networks
+   Computation graphs
+    Optimization, BackProp 
+Week 01
+Machine Learning and Mathematical Background Revisit
+Week 02
+Prelude to Deep Learning and Feed-forward Neural 
+Networks
+Week 04
+Back-Propagation and Optimization for Deep Learning
+Week 05
+Practical skills in deep learning
+Week 03
+DL for Vision (I): Convolutional Neural Networks
+Week 06
+DL for Vision (II): Network Architectures, Visualization, 
+Interpretability, and Robustness
+Week 10
+ViT and Model Fine-tuning Techniques

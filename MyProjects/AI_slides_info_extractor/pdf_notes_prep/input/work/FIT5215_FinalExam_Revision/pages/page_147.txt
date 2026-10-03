@@ -1,0 +1,40 @@
+147
+Skip-gram
+Negative sampling
+Transform 𝑵-class prediction to binary prediction with 
+negative examples
+Consider a positive (true) pair (tw=brown, cw = the)
+o [(brown, the),1]
+o Sample randomly some (two) words
+▪[(brown, 𝑛𝑔1 = hello), 0] and [(brown, 𝑛𝑔2 = awsome), 0]
+▪
+Let denote the indices of 𝑛𝑔1 and 𝑛𝑔2 by 1 ≤𝑛1, 𝑛2 ≤𝑁.
+The forward propagation
+o
+ℎ= 1𝑡𝑈= 𝑈𝑡
+𝑟∈ℝ1×𝑑, 𝑜= ℎ𝑉∈ℝ1×𝑁, 𝑝= 𝑠𝑖𝑔𝑚𝑜𝑖𝑑(𝑜) ∈ℝ1×𝑁
+o
+𝑃𝑦= 1
+tw=brown, cw =𝑡ℎ𝑒
+= 𝑝𝑐
+o
+𝑃𝑦= 1
+tw=brown, 𝑛𝑔1=ℎ𝑒𝑙𝑙𝑜
+= 𝑝𝑛1
+o
+𝑃𝑦= 1
+tw=brown, 𝑛𝑔2=𝑎𝑤𝑠𝑜𝑚𝑒
+= 𝑝𝑛2
+Optimization problem
+o
+𝐦𝐚𝐱log 𝑝𝑐−𝛼log 𝑝𝑛1 −𝛼log 𝑝𝑛2 where 𝛼>0 is a trade-off parameter.
+𝑈∈ℝ𝑑×𝑁
+𝒉
+𝑉∈ℝ𝑁×𝑑
+𝟏𝒕
+One-hot
+vector
+𝒑
+𝑁
+𝑑
+𝑁

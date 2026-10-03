@@ -1,0 +1,48 @@
+121
+Shape Transformation in RNNs
+𝑥𝑡−1
+ℎ𝑡−1
+ො𝑦𝑡−1
+𝑥𝑡
+ℎ𝑡
+ො𝑦𝑡
+𝑥𝐿
+ℎ𝐿
+ො𝑦𝐿
+𝑈
+𝑈
+𝑈
+𝑊
+𝑊
+𝑉
+𝑉
+𝑉
+ℎ1
+ℎ2
+ො𝑦2
+𝑉
+𝑥2
+ො𝑦1
+𝑉
+𝑈
+𝑥1
+𝑈
+𝑊
+batch_size
+…
+𝑉
+batch_size
+batch_size
+…
+batch_size
+seq_len
+seq_len
+…
+batch_size
+seq_len
+[seq_len, batch_size, input_size]
+[batch_size, seq_len, input_size]
+torch.transpose(X, 0, 1)
+[batch_size, seq_len, hidden_size]
+real input
+real output

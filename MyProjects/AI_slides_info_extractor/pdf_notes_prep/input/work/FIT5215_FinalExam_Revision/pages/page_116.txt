@@ -1,0 +1,20 @@
+116
+Recurrent Neural Networks
+Input: 𝑥0 ∈ℝ1×𝑖𝑛𝑝𝑢𝑡_𝑠𝑖𝑧𝑒 , 𝑥1 ∈ℝ1×𝑖𝑛𝑝𝑢𝑡_𝑠𝑖𝑧𝑒
+ℎ0 = tanh 𝑥0𝑈+ 𝑏∈ℝ1×ℎ𝑖𝑑𝑑𝑒𝑛_𝑠𝑖𝑧𝑒
+o 𝑈∈ℝ𝑖𝑛𝑝𝑢𝑡_𝑠𝑖𝑧𝑒×ℎ𝑖𝑑𝑑𝑒𝑛_𝑠𝑖𝑧𝑒 
+ℎ1 = some function of ℎ0 and 𝑥1
+               = tanh ℎ0𝑊+ 𝑥1𝑈+ 𝑏∈ℝ1×ℎ𝑖𝑑𝑑𝑒𝑛_𝑠𝑖𝑧𝑒
+o 𝑊∈ℝℎ𝑖𝑑𝑑𝑒𝑛_𝑠𝑖𝑧𝑒×ℎ𝑖𝑑𝑑𝑒𝑛_𝑠𝑖𝑧𝑒
+𝑥0
+ℎ0
+𝑥1
+ℎ1
+Simplest RNN with two time-slices (no output)
+𝑈
+𝑈
+𝑊
+values known 
+from data
+hidden nodes, values to be 
+inferred from our models

@@ -1,0 +1,362 @@
+--- Page 181 ---
+181
+Transformer
+Multi-Head Self-Attention
+Main idea: 
+o Perform self-attention multiple times in parallel and combine results
+Multiple attention heads through multiple Q, K, V matrices
+Each attention head performs attention independently
+o Allow attending to parts of the sequence differently
+
+--- Page 182 ---
+182
+Transformer – Self Attention/Multi-Head Attention
+
+
+--- Page 183 ---
+183
+Transformer – Self Attention/Multi-Head Attention
+Matrix calculation for One-Head
+Matrix calculation for Multi-Head
+
+
+--- Page 184 ---
+184
+Transformer – Residual Connection/Layer Norm
+Layer normalization (LN) is the same as batch normalization except that LN normalizes across 
+the feature dimension. 
+o
+Batch normalization is usually empirically less effective than layer normalization in natural language processing tasks, whose inputs are often variable-
+length sequences.
+One 𝑿
+One 𝒁
+seq_len
+embed_size
+Multi-
+Head 
+attention
+Batch 𝑿
+Batch 𝒁
+[𝒃𝒂𝒕𝒄𝒉_𝒔𝒊𝒛𝒆, 𝒔𝒆𝒒_𝒍𝒆𝒏, 𝒆𝒎𝒃𝒆𝒅_𝒔𝒊𝒛𝒆]
+Multi-
+Head 
+attention
+[𝒃𝒂𝒕𝒄𝒉_𝒔𝒊𝒛𝒆, 𝒔𝒆𝒒_𝒍𝒆𝒏, 𝒆𝒎𝒃𝒆𝒅_𝒔𝒊𝒛𝒆]
+𝑿
+𝒁
+𝑌𝑚= 𝑚𝑒𝑎𝑛𝑌, 𝑎𝑥𝑖𝑠= 𝑒𝑚𝑏𝑒𝑑_𝑠𝑖𝑧𝑒, 𝑘𝑒𝑒𝑝_𝑑𝑖𝑚𝑠= 𝑇𝑟𝑢𝑒
+𝑌𝜎= 𝑠𝑡𝑑𝑌, 𝑎𝑥𝑖𝑠= 𝑒𝑚𝑏𝑒𝑑_𝑠𝑖𝑧𝑒, 𝑘𝑒𝑒𝑝_𝑑𝑖𝑚𝑠= 𝑇𝑟𝑢𝑒
+𝐿𝑎𝑦𝑒𝑟𝑁𝑜𝑟𝑚𝑌= 𝛾𝑌−𝑌𝑚
+𝑌𝜎
++ 𝛽
+𝒀
+
+--- Page 185 ---
+185
+Transformer- Pointwise 
+Feed-forward NN
+𝑾𝟎
+LayerNorm(
+)
+ҧ𝑍= 𝑅𝑒𝐿𝑈𝑊1𝑍+ 𝑏1 𝑊2 + 𝑏2
+Pointwise Feed-forward NN
+ҧ𝑍
+LayerNorm(
+ҧ𝑍
+)
+Next Encoder
+Multi-head Self-attention
+𝑥1
+𝑥2
+𝑥3
+𝑥𝑇
+…
+FFN
+FFN
+FFN
+FFN
+…
+𝑧1
+𝑧2
+𝑧3
+𝑧𝑇
+
+--- Page 186 ---
+186
+Transformer – Positional Encoding
+𝑃𝐸(𝑝𝑜𝑠,2𝑖) = sin(𝑝𝑜𝑠/10002𝑖/𝑒𝑚𝑏𝑒𝑑_𝑠𝑖𝑧𝑒)
+𝑃𝐸(𝑝𝑜𝑠,2𝑖+1) = cos(𝑝𝑜𝑠/10002𝑖/𝑒𝑚𝑏𝑒𝑑_𝑠𝑖𝑧𝑒)
+I
+index=3
+am
+index=2
+a
+index=5
+student
+index=8
+𝐸31
+𝐸32
+𝐸33
+𝐸21
+𝐸22
+𝐸23
+𝐸51
+𝐸52
+𝐸53
+𝐸81
+𝐸82
+𝐸83
+pos=1
+pos=2
+pos=3
+pos=4
+embed_size=3
+𝑃𝐸(3,2) 𝑃𝐸(3,3)
+𝑃𝐸(3,1)
+𝑃𝐸(4,2) 𝑃𝐸(4,3)
+𝑃𝐸(4,1)
+𝑃𝐸(2,2) 𝑃𝐸(2,3)
+𝑃𝐸(2,1)
+𝑃𝐸(1,2) 𝑃𝐸(1,3)
+𝑃𝐸(1,1)
+Use to capture position of a word in a sentence
+o Transformer has no recurrence and no convolution. 
+o For the model to make use of the order of the sequence, some 
+information about the relative or absolute position of the tokens in the 
+sequence needs to be injected
+[Source: Dive into DL]
+I
+am
+a
+student
+All words or word embeddings are inputted 
+simultaneously to the Transformer
+𝐸3
+𝐸2
+𝐸5
+𝐸8
+No information of word order
+
+--- Page 187 ---
+187
+Target tokens “from 
+the point of view” of 
+the source 
+sequence
+Queries
+Target
+Sequence
+Source
+Sequence
+FFN
+FFN
+FFN
+FFN
+Keys & Values
+FFN
+FFN
+∙
+∙
+∙
+∙
+Norm & 
+Softmax
+Dot 
+product
+Il
+gatto
+salta
+The
+cat
+jumps
+the
+…
+…
+FFN
+Transformer's Attention Mechanism
+
+--- Page 188 ---
+188
+Key
+Value
+“A4”
+“N9”
+“O7”
+“A4”
+“N2”
+Transformer's Attention Mechanism
+Query
+“N5”
+Weighted 
+average
+“gatto” token, built by 
+aggregating value vectors 
+in the source dictionary 
+Lookup Table
+Target
+Sequence
+Source
+Sequence
+Il
+gatto
+salta
+The
+cat
+jumps
+the
+…
+wall
+Soft-matching
+From a different perspective
+
+--- Page 189 ---
+Vision Transformers (ViT)
+
+--- Page 190 ---
+Transformers in Computer Vision
+Can we use the self-attention mechanism in images?
+
+--- Page 191 ---
+Transformers in Computer Vision
+224px
+224px
+2244 
+calculations
+Impossible!
+2242  
+pixels
+The transformer works with a set of tokens
+What are tokens/visual words in images?
+
+--- Page 192 ---
+• Tokens as the features from an object detector
+Transformers in Computer Vision
+Tokens!
+ROI Pooling
+ROI Pooling
+ROI Pooling
+
+--- Page 193 ---
+“An image is worth 16x16 words”  
+Image 
+to 
+Patches
+Tokens!
+Flatten Patches + 
+Linear Projection
+224px
+224px
+16px
+16px
+Vision Transformers (ViTs)
+“An image is worth 16x16 words” | Dosovitskiy et al., 2020
+14 segments
+14 segments
+
+--- Page 194 ---
+Vision Transformers (ViTs)
+1
+2
+3
+4
+5
+6
+7
+8
+9
+1
+2
+3
+4
+5
+6
+7
+8
+9
+Linear Projection of Flattened Patches
+MLP
+Head
+CLASS
+Transformer Encoder
+Transformer Encoder
+*
+class token
+*
+
+--- Page 195 ---
+Vision Transformers (ViTs)
+
+--- Page 196 ---
+\
+a
+
+FCONVOLUTIONNOS  TRAuccon
+* NEURAL METWoRKS, > TRANSFORMERS
+
+eet
+
+-
+
+_ Se cegnaw "=e wee o Tit
+So ee Ein ae
+
+imgflip.coni
+
+--- Page 197 ---
+Convolutional Neural 
+Network
+Vision Transformer
+Not Improving 
+Anymore
+Still Improving
+Learned Knowledge
+What happens during training?
+
+--- Page 198 ---
+Why are they different?
+Able to find 
+long-term dependencies
+Learns
+inductive biases
+Need very large
+ dataset for training
+Lack of global 
+understanding
+Locality 
+Sensitive
+Translation 
+Invariant
+Convolutional 
+Neural 
+Network
+Vision 
+Transformers
+
+--- Page 199 ---
+A different point of view
+ViTs are both local and global!
+The ViT learns only global information 
+with low amount of data
+0.7
+0.0
+1
+Heads focus on farther patches
+
+--- Page 200 ---
+A different point of view
+ViTs are both local and global!
+The ViT learns also local information 
+with more data
+0.7
+0.0
+1
+Higher layers heads still focus on farther 
+patches
+0.01
+0.4
+0.3
+Lower layers heads focus on both farther 
+and closer patches
+0.6
+0.0
+6

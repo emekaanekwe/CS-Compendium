@@ -1,0 +1,17 @@
+37
+Example of Stochastic Gradient Descent
+Given the function 𝑓𝑤=
+1
+1000 σ𝑖=1
+1000 𝑤−𝑖2, we need to solve 
+min
+𝑤𝑓(𝑤)
+using SGD with the learning rate 𝜂= 0.1.
+ Assume we sample a batch 𝑖1 = 1, 𝑖2 = 2, 𝑖3 = 3, 𝑖4 = 4 of indices. At the iteration 
+𝑡,  𝑤𝑡= 10. What is the value of 𝑤𝑡+1 at the next iteration?
+❑ሚ𝑓𝑤=
+1
+4 [ 𝑤−1 2 + 𝑤−2 2 + 𝑤−3 4 + 𝑤−4 2]
+❑ሚ𝑓′ 𝑤= 2𝑤−5
+❑ሚ𝑓′ 𝑤t = ሚ𝑓′ 10 = 2 × 10 −5 = 15
+❑𝑤𝑡+1 = 𝑤𝑡−𝜂ሚ𝑓′ 𝑤𝑡= 10 −0.1 × 15 = 8.5.

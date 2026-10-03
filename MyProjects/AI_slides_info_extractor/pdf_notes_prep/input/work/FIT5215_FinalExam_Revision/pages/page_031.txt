@@ -1,0 +1,27 @@
+31
+The loss surface of DL optimization problem
+The optimization problem in deep learning:
+o min
+𝜃𝐽𝜃≔𝐿𝐷; 𝜃≔
+1
+𝑁σ𝑖=1
+𝑁
+𝑙𝑓𝑥𝑖; 𝜃, 𝑦𝑖= −
+1
+𝑁σ𝑛=1
+𝑁
+log
+exp{ℎ𝑦𝑖
+𝐿(𝑥𝑖)}
+σ𝑚=1
+𝑀
+exp{ℎ𝑚
+𝐿(𝑥𝑖)} 
+A very complex and complicated objective function
+o
+Highly non-linear and non-convex function
+o
+The loss surface is very complex
+o
+Many local minima points, but the number of saddle points is even exponentially much more
+Loss surface of a ResNet without skip connection [Hao Li et al., NeurIPS 2017]

@@ -1,0 +1,14 @@
+89
+Dropout
+Reduce Overfitting
+This is a cheap technique to reduce model capacity
+o
+Reduce overfitting
+In each iteration, at each layer, randomly choose some neurons and drop all connections from 
+these neurons
+o
+dropout_rate= 1 – keep_prob
+Without dropout
+With dropout
+(Source: chatbotslife)
+(Source: Analytics Vidhya)

@@ -1,0 +1,33 @@
+12
+DNNs: making prediction via FP
+Forward propagation- Regression
+
+Parameter: 𝜃= 𝑊𝑘, 𝑏𝑘
+𝑘=1
+𝐿
+
+𝜎: ℝ→ℝ is the activation function
+o
+Sigmoid, tanh, ReLU
+
+Output:
+o
+ො𝑦= ℎ𝐿(𝑥) 
+ℎ0(𝑥) = 𝑥
+for 𝑘= 1 to 𝐿−1 do
+തℎ𝑘(𝑥) = ℎ𝑘−1(𝑥)𝑊𝑘+ 𝑏𝑘          //linear operation  
+ℎ𝑘(𝑥) = 𝜎തℎ𝑘(𝑥)                 //activation
+ℎ𝐿(𝑥) = ℎ𝐿−1(𝑥)𝑊𝐿+ 𝑏𝐿
+Input layer
+ℎ0(𝑥) = 𝒙
+Hidden layer
+ℎ1(𝑥)
+Hidden layer
+ℎ𝐿−1(𝑥)
+Output  layer
+ℎ𝐿(𝑥)
+𝑊1, 𝑏1
+𝑊2, 𝑏2
+𝑊𝐿, 𝑏𝐿
+𝑊𝐿−1, 𝑏𝐿−1
+…

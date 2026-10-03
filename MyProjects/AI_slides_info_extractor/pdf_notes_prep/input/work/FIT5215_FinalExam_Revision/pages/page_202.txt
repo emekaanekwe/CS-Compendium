@@ -1,0 +1,29 @@
+ViT: Model Fine-Tuning
+1
+2
+3
+4
+5
+6
+7
+8
+9
+1
+2
+3
+4
+5
+6
+7
+8
+9
+Linear Projection of Flattened Patches
+MLP
+Head
+CLASS
+Transformer Encoder
+*
+class token
+*
+Pretrained ViT/16 models trained on 
+ImageNet 21K and JFT-300M datasets

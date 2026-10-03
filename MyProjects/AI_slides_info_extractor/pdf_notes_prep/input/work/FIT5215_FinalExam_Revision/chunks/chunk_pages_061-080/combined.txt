@@ -1,0 +1,484 @@
+--- Page 61 ---
+61
+Pooling layer
+Max/average-pooling is locally invariant 
+and applied independently to each 
+feature map
+Reduce the size of feature map to be 
+more manageable
+o Smaller size for flattening
+Reduce the difference of output tensors
+
+--- Page 62 ---
+62
+Why Do We Need Pooling Layer?
+Some 
+Conv2D + 
+Pooling
+More
+Difference
+Less
+Difference
+Flatten
+Prediction
+Less
+Difference
+Less
+Difference
+Less
+Difference
+Less
+Difference
+Nose 
+feature 
+map
+Mouth 
+feature 
+map
+Eyes 
+feature 
+maps
+Nose 
+feature 
+map
+Mouth 
+feature 
+map
+Eyes 
+feature 
+maps
+down-sampling and sharpening
+
+--- Page 63 ---
+63
+Some comments from Hinton
+
+CNNs 
+cannot 
+capture 
+the 
+spatial 
+relationships among objects, hence it 
+wrongly predicts every face with two eyes, 
+one nose, and one mouth as a human face. 
+(Source: medium.com)
+(Source: original paper of Capsule Net)
+Paper link: https://arxiv.org/pdf/1710.09829.pdf
+
+--- Page 64 ---
+64
+Global pooling layer
+Like pooling layer, but the kernel 
+size is set to input size
+o Each feature map becomes a single neuron
+o Global average pooling (GAP)
+o Global max pooling (GMP)
+o 4D input tensor [batch_size, in_channel, 
+in_height, in_width]→ 2D output tensor 
+[batch_size, in_channel]
+
+--- Page 65 ---
+65
+Global 
+Pooling Layer
+Conv2D 1
+padding= 0
+strides = (2,2)
+[3,32,32]
+Input Layer
+[3,4,4]
+Filter 2
+[3,4,4]
+Filter 1
+[3,4,4]
+Filter 3
+[3,4,4]
+Filter 4
+Feature volume
+Feature maps
+[4,15,15]
+Latent 
+representation
+Pooling
+layer
+pool-size=(2,2)
+strides= (2,2)
+padding= 1
+Feature volume
+Feature maps
+[4,8,8]
+Latent 
+representation
+FC layer
+4 neurons
+Output 
+layer
+10 neurons
+for 10 classes
+softmax
+Filters [4,3,4,4]
+GAP
+GAP
+GAP
+GAP
+Conv2d(3,4,kernel_size=4, stride=2, padding=0)
+MaxPool2d(kernel_size=2, stride=2, padding=1)
+AdaptiveAvgPool2d((1, 1))
+Flatten(1)
+
+--- Page 66 ---
+SOTA CNNs
+
+--- Page 67 ---
+67
+ResNet
+Won ImageNet competition in 2015
+Many ResNet blocks
+Each ResNet block contains many 
+residual blocks 
+o Number of residual blocks
+o Number of channels for residual blocks
+Each ResNet block
+o From the second block, the first residual block
+▪Use 1x1 Conv skip connection
+o Otherwise
+▪Use standard skip connection 
+ResNet architecture
+
+--- Page 68 ---
+68
+ResNet
+Residual Block
+Learn 𝑓𝑥= 𝑔𝑥+ 𝑥 where 𝑔𝑥= 𝑓𝑥−𝑥
+o The model expressiveness is the same as previous
+o The gradient ∇𝑓𝑥= ∇𝑔𝑥+ 𝟏 looks better where 𝟏 is the vector of all 1 with the 
+same shape as 𝑥
+Without skip connection
+With skip connection
+(Source:Dive into DL)
+
+--- Page 69 ---
+69
+ResNet
+Residual Block
+
+ResNet follows VGG’s full 3×3 convolutional layer design. 
+o
+The residual block has two 3×3 convolutional layers with the same number of output channels. 
+o
+Each convolutional layer is followed by a batch normalization layer and a ReLU activation function. 
+o
+Skip these two convolution operations and add the input directly before the final ReLU activation 
+function. 
+o
+Requires that the output of the two convolutional layers must be of the same shape as the input, so 
+that they can be added together. 
+▪
+If we want to change the number of channels, we need to introduce an additional 1×1 convolutional layer to 
+transform the input into the desired shape for the addition operation. 
+Not use 1x1 Conv
+Use 1x1 Conv
+
+--- Page 70 ---
+70
+ResNet
+Residual Block
+
+ResNet follows VGG’s full 3×3 convolutional layer design. 
+o
+The residual block has two 3×3 convolutional layers with the same number of output channels. 
+o
+Each convolutional layer is followed by a batch normalization layer and a ReLU activation function. 
+o
+Skip these two convolution operations and add the input directly before the final ReLU activation 
+function. 
+o
+Requires that the output of the two convolutional layers must be of the same shape as the input, so 
+that they can be added together. 
+▪
+If we want to change the number of channels, we need to introduce an additional 1×1 convolutional layer to 
+transform the input into the desired shape for the addition operation. 
+Not use 1x1 Conv
+Use 1x1 Conv
+(8,64,64)
+(8,64,64)
+(8,64,64)
+(8,64,64)
+padding=1
+strides= (1,1)
+#filters=8
+padding=1
+strides= (1,1)
+#filters=8
+
+--- Page 71 ---
+71
+ResNet
+Residual Block
+
+ResNet follows VGG’s full 3×3 convolutional layer design. 
+o
+The residual block has two 3×3 convolutional layers with the same number of output channels. 
+o
+Each convolutional layer is followed by a batch normalization layer and a ReLU activation function. 
+o
+Skip these two convolution operations and add the input directly before the final ReLU activation 
+function. 
+o
+Requires that the output of the two convolutional layers must be of the same shape as the input, so 
+that they can be added together. 
+▪
+If we want to change the number of channels, we need to introduce an additional 1×1 convolutional layer to 
+transform the input into the desired shape for the addition operation. 
+Not use 1x1 Conv
+Use 1x1 Conv
+(8,64,64)
+(16,32,32)
+(16,32,32)
+padding=1
+strides= (2,2)
+#filters=16
+(16,32,32)
+padding=1
+strides= (1,1)
+#filters=16
+padding=0
+strides= (2,2)
+#filters=16
+(16,32,32)
+
+--- Page 72 ---
+72
+Implementation of Residual Block
+(Source:Dive into DL)
+
+--- Page 73 ---
+73
+Implementation of ResNet
+(Source:Dive into DL)
+ResNet block
+ResNet block
+Residual block
+Residual block
+Residual block
+Residual block
+down sample
+Input size by 2
+
+--- Page 74 ---
+74
+Implementation of ResNet
+(Source:Dive into DL)
+ResNet block
+ResNet block
+Residual block
+Residual block
+Residual block
+Residual block
+down sample
+Input size by 2
+(1, 64,112,112)
+(1, 64,112,112)
+(1, 64,112,112)
+(1, 64,56,56)
+(1, 64,56,56)
+(1, 128,28,28)
+(1, 256,14,14)
+(1,256)
+(1, 256,1,1)
+(1,10)
+
+--- Page 75 ---
+Practical Skills in Deep Learning
+
+--- Page 76 ---
+76
+Gradient vanishing
+Gradient Vanishing
+o Gradients get smaller and smaller as the algorithm 
+progresses down to the lower layers. 
+▪SGD update leaves the lower layer connection weights 
+virtually unchanged, and training never converges to a 
+good solution.
+Some activation functions are easy to get 
+saturated
+o Sigmoid or tanh
+𝜕𝑙
+𝜕𝑊1 = 𝜕𝑙
+𝜕ℎ3 . 𝜕ℎ3
+𝜕ℎ2 . 𝜕ℎ2
+𝜕തℎ2 . 𝜕തℎ2
+𝜕ℎ1 . 𝜕ℎ1
+𝜕തℎ1 . 𝜕തℎ1
+𝜕𝑊1
+=
+𝑝𝑇−1𝑦𝑊3𝑑𝑖𝑎𝑔𝜎′ തℎ2
+𝑊2𝑑𝑖𝑎𝑔𝜎′ തℎ1
+𝑇
+ℎ0 𝑇
+ℎ0 = 𝑥
+തℎ1, ℎ1 = 𝜎(തℎ1)
+ℎ3, 𝑝= 𝑠𝑜𝑓𝑡𝑚𝑎𝑥(ℎ3)
+തℎ2, ℎ2 = 𝜎(തℎ2)
+𝜎𝑧= 𝑠𝑧=
+1
+1 + exp{−𝑧}
+𝜎′ 𝑧= 𝜎(𝑧)(1 −𝜎(𝑧))
+saturated
+saturated
+saturated
+saturated
+sigmoid
+sigmoid’s derivative
+
+--- Page 77 ---
+77
+Gradient vanishing
+Gradient Vanishing
+o Gradients get smaller and smaller as the algorithm 
+progresses down to the lower layers. 
+▪SGD update leaves the lower layer connection weights 
+virtually unchanged, and training never converges to a 
+good solution.
+Some activation functions are easy to get 
+saturated
+o Sigmoid or tanh
+Recipe
+o Activation function plays an important role! Common 
+practice:
+▪Avoid sigmoid or saturated activation function
+▪ReLU is a common good choice
+o Good weight initialization is critical!
+𝜕𝑙
+𝜕𝑊1 = 𝜕𝑙
+𝜕ℎ3 . 𝜕ℎ3
+𝜕ℎ2 . 𝜕ℎ2
+𝜕തℎ2 . 𝜕തℎ2
+𝜕ℎ1 . 𝜕ℎ1
+𝜕തℎ1 . 𝜕തℎ1
+𝜕𝑊1
+=
+𝑝𝑇−1𝑦𝑊3𝑑𝑖𝑎𝑔𝜎′ തℎ2
+𝑊2𝑑𝑖𝑎𝑔𝜎′ തℎ1
+𝑇
+ℎ0 𝑇
+ℎ0 = 𝑥
+തℎ1, ℎ1 = 𝜎(തℎ1)
+ℎ3, 𝑝= 𝑠𝑜𝑓𝑡𝑚𝑎𝑥(ℎ3)
+തℎ2, ℎ2 = 𝜎(തℎ2)
+
+--- Page 78 ---
+78
+Gradient exploding
+Gradient Exploding
+o The gradients can grow bigger and bigger, so many 
+layers get insanely large weight updates, and the 
+training diverges. 
+o Mostly being encountered in recurrent neural 
+networks.
+Often happen for recursive models for example 
+Recurrent Neural Network (RNN), 
+Bidirectional RNN
+𝑥1
+ℎ1
+𝑦1
+𝑥𝑡
+ℎ𝑡
+𝑦𝑡
+𝑥𝑇
+ℎ𝑇
+𝑦𝑇
+𝑥0
+ℎ0
+𝑦0
+l𝒐𝒔𝒔𝟎
+l𝒐𝒔𝒔𝟏
+l𝒐𝒔𝒔𝒕
+l𝒐𝒔𝒔𝑻
+Total loss
+𝑈
+𝑉
+𝑊
+𝑈
+𝑈
+𝑈
+𝑊
+𝑊
+𝑉
+𝑉
+𝑉
+𝜕𝑙𝑇
+𝜕ℎ0
+= 𝜕𝑙𝑇
+𝜕ℎ𝑇
+× 𝜕ℎ𝑇
+𝜕ℎ𝑇−1
+× ⋯× 𝜕ℎ1
+𝜕ℎ0
+𝑊
+𝑊
+Multiplication of many matrices 𝑊
+Tip:
+-
+Let simplify 𝑊 as a scalar in the real-valued set
+-
+𝑊𝑚→0 if 𝑊< 1.
+-
+𝑊𝑚→∞ if 𝑊> 1.
+
+--- Page 79 ---
+79
+He and Xavier weight initialization
+Initialisation in deep learning training is crucial:
+o Some optimizers can be theoretically guaranteed to converge 
+regardless of initializations
+o Deep learning algorithms do not have these luxuries:
+▪It is iterative, but optimization deep neural networks is not yet well 
+understood
+▪Initial point is extremely important: it can determine if the algorithm 
+converges, or with some bad initialisation, it becomes unstable and fails 
+together
+What is a good weight/filter initialization?
+o Break the ‘symmetry’ of the network: two hidden nodes with the same 
+input should have different weights.
+o The gradient signal to flow well in both directions and don’t want the 
+signal to die out or to explode and saturate.
+o Large initial weights has better symmetry breaking effect, help 
+avoiding losing signals and redundant units, but could result in 
+exploding values during backward and forward passes, especially in 
+Recurrent Neural Networks.
+Initialization is important for training DL models.
+
+--- Page 80 ---
+80
+He and Xavier weight initialization
+Xavier initialization
+o Try to ensure the variance of the 
+outputs of each layer equal to the 
+variance of its inputs
+o Also need the gradients to have 
+equal variance before and after 
+flowing through a layer in the 
+reverse direction
+o Good for sigmoid and tanh 
+functions
+o Not good for ReLU
+𝑛𝑖𝑛= 3
+𝑛𝑜𝑢𝑡= 2
+Why
+2
+𝑛𝑖𝑛+𝑛𝑜𝑢𝑡 ?
+𝑤𝑋𝑎~𝑁
+0,
+2
+𝑛𝑖𝑛+ 𝑛𝑜𝑢𝑡
+𝑤𝑋𝑎~Uniform
+−
+6
+𝑛𝑖𝑛+ 𝑛𝑜𝑢𝑡
+,
+6
+𝑛𝑖𝑛+ 𝑛𝑜𝑢𝑡
+Uniform alternative
+Gaussian version
+Paper link: https://proceedings.mlr.press/v9/glorot10a/glorot10a.pdf

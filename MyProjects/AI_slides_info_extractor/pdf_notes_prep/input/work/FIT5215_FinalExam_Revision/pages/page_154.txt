@@ -1,0 +1,32 @@
+154
+Machine translation
+Translate a sentence in a language to another 
+language
+o Input: He loved to eat. (English)
+o Output: Il aimait manger. (French)
+𝑞1
+𝐼𝑙
+𝑎𝑖𝑚𝑎𝑖𝑡
+𝑞2
+𝑎𝑖𝑚𝑎𝑖𝑡
+𝑚𝑎𝑛𝑔𝑒𝑟
+𝑞3
+𝑚𝑎𝑛𝑔𝑒𝑟
+< 𝑬𝑶𝑺>
+ℎ1
+𝐻𝑒
+ℎ2
+ℎ3
+𝑙𝑜𝑣𝑒𝑑
+𝑡𝑜
+𝑐= ℎ4
+𝑒𝑎𝑡
+𝑞0
+<BOS>
+𝐼𝑙
+Paper: paper link
+...
+...
+vocabulary size+1
+...
+...

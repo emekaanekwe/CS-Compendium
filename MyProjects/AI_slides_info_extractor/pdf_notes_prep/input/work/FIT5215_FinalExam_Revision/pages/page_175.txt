@@ -1,0 +1,10 @@
+175
+Transformer Motivations
+Problem using RNNs for Seq2Seq models
+o Slow due to sequential nature
+o Poor long-range dependency modelling
+Transformer
+o Enable parallel computation, hence exploit the power of GPU. How?
+o Remove the dependency between words
+o But position/location matters → resolve by positional encoding
+o Extremely good at capturing long-range dependency

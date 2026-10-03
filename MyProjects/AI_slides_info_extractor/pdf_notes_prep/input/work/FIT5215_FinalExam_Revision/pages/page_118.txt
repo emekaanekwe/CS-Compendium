@@ -1,0 +1,26 @@
+118
+Recurrent Neural Networks
+with no output
+Idea: sharing parameters for each data of the time index
+ Given a data sequence 𝑥1, 𝑥2, … , 𝑥𝑇
+RNN models a dynamic system driven by an external signal 𝑥𝑡
+ℎ𝑡= 𝑓ℎ𝑡−1 , 𝑥𝑡= 𝑓𝑓ℎ𝑡−2, 𝑥𝑡−1 , 𝑥𝑡= ⋯= summary 𝑥1:𝑡, ℎ0 
+ℎ𝑡 can be considered as a kind of lossy summary of the history 𝑥1:𝑡 
+An unrolled RNN (no output)
+𝑥𝑡−1
+ℎ𝑡−1 
+𝑥𝑡
+ℎ𝑡
+𝑥𝑡+1
+ℎ𝑡+1
+unrolling
+𝑥𝑡
+ℎ𝑡
+𝑈
+𝑊
+𝑊
+𝑊
+𝑊
+𝑈
+𝑈
+𝑈

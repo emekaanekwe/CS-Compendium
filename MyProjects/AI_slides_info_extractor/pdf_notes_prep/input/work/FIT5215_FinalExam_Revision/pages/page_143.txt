@@ -1,0 +1,71 @@
+143
+Skip-gram
+Modelling
+
+Current window
+o
+The quick brown fox jumps
+
+𝑃𝑡ℎ𝑒, 𝑞𝑢𝑖𝑐𝑘, 𝑓𝑜𝑥, 𝑗𝑢𝑚𝑝𝑠
+𝑏𝑟𝑜𝑤𝑛
+= 𝑃𝑡ℎ𝑒
+𝑏𝑟𝑜𝑤𝑛
+×
+𝑃𝑞𝑢𝑖𝑐𝑘
+𝑏𝑟𝑜𝑤𝑛
+× 𝑃𝑓𝑜𝑥
+𝑏𝑟𝑜𝑤𝑛
+× 𝑃(𝑗𝑢𝑚𝑝𝑠∣𝑏𝑟𝑜𝑤𝑛)
+
+log 𝑃𝑡ℎ𝑒, 𝑞𝑢𝑖𝑐𝑘, 𝑓𝑜𝑥 𝑗𝑢𝑚𝑝𝑠
+𝑏𝑟𝑜𝑤𝑛
+=
+log 𝑃𝑡ℎ𝑒
+𝑏𝑟𝑜𝑤𝑛
++ ⋯+ log 𝑃(𝑗𝑢𝑚𝑝𝑠∣𝑏𝑟𝑜𝑤𝑛)
+
+(brown, the), (brown, quick), (brown, for), (brown, jumps). Let consider 
+𝑡𝑤= 𝑏𝑟𝑜𝑤𝑛 and 𝑐𝑤= 𝑡ℎ𝑒.
+
+Two matrices
+o
+𝑼∈ℝ𝑵×𝒅 (𝑁 is vocabulary size, 𝑑 is embedding size)
+o
+𝑽∈ℝ𝒅×𝑵
+
+Assume that indices of 𝑡𝑤 and 𝑐𝑤 are 1 ≤𝑡, 𝑐≤𝑁 respectively. The 
+forward propagation is as follows:
+o
+ℎ= 1𝑡𝑈= 𝑈𝑡
+𝑟∈ℝ1×𝑑, 𝑜= ℎ𝑉∈ℝ1×𝑁, 𝑝= 𝑠𝑜𝑓𝑡𝑚𝑎𝑥(𝑜) ∈ℝ1×𝑁
+o
+𝑃𝑐𝑤= 𝑡ℎ𝑒
+𝑡𝑤= 𝑏𝑟𝑜𝑤𝑛
+= 𝑝𝑐
+o
+log 𝑃𝑐𝑤= 𝑡ℎ𝑒
+𝑡𝑤= 𝑏𝑟𝑜𝑤𝑛
+= log 𝑝𝑐= 𝑈𝑡
+𝑟𝑉𝑐𝑐−log(σ𝑘=1
+𝑁
+exp(𝑈𝑡
+𝑟𝑉𝑘
+𝑐))
+
+Train the model by maximizing log likelihood.
+brow
+n
+the
+quick
+fox
+jumps
+𝑈∈ℝ𝑁×𝑑
+𝒉
+𝑉∈ℝ𝑑×𝑁
+𝟏𝒕
+One-hot
+vector
+𝒑
+𝑁
+𝑁
+𝑑

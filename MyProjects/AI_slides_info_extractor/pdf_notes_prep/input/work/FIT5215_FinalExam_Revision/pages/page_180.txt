@@ -1,0 +1,63 @@
+180
+Self-Attention
+I
+love
+deep
+learning
+Hello
+the
+world
+<pad>
+8
+3
+7
+2
+9
+5
+4
+0
+[𝑏𝑎𝑡𝑐ℎ_𝑠𝑖𝑧𝑒, 𝑠𝑒𝑞_𝑙𝑒𝑛]
+Input:
+Embedding Layer (E: [vocab_size, embed_size])
+batch_size
+seq_len
+[batch_size,seq_len, d_model]
+𝑊𝑄
+𝑊𝐾
+𝑊𝑉
+𝑑_𝑚𝑜𝑑𝑒𝑙
+𝑑_𝑚𝑜𝑑𝑒𝑙
+𝑑_𝑚𝑜𝑑𝑒𝑙
+𝑑𝑄= 𝑑𝐾
+𝑑𝐾= 𝑑𝑄
+𝑑𝑉
+seq_len
+seq_len
+seq_len
+𝑄= 𝑋𝑊𝑄 [𝑏𝑎𝑡𝑐ℎ_𝑠𝑖𝑧𝑒, 𝑠𝑒𝑞_𝑙𝑒𝑛, 𝑑𝑄= 𝑑𝐾]
+𝐾= 𝑋𝑊𝐾 [𝑏𝑎𝑡𝑐ℎ_𝑠𝑖𝑧𝑒, 𝑠𝑒𝑞_𝑙𝑒𝑛, 𝑑𝑄= 𝑑𝐾]
+𝑉= 𝑋𝑊𝑉 [𝑏𝑎𝑡𝑐ℎ_𝑠𝑖𝑧𝑒, 𝑠𝑒𝑞_𝑙𝑒𝑛, 𝑑𝑉]
+Attention probs: 𝐴= 𝑠𝑜𝑓𝑡𝑚𝑎𝑥𝐵, 𝑑𝑖𝑚= 2
+seq_len
+[batch_size,seq_len, seq_len]
+𝐵𝑖𝑗
+1 = 𝑄1 𝑖, : 𝐾1 𝑗, : 𝑇→𝑠𝑖𝑚(𝑥𝑖
+1, 𝑥𝑗
+1)
+𝑍= 𝐴𝑉
+[batch_size,seq_len, 𝑑𝑉]
+seq_len
+𝑊𝑂
+Output: 𝑍= 𝑍𝑊𝑂
+𝑋1
+𝑋2
+𝑋
+𝐴
+𝑍
+Attention scores: 𝐵=
+𝑄𝐾𝑇
+𝑑𝐾
+𝐵
+[batch_size,seq_len, seq_len]
+[batch_size,seq_len, d_model]
+𝑍

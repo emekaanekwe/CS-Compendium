@@ -1,0 +1,75 @@
+9
+Linear and Softmax Layers 
+Input 
+Layer
+Hidden 
+Layer 1
+Hidden 
+Layer …
+Hidden 
+Layer
+𝑥= 1.2
+−1
+2
+𝑦∈{1,2, … , 𝑀}
+ℎ0 𝑥= 𝑥
+ℎ1 𝑥
+…
+ℎ𝐿−1 𝑥
+𝒑𝒙= 𝑠𝑜𝑓𝑡𝑚𝑎𝑥(ℎ𝐿(𝑥))
+softmax
+Output 
+Layer
+ℎ𝐿𝑥
+CE loss
+Prediction Probabilities
+𝑙𝑜𝑠𝑠= 𝐶𝐸1𝑦, 𝑝𝑥
+= −log 𝑝𝑦(𝑥)
+ഥ𝒉𝟏
+= 𝑥𝑊1 + 𝑏1 
+act
+𝜎 
+𝒉𝟏= 𝜎(തℎ1)
+𝒍𝒐𝒈𝒊𝒕𝒔= 𝒉𝑳𝒙
+= ℎ𝐿−1 𝑥𝑊𝐿+ 𝑏𝐿
+non-linearity
+softmax
+Output 
+Layer
+Penultimate 
+Layer
+𝒑𝒙= 𝑠𝑜𝑓𝑡𝑚𝑎𝑥(ℎ𝐿(𝑥))
+Prediction Probabilities
+Logit ℎ= ℎ1 ℎ2 ℎ3 ℎ4
+Prob p = 𝑝1 𝑝2 𝑝3 𝑝4
+𝒉𝟏
+𝒉𝟐
+𝒉𝟑
+𝒉𝟒
+𝒑𝟏
+𝒑𝟐
+𝒑𝟑
+𝒑𝟒
+𝒑𝟏=
+𝒆𝒉𝟏
+𝒆𝒉𝟏+ 𝒆𝒉𝟐+ 𝒆𝒉𝟑+ 𝒆𝒉𝟒
+𝒑𝟐=
+𝒆𝒉𝟐
+𝒆𝒉𝟏+ 𝒆𝒉𝟐+ 𝒆𝒉𝟑+ 𝒆𝒉𝟒
+𝒑𝟑=
+𝒆𝒉𝟑
+𝒆𝒉𝟏+ 𝒆𝒉𝟐+ 𝒆𝒉𝟑+ 𝒆𝒉𝟒
+𝒑𝟒=
+𝒆𝒉𝟒
+𝒆𝒉𝟏+ 𝒆𝒉𝟐+ 𝒆𝒉𝟑+ 𝒆𝒉𝟒
+softmax
+p (pred prob)
+h (logits)
+real-valued scores
+probabilities
+transforms 
+real-valued 
+discriminative 
+scores 
+(ranged in (−∞, +∞)) to probability values (ranged 
+in [0, 1]) but preserving the order.

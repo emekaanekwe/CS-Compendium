@@ -1,0 +1,23 @@
+24
+How to code with PyTorch
+
+തℎ= 𝑥𝑊+ 𝑏 and ℎ= 𝑠𝑖𝑔𝑚𝑜𝑖𝑑(തℎ)
+o
+ℎ= 𝑠𝑖𝑔𝑚𝑜𝑖𝑑(𝑥𝑊+ 𝑏)
+o
+𝜎= 𝑠𝑖𝑔𝑚𝑜𝑖𝑑 is the activation function
+
+𝜕ℎ
+𝜕𝑥=
+𝜕ℎ
+𝜕തℎ×
+𝜕തℎ
+𝜕𝑥= 𝑑𝑖𝑎𝑔𝜎′ തℎ
+𝑊𝑇= 𝑑𝑖𝑎𝑔𝜎തℎ⊗[1 −𝜎തℎ] 𝑊𝑇= 𝑑𝑖𝑎𝑔ℎ⊗1 −ℎ
+𝑊𝑇
+o
+⊗ is element-wise product
+ 
+Declare 𝑾, 𝒙, 𝒃
+Forward propagation
+Backward propagation

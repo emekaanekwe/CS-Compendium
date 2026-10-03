@@ -1,0 +1,516 @@
+--- Page 201 ---
+Model Fine-Tuning
+
+--- Page 202 ---
+ViT: Model Fine-Tuning
+1
+2
+3
+4
+5
+6
+7
+8
+9
+1
+2
+3
+4
+5
+6
+7
+8
+9
+Linear Projection of Flattened Patches
+MLP
+Head
+CLASS
+Transformer Encoder
+*
+class token
+*
+Pretrained ViT/16 models trained on 
+ImageNet 21K and JFT-300M datasets
+
+--- Page 203 ---
+Fine-tuning
+ViT: Model Fine-Tuning
+1
+2
+3
+4
+5
+6
+7
+8
+9
+1
+2
+3
+4
+5
+6
+7
+8
+9
+Linear Projection of Flattened Patches
+CLASS
+Transformer Encoder
+New class token
+New MLP Head
+New dataset
+
+--- Page 204 ---
+ViT: Model Fine-Tuning with Additional Components
+1
+2
+3
+4
+5
+6
+7
+8
+9
+1
+2
+3
+4
+5
+6
+7
+8
+9
+Linear Projection of Flattened Patches
+*
+class token
+*
+…
+learnable
+prompts
+…
+Principle: insert to a pre-trained ViT some additional components
+that favour the computations of ViT and fine-tune them.
+New dataset
+Adapter
+LoRA
+LoRA
+LoRA
+
+--- Page 205 ---
+ViT: Model Fine-Tuning with Prompts
+1
+2
+3
+4
+5
+6
+7
+8
+9
+1
+2
+3
+4
+5
+6
+7
+8
+9
+Linear Projection of Flattened Patches
+*
+class token
+*
+…
+learnable
+prompts
+…
+New dataset
+Fine-tuning
+Fine-tuning
+
+--- Page 206 ---
+ViT: Model Fine-Tuning with Adapters
+1
+2
+3
+4
+5
+6
+7
+8
+9
+1
+2
+3
+4
+5
+6
+7
+8
+9
+Linear Projection of Flattened Patches
+*
+class token
+*
+New dataset
+𝑿
+𝑊𝑑𝑜𝑤𝑛
+𝑊𝑢𝑝
+𝑊1
+𝑊2
+Fixed
+Point-wise
+FFN
+Learnable
+Adapter
+𝑔𝑋= 𝜎𝑋𝑊1 𝑊2
+ℎ𝑋= 𝜎𝑋𝑊𝑑𝑜𝑤𝑛𝑊𝑢𝑝
+𝒇𝑿= 𝒈𝑿+ 𝝈𝑿𝑾𝒅𝒐𝒘𝒏𝑾𝒖𝒑
+Fine-tuning
+Fine-tuning
+
+--- Page 207 ---
+ViT: Model Fine-Tuning with Additional LoRA
+1
+2
+3
+4
+5
+6
+7
+8
+9
+1
+2
+3
+4
+5
+6
+7
+8
+9
+Linear Projection of Flattened Patches
+*
+class token
+*
+New dataset
+𝑊𝑄+ 𝑩𝑸× 𝑨𝑸
+𝑊𝐾+ 𝑩𝑲× 𝑨𝒌
+𝑊𝑉+ 𝑩𝑽× 𝑨𝑽
+[𝑚, 𝑛] [𝑚, 𝑟] [𝑟, 𝑛]
+𝑟≪𝑚, 𝑛
+Fine-tuning
+Fine-tuning
+
+--- Page 208 ---
+Generative Adversarial Networs
+
+--- Page 209 ---
+209
+General formulation for a Deep Generative 
+Models (DGM)
+Given a training set 𝐷=
+𝒙1, 𝒙2, … , 𝒙𝑁 where each 𝒙𝑖~𝑝𝑑𝒙.
+o 𝑝𝑑𝒙 exists but unknown.
+Learn a generator 𝑮 mapping from 
+the ‘noise’/latent space 𝒵 to data 
+space
+o 𝒛~𝑝(𝒛) →෥𝒙= 𝐺(𝒛)~𝑝𝑑𝒙
+o ෥𝒙= 𝐺(𝒛) looks ‘similar’ to those in 𝐷.
+Use 𝑮 to generate novel and new 
+data samples.
+𝒵
+𝒛~𝑝(𝒛)
+𝐺(𝒛)
+𝐷= 𝒙1, 𝒙2, … , 𝒙𝑁
+Deep NNs
+
+--- Page 210 ---
+210
+Current DGM methods
+Image credit: https://lilianweng.github.io/posts/2021-07-11-diffusion-models/
+
+--- Page 211 ---
+Generative Adversarial Networks
+Yann LeCun
+NeurIPS 2014
+
+--- Page 212 ---
+212
+GAN: analogy to minimax game
+Generator
+Discriminator
+Target/data distribution
+Task: produce counterfeit 
+money
+Goal: try to fool/confuse the 
+police officer
+Task: distinguish between real and 
+counterfeit money
+Goal: try to sabotage the counterfeit 
+maker
+Final output 
+from GANs
+Adversarial or Cooperative
+Termination at Nash equilibrium point
+No player can improve any more
+
+--- Page 213 ---
+213
+Generative Adversarial Networks (GAN)
+How to formulate this?
+Introduce a noise variable 𝒛 ~ 𝑝𝒛 
+o
+This is the prior distribution; think of it as the 
+resource used to make money.
+A generator 𝐺 that maps 𝒛 to ෥𝒙 in data 
+space:
+෥𝒙= 𝐺𝒛 
+o
+Parameterize 𝐺 by a deep neural network with 
+parameter 𝜽𝑔.
+A discriminator 𝐷𝒙 maps 𝒙 to a 
+probability in [0, 1] representing the 
+probability that 𝒙 comes from the real 
+data rather than 𝐺.
+o
+Parameterize 𝐷(𝒙) by another deep neural 
+network 𝜽𝑑 .
+o
+𝐷(𝑥) close to 1 (real)
+o
+𝐷(𝑥) close to 0 (fake)
+(Figure credit: from Goodfellow, NIPS workshop’16)
+min
+𝐺max
+D
+𝐽𝐺, 𝐷= 𝔼𝒙 ~ 𝑝𝑑𝒙log 𝐷𝒙
++ 𝔼𝒛 ~ 𝑝𝒛
+log(1 −𝐷(𝐺𝒛)
+
+--- Page 214 ---
+214
+Training GAN
+Training 𝐺 is to minimize or fool the 
+discriminator 𝐷, i.e., minimize (1 −
+𝐷𝐺𝒛
+) to 0
+min
+𝐺max
+D 𝐽𝐺, 𝐷=
+𝔼
+𝒙~𝑝𝑑𝑎𝑡𝑎(𝒙) log 𝐷𝒙
++ 𝔼
+𝒛~𝑝𝒛
+log(1 −𝐷(𝐺𝒛) 
+Descent update 𝐺:   𝒛(𝑖)~𝑝𝑧
+ 
+− 𝛻𝜽g
+1
+M ෍
+𝑖=1
+𝑀
+log 1 −𝐷𝐺𝒛𝑖
+•
+Gradient descent to train the generator 𝐺𝜃𝑔 
+min
+𝜃𝑔
+𝔼
+𝒛~𝑝𝒛log(1 −𝐷𝜃𝑑(𝐺𝒛)
+
+--- Page 215 ---
+215
+Training GAN
+Training 𝐷 is to maximize the 
+probability of detecting correct labels
+min
+𝐺max
+D 𝐽𝐺, 𝐷=
+𝔼
+𝒙~𝑝𝑑𝑎𝑡𝑎(𝒙) log 𝐷𝒙
++ 𝔼
+𝒛~𝑝𝒛
+log(1 −𝐷(𝐺𝒛) 
+Ascent update 𝐷:  𝒛(𝑖)~𝑝𝑧, 𝒙(𝑖)~𝑝𝑑𝑎𝑡𝑎
+         𝛻𝜽d
+1
+M σ𝑖=1
+𝑀
+log 𝐷𝒙𝑖
++ log 1 −𝐷𝐺𝒛𝑖
+•
+Gradient ascent to train discriminator 𝐷𝜃𝑑:
+ 
+ max
+𝜃𝑑
+𝔼
+𝒙~𝑝𝑑𝑎𝑡𝑎(𝒙) log 𝐷𝜃𝑑𝒙
++ 𝔼
+𝒛~𝑝𝒛log(1 −𝐷𝜃𝑑(𝐺𝒛)
+
+--- Page 216 ---
+216
+Training GAN
+Training 𝐷 is to maximize the 
+probability of detecting correct labels
+Training 𝐺 is to minimize or fool the 
+discriminator 𝐷, i.e., minimize 1 −
+𝐷𝐺𝒛
+ to 0
+min
+𝐺max
+D 𝐽𝐺, 𝐷=
+𝔼
+𝒙~𝑝𝑑𝑎𝑡𝑎(𝒙) log 𝐷𝒙
++ 𝔼
+𝒛~𝑝𝒛
+log(1 −𝐷(𝐺𝒛) 
+Ascent update 𝐷:  𝒛(𝑖)~𝑝𝑧, 𝒙(𝑖)~𝑝𝑑𝑎𝑡𝑎
+         𝛻𝜽d
+1
+M σ𝑖=1
+𝑀
+log 𝐷𝒙𝑖
++ log 1 −𝐷𝐺𝒛𝑖
+Descent update 𝐺:   𝒛(𝑖)~𝑝𝑧
+ 
+− 𝛻𝜽g
+1
+M ෍
+𝑖=1
+𝑀
+log 1 −𝐷𝐺𝒛𝑖
+
+--- Page 217 ---
+217
+Basic theory of GAN
+We want to train NN-based function 𝐺𝜃(. ) such that 𝑝𝑔𝒙= 𝑝𝑑𝒙, but we do 
+not have 𝑝𝑑𝒙 at hand
+o Introduce a strong discriminator 𝐷𝒙 to implicitly justify how far 𝑝𝑑𝒙 and 𝑝𝑔𝒙 are.
+Source of randomness
+𝑝𝑑(𝒙)
+𝑝𝑔𝒙
+y=1
+y=-1
+❖D(x) = P(y=1|x): probability x is true data.
+❖1-D(x) = P(y=-1|x): probability x is fake data.
+The log likelihood function need to be maximized
+𝐽𝐷, 𝐺= 𝔼𝒙~𝑃𝑑log 𝐷(𝒙) + 𝔼𝒙~𝑃𝑔log 1 −𝐷(𝒙)
+= 𝔼𝒙~𝑃𝑑log 𝐷(𝒙) + 𝔼𝒛~𝑃𝑧log 1 −𝐷(𝐺(𝒛))
+𝒛~𝑝𝒛= 𝑁0, 𝐼𝑜𝑟 𝑈𝑛𝑖( 0,1 𝑑)
+𝐺𝜃(. )
+𝒙𝑓𝑎𝑘𝑒= 𝐺𝜃𝒛~𝑝𝑔𝒙
+Gap between two distributions
+𝑝𝑑(𝒙)
+
+--- Page 218 ---
+218
+Basic theory of GAN
+𝑝𝑑(𝒙)
+𝑝𝑔𝒙
+y=1
+y=-1
+𝐽𝐷∗, 𝐺= 𝔼𝒙~𝑃𝑑log 𝐷∗(𝒙) + 𝔼𝑥~𝑃𝑔log 1 −𝐷∗(𝒙) is large
+𝑝𝑑(𝒙)
+𝑝𝑔𝒙
+y=1
+y=-1
+𝐽𝐷∗, 𝐺= 𝔼𝒙~𝑃𝑑log 𝐷∗(𝒙) + 𝔼𝑥~𝑃𝑔log 1 −𝐷∗(𝒙) decreases
+𝑝𝑑(𝒙)
+𝑝𝑔𝒙
+y=1
+y=-1
+𝐽𝐷∗, 𝐺= 𝔼𝒙~𝑃𝑑log 𝐷∗(𝒙) + 𝔼𝒙~𝑃𝑔log 1 −𝐷∗(𝒙) is smallest
+It comes with the minimax problem
+𝒎𝒊𝒏𝑮𝒎𝒂𝒙𝑫𝑱𝑫, 𝑮
+
+--- Page 219 ---
+219
+Optimal discriminator solution
+Recall the GAN objective:
+𝐽𝐺, 𝐷=
+𝔼
+𝒙~𝑝𝑑𝑎𝑡𝑎(𝒙) log 𝐷𝒙
++ 𝔼
+𝒛~𝑝𝒛log(1 −𝐷(𝐺𝒛) 
+Let 𝑝𝑔 be the distribution over 𝐺(𝑧) when 𝑧~𝑝𝑧 and let 𝑝𝑑 
+denotes 𝑝𝑑𝑎𝑡𝑎:
+𝐽𝐺, 𝐷=
+𝔼
+𝒙~𝑝𝑑log𝐷𝒙
++
+𝔼
+𝒙~𝒑𝒈log(1 −𝐷(𝑥) 
+= න
+𝑥
+𝑝𝑑𝑥log𝐷𝑥𝑑𝑥+ න
+𝑥
+𝑝𝑔𝑥log 1 −𝐷𝑥
+𝑑𝑥
+We need to maximize D, let’s do this pointwise 
+at each position of 𝑥:
+max
+𝐷{ 𝑝𝑑𝑥log 𝐷𝑥+ 𝑝𝑔𝑥log 1 −𝐷𝑥
+}
+o 𝛻𝐷=
+𝑝𝑑𝒙
+𝐷
+−
+𝑝𝑔𝒙
+1−𝐷= 0
+o Optimal discriminator: 𝐷∗(𝒙) =
+𝑝𝑑(𝒙)
+𝑝𝑑𝒙+𝑝𝑔(𝒙)
+o When G generates perfect samples, 𝑝𝑔= 𝑝𝑑 at which 𝐷𝑥=
+0.5 ∀𝑥
+𝑟𝑒𝑎𝑙
+𝒛 ~ 𝑝𝒛
+𝐺
+𝒙𝑓𝑎𝑘𝑒
+𝑑𝑎𝑡𝑎
+𝒙𝑟𝑒𝑎𝑙
+𝐷
+𝑓𝑎𝑘𝑒
+When training is perfect, discriminator D 
+can NO longer tell the fake (money) from 
+the real (money), i.e., 0.5 probability
+
+--- Page 220 ---
+220
+Optimal generator solution
+Fix 𝐷∗ in: 𝒎𝒊𝒏𝑮𝒎𝒂𝒙𝑫𝑱𝑫, 𝑮= 𝒎𝒊𝒏𝑮𝑱(𝑫∗, 𝑮)
+Recall Jensen-Shannon divergence: 
+𝐷𝐽𝑆𝑑, 𝑔= 1
+2 𝐾𝐿𝑑𝑚+ 1
+2 𝐾𝐿𝑔𝑚, 𝑚= 1
+2 (𝑑+ 𝑔)
+𝐽(𝐷∗, 𝐺)=𝔼𝒙~𝑝𝑑log 𝐷∗(𝒙) + 𝔼𝒙~𝑝𝑔log 1 −𝐷∗(𝒙)
+= 𝔼𝒙~𝑝𝑑log
+𝑝𝑑(𝒙)
+𝑝𝑑𝒙+𝑝𝑔(𝒙) + 𝔼𝒙~𝑝𝑔log 1 −
+𝑝𝑑(𝒙)
+𝑝𝑑𝒙+𝑝𝑔(𝒙)
+= 𝔼𝒙~𝑝𝑑log
+𝑝𝑑(𝒙)
+𝑝𝑑𝒙+𝑝𝑔(𝒙) + 𝔼𝒙~𝑝𝑔log
+𝑝𝑔(𝒙)
+𝑝𝑑𝒙+𝑝𝑔(𝒙)
+= 𝐷𝐽𝑆𝑝𝑑𝒙||𝑝𝑔(𝒙) −2 log 2
+Therefore,
+o 𝑚𝑖𝑛𝐺𝐷𝐽𝑆𝑝𝑑𝒙||𝑝𝑔(𝒙)
+→ 𝑝𝑔∗= 𝑝𝑑
+𝑟𝑒𝑎𝑙
+𝒛 ~ 𝑝𝒛
+𝐺
+𝒙𝑓𝑎𝑘𝑒
+𝑑𝑎𝑡𝑎
+𝒙𝑟𝑒𝑎𝑙
+𝐷
+𝑓𝑎𝑘𝑒
+When training is perfect, discriminator D 
+can NO longer tell the fake (money) from 
+the real (money), i.e., 0.5 probability
+𝑝𝑔∗
+𝑝𝑑
+=
+Optimal G

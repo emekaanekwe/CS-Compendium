@@ -1,0 +1,45 @@
+137
+Shape Transformation in RNNs
+ℎ3
+ℎ4
+ℎ5
+𝑈
+𝑈
+𝑈
+𝑊
+𝑊
+ℎ1
+ℎ2
+𝑈
+𝑈
+𝑊
+batch_size
+batch_size
+batch_size
+…
+batch_size
+seq_len
+[batch_size, seq_len, embed_size]
+[batch_size, seq_len, hidden_size 1]
+8
+3
+7
+2
+8
+3
+4
+5
+7
+4
+[𝑏𝑎𝑡𝑐ℎ_𝑠𝑖𝑧𝑒, 𝑠𝑒𝑞_𝑙𝑒𝑛]
+Input:
+Embedding Layer (E: [vocab_size, embed_size])
+ℎ3
+ℎ4
+ℎ5
+ℎ1
+ℎ2
+…
+seq_len
+batch_size
+batch_size

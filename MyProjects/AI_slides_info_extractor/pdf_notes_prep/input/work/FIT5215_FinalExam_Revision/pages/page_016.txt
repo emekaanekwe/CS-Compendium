@@ -1,0 +1,4 @@
+Declare FFN
+Declare a batch
+Forward propagation
+Making prediction

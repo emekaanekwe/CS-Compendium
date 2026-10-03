@@ -1,0 +1,9 @@
+61
+Pooling layer
+Max/average-pooling is locally invariant 
+and applied independently to each 
+feature map
+Reduce the size of feature map to be 
+more manageable
+o Smaller size for flattening
+Reduce the difference of output tensors

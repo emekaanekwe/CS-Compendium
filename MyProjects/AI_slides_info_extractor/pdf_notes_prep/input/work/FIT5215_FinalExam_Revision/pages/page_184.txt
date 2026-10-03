@@ -1,0 +1,29 @@
+184
+Transformer – Residual Connection/Layer Norm
+Layer normalization (LN) is the same as batch normalization except that LN normalizes across 
+the feature dimension. 
+o
+Batch normalization is usually empirically less effective than layer normalization in natural language processing tasks, whose inputs are often variable-
+length sequences.
+One 𝑿
+One 𝒁
+seq_len
+embed_size
+Multi-
+Head 
+attention
+Batch 𝑿
+Batch 𝒁
+[𝒃𝒂𝒕𝒄𝒉_𝒔𝒊𝒛𝒆, 𝒔𝒆𝒒_𝒍𝒆𝒏, 𝒆𝒎𝒃𝒆𝒅_𝒔𝒊𝒛𝒆]
+Multi-
+Head 
+attention
+[𝒃𝒂𝒕𝒄𝒉_𝒔𝒊𝒛𝒆, 𝒔𝒆𝒒_𝒍𝒆𝒏, 𝒆𝒎𝒃𝒆𝒅_𝒔𝒊𝒛𝒆]
+𝑿
+𝒁
+𝑌𝑚= 𝑚𝑒𝑎𝑛𝑌, 𝑎𝑥𝑖𝑠= 𝑒𝑚𝑏𝑒𝑑_𝑠𝑖𝑧𝑒, 𝑘𝑒𝑒𝑝_𝑑𝑖𝑚𝑠= 𝑇𝑟𝑢𝑒
+𝑌𝜎= 𝑠𝑡𝑑𝑌, 𝑎𝑥𝑖𝑠= 𝑒𝑚𝑏𝑒𝑑_𝑠𝑖𝑧𝑒, 𝑘𝑒𝑒𝑝_𝑑𝑖𝑚𝑠= 𝑇𝑟𝑢𝑒
+𝐿𝑎𝑦𝑒𝑟𝑁𝑜𝑟𝑚𝑌= 𝛾𝑌−𝑌𝑚
+𝑌𝜎
++ 𝛽
+𝒀

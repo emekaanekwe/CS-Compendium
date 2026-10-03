@@ -1,0 +1,18 @@
+Why are they different?
+Able to find 
+long-term dependencies
+Learns
+inductive biases
+Need very large
+ dataset for training
+Lack of global 
+understanding
+Locality 
+Sensitive
+Translation 
+Invariant
+Convolutional 
+Neural 
+Network
+Vision 
+Transformers

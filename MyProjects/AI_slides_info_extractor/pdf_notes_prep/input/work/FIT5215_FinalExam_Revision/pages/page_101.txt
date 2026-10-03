@@ -1,0 +1,19 @@
+101
+Data mix-up
+❑for (𝑥1, 𝑦1), (𝑥2, 𝑦2) in zip(batch1, batch 2)
+1.
+𝜆~Beta 𝛼, 𝛼
+2.
+෤𝑥= 𝜆× 𝑥1 + 1 −𝜆× 𝑥2
+3.
+෤𝑦= 𝜆× 𝟏𝑦1 + 1 −𝜆× 𝟏𝑦2
+4.
+Update optimizer to minimize 𝑪𝑬(෥𝒚, 𝒑(෥𝒙))
+Paper link: https://openreview.net/pdf?id=r1Ddp1-Rb
+[Source: https://medium.com/]
+(𝑥1, 𝟏𝑦1)
+(𝑥2, 𝟏𝑦2)
+Blended image ෤𝑥= 𝜆× 𝑥1 + 1 −𝜆× 𝑥2
+Blended label ෤𝑦= 𝜆× 𝟏𝑦1 + 1 −𝜆× 𝟏𝑦2
+𝜆~Beta(𝛼, 𝛼)
+𝐦𝐢𝐧𝑪𝑬(෥𝒚, 𝒑(෥𝒙))

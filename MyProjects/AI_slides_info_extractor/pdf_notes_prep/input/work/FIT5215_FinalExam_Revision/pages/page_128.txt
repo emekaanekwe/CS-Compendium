@@ -1,0 +1,64 @@
+128
+Long Short-Term Memory (LSTM)
+
+Regression
+ 
+      ො𝑦𝑡= 𝒉𝒕𝑽+ 𝒄
+
+Classification
+ො𝑦𝑡= softmax(𝒉𝒕𝑽+ 𝒄)
+
+𝑔𝑡= tanh(ℎ𝑡−1𝑊+ 𝑥𝑡𝑈+ 𝑏 )
+
+Forget gate: 𝑓𝑡= 𝜎𝑥𝑡𝑈𝑓+ ℎ𝑡−1 𝑊𝑓+ 𝑏𝑓
+
+Input gate:  𝑖𝑡= 𝜎(𝑥𝑡𝑈𝑖+ ℎ𝑡−1𝑊𝑖+ 𝑏𝑖)
+
+LSTM long-term state: 𝑐𝑡= 𝑓𝑡⊙𝑐𝑡−1 + 𝑔𝑡⊙𝑖𝑡
+
+Output gate: 𝑜𝑡= 𝜎𝑥𝑡𝑈𝑜+ ℎ𝑡−1𝑊𝑜+ 𝑏𝑜
+
+LSTM short-term state: ℎ𝑡= 𝑜𝑡⊙tanh(𝑐𝑡 )
+
+LSTM output: ෝ𝒚𝒕= 𝒉𝒕𝑽+ 𝒄 or ෝ𝒚𝒕= softmax(𝒉𝒕𝑽+ 𝒄)
+𝑥𝑡−1
+ℎ𝑡−1
+ො𝑦𝑡−1
+𝑥𝑡
+ℎ𝑡
+ො𝑦𝑡
+𝑥𝑡+1
+ℎ𝑡+1
+ො𝑦𝑡+1
+𝑐𝑡−1
+𝑐𝑡
+𝑐𝑡+1
+Short-term 
+memory state
+Long-term 
+memory state
+ℎ𝑡−1
+FC
+sigmoid
+ℎ𝑡
+𝑓𝑡
+Forget gate
+ො𝑦𝑡
+\
+𝑐𝑡−1
+FC
+tanh
+FC
+sigmoid
+𝑔𝑡
+𝑖𝑡
+Input gate
+\
+FC
+sigmoid
+𝑜𝑡
+Output gate
+\
+tanh
+𝑐𝑡
+𝑥𝑡

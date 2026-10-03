@@ -1,0 +1,35 @@
+26
+Optimization problem in ML and DL
+
+Most of optimization problems (OP) in machine learning (deep learning) has the following form:
+min𝜃 𝐽𝜃= 𝛺𝜃+ 1
+𝑁෍
+𝒊=𝟏
+𝑵
+𝑙𝑦𝑖, 𝑓𝑥𝑖; 𝜃
+First-order iterative methods (gradient 
+descent, steepest descent) 
+Use the gradient (first derivative) g = 𝛻𝛉𝐽(𝛉) to 
+update parameters
+Second-order iterative methods (Newton and 
+quasi Newton methods)
+Use the Hessian matrix (second derivative) H =
+𝛻𝛉
+2𝐽(𝛉) to update parameters
+How to efficiently solve this optimization problem?
+N is the training size and might be very big (e.g., 𝑁≈106)
+Regularization term
+- Ω θ = 𝜆σ𝑘σ𝑖,𝑗𝑊𝑖,𝑗
+𝐤
+2 = 𝜆σ𝑘𝑾𝐤
+𝐹
+2 
+- Encourage simple models
+- Avoid overfitting
+Empirical loss
+- Work well on training set
+-
+Occam's Razor 
+principle: prefer 
+simplest model that 
+can well predict data.

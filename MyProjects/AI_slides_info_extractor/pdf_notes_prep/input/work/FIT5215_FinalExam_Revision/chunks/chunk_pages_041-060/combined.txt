@@ -1,0 +1,1167 @@
+--- Page 41 ---
+41
+SGD and SGD with momentum
+
+SGD uses only the gradient of the mini-batch to update the 
+model
+
+It is fast at first several epochs and becomes much slower later.
+(Source: Sebastian Ruder) 
+
+SGD with momentum uses a velocity vector 𝒗 which 
+stores the past gradients together with the current 
+gradient to speed up SGD
+o
+𝛼 is a hyper-parameter that indicates how quickly the contributions of previous 
+gradients. In practice, this is usually set to 0.5, 0.9, and 0.99.
+o
+The momentum primarily solves 2 problems: poor conditioning of the Hessian 
+matrix and variance in the stochastic gradient.
+o Input: 𝜂> 0 and initial model 𝜃
+while stopping criterion not met do
+    Sample a mini-batch { 𝒙𝟏, 𝒚𝟏, … , (𝒙𝒃, 𝒚𝒃)}
+    Compute 𝒈= 𝟏
+𝒃σ𝒊=𝟏
+𝒃
+𝛁𝜽𝒍(𝒇(𝒙𝒊, 𝜽), 𝒚𝒊)
+    Update 𝜽= 𝜽−𝜼𝒈 
+end while
+ 
+ 
+ 
+SGD
+o Input: 𝜂> 0, 𝛼∈[0,1] and initial model 𝜃
+while stopping criterion not met do
+    Sample a mini-batch { 𝒙𝟏, 𝒚𝟏, … , (𝒙𝒃, 𝒚𝒃)}
+    Compute 𝒈= 𝟏
+𝒃σ𝒊=𝟏
+𝒃
+𝛁𝜽𝒍(𝒇(𝒙𝒊, 𝜽), 𝒚𝒊)
+    Compute 𝒗= 𝜶𝒈+ 𝟏−𝜶𝒗  //velocity 𝑣
+    Update 𝜽= 𝜽−𝜼𝒗 
+end while
+ 
+ 
+ 
+SGD with momentum
+
+--- Page 42 ---
+42
+AdaGrad
+
+Learning rates are scaled by the square root of the cumulative sum 
+of squared gradients
+
+Direction with large partial derivatives
+o
+Thus, rapid decrease in their learning rates
+
+Direction with small partial derivatives
+o
+Hence relatively small decrease in their learning rates
+
+Weakness: always decrease the learning rate!
+o
+Excellent for convex problem, but not so good for DL (with non-convex problems)
+o Input: 𝜂> 0, 𝜖> 0 (10−6), and initial model 𝜃
+while stopping criterion not met do
+    Sample a mini-batch { 𝒙𝟏, 𝒚𝟏, … , (𝒙𝒃, 𝒚𝒃)}
+    Compute 𝒈= 𝟏
+𝒃σ𝒊=𝟏
+𝒃
+𝛁𝜽𝒍(𝒇(𝒙𝒊, 𝜽), 𝒚𝒊)
+    Accumulate the square gradient: 𝜸= 𝜸+ 𝒈⨀𝒈 
+    Update 𝜽= 𝜽−
+𝜼
+𝝐+𝜸⨀𝒈 
+end while
+Note: ⨀ means element-wise product
+AdaGrad
+
+--- Page 43 ---
+Convolutional Neural Network
+
+--- Page 44 ---
+44
+Convolution operation
+𝟏𝑫 convolutional operation (𝑊, 𝑥∈ℝ𝑚×1)
+o 𝑊∗𝑥= σ𝑖=1
+𝑚𝑊𝑖𝑥𝑖
+𝟐𝑫 convolutional operation (𝑊, 𝑥∈ℝ𝑚×𝑛)
+o 𝑊∗𝑥= σ𝑖=1
+𝑚σ𝑗=1
+𝑛
+𝑊𝑖𝑗𝑥𝑖𝑗
+3𝑫 convolutional operation (𝑊, 𝑥∈ℝ𝑚×𝑛×𝑝)
+o 𝑊∗𝑥= σ𝑖=1
+𝑚σ𝑗=1
+𝑛
+σ𝑘=1
+𝑝
+𝑊𝑖𝑗𝑘𝑥𝑖𝑗𝑘
+𝑊=
+𝑊1
+…
+𝑊𝑚
+, 𝑥=
+𝑥1
+…
+𝑥𝑚
+𝑊=
+𝑊11
+…
+𝑊1𝑛
+…
+…
+…
+𝑊𝑚1
+…
+𝑊𝑚𝑛
+𝑥=
+𝑥11
+…
+𝑥1𝑛
+…
+…
+…
+𝑥𝑚1
+…
+𝑥𝑚𝑛
+❖𝑊 and 𝑥 are two tensors with the same shape, the convolutional operation between 𝑊 and 𝑥 
+defined as
+                                     𝑊∗𝑥= 𝑠𝑢𝑚(𝑊⊗𝑥) 
+    where 𝑊⊗𝑥 specifies the element-wise product and 𝑠𝑢𝑚 returns the sum of all elements in a   
+    tensor and multi-dimensional array.
+
+--- Page 45 ---
+45
+General architecture of  CNNs
+1.
+Convolutional layer
+2.
+Pooling layer
+3.
+Fully connected layer
+
+--- Page 46 ---
+46
+Convolution layer with zero padding
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+1
+-2
+-1
+5
+3
+2
+1
+0
+0
+1
+3
+-1
+4
+3
+3
+1
+0
+0
+1
+-2
+1
+6
+3
+3
+2
+0
+0
+2
+-2
+2
+5
+2
+1
+0
+0
+0
+0
+3
+-2
+5
+4
+1
+2
+0
+0
+1
+2
+-3
+1
+1
+2
+-1
+0
+0
+1
+-2
+-1
+1
+2
+1
+1
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+1
+1
+1
+1
+1
+1
+1
+1
+1
+𝑾 (filter or kernel)
+3
+8
+19
+7
+3
+16
+30
+10
+6
+11
+22
+5
+2
+-2
+8
+3
+𝒙 (input tensor (7,7))
+feature map
+strides = (2,2)
+kernel size =(3,3)
+𝑝= 1 zero padding
+𝑓ℎ= 3
+𝑓𝑤= 3
+𝐻𝑜= 4
+𝑊𝑜= 4
+𝑊𝑖=7
+𝐻𝑖= 7
+
+The sliding window moves from left → right, top → bottom with strides.
+
+We convolve the filter and the sliding windows to work out the neurons 
+on the feature map.
+
+--- Page 47 ---
+47
+Convolution layer with zero padding
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+1
+-2
+-1
+5
+3
+2
+1
+0
+0
+1
+3
+-1
+4
+3
+3
+1
+0
+0
+1
+-2
+1
+6
+3
+3
+2
+0
+0
+2
+-2
+2
+5
+2
+1
+0
+0
+0
+0
+3
+-2
+5
+4
+1
+2
+0
+0
+1
+2
+-3
+1
+1
+2
+-1
+0
+0
+1
+-2
+-1
+1
+2
+1
+1
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+1
+1
+1
+1
+1
+1
+1
+1
+1
+𝑾 (filter or kernel)
+3
+8
+19
+7
+3
+15
+30
+10
+6
+11
+22
+5
+2
+-2
+9
+3
+𝒙 (input tensor (7,7))
+feature map
+strides = (2,2)
+kernel size =(3,3)
+𝑓ℎ= 3
+𝑓𝑤= 3
+𝐻𝑜= 4
+𝑊𝑜= 4
+𝑊𝑖=7
+𝐻𝑖= 7
+
+The sliding window moves from left → right, top → bottom with strides.
+
+We convolve the filter and the sliding windows to work out the neurons 
+on the feature map.
+(Source: https://towardsdatascience.com/)
+𝑝= 1 zero padding
+
+--- Page 48 ---
+48
+Convolution layer
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+1
+-2
+-1
+5
+3
+2
+1
+0
+0
+1
+3
+-1
+4
+3
+3
+1
+0
+0
+1
+-2
+1
+6
+3
+3
+2
+0
+0
+2
+-2
+2
+5
+2
+1
+0
+0
+0
+0
+3
+-2
+5
+4
+1
+2
+0
+0
+1
+2
+-3
+1
+1
+2
+-1
+0
+0
+1
+-2
+-1
+1
+2
+1
+1
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+1
+1
+1
+1
+1
+1
+1
+1
+1
+𝑾 (filter or kernel)
+3
+8
+19
+7
+3
+15
+30
+10
+6
+11
+22
+5
+2
+-2
+9
+3
+𝒙 (input tensor (7,7))
+feature map
+strides = (2,2)
+kernel size =(3,3)
+𝑓ℎ= 3
+𝑓𝑤= 3
+𝐻𝑜= 4
+𝑊𝑜= 4
+𝑊𝑖=7
+𝐻𝑖= 7
+
+The sliding window moves from left → right, top → bottom with strides.
+
+We convolve the filter and the sliding windows to work out the neurons 
+on the feature map.
+
+𝑊𝑖, 𝐻𝑖: The width and height of the input image
+
+𝑊𝑜, 𝐻𝑜: The width and height of the output image (feature map)
+ 𝑊𝑜=
+𝑊𝑖+2𝑝−𝑓𝑤
+𝑠𝑤
++ 1 and 𝐻𝑜=
+𝐻𝑖+2𝑝−𝑓ℎ
+𝑠ℎ
++ 1
+❑
+Our case: 𝑊𝑜=
+7+2×1−3
+2
++ 1 = 4 and 𝐻𝑜=
+7+2×1−3
+2
++ 1 = 4
+𝑝= 1 zero padding
+
+--- Page 49 ---
+49
+1
+-2
+-1
+5
+3
+2
+1
+1
+1
+3
+-1
+4
+3
+3
+1
+-1
+1
+-2
+1
+6
+3
+3
+2
+2
+2
+-2
+2
+5
+2
+1
+0
+-1
+0
+3
+-2
+5
+4
+1
+2
+1
+1
+2
+-3
+1
+1
+2
+-1
+2
+1
+-2
+-1
+1
+2
+1
+1
+3
+Convolution layer
+1
+1
+1
+1
+1
+1
+1
+1
+1
+𝑾 (filter or kernel)
+1
+23
+21
+3
+26
+18
+-1
+8
+13
+𝒙 (input tensor (7,8))
+feature map
+strides = (2,2)
+kernel size =(3,3)
+p=0 zero padding
+𝑓ℎ= 3
+𝑓𝑤= 3
+𝐻𝑜= 3
+𝑊𝑜= 3
+𝑊𝑖= 8
+𝐻𝑖= 7
+
+--- Page 50 ---
+50
+1
+-2
+-1
+5
+3
+2
+1
+1
+1
+3
+-1
+4
+3
+3
+1
+-1
+1
+-2
+1
+6
+3
+3
+2
+2
+2
+-2
+2
+5
+2
+1
+0
+-1
+0
+3
+-2
+5
+4
+1
+2
+1
+1
+2
+-3
+1
+1
+2
+-1
+2
+1
+-2
+-1
+1
+2
+1
+1
+3
+Convolution layer
+1
+1
+1
+1
+1
+1
+1
+1
+1
+𝑾 (filter or kernel)
+1
+23
+21
+3
+26
+18
+-1
+8
+13
+𝒙 (input tensor (7,8))
+feature map
+strides = (2,2)
+kernel size =(3,3)
+p=0 zero padding
+𝑓ℎ= 3
+𝑓𝑤= 3
+𝐻𝑜= 3
+𝑊𝑜= 3
+𝑊𝑖= 8
+𝐻𝑖= 7
+(Source: Internet)
+
+𝑊𝑖, 𝐻𝑖: The width and height of the input image
+
+𝑊𝑜, 𝐻𝑜: The width and height of the output image (feature map)
+ 𝑊𝑜=
+𝑊𝑖+2𝑝−𝑓𝑤
+𝑠𝑤
++ 1 and 𝐻𝑜=
+𝐻𝑖+2𝑝−𝑓ℎ
+𝑠ℎ
++ 1
+❑
+Our case: 𝑊𝑜=
+8+0−3
+2
++ 1 = 3 and 𝐻𝑜=
+7+0−3
+2
++ 1 = 3
+
+--- Page 51 ---
+51
+1
+-2
+-1
+5
+3
+2
+1
+1
+1
+3
+-1
+4
+3
+3
+1
+-1
+1
+-2
+1
+6
+3
+3
+2
+2
+2
+-2
+2
+5
+2
+1
+0
+-1
+0
+3
+-2
+5
+4
+1
+2
+1
+1
+2
+-3
+1
+1
+2
+-1
+2
+1
+-2
+-1
+1
+2
+1
+1
+3
+Convolution layer with multiple filters and feature maps
+1
+1
+1
+1
+1
+1
+1
+1
+1
+𝑾𝟏(shape=(4,3,3))
+1
+23
+21
+3
+26
+18
+-1
+8
+13
+𝒙 (input tensor (4,7,8))
+feature map1
+strides = (2,2)
+𝑊𝑖= 8
+𝐻𝑖= 7
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+𝑾𝟐(shape=(4,3,3))
+-1
+-23
+-21
+-3
+-26
+-18
+1
+-8
+-13
+feature map2
+feature volume (2,3,3)
+feature maps (2,3,3)
+
+--- Page 52 ---
+52
+1
+-2
+-1
+5
+3
+2
+1
+1
+1
+3
+-1
+4
+3
+3
+1
+-1
+1
+-2
+1
+6
+3
+3
+2
+2
+2
+-2
+2
+5
+2
+1
+0
+-1
+0
+3
+-2
+5
+4
+1
+2
+1
+1
+2
+-3
+1
+1
+2
+-1
+2
+1
+-2
+-1
+1
+2
+1
+1
+3
+Convolution layer with multiple filters and feature maps
+1
+1
+1
+1
+1
+1
+1
+1
+1
+𝑾𝟏(shape=(4,3,3))
+1
+23
+21
+3
+26
+18
+-1
+8
+13
+𝒙 (input tensor (4,7,8))
+feature map1
+strides = (2,2)
+𝑊𝑖= 8
+𝐻𝑖= 7
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+𝑾𝟐(shape=(4,3,3))
+-1
+-23
+-21
+-3
+-26
+-18
+1
+-8
+-13
+feature map2
+feature volume (2,3,3)
+feature maps (2,3,3)
+Inputs (batch_size,4,7,8)
+Feature volume (batch_size,2,3,3)
+CONV with filters (2,4,3,3)
+Input images (batch_size,3,32,32)
+Feed through some layers
+batch_size, in_channels , height, width, 
+out_channels, in_channels, fil_height, fil_width 
+,
+
+--- Page 53 ---
+53
+Pooling operation
+Makes the representations smaller 
+and more manageable
+Subsample the image
+Operates over each feature map 
+independently
+(Source: FDL Ch. 5)
+
+--- Page 54 ---
+54
+Max/average pooling
+❑Max/average-pooling is locally invariant and applied 
+independently to each feature map/channel. 
+❑In the SOTA CNNs (ResNet, GoogleNet, VGG), we 
+employ the pooling layer with
+❑Kernel/filter size = (2,2), strides = (2,2), padding= 0
+❑Therefore, the output tensor has the size
+𝑊𝑜=
+224+0−2
+2
++ 1 = 112 
+𝐻𝑜=
+224+0−2
+2
++ 1 = 112
+❑With this setting, we down-sample the input size by 2 
+(Source: medium.com)
+
+--- Page 55 ---
+55
+Fully connected layer
+The last tensor is flattened, and some fully connected layers are added to classify 
+the input.
+o The last 3D tensor [5,5,10] → 1 flat layer with 5x5x10= 250 neurons
+Fully connected layers
+Feature extractor
+Classifier
+[3,32,32]
+[5,5,10]
+[1, 5x5x10]
+flatten
+
+--- Page 56 ---
+56
+CNN in 
+Operation
+Conv2D 1
+padding= 0
+strides = (2,2)
+[3,32,32]
+Input Layer
+[3,4,4]
+Filter 2
+[3,4,4]
+Filter 1
+[3,4,4]
+Filter 3
+[3,4,4]
+Filter 4
+Feature volume
+Feature maps
+[4,15,15]
+Latent 
+representation
+Pooling
+layer
+pool-size=(2,2)
+strides= (2,2)
+padding= 1
+Feature volume
+Feature maps
+[4,8,8]
+Latent 
+representation
+FC layer
+4x8x8 neurons
+Output 
+layer
+10 neurons
+for 10 classes
+softmax
+Filters [4,3,4,4]
+𝑜𝑢𝑡_𝑠𝑖𝑧𝑒
+= 32 + 0 −4
+2
++ 1
+= 15
+𝑜𝑢𝑡_𝑠𝑖𝑧𝑒
+= 15 + 2 × 1 −2
+2
++ 1 = 8
+Conv2d(3,4,kernel_size=4, stride=2, padding=0)
+MaxPool2d(kernel_size=2, stride=2, 
+                    padding=1)
+
+--- Page 57 ---
+57
+CNN in 
+Operation
+Conv2D 1
+padding= 0
+strides = (2,2)
+[3,32,32]
+Input Layer
+[3,4,4]
+Filter 2
+[3,4,4]
+Filter 1
+[3,4,4]
+Filter 3
+[3,4,4]
+Filter 4
+Feature volume
+Feature maps
+[2,4,15,15]
+[4,15,15]
+Pooling
+layer
+pool-size=(2,2)
+strides= (2,2)
+padding= 1
+Feature volume
+Feature maps
+[2,4,8,8]
+[4,8,8]
+FC layer
+4x8x8 neurons
+Output 
+layer
+10 neurons
+for 10 classes
+softmax
+Filters [4,3,4,4]
+[3,32,32]
+[2,3,32,32]
+[4,15,15]
+[4,8,8]
+2
+4x8x8
+2
+10
+
+--- Page 58 ---
+58
+Automatic feature extractor
+Deep learning for visual data
+Low-level 
+feature/representation
+- edges, pixels, corners
+Mid-level 
+feature/representation
+- circles, triangles, boxes
+High-level 
+feature/representation
+- objects
+Neurons on higher layers 
+have larger receptive fields 
+(patches) on input images 
+receptive 
+field 
+receptive 
+field 
+neuron
+
+--- Page 59 ---
+59
+How CNNs work?
+
+Higher level filters combine lower level filters to represent more abstract objects
+o
+The context is locally expanded
+Human face recognition ☺
+Filter 1 (depth=1)
+Filter 2 (depth=1)
+Filter 1 (depth=2)
+Feature map 1
+Feature map 2
+Feature map
+
+--- Page 60 ---
+60
+How CNNs work?
+
+CNN cannot capture spatial relationships 
+among objects
+o
+How spatially related of two eyes, nose and  
+eye, eye and mouth
+Human face recognition ☺
+Filter 1
+Feature map 1
+Filter 2
+Feature map 2
+Feature map 3
+Filter 3
+Filter 4
+Feature map 4
+Prediction
+Flatten

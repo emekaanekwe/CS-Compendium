@@ -1,0 +1,48 @@
+230
+How to evaluate GAN: Inception score
+Assume that training examples have labels
+o y=1,2,3, and 4.
+We train a good classifier 𝐶 on the training set with labels
+o 𝐶𝒙= 𝑝𝑦
+𝒙
+= 𝑝𝑦= 𝑘
+𝒙
+𝑘=1
+4
+ is the prediction probabilities where 
+𝑝𝑦= 𝑘
+𝒙 is the probability to classify 𝑥 to the class 𝑘.
+Given ෥𝒙𝑖= 𝐺𝒛𝒊, 𝑖= 1, … , 𝑇, we wish
+o 𝐶෥𝒙𝑖= 𝑝(𝑦∣෥𝒙𝑖= 𝐺𝒛𝒊) is close to an one-hot vector
+▪𝐶෥𝒙𝑖 is confident and has a small entropy.
+o
+1
+𝑇σ𝑖=1
+𝑇
+𝐶෥𝒙𝑖= 1
+𝑇σ𝑖=1
+𝑇
+𝑝(𝑦∣෥𝒙𝑖= 𝐺𝒛𝒊) is close to the uniform distribution 
+[0.25, 0.25,0.25,0.25] (largest entropy).
+Inception score
+o
+1
+𝑇σ𝑖=1
+𝑇
+𝐾𝐿𝐶෥𝒙𝑖,
+1
+𝑇σ𝑗=1
+𝑇
+𝐶෥𝒙𝑗
+≈𝔼𝑧[𝐾𝐿𝑝𝑦
+෥𝒙= 𝐺𝒛
+, 𝑝(𝑦) ]
+o Higher is better → more diversity of generated images
+𝒵
+𝒛~𝑝(𝒛)
+𝐺(𝒛)
+y=1
+y=2
+y=3
+y=4
+Salimans et al, Improved Techniques for Training GANs, 2016

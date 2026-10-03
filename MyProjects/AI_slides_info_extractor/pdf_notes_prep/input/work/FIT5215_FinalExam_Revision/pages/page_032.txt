@@ -1,0 +1,20 @@
+32
+Gradient descend
+❑We need to solve 
+o min
+𝜃𝐽(𝜃)
+❑Follow to the opposite side of the current gradient
+o 𝜃𝑡+1 = 𝜃𝑡−𝜂𝛻𝜃𝐽𝜃𝑡 where 𝜼> 𝟎 is the learning rate.
+❑Guarantee to converge to a global minima if 𝐽(. ) is 
+convex.
+❑Get stuck in a local minima or saddle points if 𝐽(. ) 
+is non-convex.
+−𝛻𝜃𝐽𝜃𝑡
+−𝛻𝜃𝐽𝜃𝑡
+−𝛻𝜃𝐽𝜃𝑡
+−𝛻𝜃𝐽𝜃𝑡= 0
+Convex case
+(Source: www.cs.ubc.ca)
+Non-convex case
+DL case: easy to get stuck 
+in saddle points
