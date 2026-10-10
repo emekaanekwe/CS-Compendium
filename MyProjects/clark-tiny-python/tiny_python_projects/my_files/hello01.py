@@ -39,6 +39,6 @@ install_command()
 
 # Input what plans will be.
 parser = argparse.ArgumentParser(description="Plans within plans")
-parser.add_argument("plans", help='what the plan is within')
+parser.add_argument("-plan", help='what the plan is within')
 args = parser.parse_args()
 print("Plans within " + args.plans + ".")
